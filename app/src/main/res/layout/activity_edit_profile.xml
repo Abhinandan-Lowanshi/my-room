@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.new_ui.Edit_Profile">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:paddingRight="15dp"
+        app:titleTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/theme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_back"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:src="@drawable/ic_baseline_keyboard_backspace_24"></androidx.appcompat.widget.AppCompatImageView>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Edit Profile"
+                android:layout_centerVertical="true"
+                 android:layout_toRightOf="@id/img_back"
+                android:visibility="visible"
+                android:textColor="@color/theme_green"
+                android:textSize="@dimen/_12sdp"
+
+                ></androidx.appcompat.widget.AppCompatTextView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:id="@+id/img_search"
+                android:visibility="gone"
+                android:layout_toLeftOf="@+id/img_notification"
+                android:src="@drawable/ic_baseline_search_24"
+                ></androidx.appcompat.widget.AppCompatImageView>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/img_notification"
+                android:layout_height="@dimen/_20sdp"
+                android:visibility="gone"
+                android:src="@drawable/ic_baseline_notifications_none_24"
+                ></androidx.appcompat.widget.AppCompatImageView>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_profile"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:src="@drawable/profile"></de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/first_name"
+                android:textColor="@color/black"></TextView>
+
+
+            <EditText
+                android:id="@+id/ed_Fname"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextshap"
+                android:maxLines="1"
+                android:paddingLeft="13dp"
+                android:singleLine="true"
+                android:textSize="15dp"></EditText>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="@dimen/_17sdp"
+                android:text="@string/last_name"
+                android:textColor="@color/black"></TextView>
+
+
+            <EditText
+                android:id="@+id/ed_Lname"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextshap"
+                android:inputType="number"
+                android:maxLength="10"
+                android:paddingLeft="13dp"
+                android:singleLine="true"
+                android:textSize="15dp"></EditText>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="@dimen/_17sdp"
+                android:text="@string/mobile_no"
+                android:textColor="@color/black"></TextView>
+
+
+            <EditText
+                android:id="@+id/ed_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:background="@drawable/edittextshap"
+                android:paddingLeft="13dp"
+                android:singleLine="true"
+                android:textSize="15dp"></EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="@dimen/_17sdp"
+                android:text="@string/current_address"
+                android:textColor="@color/black"></TextView>
+
+
+            <EditText
+                android:id="@+id/ed_presentaddress"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextshap"
+                android:paddingLeft="13dp"
+                android:singleLine="true"
+                android:textSize="15dp"></EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="@dimen/_17sdp"
+                android:text="@string/permanent_address"
+                android:textColor="@color/black"></TextView>
+
+
+            <EditText
+                android:id="@+id/ed_permanentaddress"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextshap"
+                android:paddingLeft="13dp"
+                android:singleLine="true"
+                android:textSize="15dp"></EditText>
+
+
+
+            <Button
+                android:id="@+id/save_profile"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_weight="1"
+                android:background="@drawable/mybutton"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="@string/save_profile"
+                android:textAllCaps="false"
+                android:textColor="@color/white"></Button>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

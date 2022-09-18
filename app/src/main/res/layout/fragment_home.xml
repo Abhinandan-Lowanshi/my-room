@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".app.fragment.HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:id="@+id/container"
+            android:layout_height="match_parent">
+        <ScrollView
+            android:id="@+id/scroll"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:orientation="vertical">
+
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rce_room_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_below="@+id/rl_loction"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layoutAnimation="@anim/layout_animation"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/room_type_row"></androidx.recyclerview.widget.RecyclerView>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:layout_below="@id/map"
+
+                    android:visibility="visible" />
+
+                <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+                    android:id="@+id/dots_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/banner"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:visibility="visible"
+                    app:dotsColor="#636161"
+                    app:dotsSize="@dimen/_10sdp"
+                    app:dotsStrokeColor="#636161"
+
+                    />
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_nearbylocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_below="@id/rec_recomended"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_1sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_nearbylocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:text="@string/nearby"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_more_nearby"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:alpha=".6"
+                        android:visibility="invisible"
+                        android:text="@string/more"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_nearbyroom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl_nearbylocation"
+                    android:layoutAnimation="@anim/layout_animation"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/nearbylocation_row"></androidx.recyclerview.widget.RecyclerView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:id="@+id/ll_signal"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                    android:visibility="gone"
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:id="@+id/single_1"
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_height="@dimen/_7sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:alpha=".3"
+                            android:background="@color/red"></View>
+
+                        <View
+                            android:id="@+id/single_2"
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_height="@dimen/_10sdp"
+                            android:layout_marginLeft="@dimen/_2sdp"
+
+                            android:alpha=".3"
+                            android:background="#D86262"></View>
+
+                        <View
+                            android:id="@+id/single_3"
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_height="@dimen/_13sdp"
+
+                            android:layout_marginLeft="@dimen/_2sdp"
+                            android:alpha=".3"
+                            android:background="#46C648"></View>
+
+                        <View
+                            android:id="@+id/single_4"
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:layout_marginLeft="@dimen/_2sdp"
+
+                            android:alpha=".3"
+                            android:background="#15AE10"></View>
+
+                        <View
+                            android:id="@+id/single_5"
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_height="@dimen/_19sdp"
+                            android:layout_marginLeft="@dimen/_2sdp"
+
+                            android:alpha=".3"
+                            android:background="#0AAC06"></View>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_loction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                       android:layout_marginLeft="@dimen/_2sdp">
+
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                           android:visibility="gone"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/_12sdp"></ProgressBar>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"></LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_4sdp"
+                            android:text="@string/location"
+                            android:textColor="@color/darktextColor"
+                            android:textSize="@dimen/_9sdp"
+                            android:textStyle="bold"></androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_city"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_location"
+                            android:layout_toRightOf="@id/img_location"
+                            android:text="Searching for GPS....."
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_8sdp"
+
+                            ></androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_location"
+                            android:layout_width="@dimen/_12sdp"
+                            android:layout_height="@dimen/_12sdp"
+                            android:layout_below="@+id/tv_location"
+                            android:src="@drawable/ic_baseline_location_on_24"></androidx.appcompat.widget.AppCompatImageView>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_location_mark"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_below="@+id/tv_location"
+                            android:layout_marginLeft="@dimen/_2sdp"
+                            android:layout_toRightOf="@+id/tv_city"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                            android:visibility="gone"></androidx.appcompat.widget.AppCompatImageView>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_350sdp">
+
+                    <fragment
+                        android:id="@+id/map"
+                        class="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <ImageView
+                        android:id="@+id/imagetrans"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:alpha="0"
+                        android:src="@color/black" />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </RelativeLayout>
+
+</FrameLayout>

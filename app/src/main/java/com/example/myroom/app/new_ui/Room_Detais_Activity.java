@@ -1,0 +1,366 @@
+package com.example.myroom.app.new_ui;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Point;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.example.myroom.R;
+import com.example.myroom.app.AdapterRoomDetailsViewPager;
+import com.example.myroom.app.banner_pkg.BannerAdapter;
+import com.example.myroom.app.map.MapDetailsActivity;
+import com.example.myroom.app.new_ui_adapter.Image_Show_Adapter;
+import com.example.myroom.app.owerprofile.OwnerProfile;
+import com.example.myroom.app.retrofit.ApiClient;
+import com.example.myroom.app.roomdetails.RoomDetailsImage;
+import com.example.myroom.app.roomdetails.RoomDetailsMain;
+import com.example.myroom.app.roomdetails.RoomDetailsMainData;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.JsonObject;
+import com.tbuonomo.viewpagerdotsindicator.BaseDotsIndicator;
+import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
+
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import appsession.AppSession;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import zoom.TouchImageView;
+
+public class Room_Detais_Activity extends AppCompatActivity implements OnMapReadyCallback, Image_Show_Adapter.UpdateImageInterafce, AdapterRoomDetailsViewPager.ClicktPost {
+RecyclerView all_pic_rec;
+AppCompatImageView img_back,room_image,room_image_second;
+String name ,mobile,room_id;
+private GoogleMap mMap;
+private Handler handler;
+private    String data = "";
+    private LatLng origin;
+private  int counter =0;
+private  double lat,lon;
+   private AdapterRoomDetailsViewPager bannerAdapter;
+private ViewPager vpHomeFirstBanner;
+private ArrayList<RoomDetailsImage> roomDetailsImages ;
+private TextView   tv_owner_profile ,view_location_details ,tv_parking,which_flor,tv_dependency,tv_description,tv_furnised,availbility,tv_owner_name ,tv_mobile,tv_rent,tv_address;
+private int currentPage;
+private Timer timer;
+    private long DELAY_MS = 500;
+    private long PERIOD_MS = 5000;
+    private BaseDotsIndicator dotsIndicator;
+    private String user_id_owner = "";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_room_detais);
+        intiView( this::clickPostListner);
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+
+            }
+        });
+
+        tv_owner_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!user_id_owner.equalsIgnoreCase("")) {
+                    Intent intent = new Intent(Room_Detais_Activity.this, OwnerProfile.class);
+                    intent.putExtra(AppSession.USER_ID_ROOM_OWNER, user_id_owner);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        view_location_details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =  new Intent(Room_Detais_Activity.this, MapDetailsActivity.class);
+                intent.putExtra("lat",lat);
+                intent.putExtra("lon",lon);
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    private void fullImageView(int pos)
+    {
+         counter =0;
+        final Dialog dialog = new Dialog(Room_Detais_Activity.this);
+        dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.view_full_image_dialouge);
+//        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+//        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        TouchImageView main_image= dialog.findViewById(R.id.imViewedImage );
+        Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(pos).getImgName()).into(main_image);
+        dialog.show();
+
+
+        ImageView img_close= dialog.findViewById(R.id.img_close);
+        ImageView count_left= dialog.findViewById(R.id.count_left);
+        ImageView count_right= dialog.findViewById(R.id.count_right);
+        CardView card_left= dialog.findViewById(R.id.card_left);
+        CardView card_right= dialog.findViewById(R.id.card_right);
+        card_left.setVisibility(View.INVISIBLE);
+        card_right.setVisibility(View.INVISIBLE);
+          if(counter==0)
+              card_left.setVisibility(View.INVISIBLE);
+         if(counter==roomDetailsImages.size())
+             card_right.setVisibility(View.INVISIBLE);
+
+
+        img_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+//        count_left.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(counter!=0)
+//                {
+//                    if(counter==0)
+//                    {
+//                        card_left.setVisibility(View.INVISIBLE);
+//                    }else {
+//                        card_left.setVisibility(View.VISIBLE);
+//                    }
+//                    counter--;
+//                    Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(counter).getImgName()).into(main_image);
+//
+//                }
+//            }
+//        });
+//
+//        count_right.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(counter!=roomDetailsImages.size())
+//                {
+//                    if(counter==roomDetailsImages.size())
+//                    {
+//                        card_right.setVisibility(View.VISIBLE);
+//                    }else {
+//                        card_right.setVisibility(View.INVISIBLE);
+//                    }
+//                    counter++;
+//                    Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(counter).getImgName()).into(main_image);
+//
+//                }
+//            }
+//        });
+    }
+    private void intiView(BannerAdapter.ClicktPost clicktPost) {
+        all_pic_rec  =(RecyclerView)findViewById(R.id.all_pic_rec);
+        img_back  =(AppCompatImageView) findViewById(R.id.img_back);
+        room_image  =(AppCompatImageView) findViewById(R.id.room_image);
+        room_image_second  =(AppCompatImageView) findViewById(R.id.room_image_second);
+        view_location_details  =(TextView) findViewById(R.id.view_location_details);
+        tv_owner_profile  =(TextView) findViewById(R.id.tv_owner_profile);
+        tv_parking  =(TextView) findViewById(R.id.tv_parking);
+        tv_address  =(TextView) findViewById(R.id.tv_address);
+        which_flor  =(TextView) findViewById(R.id.which_flor);
+        tv_dependency  =(TextView) findViewById(R.id.tv_dependency);
+        tv_description  =(TextView) findViewById(R.id.tv_description);
+        tv_furnised  =(TextView) findViewById(R.id.tv_furnised);
+        availbility  =(TextView) findViewById(R.id.availbility);
+        tv_owner_name  =(TextView) findViewById(R.id.tv_owner_name);
+        tv_mobile  =(TextView) findViewById(R.id.tv_mobile);
+        tv_rent  =(TextView) findViewById(R.id.tv_rent);
+        vpHomeFirstBanner = (ViewPager) findViewById(R.id.banner);
+        dotsIndicator = (WormDotsIndicator)findViewById(R.id.dots_indicator);
+//        name = getIntent().getStringExtra("name");
+        room_id = getIntent().getStringExtra("room_id");
+//        mobile = getIntent().getStringExtra("mobile");
+          data = getIntent().getStringExtra("come");
+          if( data !=null)
+          {
+              if(data.equalsIgnoreCase(AppSession.FROM_PROFILE))
+              {
+                  tv_owner_profile.setVisibility(View.INVISIBLE);
+              }else {
+                  tv_owner_profile.setVisibility(View.VISIBLE);
+              }
+          }
+
+        if(room_id!=null)
+        loadRoom(room_id,clicktPost);
+
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+         mMap = googleMap;
+        mMap.addMarker(new MarkerOptions().position(origin).title(name));
+        LatLngBounds bounds = new LatLngBounds.Builder()
+                .include(origin)
+               .build();
+        Point displaySize = new Point();
+        getWindowManager().getDefaultDisplay().getSize(displaySize);
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 12.0f));
+       // mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, displaySize.x, 250, 30));
+    }
+
+    @Override
+    public void UpdateImage(int pos) {
+        Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(pos).getImgName()).into(room_image);
+    }
+
+
+
+    public void loadRoom(String room_id,BannerAdapter.ClicktPost clicktPost)
+    {
+        
+        
+        try {
+
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("room_id",room_id);
+
+
+            ApiClient.getClient().getRoomDetails(jsonObject).enqueue(new Callback<RoomDetailsMain>() {
+                @Override
+                public void onResponse(Call<RoomDetailsMain> call, Response<RoomDetailsMain> response) {
+                    
+                    
+                    
+                    if(response.isSuccessful())
+                    {
+                        if(response.body().getStatus()==true)
+                        {
+                            RoomDetailsMainData roomDetailsMainData =  response.body().getData();
+                            user_id_owner = String.valueOf(roomDetailsMainData.getRmUsrFkey());
+                            
+                            loadUI(roomDetailsMainData,clicktPost);
+
+                        }   else     Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG)   ;              
+                    }else Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG);
+
+                }
+
+                @Override
+                public void onFailure(Call<RoomDetailsMain> call, Throwable t) {
+//                    Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG);
+                }
+            });
+            
+        }catch (Exception e)
+        {
+             e.printStackTrace();
+//            Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG);
+
+        }
+
+    }
+
+    private void loadUI(RoomDetailsMainData roomDetailsMainData, BannerAdapter.ClicktPost clicktPost) {
+
+//        tv_parking,which_flor,tv_dependency,tv_furnised,availbility,tv_owner_name ,tv_mobile;
+        roomDetailsImages = roomDetailsMainData.getImages();
+
+       if(roomDetailsImages.size()>0) {
+           Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(0).getImgName()).into(room_image_second);
+           Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(0).getImgName()).into(room_image);
+
+           bannerAdapter = new AdapterRoomDetailsViewPager(Room_Detais_Activity.this, clicktPost,roomDetailsImages);
+           vpHomeFirstBanner.setAdapter(bannerAdapter);
+           dotsIndicator.setViewPager(vpHomeFirstBanner);
+           scrooling(roomDetailsImages.size());
+//           Image_Show_Adapter image_show_adapter = new Image_Show_Adapter(Room_Detais_Activity.this, roomDetailsImages, this);
+//           all_pic_rec.setAdapter(image_show_adapter);
+       }
+        tv_parking.setText(roomDetailsMainData.getRmPrkingAvblity());
+        which_flor.setText(roomDetailsMainData.getRmFlor());
+        tv_rent.setText(getString(R.string.price_Samle)+roomDetailsMainData.getRmRent());
+        tv_address.setText(roomDetailsMainData.getRmHouseNo()+" ,"+" "+roomDetailsMainData.getRmColny()+" ,"+" "+roomDetailsMainData.getRmCity());
+        tv_dependency.setText(roomDetailsMainData.getRmDepndecy());
+        tv_description.setText(roomDetailsMainData.getRmDescription());
+        tv_furnised.setText(roomDetailsMainData.getRmFurnisdStatus());
+        availbility.setText(roomDetailsMainData.getRmAvailble());
+        tv_owner_name.setText(roomDetailsMainData.getRmOwnFullname());
+        tv_mobile.setText(roomDetailsMainData.getRmOwnMbleNum());
+        lat = Double.parseDouble(roomDetailsMainData.getRmLatitude());
+        lon = Double.parseDouble(roomDetailsMainData.getRmLongitude());
+        origin = new LatLng(lat, lon);
+        // origin = new LatLng( 22.4298713, 77.42529669999999);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+    }
+
+    @Override
+    public void clickPostListner(int pos) {
+
+        fullImageView(pos);
+
+
+    }
+
+    private void scrooling(final int length)
+    {
+        /*After setting the adapter use the timer */
+        handler = new Handler();
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                if (currentPage == length) {
+                    currentPage = 0;
+                }
+                vpHomeFirstBanner.setCurrentItem(currentPage++, true);
+            }
+        };
+
+        TimerTask timertask = new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    public void run() {
+                        handler.post(runnable);
+                    }
+                });
+            }
+        };
+        timer = new Timer();
+        timer.schedule(timertask, DELAY_MS, PERIOD_MS);
+    }
+}

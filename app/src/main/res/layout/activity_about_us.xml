@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.new_ui.AboutUs">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:paddingRight="15dp"
+        app:titleTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/theme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_back"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:src="@drawable/ic_baseline_keyboard_backspace_24"></androidx.appcompat.widget.AppCompatImageView>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/about_us"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/img_back"
+
+                android:visibility="visible"
+                android:textColor="@color/theme_green"
+                android:textSize="@dimen/_14sdp"
+
+                ></androidx.appcompat.widget.AppCompatTextView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:id="@+id/img_search"
+                android:visibility="gone"
+                android:layout_toLeftOf="@+id/img_notification"
+                android:src="@drawable/ic_baseline_search_24"
+                ></androidx.appcompat.widget.AppCompatImageView>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/img_notification"
+                android:visibility="gone"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_baseline_notifications_none_24"
+                ></androidx.appcompat.widget.AppCompatImageView>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+ <androidx.appcompat.widget.AppCompatTextView
+     android:layout_width="match_parent"
+     android:layout_below="@+id/toolbar"
+     android:layout_marginTop="@dimen/_10sdp"
+     android:text="The United States is one of the few countries without a policy at national or federal level mandating a Privacy Policy.
+
+However, the California Online Privacy Protection Act (CalOPPA) states that if your app or website collects personally identifiable data from residents of the state of California, you must have a Privacy Policy.
+
+Given that it is highly likely your website/app could be used by a resident of California regardless of where in the world you're personally located, CalOPPA ends up having a very wide reach.
+
+In Canada, the Personal Information Protection and Electronic Documents Act (PIPEDA) sets out the requirements for how organizations must handle personal information of Canadian residents.
+
+Introduced in 2018, the European Union's General Data Protection Regulation (GDPR) is one of the strongest laws to protect the personal information of individuals and also has global reach.
+
+Japan has strong protection for individuals. The Act on the Protection of Personal Information law which came into effect in May 2017 contains similar provisions to those outlined in the GDPR.
+
+Australia's Privacy Act of 1988 protects the personal data of Australian citizens.
+
+Even setting aside the legal responsibilities listed above, it is simply good for transparency and your organization's reputation to have a Privacy Policy clearly setting out how you use the personal data of your users"
+     android:layout_height="wrap_content"
+     ></androidx.appcompat.widget.AppCompatTextView>
+
+</RelativeLayout>

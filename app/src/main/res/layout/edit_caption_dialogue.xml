@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_5sdp"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            ></ImageView>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_marginTop="@dimen/_25sdp"
+            android:layout_centerHorizontal="true"
+             android:textSize="@dimen/_13sdp"
+             android:id="@+id/caption"
+             android:textColor="@color/black"
+             android:text="Add caption / Edit caption"
+             android:layout_height="wrap_content"
+             ></TextView>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_below="@+id/caption"
+            android:hint="Put caption here"
+            android:id="@+id/edit_text_caption_dialuge"
+            android:paddingLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:background="@drawable/edittextshap"
+            android:layout_height="@dimen/_70sdp"
+            ></androidx.appcompat.widget.AppCompatEditText>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+             android:layout_below="@id/edit_text_caption_dialuge"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:background="@drawable/mybutton"
+            android:text="Submit"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"></Button>
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

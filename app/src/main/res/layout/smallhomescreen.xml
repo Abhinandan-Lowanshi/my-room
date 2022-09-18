@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.HomeScreen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingTop="5dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"><LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_height="wrap_content"
+                >
+
+
+                <EditText
+
+                    android:id="@+id/scity"
+                    android:layout_width="120dp"
+                    android:background="@drawable/editetextclassical"
+                    android:layout_height="31dp"
+                    android:layout_marginLeft="4dp"
+                    android:textSize="14dp"
+
+                    android:ems="10"
+                    android:hint="City"
+                    android:maxHeight="50dp"
+                    android:maxLines="1"
+
+                    android:singleLine="true"></EditText> <EditText
+                    android:id="@+id/scolony"
+
+                    android:layout_width="120dp"
+                    android:background="@drawable/editetextclassical"
+                    android:layout_height="31dp"
+                    android:layout_marginLeft="4dp"
+                    android:textSize="14dp"
+
+                    android:ems="10"
+                    android:hint="Colony"
+                    android:maxHeight="50dp"
+                    android:maxLines="1"
+
+                    android:singleLine="true"></EditText>
+
+                <Button
+                    android:id="@+id/sdone"
+                    android:layout_width="80dp"
+                    android:textSize="14dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="31dp"
+                    android:background="@drawable/mybutton"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:text="Search"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"></Button>
+            </LinearLayout>
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+
+                android:background="?android:attr/listDivider" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"></androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/dr_lay"
+   android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        app:itemIconTint="#353027"
+        android:layout_height="match_parent"
+        app:itemTextColor="#4A4949"
+        app:itemIconSize="25dp"
+        android:id="@+id/nav_view"
+        android:background="#FDFCFD"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/header"
+        android:layout_gravity="start"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="60dp"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            >
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+
+                android:background="?android:attr/listDivider" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Logout"
+                android:textSize="14dp"
+                android:textColor="#454444"
+                android:id="@+id/logout"
+                android:layout_marginTop="13dp"
+                android:drawablePadding="35dp"
+                android:drawableLeft="@drawable/ic_baseline_login_243"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content"
+                ></TextView>
+        </LinearLayout>
+
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:id="@+id/scroll"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_height="match_parent"
+            >
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:orientation="horizontal"
+                 android:layout_height="wrap_content"
+                 >
+                 <LinearLayout
+                     android:layout_width="wrap_content"
+                     android:layout_marginTop="@dimen/_5sdp"
+                     android:orientation="horizontal"
+                     android:gravity="bottom"
+                     android:layout_gravity="center"
+                     android:layout_height="wrap_content"
+                     >
+                      <View
+                          android:layout_width="@dimen/_2sdp"
+                          android:background="@color/red"
+                          android:alpha=".3"
+                          android:id="@+id/single_1"
+                          android:layout_marginLeft="@dimen/_5sdp"
+                          android:layout_height="@dimen/_7sdp"
+                          ></View>
+                           <View
+                          android:layout_width="@dimen/_2sdp"
+                          android:background="#D86262"
+                               android:alpha=".3"
+                               android:id="@+id/single_2"
+
+                               android:layout_marginLeft="@dimen/_2sdp"
+                          android:layout_height="@dimen/_10sdp"
+                          ></View>
+                                  <View
+                          android:layout_width="@dimen/_2sdp"
+                          android:background="#46C648"
+                                      android:id="@+id/single_3"
+
+                                      android:alpha=".3"
+                                      android:layout_marginLeft="@dimen/_2sdp"
+                          android:layout_height="@dimen/_13sdp"
+                          ></View>
+                               <View
+                          android:layout_width="@dimen/_2sdp"
+                          android:background="#15AE10"
+                                   android:alpha=".3"
+                                   android:id="@+id/single_4"
+
+                                   android:layout_marginLeft="@dimen/_2sdp"
+                                   android:layout_height="@dimen/_16sdp"
+                          ></View>
+                         <View
+                          android:layout_width="@dimen/_2sdp"
+                          android:background="#0AAC06"
+                             android:alpha=".3"
+                             android:id="@+id/single_5"
+
+                             android:layout_marginLeft="@dimen/_2sdp"
+                                   android:layout_height="@dimen/_19sdp"
+                          ></View>
+                 </LinearLayout>
+                 <RelativeLayout
+                     android:layout_width="match_parent"
+                     android:id="@+id/rl_loction"
+                     android:layout_marginLeft="@dimen/_5sdp"
+                     android:layout_marginTop="@dimen/_5sdp"
+                     android:layout_height="wrap_content"
+                     >
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         ></LinearLayout>
+                     <androidx.appcompat.widget.AppCompatTextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:textSize="@dimen/_10sdp"
+                         android:id="@+id/tv_location"
+                         android:layout_marginLeft="@dimen/_4sdp"
+                         android:text="@string/location"
+                         ></androidx.appcompat.widget.AppCompatTextView>
+                     <androidx.appcompat.widget.AppCompatTextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:textSize="@dimen/_10sdp"
+                         android:id="@+id/tv_city"
+                         android:text="Searching for GPS....."
+                         android:textColor="@color/black"
+                         android:layout_below="@id/tv_location"
+                         android:layout_toRightOf="@id/img_location"
+
+                         ></androidx.appcompat.widget.AppCompatTextView>
+                     <androidx.appcompat.widget.AppCompatImageView
+                         android:layout_width="@dimen/_15sdp"
+                         android:id="@+id/img_location"
+                         android:layout_below="@+id/tv_location"
+                         android:src="@drawable/ic_baseline_location_on_24"
+                         android:layout_height="@dimen/_15sdp"
+                         ></androidx.appcompat.widget.AppCompatImageView>
+                     <androidx.appcompat.widget.AppCompatImageView
+                         android:layout_width="@dimen/_20sdp"
+                         android:id="@+id/img_location_mark"
+                         android:layout_toRightOf="@+id/tv_city"
+                         android:layout_marginLeft="@dimen/_2sdp"
+                         android:visibility="gone"
+                         android:layout_below="@+id/tv_location"
+                         android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                         android:layout_height="@dimen/_20sdp"
+                         ></androidx.appcompat.widget.AppCompatImageView>
+
+                 </RelativeLayout>
+             </LinearLayout>
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                tools:listitem="@layout/room_type_row"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layoutAnimation="@anim/layout_animation"
+                android:id="@+id/rce_room_type"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_below="@+id/rl_loction"
+                android:layout_height="@dimen/_80sdp"
+                ></androidx.recyclerview.widget.RecyclerView>
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_below="@id/map"
+                android:visibility="visible"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp" />
+            <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+                android:id="@+id/dots_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:dotsColor="@color/theme"
+                android:visibility="visible"
+                app:dotsStrokeColor="@color/theme"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_below="@+id/banner"
+                android:layout_centerHorizontal="true"
+
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_250sdp"
+                >
+                <fragment
+                    android:id="@+id/map"
+                    class ="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/rl_loction"
+                    android:layout_height="@dimen/_250sdp" />
+
+                <ImageView
+                    android:id="@+id/imagetrans"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_250sdp"
+                    android:alpha="0"
+                    android:src="@color/black" />
+            </RelativeLayout>
+
+
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:id="@+id/vpHomeFirstBannerId"
+                android:layout_height="wrap_content"
+                >
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/recomended"
+                    android:id="@+id/tv_recomended"
+                    android:textSize="@dimen/_12sdp"
+                    android:visibility="gone"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    ></androidx.appcompat.widget.AppCompatTextView>  <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/more"
+                    android:textSize="@dimen/_10sdp"
+                android:visibility="gone"
+                android:id="@+id/tv_more"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_alignParentEnd="true"
+                    android:textColor="@color/black"
+                android:alpha=".6"
+                    android:layout_height="wrap_content"
+                    ></androidx.appcompat.widget.AppCompatTextView>
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rec_recomended"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vpHomeFirstBannerId"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layoutAnimation="@anim/layout_animation"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:visibility="gone"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/recomended_row"></androidx.recyclerview.widget.RecyclerView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:id="@+id/rl_nearbylocation"
+                android:layout_below="@id/rec_recomended"
+                android:layout_height="wrap_content"
+                >
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/recomended"
+                    android:id="@+id/tv_nearbylocation"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    ></androidx.appcompat.widget.AppCompatTextView>  <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:text="@string/more"
+                android:textSize="@dimen/_10sdp"
+                android:id="@+id/tv_more_nearby"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/black"
+                android:alpha=".6"
+                android:layout_height="wrap_content"
+                ></androidx.appcompat.widget.AppCompatTextView>
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:id="@+id/rec_nearbyroom"
+                android:layoutAnimation="@anim/layout_animation"
+                android:layout_marginTop="@dimen/_7sdp"
+                tools:listitem="@layout/nearbylocation_row"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_below="@+id/rl_nearbylocation"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_height="@dimen/_300sdp"
+                ></androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+
+    </RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

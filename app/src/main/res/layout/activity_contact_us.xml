@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.new_ui.Contact_Us">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:paddingRight="15dp"
+        app:titleTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/theme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_back"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:src="@drawable/ic_baseline_keyboard_backspace_24"></androidx.appcompat.widget.AppCompatImageView>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/contact_us"
+                android:layout_centerVertical="true"
+               android:layout_toRightOf="@id/img_back"
+                android:visibility="visible"
+                android:textColor="@color/theme_green"
+                android:textSize="@dimen/_12sdp"
+
+                ></androidx.appcompat.widget.AppCompatTextView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:id="@+id/img_search"
+                android:visibility="gone"
+                android:layout_toLeftOf="@+id/img_notification"
+                android:src="@drawable/ic_baseline_search_24"
+                ></androidx.appcompat.widget.AppCompatImageView>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/img_notification"
+                android:layout_height="@dimen/_20sdp"
+                android:visibility="gone"
+                android:src="@drawable/ic_baseline_notifications_none_24"
+                ></androidx.appcompat.widget.AppCompatImageView>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+     <androidx.core.widget.NestedScrollView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+          android:layout_below="@+id/toolbar"
+
+         >
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="@dimen/_10sdp"
+          android:layout_marginBottom="@dimen/_50sdp"
+          android:layout_marginLeft="@dimen/_10sdp"
+          android:layout_marginTop="@dimen/_20sdp"
+          >
+          <de.hdodenhof.circleimageview.CircleImageView
+              android:layout_width="@dimen/_110sdp"
+              android:layout_marginTop="@dimen/_50sdp"
+              android:layout_height="@dimen/_110sdp"
+              android:src="@drawable/contactus"
+              android:id="@+id/img_contact_us"
+              android:layout_centerHorizontal="true"
+              ></de.hdodenhof.circleimageview.CircleImageView>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_below="@+id/img_contact_us"
+                   android:layout_marginTop="@dimen/_25sdp"
+                   android:orientation="vertical"
+                   android:id="@+id/ll_top"
+                   android:layout_height="wrap_content"
+                   >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/rl_phone"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_height="wrap_content"
+                        >
+                          <androidx.appcompat.widget.AppCompatImageView
+                              android:layout_width="@dimen/_17sdp"
+                              android:id="@+id/img_phone"
+                              android:layout_centerVertical="true"
+
+                              android:src="@drawable/ic_baseline_settings_phone_24"
+                              android:layout_height="@dimen/_17sdp"
+                              ></androidx.appcompat.widget.AppCompatImageView>
+                  <androidx.appcompat.widget.AppCompatTextView
+                      android:layout_width="wrap_content"
+                      android:layout_centerVertical="true"
+                      android:textSize="@dimen/_12sdp"
+                      android:id="@+id/tv_phone"
+                      android:layout_toRightOf="@id/img_phone"
+                      android:layout_marginLeft="@dimen/_10sdp"
+                      android:text="7049836854"
+                      android:layout_height="wrap_content"
+                      ></androidx.appcompat.widget.AppCompatTextView>
+
+                           </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:id="@+id/rl_whatsapp"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_height="wrap_content"
+                        >
+                          <androidx.appcompat.widget.AppCompatImageView
+                              android:layout_width="@dimen/_17sdp"
+                              android:id="@+id/img_phone"
+                              android:layout_centerVertical="true"
+
+                              android:src="@drawable/whatspp"
+                              android:layout_height="@dimen/_17sdp"
+                              ></androidx.appcompat.widget.AppCompatImageView>
+                  <androidx.appcompat.widget.AppCompatTextView
+                      android:layout_width="wrap_content"
+                      android:layout_centerVertical="true"
+                      android:textSize="@dimen/_12sdp"
+                      android:layout_toRightOf="@id/img_phone"
+                      android:layout_marginLeft="@dimen/_10sdp"
+                      android:text=" 7049836854"
+                      android:id="@+id/tv_whatsapp"
+                      android:layout_height="wrap_content"
+                      ></androidx.appcompat.widget.AppCompatTextView>
+
+                           </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:id="@+id/rl_email"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_height="wrap_content"
+                        >
+                          <androidx.appcompat.widget.AppCompatImageView
+                              android:layout_width="@dimen/_17sdp"
+                              android:id="@+id/img_phone"
+                              android:layout_centerVertical="true"
+                              android:src="@drawable/ic_baseline_email_24"
+                              android:layout_height="@dimen/_17sdp"
+                              ></androidx.appcompat.widget.AppCompatImageView>
+                  <androidx.appcompat.widget.AppCompatTextView
+                      android:layout_width="wrap_content"
+                      android:layout_centerVertical="true"
+                      android:textSize="@dimen/_12sdp"
+                      android:id="@+id/tv_email"
+                      android:layout_toRightOf="@id/img_phone"
+                      android:layout_marginLeft="@dimen/_10sdp"
+                      android:text=" abhinandanlowanshi@gmail.com"
+                      android:layout_height="wrap_content"
+                      ></androidx.appcompat.widget.AppCompatTextView>
+
+                           </RelativeLayout>
+
+                   <androidx.appcompat.widget.AppCompatTextView
+                       android:layout_width="wrap_content"
+                       android:text="Wanna send custom message?"
+                       android:textColor="@color/black"
+                       android:id="@+id/tv_custom_message"
+                       android:layout_marginTop="@dimen/_15sdp"
+                       android:layout_marginLeft="@dimen/_20sdp"
+                       android:textStyle="bold"
+                       android:visibility="gone"
+                       android:textSize="@dimen/_13sdp"
+                       android:layout_height="wrap_content"
+                       ></androidx.appcompat.widget.AppCompatTextView>
+               </LinearLayout>
+
+
+      </RelativeLayout>
+     </androidx.core.widget.NestedScrollView>
+</RelativeLayout>
