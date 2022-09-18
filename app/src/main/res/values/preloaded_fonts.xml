@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/delius_swash_caps</item>
+        <item>@font/engagement</item>
+        <item>@font/ewert</item>
+        <item>@font/federant</item>
+        <item>@font/seaweed_script</item>
+        <item>@font/sofia</item>
+        <item>@font/spirax</item>
+    </array>
+</resources>

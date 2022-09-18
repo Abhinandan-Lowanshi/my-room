@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".app.HomeScreen">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="7dp"
+                android:layout_height="wrap_content">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:paddingBottom="5dp"
+             android:layout_height="wrap_content"
+
+             >
+                <EditText
+                    android:id="@+id/scity"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:hint="City"
+                    android:maxHeight="50dp"
+                    android:maxLines="1"
+                    android:background="@drawable/editetextclassical"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"></EditText>
+
+                <EditText
+                    android:id="@+id/scolony"
+                    android:layout_width="150dp"
+                    android:background="@drawable/editetextclassical"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:hint="Colony"
+                    android:maxHeight="50dp"
+                    android:maxLines="1"
+
+                    android:singleLine="true"></EditText>
+
+                <Button
+                    android:id="@+id/sdone"
+                    android:layout_width="wrap_content"
+android:layout_marginTop="2dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:background="@drawable/mybutton"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:text="Search"
+                    android:textAllCaps="false"
+
+
+                    android:textColor="@color/white"></Button>
+         </LinearLayout>
+                <View
+
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+
+                    android:background="?android:attr/listDivider" />
+            </LinearLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"></androidx.recyclerview.widget.RecyclerView>
+
+                <ImageView
+                    android:id="@+id/rent"
+                    android:layout_width="200dp"
+                    android:alpha="0.8"
+                    android:visibility="gone"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="300dp"
+                    android:background="@drawable/nothing_find"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"></ImageView>
+     <androidx.cardview.widget.CardView
+         android:layout_width="wrap_content"
+         app:layout_constraintEnd_toEndOf="@+id/rent"
+         app:layout_constraintStart_toStartOf="@+id/rent"
+         android:layout_marginTop="10dp"
+         android:elevation="10dp"
+         app:cardCornerRadius="10dp"
+         app:layout_constraintTop_toBottomOf="@+id/rent"
+         android:layout_height="wrap_content"
+         >
+         <TextView
+             android:layout_width="wrap_content"
+             android:padding="15dp"
+             android:textSize="17dp"
+             android:textColor="@color/theme"
+             android:layout_height="wrap_content"
+             android:text="Opps not find any post....!"
+             ></TextView>
+     </androidx.cardview.widget.CardView>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</FrameLayout>

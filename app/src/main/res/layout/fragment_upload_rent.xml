@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+android:background="@color/white"    tools:context=".app.UploadRent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="35dp"
+                    android:background="#E4E4E6"
+                    android:gravity="center_horizontal"
+                    android:text="Tell us about your home"
+                    android:textColor="@color/log_background"
+                    android:textSize="24dp"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="70dp"
+                    android:text="All fields with Star tags are mandatory to fill "></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:drawableRight="@drawable/ic_baseline_star_24"
+                    android:text="Name"
+
+                    android:textColor="@color/black"></TextView>
+
+
+                <EditText
+                    android:id="@+id/ed_naam"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittextshap"
+                    android:ems="10"
+                    android:hint="Name"
+
+                    android:maxLines="1"
+                    android:paddingLeft="13dp"
+                    android:singleLine="true"
+
+                    android:textSize="15dp"></EditText>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:drawableRight="@drawable/ic_baseline_star_24"
+                    android:text=" Owner Mobile Number"
+                    android:textColor="@color/black"></TextView>
+
+                <EditText
+                    android:id="@+id/ed_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittextshap"
+                    android:ems="10"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:hint="Mobile No"
+                    android:maxLines="1"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="5dp"
+
+                    android:singleLine="true"
+                    android:textSize="15dp"
+
+                    ></EditText>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:drawableRight="@drawable/ic_baseline_star_24"
+                    android:text=" Size   (For Ex. 1BHK,Single Room)"
+                    android:textColor="@color/black"></TextView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/edittextshap"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    >
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edittextshap"
+                        android:ems="10"
+                        android:hint=""
+                        android:maxLines="1"
+                        android:paddingLeft="13dp"
+                        android:paddingRight="5dp"
+                       android:enabled="false"
+                        android:visibility="gone"
+                        android:singleLine="true"
+                        android:textSize="15dp"
+
+                        ></EditText>  <TextView
+
+                    android:id="@+id/ed_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edittextshap"
+                        android:ems="10"
+                        android:hint=""
+                    android:visibility="gone"
+                    android:maxLines="1"
+                        android:paddingLeft="13dp"
+                        android:paddingRight="10dp"
+                    android:singleLine="true"
+                        android:textSize="15dp"
+
+                        ></TextView>
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/sp_size_of_room"
+                        style="@style/spinner_style"
+
+                        android:dropDownSelector="@drawable/ic_baseline_keyboard_arrow_down_24"
+                        android:verticalScrollbarPosition="right"
+                        android:layout_centerInParent="true"
+                        android:elevation="@dimen/_10sdp"
+                        android:layout_height="match_parent"
+                        ></Spinner>
+                </RelativeLayout>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:drawableRight="@drawable/ic_baseline_star_24"
+                    android:text="Available (For Ex. Boys,girl) "
+
+                    android:textColor="@color/black"></TextView>
+
+
+
+                 <RelativeLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="45dp"
+                     android:background="@drawable/edittextshap"
+                     >
+
+                     <Spinner
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:id="@+id/spiiner_available"
+                         >
+
+
+                     </Spinner>
+                     <EditText
+                         android:id="@+id/ed_available"
+                         android:layout_width="match_parent"
+                         android:layout_height="45dp"
+                         android:visibility="gone"
+                         android:layout_marginTop="10dp"
+                         android:background="@drawable/edittextshap"
+                         android:ems="10"
+                         android:hint="Availability"
+                         android:maxLines="1"
+                         android:paddingLeft="13dp"
+                         android:paddingRight="5dp"
+
+                         android:singleLine="true"
+                         android:textSize="15dp"
+
+                         ></EditText>
+
+
+                 </RelativeLayout>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:drawableRight="@drawable/ic_baseline_star_24"
+                    android:text="Independent"
+
+                    android:textColor="@color/black"></TextView>
+
+
+                <EditText
+                    android:id="@+id/ed_indepemdence"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittextshap"
+                    android:ems="10"
+                    android:hint="Dependency"
+                    android:maxLines="1"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="5dp"
+
+                    android:singleLine="true"
+                    android:textSize="15dp"
+
+                    ></EditText>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:drawableRight="@drawable/ic_baseline_star_24"
+                    android:text="Rent"
+
+                    android:textColor="@color/black"></TextView>
+
+
+                <EditText
+                    android:id="@+id/ed_rent1"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittextshap"
+                    android:ems="10"
+                    android:hint="Rent"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="5dp"
+
+                    android:singleLine="true"
+                    android:textSize="15dp"
+
+                    ></EditText>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:drawableRight="@drawable/ic_baseline_star_24"
+                    android:text="House No"
+
+                    android:textColor="@color/black"></TextView>
+
+
+                <EditText
+                    android:id="@+id/ed_houseNO1"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittextshap"
+                    android:ems="10"
+                    android:hint="House No"
+                    android:maxLines="1"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="5dp"
+
+                    android:singleLine="true"
+                    android:textSize="15dp"
+
+                    ></EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:drawableRight="@drawable/ic_baseline_star_24"
+                    android:text="Colony"
+
+                    android:textColor="@color/black"></TextView>
+
+
+                <EditText
+                    android:id="@+id/ed_colony1"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittextshap"
+                    android:ems="10"
+                    android:hint="Colony"
+                    android:maxLines="1"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="5dp"
+
+                    android:singleLine="true"
+                    android:textSize="15dp"
+
+                    ></EditText>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:drawableRight="@drawable/ic_baseline_star_24"
+                    android:text="City"
+
+                    android:textColor="@color/black"></TextView>
+
+
+                <EditText
+                    android:id="@+id/ed_city1"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittextshap"
+                    android:ems="10"
+                    android:hint="City"
+                    android:maxLines="1"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="5dp"
+
+                    android:singleLine="true"
+                    android:textSize="15dp"
+
+                    ></EditText>
+
+   <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="40dp"
+                    android:drawableRight="@drawable/ic_baseline_star_24"
+                    android:text="City"
+
+                    android:textColor="@color/black"></TextView>
+
+
+                <EditText
+                    android:id="@+id/ed_city1"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittextshap"
+                    android:ems="10"
+                    android:hint="City"
+                    android:maxLines="1"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="5dp"
+
+                    android:singleLine="true"
+                    android:textSize="15dp"
+
+                    ></EditText>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="30dp"
+                    android:drawableRight="@drawable/ic_baseline_star_24"
+
+                    android:text="Add 4 photos of the Room or Flat  "
+
+                    android:textColor="@color/black"></TextView>
+
+
+                <LinearLayout
+                    android:id="@+id/image_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <ImageView
+                        android:id="@+id/m1"
+                        style="?android:borderlessButtonStyle"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/imageicone"></ImageView>
+
+                    <ImageView
+                        android:id="@+id/m2"
+                        style="?android:borderlessButtonStyle"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:visibility="gone"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/imageicone"></ImageView>
+
+                    <ImageView
+                        android:id="@+id/m3"
+                        style="?android:borderlessButtonStyle"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/imageicone"></ImageView>
+
+                    <ImageView
+                        android:id="@+id/m4"
+                        style="?android:borderlessButtonStyle"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:clickable="true"
+                        android:visibility="gone"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/imageicone"></ImageView>
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageRec"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/image_row"
+                    android:layout_marginTop="10dp"
+                    ></androidx.recyclerview.widget.RecyclerView>
+
+                <Button
+                    android:id="@+id/upload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/mybutton"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:text="Upload Image"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"></Button>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="40dp"
+
+                    android:layout_marginBottom="60dp">
+
+
+                    <Button
+                        android:id="@+id/submit"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+
+                        android:layout_weight="1"
+                        android:background="@drawable/mybutton"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:text="Submit"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"></Button>
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:visibility="invisible"></ImageView>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+    </LinearLayout>
+
+</FrameLayout>
+
+

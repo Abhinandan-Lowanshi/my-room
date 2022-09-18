@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.myroom">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.POST_NOTIFICATIONS"
+        tools:node="remove" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/logo"
+        android:label="My Room"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/App_Theme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name="com.example.myroom.app.notificationsetting.NotificationSetting"
+            android:exported="false" />
+        <activity
+            android:name="com.example.myroom.app.owerprofile.OwnerProfile"
+            android:exported="false" />
+        <activity
+            android:name=".app.editroom.Edit_Room_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".app.feedback.ActivityFeedback"
+            android:exported="false" />
+        <activity
+            android:name=".app.fragment.activity.NewHomeActivityFR"
+            android:exported="false" />
+        <activity android:name=".app.LoginFinal" />
+        <activity android:name=".app.new_ui.Notification_Activity" />
+        <activity android:name=".app.new_ui.Edit_Profile" />
+        <activity android:name=".app.new_ui.TakeLocationByGoogleMap" />
+        <activity android:name=".app.map.MapDetailsActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name=".app.new_ui.ForgotPassword" /> <!-- <activity android:name=".app.new_ui.Login" /> -->
+        <activity android:name=".app.new_ui.AboutUs" />
+        <activity android:name=".app.new_ui.PrivacyPolicy" />
+        <activity android:name=".app.new_ui.Contact_Us" /> <!-- <activity android:name="com.example.myroom.app.owerprofile.OwnerProfile" /> -->
+        <activity android:name=".app.new_ui.All_Roon_Activity" />
+        <activity android:name=".app.new_ui.ChangePasword" />
+        <activity android:name=".app.new_ui.MyAccount" />
+        <activity android:name=".app.new_ui.Search_Activity" >
+
+
+        </activity>
+
+        <activity
+            android:name=".app.LoginFinal"
+            tools:ignore="DuplicateActivity" />
+        <activity android:name=".app.new_ui.Room_Detais_Activity" />
+        <activity android:name=".app.startScreen">
+
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+
+
+
+        </activity>
+        <activity android:name=".app.SignUp" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <service
+            android:name=".app.pushnotification.MyNotificationService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

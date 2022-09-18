@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/home"
+        android:title="Home"
+        app:cnb_backgroundColor="@color/navbg" />
+
+    <item
+        android:id="@+id/forever_rent"
+        android:icon="@drawable/upload"
+        android:title="upload"
+        app:cnb_backgroundColor="@color/navbg" />
+
+    <item
+        android:id="@+id/Saved"
+        android:icon="@drawable/mypost"
+        android:title="My post"
+        app:cnb_backgroundColor="@color/navbg" />
+    <item
+        android:id="@+id/favourite"
+        android:icon="@drawable/like"
+        android:title="Favourite"
+        app:cnb_backgroundColor="@color/navbg" />
+    <item
+        android:id="@+id/MyAccount"
+        android:icon="@drawable/account"
+
+        android:title="My Account"
+        app:cnb_backgroundColor="@color/navbg" />
+
+
+</menu>

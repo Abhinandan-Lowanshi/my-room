@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_4sdp"
+   android:layout_margin="@dimen/_4sdp"
+    android:elevation="@dimen/_2sdp"
+    app:cardElevation="@dimen/_2sdp"
+    app:cardBackgroundColor="@color/white"
+    app:cardMaxElevation="@dimen/_2sdp"
+    android:layout_height="wrap_content">
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginVertical="@dimen/_5sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+         android:id="@+id/ed_area_name"
+         android:textColor="@color/black"
+         android:text=" Beena nagar ">
+     </TextView>
+</androidx.cardview.widget.CardView>

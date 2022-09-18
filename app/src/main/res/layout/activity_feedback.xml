@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.feedback.ActivityFeedback">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:paddingRight="15dp"
+        app:titleTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/theme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_25sdp"
+                android:id="@+id/img_back"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_baseline_keyboard_backspace_24"
+                ></androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/feedback"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+
+                android:visibility="visible"></androidx.appcompat.widget.AppCompatTextView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:id="@+id/img_search"
+                android:visibility="gone"
+                android:layout_toLeftOf="@+id/img_notification"
+                android:src="@drawable/ic_baseline_search_24"
+                ></androidx.appcompat.widget.AppCompatImageView>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/img_notification"
+                android:visibility="gone"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_baseline_notifications_none_24"
+                ></androidx.appcompat.widget.AppCompatImageView>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/ll_custom_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:orientation="vertical"
+       android:layout_height="@dimen/_80sdp"
+       android:background="@drawable/dottetdshapsqure"
+       >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            >
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/image"
+            android:id="@+id/img_attachement"
+            android:scaleType="fitXY"
+            android:layout_height="@dimen/_40sdp"
+            ></androidx.appcompat.widget.AppCompatImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="choose attachment"
+                android:id="@+id/txt_attachement"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_height="wrap_content"
+                ></TextView>
+        </LinearLayout>
+
+   </LinearLayout>
+
+        <EditText
+            android:id="@+id/ed_message"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/edittextshap"
+            android:gravity="start"
+            android:hint="Message"
+            android:paddingLeft="13dp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:textSize="15dp"
+
+            ></EditText>
+
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:layout_weight="1"
+            android:background="@drawable/mybutton"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"></Button>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

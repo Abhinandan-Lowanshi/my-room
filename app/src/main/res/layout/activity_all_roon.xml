@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.new_ui.All_Roon_Activity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/no_internet_rl"
+        android:visibility="visible"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/meessage"
+            android:layout_centerInParent="true"
+            android:text="Oops no internet connection"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_15sdp"></TextView>
+
+        <TextView
+            android:id="@+id/meessage"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/no_data_found"
+            android:layout_centerHorizontal="true"
+            android:text="Try again later"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_15sdp"></TextView>
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/no_data_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/no_internet" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/rl_main_ui"
+        android:layout_height="match_parent"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:paddingRight="15dp"
+            app:titleTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/theme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_back"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:src="@drawable/ic_baseline_keyboard_backspace_24"></androidx.appcompat.widget.AppCompatImageView>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/img_back"
+                    android:text="@string/all_near_by_room"
+                    android:visibility="visible"
+                    android:textColor="@color/theme_green"
+                    android:textSize="@dimen/_14sdp"
+
+                    ></androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:id="@+id/img_search"
+                    android:visibility="gone"
+                    android:layout_toLeftOf="@+id/img_notification"
+                    android:src="@drawable/ic_baseline_search_24"
+                    ></androidx.appcompat.widget.AppCompatImageView>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_notification"
+                    android:layout_width="@dimen/_20sdp"
+                    android:visibility="invisible"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_notifications_none_24"></androidx.appcompat.widget.AppCompatImageView>
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/rec"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_below="@+id/toolbar"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_height="match_parent"
+            ></androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
