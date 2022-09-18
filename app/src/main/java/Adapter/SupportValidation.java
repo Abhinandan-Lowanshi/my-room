@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SupportValidation {
-
+  String name = "";
     public  static boolean passwordValidation(String np)
         {
             String password = np;
