@@ -28,7 +28,7 @@ public class MyNotificationService extends FirebaseMessagingService {
         super.onMessageReceived(message);
 
 
-        if(new AppSession(getApplicationContext()).getNotificationStatus().equalsIgnoreCase("true")) {
+//        if(new AppSession(getApplicationContext()).getNotificationStatus().equalsIgnoreCase("true")) {
             Log.d("TAG", "onMessageReceived: ");
             Intent intent = new Intent(getApplicationContext(), Notification_Activity.class);
             intent.putExtra("Notification", "Notification");
@@ -49,6 +49,6 @@ public class MyNotificationService extends FirebaseMessagingService {
             NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.createNotificationChannel(notificationChannel);
             notificationManager.notify(1, notification);
-        }
+//        }
     }
 }

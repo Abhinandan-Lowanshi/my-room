@@ -33,7 +33,10 @@ import com.example.myroom.R;
 import com.example.myroom.app.LoginFinal;
 import com.example.myroom.app.customlatModel.CustomeLatLon;
 import com.example.myroom.app.fragment.activity.NewHomeActivityFR;
+import com.example.myroom.app.new_ui.Notification_Activity;
 import com.example.myroom.app.new_ui.Search_Activity;
+import com.example.myroom.app.pushnotification.Notification.UpdateNotificationModel;
+import com.example.myroom.app.retrofit.ApiClient;
 import com.example.myroom.app.startScreen;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -49,6 +52,7 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.google.gson.JsonObject;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -56,8 +60,12 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
 
 import appsession.AppSession;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NotificationSetting extends AppCompatActivity {
     private Switch switch_notification  ,switch_notification_custom;
@@ -137,18 +145,8 @@ public class NotificationSetting extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
                 try {
-                    if(b)
-                    {
-                             appsession.setNotificationStatus("true");
-                        switch_notification.setText("ON");
-                        switch_notification.setChecked(true);
+                    updateNotificationStatus(b,"","");
 
-                    }else {
-                         appsession.setNotificationStatus("false");
-                        switch_notification.setText("OFF");
-                        switch_notification.setChecked(false);
-
-                    }
                 }catch (Exception e)
                 {
                     e.printStackTrace();
@@ -156,6 +154,61 @@ public class NotificationSetting extends AppCompatActivity {
 
             }
         });
+    }
+
+    public  void updateNotificationStatus(boolean status , String lat , String lon )
+    {
+
+         try {
+             if(appsession.getUserID()!=null&&appsession.getUserID()!="")
+             {
+                 JsonObject jsonObject = new JsonObject();
+                 jsonObject.addProperty("user_id",appsession.getUserID());
+                 jsonObject.addProperty("usr_latitude",lat);
+                 jsonObject.addProperty("usr_longitude",lon);
+                 jsonObject.addProperty("isNotify" , status);
+                 ApiClient.getClient().updateUserNotificationDetails(jsonObject).enqueue(new Callback<UpdateNotificationModel>() {
+                     @Override
+                     public void onResponse(Call<UpdateNotificationModel> call, Response<UpdateNotificationModel> response) {
+
+                         if(response.isSuccessful())
+                         {
+                             UpdateNotificationModel  notificationModel = response.body();
+                             if(notificationModel.getStatus()==false)
+                             {
+                                 if(status)
+                                 {
+                                    appsession.setNotificationStatus("true");
+                                     switch_notification.setText("ON");
+                                     switch_notification.setChecked(true);
+                                 }else
+                                 {
+                                     appsession.setNotificationStatus("false");
+                                     switch_notification.setText("OFF");
+                                     switch_notification.setChecked(false);
+                                 }
+
+                                 Toast.makeText(NotificationSetting.this,"Successfully changes applied",Toast.LENGTH_LONG);
+                             }else  Toast.makeText(NotificationSetting.this,"Successfully changes applied",Toast.LENGTH_LONG);
+
+                         }
+
+                     }
+
+                     @Override
+                     public void onFailure(Call<UpdateNotificationModel> call, Throwable t) {
+
+                     }
+                 });
+
+             }
+
+         }catch (Exception e)
+         {
+              e.printStackTrace();
+         }
+
+
     }
     public void checkRunTimePermission() {
         progressDialog.show();

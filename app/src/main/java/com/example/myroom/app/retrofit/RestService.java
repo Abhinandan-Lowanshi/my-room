@@ -14,6 +14,7 @@ import com.example.myroom.app.home.RoomDetailsModel;
 import com.example.myroom.app.login.LoginModel;
 import com.example.myroom.app.myaccount.MyAccountModel;
 import com.example.myroom.app.mypost.RoomStatusModel;
+import com.example.myroom.app.pushnotification.Notification.UpdateNotificationModel;
 import com.example.myroom.app.pushnotification.NotificationModelAPI;
 import com.example.myroom.app.roomdetails.RoomDetailsMain;
 import com.example.myroom.app.signup.SignUpData;
@@ -54,6 +55,9 @@ public interface RestService {
 
     @POST("getNotification")
     Call<NotificationModelAPI>getNotification(@Body JsonObject jsonObject);
+
+    @POST("updateUserNotificationDetails")
+    Call<UpdateNotificationModel>updateUserNotificationDetails(@Body JsonObject jsonObject);
 
 
     @POST("deleteRoom")
