@@ -111,19 +111,11 @@ public class NotificationSetting extends AppCompatActivity {
 
                        if(b)
                        {
+                           customlocationer.setVisibility(View.GONE);
 
-                            if(new AppSession(NotificationSetting.this).getCustomLatLon().getCity()!="") {
-                                customlocationer.setVisibility(View.GONE);
-
-                                switch_notification_custom.setText("ON");
-                                ed_location.setText("tap to set location");
-                                ed_location.setVisibility(View.VISIBLE);
-
-                            }else {
-
-
-                                customlocationer.setVisibility(View.VISIBLE);
-                            }
+                           switch_notification_custom.setText("ON");
+                           ed_location.setText("tap to set location");
+                           ed_location.setVisibility(View.VISIBLE);
 
                        }else {
                            new AppSession(NotificationSetting.this).setIsCustomeLocation(b);
@@ -178,6 +170,7 @@ public class NotificationSetting extends AppCompatActivity {
                              {
                                  if(status)
                                  {
+
                                     appsession.setNotificationStatus("true");
                                      switch_notification.setText("ON");
                                      switch_notification.setChecked(true);
@@ -222,81 +215,6 @@ public class NotificationSetting extends AppCompatActivity {
                     }else {
 
                         getcurrentlocation();
-//                        long delay1 = 0;
-//                        long period1 = 50;
-//                        task1.scheduleAtFixedRate(new TimerTask() {
-//                            @Override
-//                            public void run() {
-//                                if (Looper.myLooper()==null)
-//                                    Looper.prepare();
-//
-//                                runOnUiThread(new Runnable() {
-//
-//                                    @Override
-//                                    public void run() {
-//
-//                                        if(progress<=100)
-//                                            progressText.setText(String.valueOf(progress+"%"));
-//                                        progress = progress+1;
-//                                    }
-//                                });
-//
-//                                progressBar3.setProgress(progress);
-//
-//                            }
-//                        }, delay1, period1);
-//                        Timer time = new Timer();
-//                        time.schedule(new TimerTask() {
-//                            @Override
-//                            public void run() {
-//                                task1.cancel();
-////                                if(appSession.getIsLogin()==null) {
-////                                    Intent intent = new Intent(getApplicationContext(), LoginFinal.class);
-////                                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-////                                    startActivity(intent);
-////                                    finish();
-////                                }
-////                                else {
-////                                    if(appSession.getIsLogin().equalsIgnoreCase("1")) {
-////                                        Intent i = new Intent(getApplicationContext(), NewHomeActivityFR.class);
-////                                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-////                                        startActivity(i);
-////                                        finish();
-////                                    }
-////                                    else {
-////                                        Intent intent = new Intent(getApplicationContext(), LoginFinal.class);
-////                                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-////                                        startActivity(intent);
-////                                        finish();
-////
-////                                    }
-////                                }
-//
-//
-//                            }
-//                        }, 5000);
-
-
-//                        long delay = 2000;
-//                        long period = 1000;
-//                        task1.scheduleAtFixedRate(new TimerTask() {
-//                            @Override
-//                            public void run() {
-//                                if (Looper.myLooper()==null)
-//                                    Looper.prepare();
-//                                if(location_check==false) {
-//
-//
-////                                    getcurrentlocation();
-//                                    // getLocation(Home_Acitvity_New.this);
-//
-//                                } else if(location_check==true)
-//                                {
-//                                    task1.cancel();
-//
-//                                }
-//                            }
-//                        }, delay, period);
 
                     }
 

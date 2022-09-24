@@ -82,15 +82,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/rl_2"
             android:id="@+id/rl_fav"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_1sdp"
             android:layout_marginRight="@dimen/_20sdp"
             android:layout_alignParentEnd="true">
 
             <ImageView
                 android:id="@+id/heart_fill"
-                android:layout_width="14dp"
-                android:layout_height="22dp"
-                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_width="@dimen/_17sdp"
+                android:layout_height="@dimen/_17sdp"
                 android:src="@drawable/ic_baseline_favorite_24"
                 android:visibility="visible"></ImageView>
 
@@ -98,7 +97,6 @@
                 android:id="@+id/heart_empty"
                 android:layout_width="@dimen/_17sdp"
                 android:layout_height="@dimen/_17sdp"
-                android:layout_marginTop="@dimen/_2sdp"
                 android:src="@drawable/ic_baseline_favorite_border_24"
                 android:visibility="gone"></ImageView>
 

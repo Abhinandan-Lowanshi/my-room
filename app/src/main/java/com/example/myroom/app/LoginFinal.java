@@ -253,16 +253,6 @@ public class LoginFinal extends AppCompatActivity {
                                         ManageSession.Login(LoginFinal.this,String.valueOf(loginData.getUsrId()),loginData.getUsrFirstName()
                                         ,loginData.getUsrLastName(),loginData.getUsrEmail(),loginData.getUsrPhone(),
                                                 loginData.getUsrParmentAdrss(),loginData.getUsrCurrentAdrss());
-//                                        appSession.setUserID(String.valueOf(loginData.getUsrId()));
-//                                        appSession.setIsLogin("1");
-////                                        appSession.setCurrentPassword(password.getText().toString());
-//                                        appSession.setFname(loginData.getUsrFirstName());
-//                                        appSession.setLname(loginData.getUsrLastName());
-//                                        appSession.setEmail(loginData.getUsrEmail());
-//                                        appSession.setMobile(loginData.getUsrPhone());
-//                                        appSession.setPresentAddress(loginData.getUsrCurrentAdrss());
-//                                        appSession.setPermanentAddress(loginData.getUsrParmentAdrss());
-                                        Toast.makeText(LoginFinal.this,"login", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(LoginFinal.this, NewHomeActivityFR.class);
                                         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
                                         startActivity(intent);

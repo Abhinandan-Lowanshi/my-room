@@ -8,12 +8,10 @@ import android.net.ParseException;
 import android.text.TextUtils;
 
 import com.example.myroom.app.customlatModel.CustomeLatLon;
-import com.example.myroom.app.searhelper.RecentSearchManager;
 import com.example.myroom.app.searhelper.SearchListData;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -53,6 +51,11 @@ public class AppSession {
         pref = context.getSharedPreferences(PACKAGE_NAME, Context.MODE_PRIVATE);
         editor = pref.edit();
     }
+
+     public boolean clearUserData()
+     {
+        return pref.edit().clear().commit();
+     }
 
     public static boolean isValidEmail(String target) {
         boolean flag;

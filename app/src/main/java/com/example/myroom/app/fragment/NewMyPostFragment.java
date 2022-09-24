@@ -5,8 +5,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -15,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,12 +54,14 @@ public class NewMyPostFragment extends Fragment implements MyPostAdapter.Delete 
     private ProgressDialog progressDialog ,deleteDialoge;
     private AppSession appSession;
     MyPostAdapter  adapter;
+    private  boolean isUserScroll = false;
+    LinearLayoutManager linearLayoutManager;
     NearByRoom_Adapter nearByRoom_adapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    private  int currentItems  =0 , totalItmes =0 , scrolledItems=0;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -101,7 +106,26 @@ public class NewMyPostFragment extends Fragment implements MyPostAdapter.Delete 
         iniView(view);
         getMyUploadedRooms(this::deleletListner);
 
+      rec.addOnScrollListener(new RecyclerView.OnScrollListener() {
+          @Override
+          public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+              super.onScrollStateChanged(recyclerView, newState);
+              if(newState== AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL);
+              {
 
+              }
+          }
+
+
+          @Override
+          public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+              super.onScrolled(recyclerView, dx, dy);
+              currentItems = linearLayoutManager.getChildCount();
+              totalItmes = linearLayoutManager.getItemCount();
+              scrolledItems = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
+
+          }
+      });
          return view;
     }
 
@@ -282,6 +306,9 @@ public class NewMyPostFragment extends Fragment implements MyPostAdapter.Delete 
 
     private void iniView(View view) {
         rec = (RecyclerView)view.findViewById(R.id.rec);
+        linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+        rec.setLayoutManager(linearLayoutManager);
+
         empty_text = (TextView) view.findViewById(R.id.empty_text);
         appSession = new AppSession(getActivity());
         ChipNavigationBar chipNavigationBar;

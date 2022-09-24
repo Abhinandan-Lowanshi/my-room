@@ -74,6 +74,14 @@
         <entry key="..\:/MyRoom/WhitTheme/MyRoom/MyRoom/app/src/main/res/layout/userpostrow.xml" value="0.22" />
         <entry key="..\:/MyRoom/WhitTheme/MyRoom/MyRoom/app/src/main/res/layout/view_full_image_dialouge.xml" value="0.2" />
         <entry key="..\:/MyRoom/WhitTheme/MyRoom/MyRoom/app/src/main/res/menu/nav_menu.xml" value="0.2" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/ic_baseline_fullscreen_24.xml" value="0.115" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/ic_baseline_fullscreen_exit_24.xml" value="0.115" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_forgot_password.xml" value="0.10885416666666667" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_room_detais.xml" value="0.19" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_home.xml" value="0.18177083333333333" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_my_post.xml" value="0.2" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/mypostrec.xml" value="0.2" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/nearbylocation_row.xml" value="0.2" />
       </map>
     </option>
   </component>

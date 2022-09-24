@@ -212,12 +212,20 @@ public class NewMyAccountFragment extends Fragment {
                 yes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        dialog.dismiss();
-                        Intent intent = new Intent(getActivity(), LoginFinal.class);
+
 //                        appSession.setIsLogin("0");
-                        ManageSession.logOut(getActivity().getApplicationContext());
-                      getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-                      startActivity(intent);
+                     if  ( ManageSession.logOut(getActivity().getApplicationContext()))
+                     {
+                         dialog.dismiss();
+                         Intent intent = new Intent(getActivity(), LoginFinal.class);
+                         getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                         startActivity(intent);
+                         getActivity().finishAffinity();
+                     }else {
+                          Toast.makeText(getActivity().getApplicationContext(),"Something went wrong,try again later." , Toast.LENGTH_LONG);
+                     }
+
+
                         ;
 
                     }

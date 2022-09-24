@@ -10,16 +10,19 @@ public class ManageSession {
     public static boolean logOut(Context context)
     {
         try {
-            AppSession appSession = new AppSession(context);
-            appSession.setIsLogin("0");
-            appSession.setUserID("");
-            appSession.setFname("");
-            appSession.setLname("");
-            appSession.setPermanentAddress("");
-            appSession.setPresentAddress("");
-            appSession.setEmail("");
-            appSession.setMobile("");
-            return true;
+//           AppSession appSession = new AppSession(context);
+//            appSession.setIsLogin("0");
+//            appSession.setUserID("");
+//            appSession.setFname("");
+//            appSession.setLname("");
+//            appSession.setPermanentAddress("");
+//            appSession.setPresentAddress("");
+//            appSession.setEmail("");
+//            appSession.setMobile("");
+//            appSession.setCityCurrent("");
+//            appSession.setIsCustomeLocation(false);
+
+            return new AppSession(context).clearUserData();
         }catch (Exception e)
         {
              e.printStackTrace();
