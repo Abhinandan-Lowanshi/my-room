@@ -12,10 +12,14 @@ import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,36 +56,77 @@ import retrofit2.Response;
 import zoom.TouchImageView;
 
 public class Room_Detais_Activity extends AppCompatActivity implements OnMapReadyCallback, Image_Show_Adapter.UpdateImageInterafce, AdapterRoomDetailsViewPager.ClicktPost {
-RecyclerView all_pic_rec;
-AppCompatImageView img_back,room_image,room_image_second;
-String name ,mobile,room_id;
-private GoogleMap mMap;
-private Handler handler;
-private    String data = "";
+    RecyclerView all_pic_rec;
+    private RelativeLayout rl_map_layout;
+    AppCompatImageView img_back, room_image, room_image_second;
+    private ImageView img_handleMapSize;
+    String name, mobile, room_id;
+    private GoogleMap mMap;
+    private Handler handler;
+    private String data = "";
     private LatLng origin;
-private  int counter =0;
-private  double lat,lon;
-   private AdapterRoomDetailsViewPager bannerAdapter;
-private ViewPager vpHomeFirstBanner;
-private ArrayList<RoomDetailsImage> roomDetailsImages ;
-private TextView   tv_owner_profile ,view_location_details ,tv_parking,which_flor,tv_dependency,tv_description,tv_furnised,availbility,tv_owner_name ,tv_mobile,tv_rent,tv_address;
-private int currentPage;
-private Timer timer;
+    private int counter = 0;
+    private double lat, lon;
+    private AdapterRoomDetailsViewPager bannerAdapter;
+    private ViewPager vpHomeFirstBanner;
+    private ArrayList<RoomDetailsImage> roomDetailsImages;
+    private TextView tv_owner_profile, view_location_details, tv_parking, which_flor, tv_dependency, tv_description, tv_furnised, availbility, tv_owner_name, tv_mobile, tv_rent, tv_address;
+    private int currentPage;
+    private Timer timer;
     private long DELAY_MS = 500;
     private long PERIOD_MS = 5000;
     private BaseDotsIndicator dotsIndicator;
     private String user_id_owner = "";
-
+   private boolean isFillMap = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_detais);
-        intiView( this::clickPostListner);
+        intiView(this::clickPostListner);
+
+
+        final ScrollView scroll = (ScrollView) findViewById(R.id.scroll);
+        ImageView transparent = (ImageView) findViewById(R.id.imagetrans);
+
+        img_handleMapSize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setHeigth(isFillMap);
+
+            }
+        });
+
+        transparent.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action) {
+                    case MotionEvent.ACTION_DOWN:
+                        // Disallow ScrollView to intercept touch events.
+                        scroll.requestDisallowInterceptTouchEvent(true);
+                        // Disable touch on transparent view
+                        return false;
+
+                    case MotionEvent.ACTION_UP:
+                        // Allow ScrollView to intercept touch events.
+                        scroll.requestDisallowInterceptTouchEvent(false);
+                        return true;
+
+                    case MotionEvent.ACTION_MOVE:
+                        scroll.requestDisallowInterceptTouchEvent(true);
+                        return false;
+
+                    default:
+                        return true;
+                }
+            }
+        });
+
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
 
             }
         });
@@ -89,7 +134,7 @@ private Timer timer;
         tv_owner_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!user_id_owner.equalsIgnoreCase("")) {
+                if (!user_id_owner.equalsIgnoreCase("")) {
                     Intent intent = new Intent(Room_Detais_Activity.this, OwnerProfile.class);
                     intent.putExtra(AppSession.USER_ID_ROOM_OWNER, user_id_owner);
                     startActivity(intent);
@@ -100,18 +145,17 @@ private Timer timer;
         view_location_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =  new Intent(Room_Detais_Activity.this, MapDetailsActivity.class);
-                intent.putExtra("lat",lat);
-                intent.putExtra("lon",lon);
+                Intent intent = new Intent(Room_Detais_Activity.this, MapDetailsActivity.class);
+                intent.putExtra("lat", lat);
+                intent.putExtra("lon", lon);
                 startActivity(intent);
             }
         });
     }
 
 
-    private void fullImageView(int pos)
-    {
-         counter =0;
+    private void fullImageView(int pos) {
+        counter = 0;
         final Dialog dialog = new Dialog(Room_Detais_Activity.this);
         dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
         dialog.setCancelable(true);
@@ -121,22 +165,22 @@ private Timer timer;
         //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.MATCH_PARENT);
-        TouchImageView main_image= dialog.findViewById(R.id.imViewedImage );
+        TouchImageView main_image = dialog.findViewById(R.id.imViewedImage);
         Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(pos).getImgName()).into(main_image);
         dialog.show();
 
 
-        ImageView img_close= dialog.findViewById(R.id.img_close);
-        ImageView count_left= dialog.findViewById(R.id.count_left);
-        ImageView count_right= dialog.findViewById(R.id.count_right);
-        CardView card_left= dialog.findViewById(R.id.card_left);
-        CardView card_right= dialog.findViewById(R.id.card_right);
+        ImageView img_close = dialog.findViewById(R.id.img_close);
+        ImageView count_left = dialog.findViewById(R.id.count_left);
+        ImageView count_right = dialog.findViewById(R.id.count_right);
+        CardView card_left = dialog.findViewById(R.id.card_left);
+        CardView card_right = dialog.findViewById(R.id.card_right);
         card_left.setVisibility(View.INVISIBLE);
         card_right.setVisibility(View.INVISIBLE);
-          if(counter==0)
-              card_left.setVisibility(View.INVISIBLE);
-         if(counter==roomDetailsImages.size())
-             card_right.setVisibility(View.INVISIBLE);
+        if (counter == 0)
+            card_left.setVisibility(View.INVISIBLE);
+        if (counter == roomDetailsImages.size())
+            card_right.setVisibility(View.INVISIBLE);
 
 
         img_close.setOnClickListener(new View.OnClickListener() {
@@ -182,42 +226,45 @@ private Timer timer;
 //            }
 //        });
     }
+
     private void intiView(BannerAdapter.ClicktPost clicktPost) {
-        all_pic_rec  =(RecyclerView)findViewById(R.id.all_pic_rec);
-        img_back  =(AppCompatImageView) findViewById(R.id.img_back);
-        room_image  =(AppCompatImageView) findViewById(R.id.room_image);
-        room_image_second  =(AppCompatImageView) findViewById(R.id.room_image_second);
-        view_location_details  =(TextView) findViewById(R.id.view_location_details);
-        tv_owner_profile  =(TextView) findViewById(R.id.tv_owner_profile);
-        tv_parking  =(TextView) findViewById(R.id.tv_parking);
-        tv_address  =(TextView) findViewById(R.id.tv_address);
-        which_flor  =(TextView) findViewById(R.id.which_flor);
-        tv_dependency  =(TextView) findViewById(R.id.tv_dependency);
-        tv_description  =(TextView) findViewById(R.id.tv_description);
-        tv_furnised  =(TextView) findViewById(R.id.tv_furnised);
-        availbility  =(TextView) findViewById(R.id.availbility);
-        tv_owner_name  =(TextView) findViewById(R.id.tv_owner_name);
-        tv_mobile  =(TextView) findViewById(R.id.tv_mobile);
-        tv_rent  =(TextView) findViewById(R.id.tv_rent);
+        all_pic_rec = (RecyclerView) findViewById(R.id.all_pic_rec);
+        rl_map_layout = (RelativeLayout) findViewById(R.id.rl_map_layout);
+        img_back = (AppCompatImageView) findViewById(R.id.img_back);
+        room_image = (AppCompatImageView) findViewById(R.id.room_image);
+        room_image_second = (AppCompatImageView) findViewById(R.id.room_image_second);
+        view_location_details = (TextView) findViewById(R.id.view_location_details);
+        tv_owner_profile = (TextView) findViewById(R.id.tv_owner_profile);
+        tv_parking = (TextView) findViewById(R.id.tv_parking);
+        tv_address = (TextView) findViewById(R.id.tv_address);
+        which_flor = (TextView) findViewById(R.id.which_flor);
+        tv_dependency = (TextView) findViewById(R.id.tv_dependency);
+        tv_description = (TextView) findViewById(R.id.tv_description);
+        tv_furnised = (TextView) findViewById(R.id.tv_furnised);
+        availbility = (TextView) findViewById(R.id.availbility);
+        tv_owner_name = (TextView) findViewById(R.id.tv_owner_name);
+        tv_mobile = (TextView) findViewById(R.id.tv_mobile);
+        tv_rent = (TextView) findViewById(R.id.tv_rent);
+        img_handleMapSize = (ImageView) findViewById(R.id.img_handleMapSize);
         vpHomeFirstBanner = (ViewPager) findViewById(R.id.banner);
-        dotsIndicator = (WormDotsIndicator)findViewById(R.id.dots_indicator);
+        dotsIndicator = (WormDotsIndicator) findViewById(R.id.dots_indicator);
 //        name = getIntent().getStringExtra("name");
+        ViewGroup.LayoutParams params = rl_map_layout.getLayoutParams();
+        params.height = 400;
+        rl_map_layout.setLayoutParams(params);
         room_id = getIntent().getStringExtra("room_id");
 //        mobile = getIntent().getStringExtra("mobile");
-          data = getIntent().getStringExtra("come");
-          if( data !=null)
-          {
-              if(data.equalsIgnoreCase(AppSession.FROM_PROFILE))
-              {
-                  tv_owner_profile.setVisibility(View.INVISIBLE);
-              }else {
-                  tv_owner_profile.setVisibility(View.VISIBLE);
-              }
-          }
+        data = getIntent().getStringExtra("come");
+        if (data != null) {
+            if (data.equalsIgnoreCase(AppSession.FROM_PROFILE)) {
+                tv_owner_profile.setVisibility(View.INVISIBLE);
+            } else {
+                tv_owner_profile.setVisibility(View.VISIBLE);
+            }
+        }
 
-        if(room_id!=null)
-        loadRoom(room_id,clicktPost);
-
+        if (room_id != null)
+            loadRoom(room_id, clicktPost);
 
 
     }
@@ -225,21 +272,21 @@ private Timer timer;
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
 
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-         mMap = googleMap;
+        mMap = googleMap;
         mMap.addMarker(new MarkerOptions().position(origin).title(name));
         LatLngBounds bounds = new LatLngBounds.Builder()
                 .include(origin)
-               .build();
+                .build();
         Point displaySize = new Point();
         getWindowManager().getDefaultDisplay().getSize(displaySize);
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 12.0f));
-       // mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, displaySize.x, 250, 30));
+        // mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, displaySize.x, 250, 30));
     }
 
     @Override
@@ -248,34 +295,31 @@ private Timer timer;
     }
 
 
+    public void loadRoom(String room_id, BannerAdapter.ClicktPost clicktPost) {
 
-    public void loadRoom(String room_id,BannerAdapter.ClicktPost clicktPost)
-    {
-        
-        
+
         try {
 
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("room_id",room_id);
+            jsonObject.addProperty("room_id", room_id);
 
 
             ApiClient.getClient().getRoomDetails(jsonObject).enqueue(new Callback<RoomDetailsMain>() {
                 @Override
                 public void onResponse(Call<RoomDetailsMain> call, Response<RoomDetailsMain> response) {
-                    
-                    
-                    
-                    if(response.isSuccessful())
-                    {
-                        if(response.body().getStatus()==true)
-                        {
-                            RoomDetailsMainData roomDetailsMainData =  response.body().getData();
-                            user_id_owner = String.valueOf(roomDetailsMainData.getRmUsrFkey());
-                            
-                            loadUI(roomDetailsMainData,clicktPost);
 
-                        }   else     Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG)   ;              
-                    }else Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG);
+
+                    if (response.isSuccessful()) {
+                        if (response.body().getStatus() == true) {
+                            RoomDetailsMainData roomDetailsMainData = response.body().getData();
+                            user_id_owner = String.valueOf(roomDetailsMainData.getRmUsrFkey());
+
+                            loadUI(roomDetailsMainData, clicktPost);
+
+                        } else
+                            Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG);
+                    } else
+                        Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG);
 
                 }
 
@@ -284,10 +328,9 @@ private Timer timer;
 //                    Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG);
                 }
             });
-            
-        }catch (Exception e)
-        {
-             e.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
 //            Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG);
 
         }
@@ -299,21 +342,21 @@ private Timer timer;
 //        tv_parking,which_flor,tv_dependency,tv_furnised,availbility,tv_owner_name ,tv_mobile;
         roomDetailsImages = roomDetailsMainData.getImages();
 
-       if(roomDetailsImages.size()>0) {
-           Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(0).getImgName()).into(room_image_second);
-           Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(0).getImgName()).into(room_image);
+        if (roomDetailsImages.size() > 0) {
+            Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(0).getImgName()).into(room_image_second);
+            Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(0).getImgName()).into(room_image);
 
-           bannerAdapter = new AdapterRoomDetailsViewPager(Room_Detais_Activity.this, clicktPost,roomDetailsImages);
-           vpHomeFirstBanner.setAdapter(bannerAdapter);
-           dotsIndicator.setViewPager(vpHomeFirstBanner);
-           scrooling(roomDetailsImages.size());
+            bannerAdapter = new AdapterRoomDetailsViewPager(Room_Detais_Activity.this, clicktPost, roomDetailsImages);
+            vpHomeFirstBanner.setAdapter(bannerAdapter);
+            dotsIndicator.setViewPager(vpHomeFirstBanner);
+            scrooling(roomDetailsImages.size());
 //           Image_Show_Adapter image_show_adapter = new Image_Show_Adapter(Room_Detais_Activity.this, roomDetailsImages, this);
 //           all_pic_rec.setAdapter(image_show_adapter);
-       }
+        }
         tv_parking.setText(roomDetailsMainData.getRmPrkingAvblity());
         which_flor.setText(roomDetailsMainData.getRmFlor());
-        tv_rent.setText(getString(R.string.price_Samle)+roomDetailsMainData.getRmRent());
-        tv_address.setText(roomDetailsMainData.getRmHouseNo()+" ,"+" "+roomDetailsMainData.getRmColny()+" ,"+" "+roomDetailsMainData.getRmCity());
+        tv_rent.setText(getString(R.string.price_Samle) + roomDetailsMainData.getRmRent());
+        tv_address.setText(roomDetailsMainData.getRmHouseNo() + " ," + " " + roomDetailsMainData.getRmColny() + " ," + " " + roomDetailsMainData.getRmCity());
         tv_dependency.setText(roomDetailsMainData.getRmDepndecy());
         tv_description.setText(roomDetailsMainData.getRmDescription());
         tv_furnised.setText(roomDetailsMainData.getRmFurnisdStatus());
@@ -336,8 +379,7 @@ private Timer timer;
 
     }
 
-    private void scrooling(final int length)
-    {
+    private void scrooling(final int length) {
         /*After setting the adapter use the timer */
         handler = new Handler();
         final Runnable runnable = new Runnable() {
@@ -362,5 +404,22 @@ private Timer timer;
         };
         timer = new Timer();
         timer.schedule(timertask, DELAY_MS, PERIOD_MS);
+    }
+
+
+    private void setHeigth(boolean isFull) {
+        ViewGroup.LayoutParams params = rl_map_layout.getLayoutParams();
+        if (isFull) {
+           isFillMap = false;
+            params.height = 900;
+            img_handleMapSize.setImageResource(R.drawable.ic_baseline_fullscreen_exit_24);
+        }
+        else {
+            isFillMap = true;
+            params.height = 400;
+            img_handleMapSize.setImageResource(R.drawable.ic_baseline_fullscreen_24);
+        }
+
+        rl_map_layout.setLayoutParams(params);
     }
 }

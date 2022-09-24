@@ -46,7 +46,7 @@ public class SignUp extends AppCompatActivity {
    private ProgressDialog progressDialog;
    private FirebaseAuth mAuth;
    AppSession appSession;
-   private  String firebaseToken , passwordCK, repasswordCK;
+   private  String firebaseToken , passwordCK = "", repasswordCK="";
    AppCompatImageView img_back;
    private TextView password_validater ,email_validater,re_password_validater,password_matched;
    private EditText name,surname,email,mobile,password,repassword,present,permanent;

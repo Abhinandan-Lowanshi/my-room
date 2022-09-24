@@ -61,9 +61,9 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
-
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar">
 
@@ -285,6 +285,7 @@
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_8sdp"
+                android:visibility="visible"
                 app:cardCornerRadius="@dimen/_5sdp">
 
                 <LinearLayout
@@ -422,6 +423,7 @@
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_8sdp"
+                android:visibility="visible"
                 app:cardCornerRadius="@dimen/_5sdp">
 
                 <RelativeLayout
@@ -546,20 +548,45 @@
                     ></TextView>
             </RelativeLayout>
 
-            <fragment
-                android:id="@+id/map"
-                class="com.google.android.gms.maps.SupportMapFragment"
+
+            <RelativeLayout
+                android:id="@+id/rl_map_layout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_250sdp"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_below="@id/rl_loction"
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_8sdp"
-                android:layout_marginBottom="@dimen/_30sdp" />
+                android:layout_marginBottom="@dimen/_30sdp">
+
+                <fragment
+                    android:id="@+id/map"
+                    class="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    />
+
+                <ImageView
+                    android:id="@+id/imagetrans"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0"
+                    android:src="@color/black" />
+
+                <ImageView
+                    android:id="@+id/img_handleMapSize"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:src="@drawable/ic_baseline_fullscreen_24"></ImageView>
+
+            </RelativeLayout>
 
 
         </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
 </RelativeLayout>

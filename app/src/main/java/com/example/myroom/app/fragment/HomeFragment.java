@@ -34,6 +34,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
@@ -48,6 +49,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -119,7 +121,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, LocationListener {
     private static final String TAG = "Abhi:::";
     RecyclerView rce_room_type,rec_recomended,rec_nearbyroom;
-
+    LinearLayoutManager linearLayoutManager;
     private ActionBarDrawerToggle toggle;
     public DrawerLayout drawerLayout;
     private Toolbar toolbar;
@@ -146,7 +148,8 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
     private NavigationView nevigation_view;
     Boolean  i =false;
     LatLng origin;
-
+    private  boolean isUserScroll = false;
+    private int currentItems =0 , totalItems =0 , scrolledItems =0;
     RelativeLayout rl_nearbylocation;
     ArrayList<LatLng> data =new ArrayList<>();
     private GoogleMap mMap;
@@ -232,7 +235,30 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         initView(view);
 
+     rec_nearbyroom.addOnScrollListener(new RecyclerView.OnScrollListener() {
+         @Override
+         public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+             super.onScrollStateChanged(recyclerView, newState);
+             if(newState== AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL);
+             {
+                 isUserScroll = true;
 
+             }
+         }
+
+         @Override
+         public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+             super.onScrolled(recyclerView, dx, dy);
+             currentItems = linearLayoutManager.getChildCount();
+             totalItems = linearLayoutManager.getItemCount();
+             scrolledItems = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
+             if(isUserScroll&&(scrolledItems ==2))
+             {
+                 Log.d(TAG, "endScrolll");
+             }
+
+         }
+     });
         scrooling(3);
         manager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
@@ -494,6 +520,8 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
     private void initView(View view) {
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.container);
         rec_nearbyroom = (RecyclerView)view.findViewById(R.id.rec_nearbyroom);
+        linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.HORIZONTAL, true);
+        rec_nearbyroom.setLayoutManager(linearLayoutManager);
         ll_signal = (LinearLayout) view.findViewById(R.id.ll_signal);
         rce_room_type = (RecyclerView)view.findViewById(R.id.rce_room_type);
         rec_recomended = (RecyclerView)view.findViewById(R.id.rec_recomended);
