@@ -333,6 +333,7 @@ public class SignUp extends AppCompatActivity {
 //                                      appSession.setPresentAddress(signUpData.getUsrCurrentAdrss());
 //                                      appSession.setPermanentAddress(signUpData.getUsrParmentAdrss());
                                       Intent intent = new Intent(SignUp.this, NewHomeActivityFR.class);
+                                      overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                                       startActivity(intent);
                                       finish();
                                   }
@@ -356,8 +357,6 @@ public class SignUp extends AppCompatActivity {
                     }
                 });
             }
-
-           // {"firstName":"vishak","lastName":"vishak","email":"vishalvishalthakur1999@gmail.com","phone":"4545654565454","currentAdrs":"GVGHDJ FHBJHF ","prmntAddress":"FHJFHJK","password":"vishal@123"}
 
         }
         else

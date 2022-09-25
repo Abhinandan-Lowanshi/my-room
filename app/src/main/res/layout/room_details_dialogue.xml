@@ -39,6 +39,7 @@
           <ImageView
               android:layout_width="match_parent"
               android:id="@+id/img_room_image"
+              android:scaleType="centerCrop"
               android:src="@drawable/room_image"
               android:layout_height="match_parent"
               ></ImageView>

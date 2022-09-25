@@ -135,6 +135,7 @@ public class All_Roon_Activity extends AppCompatActivity implements NewHomeActiv
                                 roomDataForSearchArrayList = roomDetailsModel.getData();
                                 adapter = new DemoSearchAdapter(All_Roon_Activity.this,All_Roon_Activity.this,roomDataForSearchArrayList);
                                 rec.setAdapter(adapter);
+                                rec.scheduleLayoutAnimation();
                                 progressDialog.dismiss();
 
 

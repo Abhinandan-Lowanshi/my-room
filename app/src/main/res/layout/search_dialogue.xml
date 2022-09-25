@@ -85,17 +85,16 @@
                       >
 
                       <Spinner
-                          android:layout_width="match_parent"
                           android:id="@+id/sp_Size"
-                          android:layout_marginLeft="@dimen/_5sdp"
                           style="@style/spinner_style"
-
-                          android:dropDownSelector="@drawable/ic_baseline_keyboard_arrow_down_24"
-                          android:verticalScrollbarPosition="right"
-                          android:layout_centerInParent="true"
-                          android:elevation="@dimen/_10sdp"
+                          android:layout_width="match_parent"
                           android:layout_height="match_parent"
-                          ></Spinner>
+
+                          android:layout_centerInParent="true"
+                          android:layout_marginLeft="@dimen/_5sdp"
+                          android:dropDownSelector="@drawable/ic_baseline_keyboard_arrow_down_24"
+                          android:elevation="@dimen/_10sdp"
+                          android:verticalScrollbarPosition="right"></Spinner>
                   </RelativeLayout>
 
                   <TextView

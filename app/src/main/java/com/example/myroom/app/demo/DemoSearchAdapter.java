@@ -195,7 +195,7 @@ public class DemoSearchAdapter extends RecyclerView.Adapter<DemoSearchAdapter.My
     }
 
     private void setFadeAnimation(View view) {
-        AlphaAnimation anim = new AlphaAnimation(0.4f, 1.0f);
+        AlphaAnimation anim = new AlphaAnimation(0.5f, 1.0f);
         anim.setDuration(FADE_DURATION);
         view.startAnimation(anim);
     }

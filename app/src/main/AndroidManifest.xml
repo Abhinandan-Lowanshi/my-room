@@ -26,6 +26,9 @@
         android:theme="@style/App_Theme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name="com.example.myroom.app.reviews.ReviewActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.myroom.app.notificationsetting.NotificationSetting"
             android:exported="false" />
         <activity
@@ -57,25 +60,17 @@
         <activity android:name=".app.new_ui.All_Roon_Activity" />
         <activity android:name=".app.new_ui.ChangePasword" />
         <activity android:name=".app.new_ui.MyAccount" />
-        <activity android:name=".app.new_ui.Search_Activity" >
-
-
-        </activity>
-
+        <activity android:name=".app.new_ui.Search_Activity"></activity>
         <activity
             android:name=".app.LoginFinal"
             tools:ignore="DuplicateActivity" />
         <activity android:name=".app.new_ui.Room_Detais_Activity" />
         <activity android:name=".app.startScreen">
-
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
 
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
-
-
-
         </activity>
         <activity android:name=".app.SignUp" />
 

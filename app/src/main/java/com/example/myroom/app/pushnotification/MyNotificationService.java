@@ -13,7 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 import com.example.myroom.R;
+import com.example.myroom.app.LoginFinal;
 import com.example.myroom.app.fragment.activity.NewHomeActivityFR;
+import com.example.myroom.app.loginmanage.ManageSession;
 import com.example.myroom.app.new_ui.Notification_Activity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -30,7 +32,12 @@ public class MyNotificationService extends FirebaseMessagingService {
 
 //        if(new AppSession(getApplicationContext()).getNotificationStatus().equalsIgnoreCase("true")) {
             Log.d("TAG", "onMessageReceived: ");
-            Intent intent = new Intent(getApplicationContext(), Notification_Activity.class);
+        Intent intent ;
+        if(new AppSession(getApplicationContext()).getUserID()!=null && new AppSession(getApplicationContext()).getUserID()!="")
+        intent  = new Intent(getApplicationContext(), Notification_Activity.class);
+        else {   intent  = new Intent(getApplicationContext(), LoginFinal.class);
+            ManageSession.logOut(getApplicationContext());
+        }
             intent.putExtra("Notification", "Notification");
             String CHANNEL_ID = "MYCHANNEL";
             NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, "name", NotificationManager.IMPORTANCE_LOW);
