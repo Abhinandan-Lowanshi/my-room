@@ -64,11 +64,14 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.myroom.R;
+import com.example.myroom.app.LoginFinal;
 import com.example.myroom.app.banner_pkg.BannerAdapter;
 import com.example.myroom.app.demo.Helper;
 import com.example.myroom.app.demo.RoomData;
+import com.example.myroom.app.fragment.activity.NewHomeActivityFR;
 import com.example.myroom.app.home.RoomDetailsData;
 import com.example.myroom.app.home.RoomDetailsModel;
+import com.example.myroom.app.map.DrawMarker;
 import com.example.myroom.app.new_ui.All_Roon_Activity;
 import com.example.myroom.app.new_ui.Room_Detais_Activity;
 import com.example.myroom.app.new_ui_adapter.NearByRoom_Adapter;
@@ -76,6 +79,7 @@ import com.example.myroom.app.new_ui_adapter.Recomended_Room_Adapter;
 import com.example.myroom.app.new_ui_adapter.Room_type_adapter;
 import com.example.myroom.app.retrofit.ApiClient;
 import com.example.myroom.app.serializable.DataSerializable;
+import com.example.myroom.app.startScreen;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
@@ -234,6 +238,8 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         initView(view);
+        if(appSession.getMainlat()=="" || appSession.getMainlat()==null)
+        checkRunTimePermission();
 
      rec_nearbyroom.addOnScrollListener(new RecyclerView.OnScrollListener() {
          @Override
@@ -353,19 +359,19 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                                 single_3.setAlpha(1f);
                                 single_4.setAlpha(1f);
                                 single_5.setAlpha(1f);
-                                Toast.makeText(getContext(), "GPS single detected, Accuracy level less than 8m", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level less than 8m", Toast.LENGTH_LONG).show();
 
                             } else if (strnth < 20.00) {
                                 single_1.setAlpha(1f);
                                 single_2.setAlpha(1f);
                                 single_3.setAlpha(1f);
-                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 10m", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 10m", Toast.LENGTH_LONG).show();
 
                                 single_4.setAlpha(1f);
                                 single_5.setAlpha(.2f);
 
                             } else if (strnth < 40.0) {
-                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 20m", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 20m", Toast.LENGTH_LONG).show();
 
                                 single_1.setAlpha(1f);
                                 single_2.setAlpha(1f);
@@ -374,7 +380,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                                 single_5.setAlpha(.2f);
 
                             } else if (strnth < 60.00) {
-                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 50m", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 50m", Toast.LENGTH_LONG).show();
 
                                 single_1.setAlpha(1f);
                                 single_2.setAlpha(1f);
@@ -382,7 +388,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                                 single_4.setAlpha(.2f);
                                 single_5.setAlpha(.2f);
                             } else if (strnth < 800.00) {
-                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 500m", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 500m", Toast.LENGTH_LONG).show();
 
                                 single_1.setAlpha(1f);
                                 single_2.setAlpha(.2f);
@@ -390,7 +396,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                                 single_4.setAlpha(.2f);
                                 single_5.setAlpha(.2f);
                             } else {
-                                Toast.makeText(getContext(), "GPS single detected, Accuracy level more then 1200m", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level more then 1200m", Toast.LENGTH_LONG).show();
                                 single_1.setAlpha(.2f);
                                 single_2.setAlpha(.2f);
                                 single_3.setAlpha(.2f);
@@ -518,6 +524,8 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
         getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
     private void initView(View view) {
+        manager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity().getApplicationContext());
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.container);
         rec_nearbyroom = (RecyclerView)view.findViewById(R.id.rec_nearbyroom);
         linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.HORIZONTAL, true);
@@ -687,30 +695,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                 if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
                     buildAlertMessageNoGps(this);
                 }else {
-//                    long delay = 2000;
-//                    long period = 1000;
-//                    task1 = new Timer();
-//                    task1.scheduleAtFixedRate(new TimerTask() {
-//                        @Override
-//                        public void run() {
-//                            if (Looper.myLooper()==null)
-//                                Looper.prepare();
-//                            if(location_check==false) {
-//                                Log.d(TAG, "Abhi::::: "+"  start");
-//                                getcurrentlocation();
-//                                // getLocation(Home_Acitvity_New.this);
-//
-//                            } else if(location_check==true)
-//                            {
-//                                task1.cancel();
-//                                getNearbyRoom(onClickInterface);
-//                                progressDialog.dismiss();
-//
-//                                Log.d(TAG, "Abhi::::: "+"  stop");
-//                            }
-//                        }
-//                    }, delay, period);
-
+                     getcurrentlocation();
                 }
 
             } else {
@@ -732,7 +717,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
         try {
 
 
-            if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
                 //    ActivityCompat#requestPermissions
                 // here to request the missing permissions, and then overriding
@@ -766,16 +751,14 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                 public void onComplete(Task<Location> task) {
                     //Initialize location
                     Location location = task.getResult();
+
                     if (location != null) {
 
-
-                        //Initilize geocoder
-
                         try {
-                            Geocoder geocoder = new Geocoder(getActivity().getApplicationContext(),
+                            Geocoder geocoder = new Geocoder(getActivity().getApplicationContext().getApplicationContext(),
                                     Locale.getDefault());
                             //Inilize address list
-                           addresses = null;
+                            addresses = null;
                             addresses = geocoder.getFromLocation(
                                     location.getLatitude(), location.getLongitude(), 1
                             );
@@ -783,47 +766,44 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                             e.printStackTrace();
                             Log.d("TAG", "onComplete: " + e.getLocalizedMessage());
                         }
+                        //Initilize geocoder
 
                         try {
 
 
                             longitude_1 = addresses.get(0).getLongitude();
                             lattitude_1 = addresses.get(0).getLatitude();
+                            if(lattitude_1!=null&&longitude_1!=null)
+                            {
+
+                                appSession.setMainlat(String.valueOf(lattitude_1));
+                                appSession.setMainlon(String.valueOf(longitude_1));
 
 
-                            address = addresses.get(0).getLocality() + ", " + addresses.get(0).getPostalCode() + ", " + addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
-                            //  getNearByDriver();", "+addresses.get(0).getSubAdminArea()
-                            location_check = true;
-                            tv_city.setText(address);
 
-//                    float checkStatus = (float) 7.0;
-                        } catch (Exception e) {
-                            task1.cancel();
-                            Log.d(TAG, "Error: "+e.getLocalizedMessage());
-//                            Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                            }
 
-                        }
-                        if (toast_check == true) {
-                            toast_check = false;
-                            if (location.getAccuracy() < 8.00) {
+
+
+                                                        if (location.getAccuracy() < 8.00) {
                                 single_1.setAlpha(1f);
                                 single_2.setAlpha(1f);
                                 single_3.setAlpha(1f);
                                 single_4.setAlpha(1f);
                                 single_5.setAlpha(1f);
-                                Toast.makeText(getContext(), "GPS single detected, Accuracy level less than 8m", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level less than 8m", Toast.LENGTH_LONG).show();
 
                             } else if (location.getAccuracy() < 20.00) {
                                 single_1.setAlpha(1f);
                                 single_2.setAlpha(1f);
                                 single_3.setAlpha(1f);
-                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 10m", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 10m", Toast.LENGTH_LONG).show();
 
                                 single_4.setAlpha(1f);
                                 single_5.setAlpha(.2f);
 
                             } else if (location.getAccuracy() < 40.0) {
-                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 20m", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 20m", Toast.LENGTH_LONG).show();
 
                                 single_1.setAlpha(1f);
                                 single_2.setAlpha(1f);
@@ -832,7 +812,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                                 single_5.setAlpha(.2f);
 
                             } else if (location.getAccuracy() < 60.00) {
-                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 50m", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 50m", Toast.LENGTH_LONG).show();
 
                                 single_1.setAlpha(1f);
                                 single_2.setAlpha(1f);
@@ -840,7 +820,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                                 single_4.setAlpha(.2f);
                                 single_5.setAlpha(.2f);
                             } else if (location.getAccuracy() < 800.00) {
-                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 500m", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 500m", Toast.LENGTH_LONG).show();
 
                                 single_1.setAlpha(1f);
                                 single_2.setAlpha(.2f);
@@ -848,14 +828,82 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                                 single_4.setAlpha(.2f);
                                 single_5.setAlpha(.2f);
                             } else {
-                                Toast.makeText(getContext(), "GPS single detected, Accuracy level more then 1200m", Toast.LENGTH_LONG).show();
+                              //  Toast.makeText(getContext(), "GPS single detected, Accuracy level more then 1200m", Toast.LENGTH_LONG).show();
                                 single_1.setAlpha(.2f);
                                 single_2.setAlpha(.2f);
                                 single_3.setAlpha(.2f);
                                 single_4.setAlpha(.2f);
                                 single_5.setAlpha(.2f);
                             }
+
+
+
+                            address = addresses.get(0).getLocality() + ", " + addresses.get(0).getPostalCode() + ", " + addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
+                            //  getNearByDriver();", "+addresses.get(0).getSubAdminArea()
+
+                            if(!address.isEmpty())
+                                appSession.setCityCurrent(address);
+
+                        } catch (Exception e) {
+//                            task1.cancel();
+                            Log.d("TAG", "Abhi :::::::::::::: ex "+ e.getLocalizedMessage());
+//                            Log.d(TAG, "Error: "+e.getLocalizedMessage());
+//                            Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+
                         }
+//                        if (toast_check == true) {
+//                            toast_check = false;
+//                            if (location.getAccuracy() < 8.00) {
+//                                single_1.setAlpha(1f);
+//                                single_2.setAlpha(1f);
+//                                single_3.setAlpha(1f);
+//                                single_4.setAlpha(1f);
+//                                single_5.setAlpha(1f);
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level less than 8m", Toast.LENGTH_LONG).show();
+//
+//                            } else if (location.getAccuracy() < 20.00) {
+//                                single_1.setAlpha(1f);
+//                                single_2.setAlpha(1f);
+//                                single_3.setAlpha(1f);
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 10m", Toast.LENGTH_LONG).show();
+//
+//                                single_4.setAlpha(1f);
+//                                single_5.setAlpha(.2f);
+//
+//                            } else if (location.getAccuracy() < 40.0) {
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 20m", Toast.LENGTH_LONG).show();
+//
+//                                single_1.setAlpha(1f);
+//                                single_2.setAlpha(1f);
+//                                single_3.setAlpha(1f);
+//                                single_4.setAlpha(.2f);
+//                                single_5.setAlpha(.2f);
+//
+//                            } else if (location.getAccuracy() < 60.00) {
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 50m", Toast.LENGTH_LONG).show();
+//
+//                                single_1.setAlpha(1f);
+//                                single_2.setAlpha(1f);
+//                                single_3.setAlpha(.2f);
+//                                single_4.setAlpha(.2f);
+//                                single_5.setAlpha(.2f);
+//                            } else if (location.getAccuracy() < 800.00) {
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 500m", Toast.LENGTH_LONG).show();
+//
+//                                single_1.setAlpha(1f);
+//                                single_2.setAlpha(.2f);
+//                                single_3.setAlpha(.2f);
+//                                single_4.setAlpha(.2f);
+//                                single_5.setAlpha(.2f);
+//                            } else {
+//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level more then 1200m", Toast.LENGTH_LONG).show();
+//                                single_1.setAlpha(.2f);
+//                                single_2.setAlpha(.2f);
+//                                single_3.setAlpha(.2f);
+//                                single_4.setAlpha(.2f);
+//                                single_5.setAlpha(.2f);
+//                            }
+//                        }
 //
 
 
@@ -871,7 +919,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
 
         }catch (Exception e)
         {
-            Log.d(TAG, "getcurrentlocation: "+e.getLocalizedMessage());
+//            Log.d(TAG, "getcurrentlocation: "+e.getLocalizedMessage());
 
         }
     }
@@ -1087,40 +1135,50 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
             @Override
             public void onMapReady(GoogleMap eMap) {
                 // When map is loaded
-                googleMap = eMap;
-                for (int i = 0; i < data.size(); i++) {
-                    eMap.addMarker(new MarkerOptions().position(data.get(i)).title(String.valueOf(roomDetailsData.get(i).getRmPkey())));
-                }
-                LatLngBounds bounds = new LatLngBounds.Builder()
-                        .include(origin)
-                        .build();
-                Point displaySize = new Point();
-                getActivity().getWindowManager().getDefaultDisplay().getSize(displaySize);
-                eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 15.0f));
+               try {
+                   googleMap = eMap;
+                   if(appSession.getMainlat()!=null&&appSession.getMainlat()!=""&&appSession.getMainlon()!=null&&appSession.getMainlon()!="")
+                   {
+                       origin = new LatLng(Double.parseDouble(appSession.getMainlat()), Double.parseDouble(appSession.getMainlon()));
+                       DrawMarker.getInstance(getActivity().getApplicationContext()).draw(googleMap, origin, R.drawable.location_destinition, "Your Location");
+                   }
+                   for (int i = 0; i < data.size(); i++) {
+                       eMap.addMarker(new MarkerOptions().position(data.get(i)).title(String.valueOf(roomDetailsData.get(i).getRmPkey())));
+                   }
+                   LatLngBounds bounds = new LatLngBounds.Builder()
+                           .include(origin)
+                           .build();
+                   Point displaySize = new Point();
+                   getActivity().getWindowManager().getDefaultDisplay().getSize(displaySize);
+                   eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 15.0f));
 
-                if (data.size() < 3)
-                    eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 20.0f));
-                else if (data.size() > 3)
-                    eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 13.0f));
-                else if (data.size() > 10)
-                    eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 10.0f));
-                else if (data.size() > 25)
-                    eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 8.0f));
-                else if (data.size() > 50)
-                    eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 5.0f));
-                eMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-                    @Override
-                    public boolean onMarkerClick(Marker marker) {
-                        for (int i = 0; i < roomDetailsData.size(); i++) {
-                            if (String.valueOf(roomDetailsData.get(i).getRmPkey()).equalsIgnoreCase(marker.getTitle())) {
-                                showLocationBassesRoomDialogue(roomDetailsData.get(i));
-                            }
-                        }
+                   if (data.size() < 3)
+                       eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 20.0f));
+                   else if (data.size() > 3)
+                       eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 13.0f));
+                   else if (data.size() > 10)
+                       eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 10.0f));
+                   else if (data.size() > 25)
+                       eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 8.0f));
+                   else if (data.size() > 50)
+                       eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 5.0f));
+                   eMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                       @Override
+                       public boolean onMarkerClick(Marker marker) {
+                           for (int i = 0; i < roomDetailsData.size(); i++) {
+                               if (String.valueOf(roomDetailsData.get(i).getRmPkey()).equalsIgnoreCase(marker.getTitle())) {
+                                   showLocationBassesRoomDialogue(roomDetailsData.get(i));
+                               }
+                           }
 
-                        return true;
+                           return true;
 
-                    }
-                });
+                       }
+                   });
+               }catch (Exception e)
+               {
+                    e.printStackTrace();
+               }
             }
         });
 
@@ -1140,7 +1198,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
         jsonObject.addProperty("latitude", appSession.getMainlat());
         jsonObject.addProperty("user_id", String.valueOf(appSession.getUserID()));
         jsonObject.addProperty("longitude",appSession.getMainlon());
-        jsonObject.addProperty("radius","5");
+        jsonObject.addProperty("radius","2");
 
 
         ApiClient.getClient().getNearByRedius(jsonObject).enqueue(new Callback<RoomDetailsModel>() {

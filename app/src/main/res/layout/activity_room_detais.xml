@@ -26,15 +26,16 @@
                 android:layout_width="@dimen/_22sdp"
                 android:layout_height="@dimen/_22sdp"
                 android:src="@drawable/ic_baseline_keyboard_backspace_24"></androidx.appcompat.widget.AppCompatImageView>
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/details"
                 android:layout_centerVertical="true"
-                android:visibility="visible"
                 android:layout_toRightOf="@id/img_back"
+                android:text="@string/details"
                 android:textColor="@color/theme_green"
                 android:textSize="@dimen/_14sdp"
+                android:visibility="visible"
 
                 ></androidx.appcompat.widget.AppCompatTextView>
 
@@ -145,6 +146,16 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/show_image_row"></androidx.recyclerview.widget.RecyclerView>
 
+            <TextView
+                android:id="@+id/tv_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="@dimen/_13sdp"
+                android:text="Reviews"
+                android:textColor="@color/theme_green"
+                android:textSize="@dimen/_10sdp"></TextView>
+
             <RelativeLayout
                 android:id="@+id/rl_fav"
                 android:layout_width="wrap_content"
@@ -152,8 +163,8 @@
                 android:layout_below="@id/rl_2"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="end"
-
-                android:layout_marginRight="@dimen/_20sdp">
+                android:layout_marginRight="@dimen/_20sdp"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/heart_fill"
@@ -497,6 +508,60 @@
 
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_room_data"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:text="Contact"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"></androidx.appcompat.widget.AppCompatTextView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:visibility="visible"
+                app:cardCornerRadius="@dimen/_5sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_9sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:id="@+id/img_call"
+                            android:src="@drawable/call_icone1" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:id="@+id/img_whatsapp"
+                            android:src="@drawable/whatsapp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_des"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -514,7 +579,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_des"
                 android:layout_marginLeft="@dimen/_8sdp"
-                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_8sdp"
                 android:layout_marginBottom="@dimen/_13sdp"
                 android:textAlignment="textStart"

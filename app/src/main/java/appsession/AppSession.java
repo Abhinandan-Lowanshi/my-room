@@ -8,6 +8,7 @@ import android.net.ParseException;
 import android.text.TextUtils;
 
 import com.example.myroom.app.customlatModel.CustomeLatLon;
+import com.example.myroom.app.reviews.ReviewModel;
 import com.example.myroom.app.searhelper.SearchListData;
 import com.google.gson.Gson;
 
@@ -121,6 +122,28 @@ public class AppSession {
         SearchListData data = gson.fromJson(rowData, SearchListData.class);
         return data; }
 
+    public void setStoredRoom(SearchListData searchListData) {
+        Gson gson = new Gson();
+        String json = gson.toJson(searchListData);
+        editor.putString("StoredRoom", json);
+        editor.commit();
+    }
+
+
+
+
+    public ReviewModel getReview() {
+        Gson gson = new Gson();
+        String rowData = pref.getString("tempReview", "");
+        ReviewModel data = gson.fromJson(rowData, ReviewModel.class);
+        return data; }
+
+    public void setReview(ReviewModel reviewModel) {
+        Gson gson = new Gson();
+        String json = gson.toJson(reviewModel);
+        editor.putString("tempReview", json);
+        editor.commit();
+    }
 
     public CustomeLatLon getCustomLatLon() {
         Gson gson = new Gson();
@@ -129,12 +152,6 @@ public class AppSession {
         return data; }
 
 
-    public void setStoredRoom(SearchListData searchListData) {
-        Gson gson = new Gson();
-        String json = gson.toJson(searchListData);
-        editor.putString("StoredRoom", json);
-        editor.commit();
-    }
     public void setCusomeLatlon(CustomeLatLon customeLatLon) {
         Gson gson = new Gson();
         String json = gson.toJson(customeLatLon);

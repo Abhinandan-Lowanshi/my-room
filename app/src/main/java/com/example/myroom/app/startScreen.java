@@ -159,81 +159,6 @@ public class startScreen extends AppCompatActivity {
                     }else {
 
                         getcurrentlocation();
-//                        long delay1 = 0;
-//                        long period1 = 50;
-//                        task1.scheduleAtFixedRate(new TimerTask() {
-//                            @Override
-//                            public void run() {
-//                                if (Looper.myLooper()==null)
-//                                    Looper.prepare();
-//
-//                                runOnUiThread(new Runnable() {
-//
-//                                    @Override
-//                                    public void run() {
-//
-//                                        if(progress<=100)
-//                                            progressText.setText(String.valueOf(progress+"%"));
-//                                        progress = progress+1;
-//                                    }
-//                                });
-//
-//                                progressBar3.setProgress(progress);
-//
-//                            }
-//                        }, delay1, period1);
-//                        Timer time = new Timer();
-//                        time.schedule(new TimerTask() {
-//                            @Override
-//                            public void run() {
-//                                task1.cancel();
-////                                if(appSession.getIsLogin()==null) {
-////                                    Intent intent = new Intent(getApplicationContext(), LoginFinal.class);
-////                                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-////                                    startActivity(intent);
-////                                    finish();
-////                                }
-////                                else {
-////                                    if(appSession.getIsLogin().equalsIgnoreCase("1")) {
-////                                        Intent i = new Intent(getApplicationContext(), NewHomeActivityFR.class);
-////                                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-////                                        startActivity(i);
-////                                        finish();
-////                                    }
-////                                    else {
-////                                        Intent intent = new Intent(getApplicationContext(), LoginFinal.class);
-////                                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-////                                        startActivity(intent);
-////                                        finish();
-////
-////                                    }
-////                                }
-//
-//
-//                            }
-//                        }, 5000);
-
-
-//                        long delay = 2000;
-//                        long period = 1000;
-//                        task1.scheduleAtFixedRate(new TimerTask() {
-//                            @Override
-//                            public void run() {
-//                                if (Looper.myLooper()==null)
-//                                    Looper.prepare();
-//                                if(location_check==false) {
-//
-//
-////                                    getcurrentlocation();
-//                                    // getLocation(Home_Acitvity_New.this);
-//
-//                                } else if(location_check==true)
-//                                {
-//                                    task1.cancel();
-//
-//                                }
-//                            }
-//                        }, delay, period);
 
                     }
 
@@ -316,27 +241,25 @@ public class startScreen extends AppCompatActivity {
             }).addOnCompleteListener(new OnCompleteListener<Location>() {
                 @Override
                 public void onComplete(Task<Location> task) {
-                    //Initialize location
-                    Location location = task.getResult();
-
-                    if (location != null) {
 
                         try {
-                            Geocoder geocoder = new Geocoder(startScreen.this.getApplicationContext(),
-                                    Locale.getDefault());
-                            //Inilize address list
-                            addresses = null;
-                            addresses = geocoder.getFromLocation(
-                                    location.getLatitude(), location.getLongitude(), 1
-                            );
+
                         } catch (Exception e) {
                             e.printStackTrace();
                             Log.d("TAG", "onComplete: " + e.getLocalizedMessage());
                         }
-                        //Initilize geocoder
-
                         try {
-
+                            Location location = task.getResult();
+                            if (location==null)
+                            {
+                                return;
+                            }
+                            Geocoder geocoder = new Geocoder(startScreen.this.getApplicationContext(),
+                                    Locale.getDefault());
+                            addresses = null;
+                            addresses = geocoder.getFromLocation(
+                                    location.getLatitude(), location.getLongitude(), 1
+                            );
 
                             longitude_1 = addresses.get(0).getLongitude();
                             lattitude_1 = addresses.get(0).getLatitude();
@@ -372,8 +295,8 @@ public class startScreen extends AppCompatActivity {
                                 }
 
                              }
-
-                          address = addresses.get(0).getLocality() + ", " + addresses.get(0).getPostalCode() + ", " + addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
+//                            address =addresses.get(0).getSubLocality()+", "+ addresses.get(0).getLocality() + ", " + addresses.get(0).getPostalCode() + ", " + addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
+                          address =addresses.get(0).getSubLocality()+", "+ addresses.get(0).getPostalCode() + ", " + addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
                             //  getNearByDriver();", "+addresses.get(0).getSubAdminArea()
 
                              if(!address.isEmpty())
@@ -446,7 +369,7 @@ public class startScreen extends AppCompatActivity {
 //
 
 
-                    }
+
 
                 }
             }).addOnFailureListener(new OnFailureListener() {

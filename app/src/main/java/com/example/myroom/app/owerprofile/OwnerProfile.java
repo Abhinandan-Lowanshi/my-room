@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -20,6 +22,7 @@ import com.example.myroom.app.home.RoomDetailsModel;
 import com.example.myroom.app.myaccount.MyAccountModel;
 import com.example.myroom.app.myaccount.MyAccountModelData;
 import com.example.myroom.app.mypost.MyPostAdapter;
+import com.example.myroom.app.new_ui.Room_Detais_Activity;
 import com.example.myroom.app.new_ui_adapter.Recomended_Room_Adapter;
 import com.example.myroom.app.retrofit.ApiClient;
 import com.google.gson.JsonObject;
@@ -34,13 +37,14 @@ import retrofit2.Response;
 
 public class OwnerProfile extends AppCompatActivity implements MyPostAdapter.Delete {
 private TextView tv_owner_name , tv_owner_phone ,tv_present_address ,tv_permanent_address ,empty_text ;
-private AppCompatImageView img_back;
+private AppCompatImageView img_back ,img_call ,img_whatsapp;
 private AppSession appSession;
 private RecyclerView rec;
 String userIdOwner = "";
     private MyAccountModelData myAccountModelData;
     private ArrayList<RoomDetailsData> roomDetailsData;
     private ProgressDialog progressDialog;
+    private String mobile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,64 @@ String userIdOwner = "";
         initView();
         if(userIdOwner!="")
        loadData(this);
+
+        img_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                try {
+                    if(mobile!=null&&mobile!="" )
+                    {
+                        Intent intent = new Intent(Intent.ACTION_DIAL);
+                        intent.setData(Uri.parse("tel:" +mobile));
+                        if (intent.resolveActivity(getPackageManager()) != null) {
+                            startActivity(intent);
+                        }
+                    }
+
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+
+            }
+        }); img_whatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                try {
+                    if(mobile!=null&&mobile!="" )
+                    {
+                        String contact = "+91"+mobile; // use country code with your phone number
+                        String url = "https://api.whatsapp.com/send?phone=" + contact;
+                        try {
+                            PackageManager pm = OwnerProfile.this.getPackageManager();
+                            pm.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
+                            Intent i = new Intent(Intent.ACTION_VIEW);
+                            i.setData(Uri.parse(url));
+                            //i.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+
+                            startActivity(i);
+                        } catch (PackageManager.NameNotFoundException e) {
+                            Toast.makeText(OwnerProfile.this, "Whatsapp app not installed in your phone", Toast.LENGTH_SHORT).show();
+                            e.printStackTrace();
+                        }
+                    }
+
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+
+
+
+
+
+            }
+        });
+
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -167,7 +229,7 @@ String userIdOwner = "";
                                 myAccountModelData = response.body().getData();
                                 tv_owner_name.setText(myAccountModelData.getUsrFirstName()+" "+myAccountModelData.getUsrLastName());
                                 tv_owner_phone.setText(myAccountModelData.getUsrPhone());
-
+                                 mobile= myAccountModelData.getUsrPhone();
                                 tv_present_address.setText(myAccountModelData.getUsrCurrentAdrss());
                                 tv_permanent_address.setText(myAccountModelData.getUsrParmentAdrss());
 
@@ -209,6 +271,8 @@ String userIdOwner = "";
         {
              e.printStackTrace();
         }
+        img_whatsapp = (AppCompatImageView) findViewById(R.id.img_whatsapp);
+        img_call  = (AppCompatImageView) findViewById(R.id.img_call );
         progressDialog = new ProgressDialog(OwnerProfile.this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Getting rooms....");

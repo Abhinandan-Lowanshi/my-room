@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ import com.example.myroom.app.map.MapDetailsActivity;
 import com.example.myroom.app.new_ui_adapter.Image_Show_Adapter;
 import com.example.myroom.app.owerprofile.OwnerProfile;
 import com.example.myroom.app.retrofit.ApiClient;
+import com.example.myroom.app.reviews.ReviewActivity;
 import com.example.myroom.app.roomdetails.RoomDetailsImage;
 import com.example.myroom.app.roomdetails.RoomDetailsMain;
 import com.example.myroom.app.roomdetails.RoomDetailsMainData;
@@ -58,7 +60,8 @@ import zoom.TouchImageView;
 public class Room_Detais_Activity extends AppCompatActivity implements OnMapReadyCallback, Image_Show_Adapter.UpdateImageInterafce, AdapterRoomDetailsViewPager.ClicktPost {
     RecyclerView all_pic_rec;
     private RelativeLayout rl_map_layout;
-    AppCompatImageView img_back, room_image, room_image_second;
+    AppCompatImageView img_back, room_image, room_image_second,img_call ,img_whatsapp;
+    private TextView tv_review;
     private ImageView img_handleMapSize;
     String name, mobile, room_id;
     private GoogleMap mMap;
@@ -78,6 +81,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
     private BaseDotsIndicator dotsIndicator;
     private String user_id_owner = "";
    private boolean isFillMap = true;
+   private    RoomDetailsMainData roomDetailsMainData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,10 +92,76 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
         final ScrollView scroll = (ScrollView) findViewById(R.id.scroll);
         ImageView transparent = (ImageView) findViewById(R.id.imagetrans);
 
+        tv_review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Room_Detais_Activity.this, ReviewActivity.class);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                intent.putExtra(AppSession.ROOM_ID , room_id);
+                startActivity(intent);
+            }
+        });
         img_handleMapSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setHeigth(isFillMap);
+
+            }
+        });
+
+        img_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                try {
+                if(roomDetailsMainData.getRmOwnMbleNum()!=null&&roomDetailsMainData.getRmOwnMbleNum()!="" )
+                {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" +roomDetailsMainData.getRmOwnMbleNum()));
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+                }
+
+                }catch (Exception e)
+                {
+                     e.printStackTrace();
+                }
+
+            }
+        }); img_whatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                try {
+                    if(roomDetailsMainData.getRmOwnMbleNum()!=null&&roomDetailsMainData.getRmOwnMbleNum()!="" )
+                    {
+                        String contact = "+91"+(roomDetailsMainData.getRmOwnMbleNum()); // use country code with your phone number
+                        String url = "https://api.whatsapp.com/send?phone=" + contact;
+                        try {
+                            PackageManager pm = Room_Detais_Activity.this.getPackageManager();
+                            pm.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
+                            Intent i = new Intent(Intent.ACTION_VIEW);
+                            i.setData(Uri.parse(url));
+                            //i.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+
+                            startActivity(i);
+                        } catch (PackageManager.NameNotFoundException e) {
+                            Toast.makeText(Room_Detais_Activity.this, "Whatsapp app not installed in your phone", Toast.LENGTH_SHORT).show();
+                            e.printStackTrace();
+                        }
+                    }
+
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+
+
+
+
 
             }
         });
@@ -231,6 +301,8 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
         all_pic_rec = (RecyclerView) findViewById(R.id.all_pic_rec);
         rl_map_layout = (RelativeLayout) findViewById(R.id.rl_map_layout);
         img_back = (AppCompatImageView) findViewById(R.id.img_back);
+        img_whatsapp = (AppCompatImageView) findViewById(R.id.img_whatsapp);
+        img_call  = (AppCompatImageView) findViewById(R.id.img_call );
         room_image = (AppCompatImageView) findViewById(R.id.room_image);
         room_image_second = (AppCompatImageView) findViewById(R.id.room_image_second);
         view_location_details = (TextView) findViewById(R.id.view_location_details);
@@ -243,6 +315,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
         tv_furnised = (TextView) findViewById(R.id.tv_furnised);
         availbility = (TextView) findViewById(R.id.availbility);
         tv_owner_name = (TextView) findViewById(R.id.tv_owner_name);
+        tv_review = (TextView) findViewById(R.id.tv_review);
         tv_mobile = (TextView) findViewById(R.id.tv_mobile);
         tv_rent = (TextView) findViewById(R.id.tv_rent);
         img_handleMapSize = (ImageView) findViewById(R.id.img_handleMapSize);
@@ -250,7 +323,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
         dotsIndicator = (WormDotsIndicator) findViewById(R.id.dots_indicator);
 //        name = getIntent().getStringExtra("name");
         ViewGroup.LayoutParams params = rl_map_layout.getLayoutParams();
-        params.height = 400;
+        params.height = 600;
         rl_map_layout.setLayoutParams(params);
         room_id = getIntent().getStringExtra("room_id");
 //        mobile = getIntent().getStringExtra("mobile");
@@ -311,8 +384,9 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
 
                     if (response.isSuccessful()) {
                         if (response.body().getStatus() == true) {
-                            RoomDetailsMainData roomDetailsMainData = response.body().getData();
+                             roomDetailsMainData = response.body().getData();
                             user_id_owner = String.valueOf(roomDetailsMainData.getRmUsrFkey());
+
 
                             loadUI(roomDetailsMainData, clicktPost);
 
@@ -411,12 +485,12 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
         ViewGroup.LayoutParams params = rl_map_layout.getLayoutParams();
         if (isFull) {
            isFillMap = false;
-            params.height = 900;
+            params.height = 1000;
             img_handleMapSize.setImageResource(R.drawable.ic_baseline_fullscreen_exit_24);
         }
         else {
             isFillMap = true;
-            params.height = 400;
+            params.height = 600;
             img_handleMapSize.setImageResource(R.drawable.ic_baseline_fullscreen_24);
         }
 
