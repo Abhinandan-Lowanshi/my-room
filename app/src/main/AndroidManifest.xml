@@ -26,6 +26,12 @@
         android:theme="@style/App_Theme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name="com.example.myroom.app.chat.User_Chat_Activity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.myroom.app.chat.Chat_Activity"
+            android:exported="false" />
+        <activity
             android:name="com.example.myroom.app.reviews.ReviewActivity"
             android:exported="false" />
         <activity
@@ -60,7 +66,7 @@
         <activity android:name=".app.new_ui.All_Roon_Activity" />
         <activity android:name=".app.new_ui.ChangePasword" />
         <activity android:name=".app.new_ui.MyAccount" />
-        <activity android:name=".app.new_ui.Search_Activity"></activity>
+        <activity android:name=".app.new_ui.Search_Activity" />
         <activity
             android:name=".app.LoginFinal"
             tools:ignore="DuplicateActivity" />

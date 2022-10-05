@@ -46,6 +46,7 @@
     <style name="spinner_style">
         <item name="android:paddingLeft">0dp</item>
         <item name="android:dropDownWidth">533dp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:showDividers">none</item>
         <item name="android:dividerHeight">0dp</item>
         <item name="android:popupBackground">#F3F3F4</item>

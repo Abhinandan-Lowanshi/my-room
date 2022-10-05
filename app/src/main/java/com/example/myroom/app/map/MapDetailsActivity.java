@@ -248,8 +248,8 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
           LatLng destination = new LatLng(lat, lon);
         DrawRouteMaps.getInstance(this,0,this)
                 .draw(origin, destination, mMap);
-        DrawMarker.getInstance(this).draw(mMap, origin, R.drawable.location_origon, "Origin Location");
-        DrawMarker.getInstance(this).draw(mMap, destination, R.drawable.location_destinition, "Destination Location");
+        DrawMarker.getInstance(this).draw(mMap, origin, R.drawable.location_origon, "Your Location");
+        DrawMarker.getInstance(this).draw(mMap, destination, R.drawable.location_destinition, "Your Destination");
         LatLngBounds bounds = new LatLngBounds.Builder()
                 .include(origin).include(destination)
                 .build();

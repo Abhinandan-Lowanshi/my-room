@@ -95,7 +95,7 @@
                 >
                 <TextView
                     android:layout_width="wrap_content"
-                    android:textSize="11dp"
+                    android:textSize="@dimen/_8sdp"
                     android:layout_height="wrap_content"
                     android:text="Forgot your password?"
                     ></TextView>
@@ -103,7 +103,7 @@
                     android:layout_width="wrap_content"
                     android:textColor="@color/black"
                     android:id="@+id/ForgotPassword"
-                    android:textSize="11dp"
+                    android:textSize="@dimen/_8sdp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:text="Get help."
@@ -134,7 +134,7 @@
                     android:layout_width="wrap_content"
                     android:textColor="@color/black"
                     android:id="@+id/signup"
-                    android:textSize="11dp"
+                    android:textSize="@dimen/_8sdp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:text="Not on MyRoom yet?Sign in."

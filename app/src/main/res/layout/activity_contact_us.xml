@@ -107,16 +107,16 @@
                               android:src="@drawable/ic_baseline_settings_phone_24"
                               android:layout_height="@dimen/_17sdp"
                               ></androidx.appcompat.widget.AppCompatImageView>
-                  <androidx.appcompat.widget.AppCompatTextView
-                      android:layout_width="wrap_content"
-                      android:layout_centerVertical="true"
-                      android:textSize="@dimen/_12sdp"
-                      android:id="@+id/tv_phone"
-                      android:layout_toRightOf="@id/img_phone"
-                      android:layout_marginLeft="@dimen/_10sdp"
-                      android:text="7049836854"
-                      android:layout_height="wrap_content"
-                      ></androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_toRightOf="@id/img_phone"
+                            android:text="7049836854"
+                           android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>
 
                            </RelativeLayout>
                     <RelativeLayout
@@ -134,16 +134,16 @@
                               android:src="@drawable/whatspp"
                               android:layout_height="@dimen/_17sdp"
                               ></androidx.appcompat.widget.AppCompatImageView>
-                  <androidx.appcompat.widget.AppCompatTextView
-                      android:layout_width="wrap_content"
-                      android:layout_centerVertical="true"
-                      android:textSize="@dimen/_12sdp"
-                      android:layout_toRightOf="@id/img_phone"
-                      android:layout_marginLeft="@dimen/_10sdp"
-                      android:text=" 7049836854"
-                      android:id="@+id/tv_whatsapp"
-                      android:layout_height="wrap_content"
-                      ></androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_whatsapp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_toRightOf="@id/img_phone"
+                            android:text=" 7049836854"
+                            android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>
 
                            </RelativeLayout>
                     <RelativeLayout
@@ -160,16 +160,16 @@
                               android:src="@drawable/ic_baseline_email_24"
                               android:layout_height="@dimen/_17sdp"
                               ></androidx.appcompat.widget.AppCompatImageView>
-                  <androidx.appcompat.widget.AppCompatTextView
-                      android:layout_width="wrap_content"
-                      android:layout_centerVertical="true"
-                      android:textSize="@dimen/_12sdp"
-                      android:id="@+id/tv_email"
-                      android:layout_toRightOf="@id/img_phone"
-                      android:layout_marginLeft="@dimen/_10sdp"
-                      android:text=" abhinandanlowanshi@gmail.com"
-                      android:layout_height="wrap_content"
-                      ></androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_toRightOf="@id/img_phone"
+                            android:text=" abhinandanlowanshi@gmail.com"
+                            android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>
 
                            </RelativeLayout>
 

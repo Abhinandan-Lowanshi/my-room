@@ -60,7 +60,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Abhinandan lowanshi"
-                android:textColor="@color/black"></TextView>
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp"></TextView>
 
             <TextView
                 android:id="@+id/tv_owner_mobile"
@@ -68,7 +69,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3sdp"
                 android:text="+91 7049836854"
-                android:textColor="@color/black"></TextView>
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp"></TextView>
 
             <TextView
                 android:id="@+id/tv_size"
@@ -76,7 +78,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3sdp"
                 android:text="Single room"
-                android:textColor="@color/black"></TextView>
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp"></TextView>
 
             <TextView
                 android:id="@+id/tv_rent"
@@ -84,13 +87,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3sdp"
                 android:text="5400"
-                android:textColor="@color/black"></TextView>
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp"></TextView>
 
             <TextView
                 android:id="@+id/tv_full_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3sdp"
+                android:textSize="@dimen/_9sdp"
                 android:text="House no 84 , vijay nagar , indore"
                 android:textColor="@color/black"></TextView>
 
@@ -98,14 +103,15 @@
 
 
         <TextView
+            android:id="@+id/tv_view_full_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ll_top"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:id="@+id/tv_view_full_details"
             android:layout_marginTop="@dimen/_20sdp"
             android:text="View full details"
+            android:textSize="@dimen/_10sdp"
             android:textColor="#124EE6"></TextView>
 
     </RelativeLayout>

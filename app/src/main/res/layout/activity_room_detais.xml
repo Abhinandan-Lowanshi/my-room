@@ -222,7 +222,7 @@
                         android:layout_marginLeft="@dimen/_7sdp"
                         android:text="Single Room"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp"></androidx.appcompat.widget.AppCompatTextView>
+                        android:textSize="@dimen/_9sdp"></androidx.appcompat.widget.AppCompatTextView>
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_rent"
@@ -233,7 +233,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_20sdp"
                         android:textColor="#0BCD0D"
-                        android:textSize="@dimen/_11sdp"></androidx.appcompat.widget.AppCompatTextView>
+                        android:textSize="@dimen/_9sdp"></androidx.appcompat.widget.AppCompatTextView>
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/img_location"
@@ -250,7 +250,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/_2sdp"
                         android:layout_toRightOf="@id/img_location"
-                        android:textColor="#454545"></androidx.appcompat.widget.AppCompatTextView>
+                        android:textColor="#454545"
+                        android:textSize="@dimen/_9sdp"></androidx.appcompat.widget.AppCompatTextView>
 
                 </RelativeLayout>
 
@@ -287,7 +288,7 @@
                 android:layout_marginRight="@dimen/_8sdp"
                 android:text="Details"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"></androidx.appcompat.widget.AppCompatTextView>
+                android:textSize="@dimen/_11sdp"></androidx.appcompat.widget.AppCompatTextView>
 
 
             <androidx.cardview.widget.CardView
@@ -315,14 +316,16 @@
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
                             android:text="Parking facility"
-                            android:textColor="#454545"></TextView>
+                            android:textColor="#454545"
+                            android:textSize="@dimen/_9sdp"></TextView>
 
                         <TextView
                             android:id="@+id/tv_parking"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=""
-                            android:textColor="#454545"></TextView>
+                            android:textColor="#454545"
+                            android:textSize="@dimen/_9sdp"></TextView>
 
                     </LinearLayout>
 
@@ -336,15 +339,16 @@
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
                             android:text="Which flor"
-
-                            android:textColor="#454545"></TextView>
+                            android:textColor="#454545"
+                            android:textSize="@dimen/_9sdp"></TextView>
 
                         <TextView
                             android:id="@+id/which_flor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=""
-                            android:textColor="#454545"></TextView>
+                            android:textColor="#454545"
+                            android:textSize="@dimen/_9sdp"></TextView>
 
                     </LinearLayout>
 
@@ -358,14 +362,16 @@
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
                             android:text="Dependency"
-                            android:textColor="#454545"></TextView>
+                            android:textColor="#454545"
+                            android:textSize="@dimen/_9sdp"></TextView>
 
                         <TextView
                             android:id="@+id/tv_dependency"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=""
-                            android:textColor="#454545"></TextView>
+                            android:textColor="#454545"
+                            android:textSize="@dimen/_9sdp"></TextView>
 
                     </LinearLayout>
 
@@ -379,14 +385,16 @@
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
                             android:text="Furnished"
-                            android:textColor="#454545"></TextView>
+                            android:textColor="#454545"
+                            android:textSize="@dimen/_9sdp"></TextView>
 
                         <TextView
                             android:id="@+id/tv_furnised"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=""
-                            android:textColor="#454545"></TextView>
+                            android:textColor="#454545"
+                            android:textSize="@dimen/_9sdp"></TextView>
 
                     </LinearLayout>
 
@@ -400,14 +408,16 @@
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
                             android:text="Availability"
-                            android:textColor="#454545"></TextView>
+                            android:textColor="#454545"
+                            android:textSize="@dimen/_9sdp"></TextView>
 
                         <TextView
                             android:id="@+id/availbility"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=""
-                            android:textColor="#454545"></TextView>
+                            android:textColor="#454545"
+                            android:textSize="@dimen/_9sdp"></TextView>
 
                     </LinearLayout>
 
@@ -425,7 +435,7 @@
                 android:layout_marginRight="@dimen/_8sdp"
                 android:text="Owner Details"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"></androidx.appcompat.widget.AppCompatTextView>
+                android:textSize="@dimen/_11sdp"></androidx.appcompat.widget.AppCompatTextView>
 
 
             <androidx.cardview.widget.CardView
@@ -448,6 +458,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:layout_marginRight="@dimen/_10sdp"
+                        android:textSize="@dimen/_11sdp"
                         android:text="View Owner Profile"
                         android:textColor="@color/theme_green"></TextView>
 
@@ -468,6 +479,7 @@
                                 android:layout_width="@dimen/_100sdp"
                                 android:layout_height="wrap_content"
                                 android:text="Owner Name"
+                                android:textSize="@dimen/_9sdp"
                                 android:textColor="#454545"></TextView>
 
                             <TextView
@@ -475,6 +487,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=""
+                                android:textSize="@dimen/_9sdp"
                                 android:textColor="#454545"></TextView>
 
                         </LinearLayout>
@@ -489,6 +502,7 @@
                                 android:layout_width="@dimen/_100sdp"
                                 android:layout_height="wrap_content"
                                 android:text="Mobile"
+                                android:textSize="@dimen/_9sdp"
                                 android:textColor="#454545"></TextView>
 
                             <TextView
@@ -496,6 +510,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=""
+                                android:textSize="@dimen/_9sdp"
                                 android:textColor="#454545"></TextView>
 
                         </LinearLayout>
@@ -543,16 +558,16 @@
                         android:orientation="horizontal">
 
                         <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_call"
                             android:layout_width="@dimen/_30sdp"
                             android:layout_height="@dimen/_30sdp"
-                            android:id="@+id/img_call"
                             android:src="@drawable/call_icone1" />
 
                         <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_whatsapp"
                             android:layout_width="@dimen/_30sdp"
                             android:layout_height="@dimen/_30sdp"
                             android:layout_marginLeft="@dimen/_10sdp"
-                            android:id="@+id/img_whatsapp"
                             android:src="@drawable/whatsapp" />
 
                     </LinearLayout>
@@ -571,7 +586,7 @@
                 android:inputType="textUri"
                 android:text="Description"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"></androidx.appcompat.widget.AppCompatTextView>
+                android:textSize="@dimen/_11sdp"></androidx.appcompat.widget.AppCompatTextView>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_description"
@@ -579,6 +594,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_des"
                 android:layout_marginLeft="@dimen/_8sdp"
+                android:textSize="@dimen/_9sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_8sdp"
                 android:layout_marginBottom="@dimen/_13sdp"
@@ -595,6 +611,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_8sdp"
                     android:layout_marginRight="@dimen/_8sdp"
+                    android:textSize="@dimen/_1sdp"
                     android:text="Location on Map"
 
                     ></TextView>

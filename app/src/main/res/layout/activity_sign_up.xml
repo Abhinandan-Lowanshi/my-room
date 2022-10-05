@@ -104,36 +104,36 @@
                 android:layout_marginTop="20dp"
                 android:drawableRight="@drawable/ic_baseline_star_24"
                 android:text="Name"
+                android:textSize="@dimen/_9sdp"
                 android:textColor="@color/black"></TextView>
 
 
             <EditText
                 android:id="@+id/ed_name"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittextshap"
                 android:ems="10"
                 android:hint="Enter name"
-
                 android:maxLines="1"
                 android:paddingLeft="13dp"
                 android:singleLine="true"
-
-                android:textSize="15dp"></EditText>
+                android:textSize="@dimen/_9sdp"></EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:drawableRight="@drawable/ic_baseline_star_24"
                 android:text="Surname"
+                android:textSize="@dimen/_9sdp"
                 android:textColor="@color/black"></TextView>
             <EditText
                 android:id="@+id/rd_surname"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_marginTop="10dp"
                 android:paddingRight="5dp"
                 android:background="@drawable/edittextshap"
@@ -141,24 +141,23 @@
                 android:hint="Enter Surname"
                 android:maxLines="1"
                 android:paddingLeft="13dp"
-
+                android:textSize="@dimen/_9sdp"
                 android:singleLine="true"
-                android:textSize="15dp"
-
                 ></EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:drawableRight="@drawable/ic_baseline_star_24"
                 android:text="Email"
+                android:textSize="@dimen/_9sdp"
                 android:textColor="@color/black"></TextView>
             <EditText
                 android:id="@+id/ed_email"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittextshap"
                 android:ems="10"
@@ -166,8 +165,7 @@
                 android:maxLines="1"
                 android:paddingLeft="13dp"
                 android:singleLine="true"
-                android:textSize="15dp"
-
+                android:textSize="@dimen/_9sdp"
                 ></EditText>
             <TextView
                 android:layout_width="wrap_content"
@@ -183,14 +181,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="40dp"
+                android:textSize="@dimen/_9sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:drawableRight="@drawable/ic_baseline_star_24"
                 android:text="Mobile no"
                 android:textColor="@color/black"></TextView>
             <EditText
                 android:id="@+id/ed_mobile"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittextshap"
                 android:ems="10"
@@ -208,36 +207,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="40dp"
+                android:textSize="@dimen/_9sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:drawableRight="@drawable/ic_baseline_star_24"
                 android:text="Permanent Address"
                 android:textColor="@color/black"></TextView>
             <EditText
                 android:id="@+id/ed_permanent"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_marginTop="10dp"
+                android:textSize="@dimen/_9sdp"
                 android:background="@drawable/edittextshap"
                 android:ems="10"
                 android:hint="Enter permanent address"
                 android:maxLines="1"
                 android:paddingLeft="13dp"
                 android:singleLine="true"
-                android:textSize="15dp"
-
                 ></EditText>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:drawableRight="@drawable/ic_baseline_star_24"
                 android:text="Present Address"
+                android:textSize="@dimen/_9sdp"
                 android:textColor="@color/black"></TextView>
             <EditText
                 android:id="@+id/ed_present"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittextshap"
                 android:ems="10"
@@ -245,37 +245,36 @@
                 android:maxLines="1"
                 android:paddingLeft="13dp"
                 android:singleLine="true"
-                android:textSize="15dp"
-
+                android:textSize="@dimen/_9sdp"
                 ></EditText>
 
             <TextView
                 android:id="@+id/tv_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:textSize="@dimen/_9sdp"
                 android:textColor="@color/black"
                 android:drawableRight="@drawable/ic_baseline_star_24"
-                android:text="Password "
-                android:textSize="15dp"></TextView>
+                android:text="Password "></TextView>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="password must be more 8 characters long "
-                android:textSize="12dp"></TextView>
+                android:textSize="@dimen/_7sdp"></TextView>
 
             <EditText
                 android:id="@+id/ed_password"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:background="@drawable/edittextshap"
                 android:ems="10"
                 android:hint="Enter password"
                 android:maxLines="1"
                 android:paddingLeft="13dp"
                 android:singleLine="true"
-                android:textSize="15dp"
+                android:textSize="@dimen/_9sdp"
 
                 ></EditText>
             <TextView
@@ -292,15 +291,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:drawableRight="@drawable/ic_baseline_star_24"
                 android:text="Re-enter Password"
+                android:textSize="@dimen/_9sdp"
                 android:textColor="@color/black"></TextView>
 
             <EditText
                 android:id="@+id/ed_re_passord"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@drawable/edittextshap"
                 android:ems="10"
@@ -308,7 +308,7 @@
                 android:maxLines="1"
                 android:paddingLeft="13dp"
                 android:singleLine="true"
-                android:textSize="15dp"
+                android:textSize="@dimen/_9sdp"
 
                 ></EditText>
             <TextView
@@ -336,13 +336,14 @@
             <Button
                 android:id="@+id/submit"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="center"
                 android:textAllCaps="false"
                 android:layout_marginTop="60dp"
                 android:layout_marginBottom="100dp"
                 android:background="@drawable/mybutton"
                 android:text="Submit"
+                android:textSize="@dimen/_9sdp"
                 android:textColor="@color/white"></Button>
 
             <ImageView

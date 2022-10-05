@@ -238,8 +238,11 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         initView(view);
-        if(appSession.getMainlat()=="" || appSession.getMainlat()==null)
-        checkRunTimePermission();
+        String lat = appSession.getMainlat();
+        Log.d(TAG, "appSession: "+lat);
+        if(appSession.getMainlat()=="0") {
+            checkRunTimePermission();
+        }
 
      rec_nearbyroom.addOnScrollListener(new RecyclerView.OnScrollListener() {
          @Override
@@ -252,18 +255,18 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
              }
          }
 
-         @Override
-         public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-             super.onScrolled(recyclerView, dx, dy);
-             currentItems = linearLayoutManager.getChildCount();
-             totalItems = linearLayoutManager.getItemCount();
-             scrolledItems = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
-             if(isUserScroll&&(scrolledItems ==2))
-             {
-                 Log.d(TAG, "endScrolll");
-             }
-
-         }
+//         @Override
+//         public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+//             super.onScrolled(recyclerView, dx, dy);
+//             currentItems = linearLayoutManager.getChildCount();
+//             totalItems = linearLayoutManager.getItemCount();
+//             scrolledItems = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
+//             if(isUserScroll&&(scrolledItems ==2))
+//             {
+//                 Log.d(TAG, "endScrolll");
+//             }
+//
+//         }
      });
         scrooling(3);
         manager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
@@ -528,8 +531,8 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity().getApplicationContext());
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.container);
         rec_nearbyroom = (RecyclerView)view.findViewById(R.id.rec_nearbyroom);
-        linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.HORIZONTAL, true);
-        rec_nearbyroom.setLayoutManager(linearLayoutManager);
+//        linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.HORIZONTAL, true);
+//        rec_nearbyroom.setLayoutManager(linearLayoutManager);
         ll_signal = (LinearLayout) view.findViewById(R.id.ll_signal);
         rce_room_type = (RecyclerView)view.findViewById(R.id.rce_room_type);
         rec_recomended = (RecyclerView)view.findViewById(R.id.rec_recomended);
@@ -778,14 +781,16 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
 
                                 appSession.setMainlat(String.valueOf(lattitude_1));
                                 appSession.setMainlon(String.valueOf(longitude_1));
-
-
+                                address =addresses.get(0).getSubLocality()+", "+ addresses.get(0).getPostalCode() + ", " + addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
+                                 tv_city.setText(address);
+                                 appSession.setCityCurrent(address);
+                              loadHome();
 
                             }
 
 
 
-                                                        if (location.getAccuracy() < 8.00) {
+                            if (location.getAccuracy() < 8.00) {
                                 single_1.setAlpha(1f);
                                 single_2.setAlpha(1f);
                                 single_3.setAlpha(1f);
@@ -1208,7 +1213,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
 
                 try {
                     mSwipeRefreshLayout.setRefreshing(false);
-                    Log.d(TAG, "onResponse: Abhiiii");
+
 
                     if (response.isSuccessful()) {
                         RoomDetailsModel roomDetailsModel = response.body();
@@ -1217,6 +1222,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
 
                             if(roomDetailsModel.getData().size()!=0)
                             {
+                                Log.d(TAG, "roomDetailsModel: " + roomDetailsModel.toString());
                                 rl_nearbylocation.setVisibility(View.VISIBLE);
                                 data.clear();
                                 tv_more_nearby.setVisibility(View.VISIBLE);

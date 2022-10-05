@@ -52,7 +52,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
 
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14sdp"></androidx.appcompat.widget.AppCompatTextView>
+                android:textSize="@dimen/_13sdp"></androidx.appcompat.widget.AppCompatTextView>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_user_email"
@@ -100,7 +100,7 @@
                         android:layout_marginTop="@dimen/_20sdp"
                         android:text="@string/acount_info"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"></androidx.appcompat.widget.AppCompatTextView>
+                        android:textSize="@dimen/_9sdp"></androidx.appcompat.widget.AppCompatTextView>
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/edit_profile"
@@ -117,6 +117,7 @@
                         android:id="@+id/tv_mobile_no"
                         android:layout_width="wrap_content"
                         android:textColor="#4A4949"
+                        android:textSize="@dimen/_9sdp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/account_info"
                         android:layout_marginLeft="@dimen/_12sdp"
@@ -125,6 +126,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_email"
+                        android:textSize="@dimen/_9sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_mobile_no"
@@ -137,6 +139,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_email"
+                        android:textSize="@dimen/_9sdp"
                         android:layout_marginLeft="@dimen/_12sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:text="Current Address :- "></androidx.appcompat.widget.AppCompatTextView>
@@ -148,6 +151,7 @@
                         android:layout_below="@+id/tv_current_address"
                         android:layout_marginLeft="@dimen/_12sdp"
                         android:layout_marginTop="@dimen/_5sdp"
+                        android:textSize="@dimen/_9sdp"
                         android:layout_marginBottom="@dimen/_20sdp"
                         android:text="Permanent Address :- "></androidx.appcompat.widget.AppCompatTextView>
 
@@ -237,7 +241,8 @@
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:layout_toRightOf="@+id/img_edit_profile"
                         android:text="@string/settings"
-                        android:textColor="@color/black"></androidx.appcompat.widget.AppCompatTextView>
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
@@ -288,6 +293,7 @@
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:layout_toRightOf="@+id/img_edit_profile"
                         android:text="@string/editprfile"
+                        android:textSize="@dimen/_10sdp"
                         android:textColor="@color/black"></androidx.appcompat.widget.AppCompatTextView>
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="@dimen/_20sdp"
@@ -328,16 +334,17 @@
                         android:src="@drawable/chanage_password"
                         android:layout_height="@dimen/_30sdp"
                         ></androidx.appcompat.widget.AppCompatImageView>
+
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_change_password"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:textColor="@color/black"
-                        android:id="@+id/tv_change_password"
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:layout_toRightOf="@+id/img_change_password"
                         android:text="@string/change_password"
-                        ></androidx.appcompat.widget.AppCompatTextView>
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9sdp"></androidx.appcompat.widget.AppCompatTextView>
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
@@ -362,16 +369,15 @@
                         android:src="@drawable/chanage_password"
                         android:layout_height="@dimen/_30sdp"
                         ></androidx.appcompat.widget.AppCompatImageView>
+
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_change_password"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:textColor="@color/black"
-                        android:id="@+id/tv_change_password"
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:layout_toRightOf="@+id/img_change_password"
-                        android:text="@string/change_password"
-                        ></androidx.appcompat.widget.AppCompatTextView>
+                        android:textColor="@color/black"></androidx.appcompat.widget.AppCompatTextView>
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
@@ -413,16 +419,17 @@
                         android:src="@drawable/privacy"
                         android:layout_height="@dimen/_30sdp"
                         ></androidx.appcompat.widget.AppCompatImageView>
+
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_privacy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:textColor="@color/black"
-                        android:id="@+id/tv_privacy"
+                        android:textSize="@dimen/_10sdp"
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:layout_toRightOf="@+id/img_privacy"
                         android:text="@string/privacy_policy"
-                        ></androidx.appcompat.widget.AppCompatTextView>
+                        android:textColor="@color/black"></androidx.appcompat.widget.AppCompatTextView>
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
@@ -462,16 +469,17 @@
                         android:src="@drawable/contact_us"
                         android:layout_height="@dimen/_30sdp"
                         ></androidx.appcompat.widget.AppCompatImageView>
+
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_contact_us"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:textColor="@color/black"
-                        android:id="@+id/tv_contact_us"
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:layout_toRightOf="@+id/img_privacy"
                         android:text="@string/contact_us"
-                        ></androidx.appcompat.widget.AppCompatTextView>
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
@@ -515,6 +523,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"
                         android:id="@+id/tv_about_us"
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:layout_toRightOf="@+id/img_privacy"
@@ -606,15 +615,16 @@
                         android:src="@drawable/ic_baseline_login_24"
                         android:layout_height="@dimen/_30sdp"
                         ></androidx.appcompat.widget.AppCompatImageView>
+
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:textColor="@color/black"
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:layout_toRightOf="@+id/img_log"
                         android:text="@string/logout"
-                        ></androidx.appcompat.widget.AppCompatTextView>
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/black"></androidx.appcompat.widget.AppCompatTextView>
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
