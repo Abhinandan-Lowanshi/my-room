@@ -21,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myroom.R;
+import com.example.myroom.app.chat.Chat_Activity;
+import com.example.myroom.app.chat.User_Chat_Activity;
 import com.example.myroom.app.fragment.HomeFragment;
 import com.example.myroom.app.fragment.NewFavFragment;
 import com.example.myroom.app.fragment.NewMyAccountFragment;
@@ -40,7 +42,7 @@ public class NewHomeActivityFR extends AppCompatActivity {
     private ChipNavigationBar chipNavigationBar;
     private TextView no_internet;
     private CardView card_red , card_green;
-    private AppCompatImageView img_notification,img_search;
+    private AppCompatImageView img_notification,img_search , img_chat;
     private Timer task1;
     private int count =0;
     OffilnChecker offilnChecker;
@@ -82,6 +84,7 @@ public class NewHomeActivityFR extends AppCompatActivity {
 
                                 img_search.setVisibility(View.VISIBLE);
                                 img_notification.setVisibility(View.VISIBLE);
+                                img_chat.setVisibility(View.VISIBLE);
                                 main_rl.setVisibility(View.VISIBLE);
                                 no_internet_rl.setVisibility(View.GONE);
                                 card_red.setVisibility(View.GONE);
@@ -90,6 +93,7 @@ public class NewHomeActivityFR extends AppCompatActivity {
                             }else {
                                 img_search.setVisibility(View.GONE);
                                 img_notification.setVisibility(View.GONE);
+                                img_chat.setVisibility(View.GONE);
                                 main_rl.setVisibility(View.GONE);
                                 no_internet_rl.setVisibility(View.VISIBLE);
                                 no_internet.setText("Offline");
@@ -122,6 +126,14 @@ public class NewHomeActivityFR extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(NewHomeActivityFR.this, Notification_Activity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            }
+        });  img_chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(NewHomeActivityFR.this, User_Chat_Activity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
@@ -188,6 +200,7 @@ public class NewHomeActivityFR extends AppCompatActivity {
         card_red = (CardView) findViewById(R.id.card_red);
         card_green = (CardView) findViewById(R.id.card_green);
         img_notification = (AppCompatImageView) findViewById(R.id.img_notification);
+        img_chat = (AppCompatImageView) findViewById(R.id.img_chat);
         Intent intent = getIntent();
         String  msg = intent.getStringExtra("Notification");
         if(msg!=null)

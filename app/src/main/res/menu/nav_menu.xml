@@ -9,28 +9,33 @@
         android:id="@+id/home"
         android:icon="@drawable/home"
         android:title="Home"
+        android:textSize="@dimen/_50sdp"
+        app:cnb_iconColor="@color/black"
         app:cnb_backgroundColor="@color/navbg" />
 
     <item
         android:id="@+id/forever_rent"
         android:icon="@drawable/upload"
         android:title="upload"
+        app:cnb_iconColor="@color/black"
         app:cnb_backgroundColor="@color/navbg" />
 
     <item
         android:id="@+id/Saved"
         android:icon="@drawable/mypost"
         android:title="My post"
+        app:cnb_iconColor="@color/black"
         app:cnb_backgroundColor="@color/navbg" />
     <item
         android:id="@+id/favourite"
         android:icon="@drawable/like"
         android:title="Favourite"
+        app:cnb_iconColor="@color/black"
         app:cnb_backgroundColor="@color/navbg" />
     <item
         android:id="@+id/MyAccount"
         android:icon="@drawable/account"
-
+        app:cnb_iconColor="@color/black"
         android:title="My Account"
         app:cnb_backgroundColor="@color/navbg" />
 

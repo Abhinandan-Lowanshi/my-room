@@ -64,6 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:textSize="@dimen/_9sdp"
                 android:textColor="@color/black"></TextView>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -110,8 +111,18 @@
                 android:layout_height="@dimen/_20sdp"
                 android:layout_centerInParent="true"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:layout_toLeftOf="@+id/img_notification"
+                android:layout_toLeftOf="@+id/img_chat"
                 android:src="@drawable/ic_baseline_search_24"></androidx.appcompat.widget.AppCompatImageView>
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_chat"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_toLeftOf="@+id/img_notification"
+                android:src="@drawable/ic_baseline_chat_24"></androidx.appcompat.widget.AppCompatImageView>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_notification"
@@ -140,18 +151,21 @@
              android:layout_height="match_parent"
              android:layout_above="@id/bottom_nav_bar"
              ></FrameLayout>
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:id="@+id/bottom_nav_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
-        app:cnb_textAppearance="@color/quantum_yellow"
-        app:cnb_unselectedColor="#50504E"
-        app:cnb_badgeColor="@color/red"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
 
-        android:fadingEdge="horizontal"
-        app:cnb_menuResource="@menu/nav_menu" />
+         <com.ismaeldivita.chipnavigation.ChipNavigationBar
+             android:id="@+id/bottom_nav_bar"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/_45sdp"
+             android:layout_alignParentBottom="true"
+             android:layout_gravity="bottom"
+             android:fadingEdge="horizontal"
+             app:cnb_radius="@dimen/_18sdp"
+             app:cnb_badgeColor="@color/red"
+             app:itemTextAppearanceActive="@style/MenuItems"
+             app:cnb_menuResource="@menu/nav_menu"
+             app:cnb_iconSize = "@dimen/_14sdp"
+             app:cnb_textAppearance="@color/quantum_yellow"
+             app:cnb_unselectedColor="#50504E" />
      </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"

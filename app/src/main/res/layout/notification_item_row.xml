@@ -19,6 +19,7 @@
             android:id="@+id/tv_title"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
+            android:textSize="@dimen/_9sdp"
             android:layout_marginLeft="@dimen/_6sdp">
 
         </androidx.appcompat.widget.AppCompatTextView>
@@ -27,7 +28,7 @@
             android:layout_width="wrap_content"
             android:textColor="@color/black"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_9sdp"
+             android:textSize="@dimen/_9sdp"
              android:layout_below="@+id/tv_title"
             android:id="@+id/tv_content"
              android:layout_marginTop="@dimen/_4sdp"
@@ -38,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_time"
+            android:textSize="@dimen/_9sdp"
             android:layout_marginRight="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_alignParentEnd="true"
