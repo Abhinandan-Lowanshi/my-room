@@ -91,9 +91,9 @@ public class LoginFinal extends AppCompatActivity {
 
         mPermission = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
             if (isGranted) {
-                // FCM SDK (and your app) can post notifications.
+
             } else {
-                // TODO: Inform user that that your app will not show notifications.
+
             }
         });
 
@@ -111,13 +111,8 @@ public class LoginFinal extends AppCompatActivity {
                                 return;
                             }else {
                                 new AppSession(LoginFinal.this).setToken(task.getResult());
-                                // Get new FCM registration token
-
 
                             }
-
-                            // Log and toast
-
                         }
                     });
             firebasetoken = new AppSession(LoginFinal.this).getToken();
@@ -177,17 +172,10 @@ public class LoginFinal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 signup.setEnabled(false);
-
-                Toast.makeText(getApplicationContext(),"Wait...",Toast.LENGTH_LONG).show();
-
                 Intent i  = new Intent(LoginFinal.this, SignUp.class);
                 overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-
                 startActivity(i);
-
                 signup.setEnabled(true);
-
-
             }
 
         });
@@ -198,11 +186,6 @@ public class LoginFinal extends AppCompatActivity {
                 Intent intent = new Intent(LoginFinal.this, ForgotPassword.class);
                 overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                 startActivity(intent);
-
-
-
-
-
             }
         });
 
@@ -212,10 +195,6 @@ public class LoginFinal extends AppCompatActivity {
             public void onClick(View view) {
 
                 try {
-//                    Intent intent = new Intent(LoginFinal.this, NewHomeActivityFR.class);
-//                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-//                    startActivity(intent);
-//                    finish();
 
                     if (email.getText().toString().isEmpty()) {
                         email.setFocusable(true);
@@ -274,7 +253,6 @@ public class LoginFinal extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<LoginModel> call, Throwable t) {
-//                                Toast.makeText(LoginFinal.this, "Something went wrong ", Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
                             }
                         });
@@ -292,10 +270,6 @@ public class LoginFinal extends AppCompatActivity {
                     Animation shake11 = AnimationUtils.loadAnimation(LoginFinal.this, R.anim.shake);
                     password.startAnimation(shake11);
                 }
-
-
-
-
             }
         });
 
@@ -360,19 +334,4 @@ public class LoginFinal extends AppCompatActivity {
              login.setAlpha(.4f);
          }
     }
-
-//    private void askNotificationPermission() {
-//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
-//                PackageManager.PERMISSION_GRANTED) {
-//            // FCM SDK (and your app) can post notifications.
-//        } else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
-//            // TODO: display an educational UI explaining to the user the features that will be enabled
-//            //       by them granting the POST_NOTIFICATION permission. This UI should provide the user
-//            //       "OK" and "No thanks" buttons. If the user selects "OK," directly request the permission.
-//            //       If the user selects "No thanks," allow the user to continue without notifications.
-//        } else {
-//            // Directly ask for the permission
-//            mPermission.launch(Manifest.permission.POST_NOTIFICATIONS);
-//        }
-//    }
 }

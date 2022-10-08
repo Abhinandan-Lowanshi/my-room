@@ -27,6 +27,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name="com.example.myroom.app.chat.User_Chat_Activity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
             android:name="com.example.myroom.app.chat.Chat_Activity"

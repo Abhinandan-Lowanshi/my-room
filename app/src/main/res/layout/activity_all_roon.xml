@@ -106,7 +106,6 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/toolbar"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_15sdp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"></androidx.recyclerview.widget.RecyclerView>
     </RelativeLayout>
 

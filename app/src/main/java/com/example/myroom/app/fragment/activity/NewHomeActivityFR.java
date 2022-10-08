@@ -84,7 +84,7 @@ public class NewHomeActivityFR extends AppCompatActivity {
 
                                 img_search.setVisibility(View.VISIBLE);
                                 img_notification.setVisibility(View.VISIBLE);
-                                img_chat.setVisibility(View.VISIBLE);
+//                                img_chat.setVisibility(View.VISIBLE);
                                 main_rl.setVisibility(View.VISIBLE);
                                 no_internet_rl.setVisibility(View.GONE);
                                 card_red.setVisibility(View.GONE);
@@ -93,7 +93,7 @@ public class NewHomeActivityFR extends AppCompatActivity {
                             }else {
                                 img_search.setVisibility(View.GONE);
                                 img_notification.setVisibility(View.GONE);
-                                img_chat.setVisibility(View.GONE);
+//                                img_chat.setVisibility(View.GONE);
                                 main_rl.setVisibility(View.GONE);
                                 no_internet_rl.setVisibility(View.VISIBLE);
                                 no_internet.setText("Offline");
