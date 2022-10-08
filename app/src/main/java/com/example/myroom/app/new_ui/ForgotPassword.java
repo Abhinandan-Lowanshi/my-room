@@ -214,68 +214,6 @@ public class ForgotPassword extends AppCompatActivity {
                     }
              }
          });
-//        submit_otp.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                try {
-//
-//
-//                    if (otp.isEmpty()) {
-//                        tv_otp.setError("Otp can't be empty");
-//                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-//                        Animation shake = AnimationUtils.loadAnimation(ForgotPassword.this, R.anim.shake);
-//                        tv_otp.startAnimation(shake);
-//
-//                    } else {
-//                        progressDialog.setMessage("Otp verifying .....");
-//                        progressDialog.show();
-//                        JsonObject jsonObject = new JsonObject();
-//                        jsonObject.addProperty("email", email);
-//                        jsonObject.addProperty("otp", otp);
-//                        ApiClient.getClient().verifyOtp(jsonObject).enqueue(new Callback<OtpVerificationModel>() {
-//                            @Override
-//                            public void onResponse(Call<OtpVerificationModel> call, Response<OtpVerificationModel> response) {
-//
-//                                if (response.isSuccessful()) {
-//                                    progressDialog.dismiss();
-//                                    if (response.body().getStatus() == true) {
-//                                        if (response.body().getCode() == 200) {
-//                                            Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
-//
-//                                            geSubmitPasswordLayout();
-//                                        }
-//
-//                                    } else {
-//                                        Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
-//
-//                                    }
-//
-//                                } else {
-//                                    progressDialog.dismiss();
-//
-//                                    Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
-//                                }
-//
-//                            }
-//
-//                            @Override
-//                            public void onFailure(Call<OtpVerificationModel> call, Throwable t) {
-//                                progressDialog.dismiss();
-//
-//                            }
-//                        });
-//
-//                    }
-//                }catch (Exception e)
-//                {
-//                    progressDialog.dismiss();
-//
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        });
-
         submit_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

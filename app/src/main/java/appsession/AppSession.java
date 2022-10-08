@@ -248,7 +248,7 @@ public class AppSession {
     }
 
 
-    public String getNotificationStatus() { return pref.getString("notification_st", ""); }
+    public String getNotificationStatus() { return pref.getString("notification_st", "true"); }
     public void setNotificationStatus(String notification_tp) {
         editor.putString("notification_st", notification_tp);
         editor.commit();
