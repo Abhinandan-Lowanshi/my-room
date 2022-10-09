@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MyRoom</string>
-    <string name="open">open</string>
-    <string name="close">close</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
     <string name="textSize">24</string>
     <string name="location">Location</string>
     <string name="recomended">Recomended</string>

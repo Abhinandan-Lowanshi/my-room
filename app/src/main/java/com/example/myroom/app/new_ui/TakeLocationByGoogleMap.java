@@ -11,8 +11,8 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -29,17 +29,19 @@ import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myroom.R;
+import com.example.myroom.app.LoginFinal;
+import com.example.myroom.app.loginmanage.ManageSession;
 import com.example.myroom.app.map.DrawMarker;
 import com.example.myroom.app.map.DrawRouteMaps;
-import com.example.myroom.app.map.MapDetailsActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -161,9 +163,41 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
         Intent returnIntent = new Intent();
         setResult(Activity.RESULT_OK,returnIntent);
         finish();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+
     }
 
+     void showDialogue()
+     {
+         final Dialog dialog = new Dialog(TakeLocationByGoogleMap.this);
+         dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
+         dialog.setCancelable(true);
+         dialog.setContentView(R.layout.addressdialogue);
+         dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+         //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                 WindowManager.LayoutParams.MATCH_PARENT);
+         AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
+         Button close = dialog.findViewById(R.id.close);
+         close.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 dialog.dismiss();
+             }
+         });  img_close.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+             dialog.dismiss();
+         }
+     });
+
+
+
+         dialog.show();
+     };
     private void initView() {
+        showDialogue();
         lat = getIntent().getDoubleExtra("lat",0.000);
         lon = getIntent().getDoubleExtra("lon",0.0000);
         origin = new LatLng(lat, lon);
@@ -804,7 +838,7 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
         mMap.addMarker(new MarkerOptions().position(latLng).title("name"));
         lattitute_1 = latLng.latitude;
         longitude_1 = latLng.longitude;
-        Toast.makeText(getApplicationContext(),"onMapLongClick "+lattitute_1+"  "+longitude_1,Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Your house",Toast.LENGTH_LONG).show();
 
 
 
