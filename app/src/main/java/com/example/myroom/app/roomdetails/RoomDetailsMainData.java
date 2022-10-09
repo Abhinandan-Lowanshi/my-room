@@ -63,6 +63,10 @@ public class RoomDetailsMainData {
     @SerializedName("rm_status")
     @Expose
     private String rmStatus;
+    @SerializedName("favorite_key")
+    @Expose
+    private Boolean favoriteKey;
+
     @SerializedName("images")
     @Expose
     private ArrayList<RoomDetailsImage> images = null;
@@ -130,6 +134,14 @@ public class RoomDetailsMainData {
     public void setRmPrkingAvblity(String rmPrkingAvblity) {
         this.rmPrkingAvblity = rmPrkingAvblity;
     }
+    public Boolean getFavoriteKey() {
+        return favoriteKey;
+    }
+
+    public void setFavoriteKey(Boolean favoriteKey) {
+        this.favoriteKey = favoriteKey;
+    }
+
 
     public String getRmDepndecy() {
         return rmDepndecy;

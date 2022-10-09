@@ -154,19 +154,43 @@
                 android:text="Email"
                 android:textSize="@dimen/_9sdp"
                 android:textColor="@color/black"></TextView>
-            <EditText
-                android:id="@+id/ed_email"
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/edittextshap"
-                android:ems="10"
-                android:hint="Enter email"
-                android:maxLines="1"
-                android:paddingLeft="13dp"
-                android:singleLine="true"
-                android:textSize="@dimen/_9sdp"
-                ></EditText>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+
+                >
+
+                <EditText
+                    android:id="@+id/ed_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="#FAF7F7"
+                    android:ems="10"
+                    android:hint="Enter email"
+                    android:maxLines="1"
+                    android:paddingLeft="13dp"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_9sdp"></EditText>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/verify"
+                    android:id="@+id/img_verifyEmail"
+                    android:layout_alignParentEnd="true"
+                    android:visibility="gone"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    ></androidx.appcompat.widget.AppCompatImageView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_gravity="end"
+                android:layout_height="wrap_content">
             <TextView
                 android:layout_width="wrap_content"
                 android:textSize="@dimen/_7sdp"
@@ -176,6 +200,18 @@
                 android:id="@+id/email_validater"
                 android:layout_height="wrap_content"
                 ></TextView>
+
+                <TextView
+                    android:id="@+id/tv_isEmailVrfd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="Verify email"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_10sdp"
+                    android:visibility="gone"></TextView>
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -199,7 +235,7 @@
                 android:maxLines="1"
                 android:paddingLeft="13dp"
                 android:singleLine="true"
-                android:textSize="15dp"
+                android:textSize="@dimen/_9sdp"
 
                 ></EditText>
 

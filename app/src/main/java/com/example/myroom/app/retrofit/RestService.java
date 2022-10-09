@@ -14,11 +14,14 @@ import com.example.myroom.app.home.RoomDetailsModel;
 import com.example.myroom.app.login.LoginModel;
 import com.example.myroom.app.myaccount.MyAccountModel;
 import com.example.myroom.app.mypost.RoomStatusModel;
+import com.example.myroom.app.notificationsetting.NotificationStatusModel;
 import com.example.myroom.app.pushnotification.Notification.UpdateNotificationModel;
 import com.example.myroom.app.pushnotification.NotificationModelAPI;
 import com.example.myroom.app.roomdetails.RoomDetailsMain;
 import com.example.myroom.app.signup.SignUpData;
 import com.example.myroom.app.signup.SignUpModel;
+import com.example.myroom.app.signup.emailverification.EmailVericationModel;
+import com.example.myroom.app.signup.emailverification.VerifiyOtpModel;
 import com.google.gson.JsonObject;
 
 import okhttp3.MultipartBody;
@@ -46,6 +49,15 @@ public interface RestService {
 
     @POST("updatePassword")
     Call<ChangePasswordModel>updatePassword(@Body JsonObject jsonObject);
+
+     @POST("sendEmailOtp")
+    Call<EmailVericationModel>sendEmailOtp(@Body JsonObject jsonObject);
+
+     @POST("verifyEmailotp")
+    Call<VerifiyOtpModel>verifyEmailotp(@Body JsonObject jsonObject);
+
+     @POST("getUserNotification")
+    Call<NotificationStatusModel>getUserNotification(@Body JsonObject jsonObject);
 
     @POST("verfyOtp")
     Call<OtpVerificationModel>verifyOtp(@Body JsonObject jsonObject);

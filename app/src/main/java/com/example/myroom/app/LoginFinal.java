@@ -36,6 +36,8 @@ import com.example.myroom.app.login.LoginData;
 import com.example.myroom.app.login.LoginModel;
 import com.example.myroom.app.loginmanage.ManageSession;
 import com.example.myroom.app.new_ui.ForgotPassword;
+import com.example.myroom.app.notificationsetting.NotificationSetting;
+import com.example.myroom.app.notificationsetting.NotificationStatusModel;
 import com.example.myroom.app.pushnotification.FirebaseTokenGetter;
 import com.example.myroom.app.retrofit.ApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -81,6 +83,9 @@ public class LoginFinal extends AppCompatActivity {
 
 
     }
+
+
+
     private void run()
     {
         if(650<heightInch)
@@ -232,6 +237,7 @@ public class LoginFinal extends AppCompatActivity {
                                         ManageSession.Login(LoginFinal.this,String.valueOf(loginData.getUsrId()),loginData.getUsrFirstName()
                                         ,loginData.getUsrLastName(),loginData.getUsrEmail(),loginData.getUsrPhone(),
                                                 loginData.getUsrParmentAdrss(),loginData.getUsrCurrentAdrss());
+                                        getNotificationStatus();
                                         Intent intent = new Intent(LoginFinal.this, NewHomeActivityFR.class);
                                         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
                                         startActivity(intent);
@@ -320,6 +326,40 @@ public class LoginFinal extends AppCompatActivity {
             password.setText("");
             email.clearFocus();
             password.clearFocus();
+        }
+
+    }
+    private void getNotificationStatus() {
+        try {
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("user_id", String.valueOf(new AppSession(LoginFinal.this).getUserID()));
+            ApiClient.getClient().getUserNotification(jsonObject).enqueue(new Callback<NotificationStatusModel>() {
+                @Override
+                public void onResponse(Call<NotificationStatusModel> call, Response<NotificationStatusModel> response) {
+
+                    if(response.isSuccessful())
+                    {
+                        if(response.body().getStatus()==true)
+                        {
+                            if(response.body().getData().getIsNotify().equalsIgnoreCase("1"))
+                                new AppSession(LoginFinal.this).setNotificationStatus("true");
+                            else if (response.body().getData().getIsNotify().equalsIgnoreCase("0"))
+                                new AppSession(LoginFinal.this).setNotificationStatus("false");
+                        }
+                    }
+
+
+                }
+
+                @Override
+                public void onFailure(Call<NotificationStatusModel> call, Throwable t) {
+                    Log.d("TAG", "onFailure: ");
+                }
+            });
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
         }
 
     }

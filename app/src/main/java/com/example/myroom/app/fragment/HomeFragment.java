@@ -1096,6 +1096,8 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
 //                intent.putExtra("lat",roomData.getRmLatitude());
 //                intent.putExtra("lon",roomData.getRmLongitude());
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+
                 dialog.dismiss();
             }
         });
@@ -1244,7 +1246,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
 
                             }else {
                                 rl_nearbylocation.setVisibility(View.INVISIBLE);
-                                Toast.makeText(getActivity().getApplicationContext(), "Room list not found", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getActivity().getApplicationContext(), "Room list not found", Toast.LENGTH_SHORT).show();
 
                             }
 

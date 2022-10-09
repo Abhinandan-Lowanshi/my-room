@@ -92,11 +92,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginRight="@dimen/_20sdp"
-                        android:alpha=".6"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:alpha="1"
                         android:visibility="invisible"
                         android:text="@string/more"
-                        android:textColor="@color/black"
+                        android:textColor="@color/theme_green"
                         android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>
                 </RelativeLayout>
 

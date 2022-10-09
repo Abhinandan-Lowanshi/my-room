@@ -156,8 +156,8 @@ public class NotificationSetting extends AppCompatActivity {
              {
                  JsonObject jsonObject = new JsonObject();
                  jsonObject.addProperty("user_id",appsession.getUserID());
-                 jsonObject.addProperty("usr_latitude",lat);
-                 jsonObject.addProperty("usr_longitude",lon);
+//                 jsonObject.addProperty("usr_latitude",lat);
+//                 jsonObject.addProperty("usr_longitude",lon);
                  jsonObject.addProperty("isNotify" , status);
                  ApiClient.getClient().updateUserNotificationDetails(jsonObject).enqueue(new Callback<UpdateNotificationModel>() {
                      @Override
@@ -166,7 +166,7 @@ public class NotificationSetting extends AppCompatActivity {
                          if(response.isSuccessful())
                          {
                              UpdateNotificationModel  notificationModel = response.body();
-                             if(notificationModel.getStatus()==false)
+                             if(notificationModel.getStatus()==true)
                              {
                                  if(status)
                                  {
@@ -201,6 +201,40 @@ public class NotificationSetting extends AppCompatActivity {
               e.printStackTrace();
          }
 
+
+    }
+    private void getNotificationStatus() {
+        try {
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("user_id", String.valueOf(new AppSession(NotificationSetting.this).getUserID()));
+            ApiClient.getClient().getUserNotification(jsonObject).enqueue(new Callback<NotificationStatusModel>() {
+                @Override
+                public void onResponse(Call<NotificationStatusModel> call, Response<NotificationStatusModel> response) {
+
+                    if(response.isSuccessful())
+                    {
+                        if(response.body().getStatus()==true)
+                        {
+                            if(response.body().getData().getIsNotify().equalsIgnoreCase("1"))
+                                new AppSession(NotificationSetting.this).setNotificationStatus("true");
+                            else if (response.body().getData().getIsNotify().equalsIgnoreCase("0"))
+                                new AppSession(NotificationSetting.this).setNotificationStatus("false");
+                        }
+                    }
+
+
+                }
+
+                @Override
+                public void onFailure(Call<NotificationStatusModel> call, Throwable t) {
+                    Log.d("TAG", "onFailure: ");
+                }
+            });
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
     }
     public void checkRunTimePermission() {
@@ -267,14 +301,7 @@ public class NotificationSetting extends AppCompatActivity {
 
 
             if (ActivityCompat.checkSelfPermission(NotificationSetting.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(NotificationSetting.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                //  return;
+
 
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -352,61 +379,7 @@ public class NotificationSetting extends AppCompatActivity {
 //                            Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
 
                         }
-//                        if (toast_check == true) {
-//                            toast_check = false;
-//                            if (location.getAccuracy() < 8.00) {
-//                                single_1.setAlpha(1f);
-//                                single_2.setAlpha(1f);
-//                                single_3.setAlpha(1f);
-//                                single_4.setAlpha(1f);
-//                                single_5.setAlpha(1f);
-//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level less than 8m", Toast.LENGTH_LONG).show();
 //
-//                            } else if (location.getAccuracy() < 20.00) {
-//                                single_1.setAlpha(1f);
-//                                single_2.setAlpha(1f);
-//                                single_3.setAlpha(1f);
-//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 10m", Toast.LENGTH_LONG).show();
-//
-//                                single_4.setAlpha(1f);
-//                                single_5.setAlpha(.2f);
-//
-//                            } else if (location.getAccuracy() < 40.0) {
-//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 20m", Toast.LENGTH_LONG).show();
-//
-//                                single_1.setAlpha(1f);
-//                                single_2.setAlpha(1f);
-//                                single_3.setAlpha(1f);
-//                                single_4.setAlpha(.2f);
-//                                single_5.setAlpha(.2f);
-//
-//                            } else if (location.getAccuracy() < 60.00) {
-//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 50m", Toast.LENGTH_LONG).show();
-//
-//                                single_1.setAlpha(1f);
-//                                single_2.setAlpha(1f);
-//                                single_3.setAlpha(.2f);
-//                                single_4.setAlpha(.2f);
-//                                single_5.setAlpha(.2f);
-//                            } else if (location.getAccuracy() < 800.00) {
-//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 500m", Toast.LENGTH_LONG).show();
-//
-//                                single_1.setAlpha(1f);
-//                                single_2.setAlpha(.2f);
-//                                single_3.setAlpha(.2f);
-//                                single_4.setAlpha(.2f);
-//                                single_5.setAlpha(.2f);
-//                            } else {
-//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level more then 1200m", Toast.LENGTH_LONG).show();
-//                                single_1.setAlpha(.2f);
-//                                single_2.setAlpha(.2f);
-//                                single_3.setAlpha(.2f);
-//                                single_4.setAlpha(.2f);
-//                                single_5.setAlpha(.2f);
-//                            }
-//                        }
-//
-
 
                     }
 
@@ -420,11 +393,11 @@ public class NotificationSetting extends AppCompatActivity {
 
         }catch (Exception e)
         {
-//            Log.d(TAG, "getcurrentlocation: "+e.getLocalizedMessage());
 
         }
     }
     private void initView() {
+//        getNotificationStatus() ;
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(NotificationSetting.this);
         appsession= new AppSession(NotificationSetting.this);
         progressDialog = new ProgressDialog(NotificationSetting.this);

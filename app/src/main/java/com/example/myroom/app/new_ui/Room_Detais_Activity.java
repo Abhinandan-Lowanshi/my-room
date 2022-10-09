@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
@@ -28,6 +29,7 @@ import com.bumptech.glide.Glide;
 import com.example.myroom.R;
 import com.example.myroom.app.AdapterRoomDetailsViewPager;
 import com.example.myroom.app.banner_pkg.BannerAdapter;
+import com.example.myroom.app.fav.FavModel;
 import com.example.myroom.app.map.MapDetailsActivity;
 import com.example.myroom.app.new_ui_adapter.Image_Show_Adapter;
 import com.example.myroom.app.owerprofile.OwnerProfile;
@@ -69,6 +71,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
     private String data = "";
     private LatLng origin;
     private int counter = 0;
+    private ProgressDialog progressDialog;
     private double lat, lon;
     private AdapterRoomDetailsViewPager bannerAdapter;
     private ViewPager vpHomeFirstBanner;
@@ -82,6 +85,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
     private String user_id_owner = "";
    private boolean isFillMap = true;
    private    RoomDetailsMainData roomDetailsMainData;
+   private ImageView heart_fill , heart_empty ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,15 +100,100 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Room_Detais_Activity.this, ReviewActivity.class);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                 intent.putExtra(AppSession.ROOM_ID , room_id);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+
             }
         });
         img_handleMapSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setHeigth(isFillMap);
+
+            }
+        });
+        heart_empty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+
+                    JsonObject jsonObject = new JsonObject();
+                    jsonObject.addProperty("user_id",new AppSession(Room_Detais_Activity.this).getUserID());
+                    jsonObject.addProperty("room_id",room_id );
+                    jsonObject.addProperty("fav_type", "1");
+                    ApiClient.getClient().addToFav(jsonObject).enqueue(new Callback<FavModel>() {
+                        @Override
+                        public void onResponse(Call<FavModel> call, Response<FavModel> response) {
+
+                            if(response.isSuccessful())
+                            {
+                                if(response.body().getStatus()==true)
+                                {
+                                    heart_fill.setVisibility(View.VISIBLE);
+                                    heart_empty.setVisibility(View.GONE);
+                                    Toast.makeText(Room_Detais_Activity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+
+                                }else Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                            }else  Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+
+
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<FavModel> call, Throwable t) {
+                            Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+         heart_fill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+
+                    JsonObject jsonObject = new JsonObject();
+                    jsonObject.addProperty("user_id",new AppSession(Room_Detais_Activity.this).getUserID());
+                    jsonObject.addProperty("room_id",room_id );
+                    jsonObject.addProperty("fav_type", "0");
+                    ApiClient.getClient().addToFav(jsonObject).enqueue(new Callback<FavModel>() {
+                        @Override
+                        public void onResponse(Call<FavModel> call, Response<FavModel> response) {
+
+                            if(response.isSuccessful())
+                            {
+                                if(response.body().getStatus()==true)
+                                {
+                                    heart_fill.setVisibility(View.GONE);
+                                    heart_empty.setVisibility(View.VISIBLE);
+                                    Toast.makeText(Room_Detais_Activity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+
+                                }else Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                            }else  Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+
+
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<FavModel> call, Throwable t) {
+                            Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+
 
             }
         });
@@ -207,6 +296,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
                 if (!user_id_owner.equalsIgnoreCase("")) {
                     Intent intent = new Intent(Room_Detais_Activity.this, OwnerProfile.class);
                     intent.putExtra(AppSession.USER_ID_ROOM_OWNER, user_id_owner);
+                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                     startActivity(intent);
                 }
             }
@@ -219,6 +309,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
                 intent.putExtra("lat", lat);
                 intent.putExtra("lon", lon);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
             }
         });
     }
@@ -319,7 +410,13 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
         tv_mobile = (TextView) findViewById(R.id.tv_mobile);
         tv_rent = (TextView) findViewById(R.id.tv_rent);
         img_handleMapSize = (ImageView) findViewById(R.id.img_handleMapSize);
+        heart_empty = (ImageView) findViewById(R.id.heart_empty);
+        heart_fill = (ImageView) findViewById(R.id.heart_fill);
         vpHomeFirstBanner = (ViewPager) findViewById(R.id.banner);
+        progressDialog = new ProgressDialog(Room_Detais_Activity.this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading details....");
+        progressDialog.show();
         dotsIndicator = (WormDotsIndicator) findViewById(R.id.dots_indicator);
 //        name = getIntent().getStringExtra("name");
         ViewGroup.LayoutParams params = rl_map_layout.getLayoutParams();
@@ -375,12 +472,14 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
 
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("room_id", room_id);
+            jsonObject.addProperty("user_id", new AppSession(Room_Detais_Activity.this).getUserID());
 
 
             ApiClient.getClient().getRoomDetails(jsonObject).enqueue(new Callback<RoomDetailsMain>() {
                 @Override
                 public void onResponse(Call<RoomDetailsMain> call, Response<RoomDetailsMain> response) {
 
+                    progressDialog.dismiss();
 
                     if (response.isSuccessful()) {
                         if (response.body().getStatus() == true) {
@@ -399,12 +498,15 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
 
                 @Override
                 public void onFailure(Call<RoomDetailsMain> call, Throwable t) {
+
+                    progressDialog.dismiss();
 //                    Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG);
                 }
             });
 
         } catch (Exception e) {
             e.printStackTrace();
+            progressDialog.dismiss();
 //            Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG);
 
         }
@@ -443,6 +545,16 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
         // origin = new LatLng( 22.4298713, 77.42529669999999);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        if(roomDetailsMainData.getFavoriteKey()==true)
+        {
+            heart_fill.setVisibility(View.VISIBLE);
+            heart_empty.setVisibility(View.GONE);
+        }else {
+            heart_fill.setVisibility(View.GONE);
+            heart_empty.setVisibility(View.VISIBLE
+            );
+        }
     }
 
     @Override

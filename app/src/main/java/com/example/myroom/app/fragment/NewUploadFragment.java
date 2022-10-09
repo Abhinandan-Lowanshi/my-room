@@ -22,6 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -95,7 +96,7 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
     private Spinner sp_size_of_room,spiiner_available,sp_Furnished_Status,sp_parking,sp_independenc;
     private EditText rent,houseNo,colony,city,ed_onwhichflor,ed_name,ed_state,ed_available,ed_mobiele,ed_description;
     TextView ed_size;
-    AppCompatEditText tv_full_address;
+    AppCompatTextView tv_full_address;
     private ArrayList<Uri> imageList = new ArrayList<Uri>();
     private ArrayList<PicHolder_final> image_caption_list = new ArrayList<PicHolder_final>();
     // TODO: Rename parameter arguments, choose names that match
@@ -564,7 +565,7 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
         ed_available = (EditText)view.findViewById(R.id.ed_available);
         ed_onwhichflor = (EditText)view.findViewById(R.id.ed_onwhichflor);
         ed_size = (TextView)view.findViewById(R.id.ed_size);
-        tv_full_address = (AppCompatEditText)view.findViewById(R.id.tv_full_address);
+        tv_full_address = (AppCompatTextView) view.findViewById(R.id.tv_full_address);
         rent = (EditText)view.findViewById(R.id.ed_rent1);
         houseNo = (EditText)view.findViewById(R.id.ed_houseNO1);
         colony = (EditText)view.findViewById(R.id.ed_colony1);

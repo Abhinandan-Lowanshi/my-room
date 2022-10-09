@@ -10,33 +10,33 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-
         android:layout_height="match_parent"
         >
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             >
-<!--            android:scaleType="centerCrop"-->
-
-
             <ImageView
                 android:id="@+id/image_banner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/whatspp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nearest to your location"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
                 android:background="@color/white"
-                android:textColor="@color/card_green"
-                android:layout_margin="@dimen/_2sdp"
                 android:paddingHorizontal="@dimen/_5sdp"
                 android:paddingVertical="@dimen/_1sdp"
-                android:textSize="@dimen/_8sdp"
-                ></TextView>
+                android:visibility="gone"
+                android:text="Nearest to your location"
+                android:textColor="@color/card_green"
+                android:textSize="@dimen/_8sdp"></TextView>
               <View
                   android:layout_width="match_parent"
                   android:layout_height="@dimen/_33sdp"
@@ -48,9 +48,7 @@
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:layout_alignParentBottom="true"
-                android:layout_height="@dimen/_30sdp"
-                >
-
+                android:layout_height="@dimen/_30sdp">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -63,7 +61,7 @@
                 android:layout_above="@+id/tv_details"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="Fully furnised single room with parking is availble in your area at very low price 5100"
+                android:text="Fully furnised single room with parking is available in your area at very low price 5100"
                 android:textColor="@color/white"
                 android:textSize="15dp" />
 

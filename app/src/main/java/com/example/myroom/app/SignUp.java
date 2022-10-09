@@ -2,9 +2,11 @@ package com.example.myroom.app;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageView;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +17,8 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
@@ -24,11 +28,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myroom.R;
+import com.example.myroom.app.changeassword.ChangePasswordModel;
 import com.example.myroom.app.fragment.activity.NewHomeActivityFR;
 import com.example.myroom.app.loginmanage.ManageSession;
 import com.example.myroom.app.retrofit.ApiClient;
 import com.example.myroom.app.signup.SignUpData;
 import com.example.myroom.app.signup.SignUpModel;
+import com.example.myroom.app.signup.emailverification.EmailVericationModel;
+import com.example.myroom.app.signup.emailverification.VerifiyOtpModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,12 +51,15 @@ import retrofit2.Response;
 public class SignUp extends AppCompatActivity {
    private Button submit;
    private ProgressDialog progressDialog;
+   private ProgressDialog emailValidator;
    private FirebaseAuth mAuth;
-   AppSession appSession;
+   private  AppSession appSession;
+   private boolean isEmailVerified = false;
    private  String firebaseToken , passwordCK = "", repasswordCK="";
    AppCompatImageView img_back;
-   private TextView password_validater ,email_validater,re_password_validater,password_matched;
+   private TextView password_validater ,email_validater,re_password_validater,password_matched,tv_isEmailVrfd;
    private EditText name,surname,email,mobile,password,repassword,present,permanent;
+    private AppCompatImageView img_verifyEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +85,15 @@ public class SignUp extends AppCompatActivity {
 
              }
          });
+
+        tv_isEmailVrfd.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View v) {
+                sendOtp();
+
+            }
+        });
         password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -130,6 +149,130 @@ public class SignUp extends AppCompatActivity {
 
     }
 
+    private void sendOtp()
+    {
+         try {
+             if(!email.getText().toString().isEmpty())
+             {
+                 progressDialog.setMessage("Sending otp....");
+                 progressDialog.show();
+                 JsonObject jsonObject = new JsonObject();
+                 jsonObject.addProperty("email", email.getText().toString());
+
+                ApiClient.getClient().sendEmailOtp(jsonObject).enqueue(new Callback<EmailVericationModel>() {
+                    @Override
+                    public void onResponse(Call<EmailVericationModel> call, Response<EmailVericationModel> response) {
+
+                         if(response.isSuccessful())
+                         {
+                             progressDialog.dismiss();
+                             if(response.body().getStatus()==true)
+                             {
+                                 Toast.makeText(SignUp.this,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                                 isEmailVerifiedDialogue();
+                             }else {
+                                 Toast.makeText(SignUp.this,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                             }
+                         }else {
+                              Toast.makeText(SignUp.this,"Something went wrong",Toast.LENGTH_LONG).show();
+                             progressDialog.dismiss();
+                         }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<EmailVericationModel> call, Throwable t) {
+                        progressDialog.dismiss();
+                    }
+                });
+             }
+         }catch (Exception e)
+         {
+              e.printStackTrace();
+             progressDialog.dismiss();
+         }
+
+
+    }
+    private void isEmailVerifiedDialogue()
+    {
+        final Dialog dialog = new Dialog(SignUp.this);
+        dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.emaiverificationdialogue);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
+        AppCompatEditText tv_enter_otp = dialog.findViewById(R.id.tv_enter_otp);
+        AppCompatEditText tv_email = dialog.findViewById(R.id.tv_email);
+        Button submit = dialog.findViewById(R.id.submit);
+
+        tv_email.setText(email.getText().toString());
+        img_close.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            dialog.dismiss();
+        }
+    });
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                progressDialog.setTitle("Verifying otp...");
+                progressDialog.show();
+                String otp = "";
+                otp = tv_enter_otp.getText().toString();
+
+                if (otp.isEmpty())
+                {
+                    tv_enter_otp.setError("Otp can't be empty");
+                }else {
+
+                    JsonObject jsonObject = new JsonObject();
+                    jsonObject.addProperty("email", tv_email.getText().toString());
+                    jsonObject.addProperty("otp", otp);
+                    ApiClient.getClient().verifyEmailotp(jsonObject).enqueue(new Callback<VerifiyOtpModel>() {
+                        @Override
+                        public void onResponse(Call<VerifiyOtpModel> call, Response<VerifiyOtpModel> response) {
+                            progressDialog.dismiss();
+                            if(response.isSuccessful())
+                            {
+
+                                if(response.body().getStatus()==true)
+                                {
+                                     isEmailVerified=true;
+                                    dialog.dismiss();
+                                    email.setEnabled(false);
+                                    tv_isEmailVrfd.setVisibility(View.GONE);
+                                    img_verifyEmail.setVisibility(View.VISIBLE);
+                                    Toast.makeText(SignUp.this,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                                }else {
+                                    isEmailVerified=false;
+                                    Toast.makeText(SignUp.this,response.body().getMessage(),Toast.LENGTH_LONG).show();
+
+                                }
+                            }else {
+
+                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<VerifiyOtpModel> call, Throwable t) {
+                            progressDialog.dismiss();
+                        }
+                    });
+                }
+
+            }
+        });
+
+
+        dialog.show();
+    }
     @SuppressLint("ResourceAsColor")
     private void validatePassword(String charSequence) {
 
@@ -164,9 +307,10 @@ public class SignUp extends AppCompatActivity {
         if(SupportValidation.emailvalidation(charSequence))
         {
             email_validater.setVisibility(View.GONE);
+            tv_isEmailVrfd.setVisibility(View.VISIBLE);
 
         }else {
-
+            tv_isEmailVrfd.setVisibility(View.GONE);
             email_validater.setVisibility(View.VISIBLE);
         }
     }
@@ -214,10 +358,20 @@ public class SignUp extends AppCompatActivity {
                 Animation shake = AnimationUtils.loadAnimation(SignUp.this, R.anim.shake);
                 email.startAnimation(shake);
 
-            }  else if(!SupportValidation.emailvalidation(email_1))
+            }
+            else if(!SupportValidation.emailvalidation(email_1))
             {
                 email.setFocusable(true);
                 email.setError("Invalid email address");
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                Animation shake = AnimationUtils.loadAnimation(SignUp.this, R.anim.shake);
+                email.startAnimation(shake);
+
+            }
+            else if(isEmailVerified==false)
+            {
+                email.setFocusable(true);
+                Toast.makeText(SignUp.this,"Your email is not verified verify your email.",Toast.LENGTH_LONG).show();
                 overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                 Animation shake = AnimationUtils.loadAnimation(SignUp.this, R.anim.shake);
                 email.startAnimation(shake);
@@ -293,6 +447,8 @@ public class SignUp extends AppCompatActivity {
 
             }
             else {
+                progressDialog.setMessage("Signing....");
+
                 progressDialog.show();
                 JsonObject jsonObject = new JsonObject();
                 jsonObject.addProperty("firstName",name_1);
@@ -320,9 +476,11 @@ public class SignUp extends AppCompatActivity {
 
                                   if(signUpData!=null) {
 
-                                      ManageSession.Login(SignUp.this,String.valueOf(signUpData.getUsrId()),signUpData.getUsrFirstName()
-                                              ,signUpData.getUsrLastName(),signUpData.getUsrEmail(),signUpData.getUsrPhone(),
-                                              signUpData.getUsrParmentAdrss(),signUpData.getUsrCurrentAdrss());
+//                                      ManageSession.Login(SignUp.this,String.valueOf(signUpData.getUsrId()),signUpData.getUsrFirstName()
+//                                              ,signUpData.getUsrLastName(),signUpData.getUsrEmail(),signUpData.getUsrPhone(),
+//                                              signUpData.getUsrParmentAdrss(),signUpData.getUsrCurrentAdrss());
+//
+
 //                                      appSession.setIsLogin("1");
 ////                                      appSession.setCurrentPassword(password.getText().toString());
 //                                      appSession.setFname(signUpData.getUsrFirstName());
@@ -332,10 +490,11 @@ public class SignUp extends AppCompatActivity {
 //                                      appSession.setUserID(signUpData.getUsrId());
 //                                      appSession.setPresentAddress(signUpData.getUsrCurrentAdrss());
 //                                      appSession.setPermanentAddress(signUpData.getUsrParmentAdrss());
-                                      Intent intent = new Intent(SignUp.this, NewHomeActivityFR.class);
-                                      overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-                                      startActivity(intent);
-                                      finish();
+//                                      Intent intent = new Intent(SignUp.this, NewHomeActivityFR.class);
+//                                      overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                                      startActivity(intent);
+//                                      finish();
+                                      onBackPressed();
                                   }
 
                              }
@@ -408,6 +567,7 @@ public class SignUp extends AppCompatActivity {
                         firebaseToken = new AppSession(SignUp.this).getToken();
                         name = (EditText)findViewById(R.id.ed_name);
                         img_back = (AppCompatImageView) findViewById(R.id.img_back);
+                        img_verifyEmail = (AppCompatImageView) findViewById(R.id.img_verifyEmail);
                         surname = (EditText)findViewById(R.id.rd_surname);
                         mobile = (EditText)findViewById(R.id.ed_mobile);
                         password = (EditText)findViewById(R.id.ed_password);
@@ -415,6 +575,7 @@ public class SignUp extends AppCompatActivity {
                         email = (EditText)findViewById(R.id.ed_email);
                         re_password_validater = (TextView)findViewById(R.id.re_password_validater);
                         password_matched = (TextView)findViewById(R.id.password_matched);
+                        tv_isEmailVrfd = (TextView)findViewById(R.id.tv_isEmailVrfd);
                         password_validater = (TextView)findViewById(R.id.password_validater);
                         email_validater = (TextView)findViewById(R.id.email_validater);
                         permanent = (EditText)findViewById(R.id.ed_present);
