@@ -49,7 +49,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_7sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-
                 android:layout_toRightOf="@id/rm_size"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_9sdp"></androidx.appcompat.widget.AppCompatTextView>
@@ -71,10 +70,9 @@
                 android:layout_marginLeft="@dimen/_7sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_20sdp"
-                android:text="$3400"
-                android:textSize="@dimen/_9sdp"
+                android:maxWidth="@dimen/_100sdp"
                 android:textColor="#0BCD0D"
-              ></androidx.appcompat.widget.AppCompatTextView>
+                android:textSize="@dimen/_9sdp"></androidx.appcompat.widget.AppCompatTextView>
 
         </RelativeLayout>
 
@@ -123,11 +121,11 @@
                 android:id="@+id/tv_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_9sdp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_2sdp"
                 android:layout_toRightOf="@id/img_location"
-                android:text="971 Lakshmi nagar"></androidx.appcompat.widget.AppCompatTextView>
+                android:text="971 Lakshmi nagar"
+                android:textSize="@dimen/_9sdp"></androidx.appcompat.widget.AppCompatTextView>
         </RelativeLayout>
 
         <RelativeLayout

@@ -117,6 +117,7 @@
             android:background="@drawable/edittextshap"
             android:hint="Km"
             android:inputType="number"
+            android:maxLength="2"
             android:textAlignment="center"
             android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatEditText>
 
@@ -156,20 +157,22 @@
         android:id="@+id/rl_top_2"
         android:layout_height="wrap_content"
         >
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/_5sdp"
-            app:cardElevation="@dimen/_10sdp"
-            android:elevation="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-          android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_10sdp">
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:elevation="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardElevation="@dimen/_10sdp">
+
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_applied"
@@ -181,14 +184,14 @@
                     android:text="Sort"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_11sdp"></androidx.appcompat.widget.AppCompatTextView>
+
                 <CheckBox
                     android:layout_width="@dimen/_20sdp"
-                    android:layout_toRightOf="@+id/tv_applied"
-                    android:layout_marginTop="@dimen/_7sdp"
-                    android:visibility="gone"
-                    android:layout_marginBottom="@dimen/_8sdp"
                     android:layout_height="@dimen/_15sdp"
-                    ></CheckBox>
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_toRightOf="@+id/tv_applied"
+                    android:visibility="gone"></CheckBox>
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_filter"
@@ -205,7 +208,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_10sdp"
-
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_18sdp"
@@ -288,6 +290,7 @@
                                 android:background="@drawable/edittextshap"
                                 android:hint="  Min value"
                                 android:inputType="number"
+                                android:maxLength="12"
                                 android:textSize="@dimen/_12sdp"></androidx.appcompat.widget.AppCompatEditText>
 
                             <androidx.appcompat.widget.AppCompatEditText
@@ -299,6 +302,7 @@
                                 android:background="@drawable/edittextshap"
                                 android:hint="  Max value"
                                 android:inputType="number"
+                                android:maxLength="12"
                                 android:textSize="@dimen/_12sdp">
 
                             </androidx.appcompat.widget.AppCompatEditText>

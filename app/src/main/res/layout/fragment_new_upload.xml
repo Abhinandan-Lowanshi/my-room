@@ -414,7 +414,7 @@
                         android:maxLines="1"
                         android:paddingLeft="13dp"
                         android:paddingRight="5dp"
-
+                        android:maxLength="12"
                         android:singleLine="true"
                         android:textSize="@dimen/_10sdp"
 
@@ -589,10 +589,8 @@
                         android:ems="10"
                         android:gravity="top"
                         android:hint="@string/Description"
-                        android:maxLines="1"
                         android:paddingLeft="13dp"
                         android:paddingRight="5dp"
-
                         android:singleLine="true"
                         android:textSize="@dimen/_10sdp"
 

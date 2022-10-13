@@ -85,19 +85,19 @@
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1205" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/send_button.xml" value="0.1205" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_all_roon.xml" value="0.2" />
-        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_change_pasword.xml" value="0.2" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_change_pasword.xml" value="0.33" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_chat.xml" value="0.2" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_contact_us.xml" value="0.2" />
-        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_edit_profile.xml" value="0.16" />
-        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_forgot_password.xml" value="0.21" />
-        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_log_in_1.xml" value="0.33" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_log_in_1.xml" value="0.25" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_map_details.xml" value="0.2" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_new_home_fr.xml" value="0.25" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_notification_setting2.xml" value="0.2" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_owner_profile.xml" value="0.25" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_review.xml" value="0.25" />
-        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_room_detais.xml" value="0.23397635345364032" />
-        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_search.xml" value="0.25" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_room_detais.xml" value="0.32123411978221417" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_search.xml" value="0.18" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_take_location_by_google_map.xml" value="0.33" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_user_chat.xml" value="0.2" />
@@ -109,13 +109,14 @@
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_fav.xml" value="0.2" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_my_account.xml" value="0.33" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_my_post.xml" value="0.2" />
-        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_upload.xml" value="0.25" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_upload.xml" value="0.18" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/image_row.xml" value="0.10416666666666667" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/login_small.xml" value="0.2" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/logout_dialogue.xml" value="0.2" />
-        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/mypostrec.xml" value="0.2" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/mypostrec.xml" value="0.33" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/nearbylocation_row.xml" value="0.2" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/notification_item_row.xml" value="0.2" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/recomended_row.xml" value="0.25" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/reviwerow.xml" value="0.25" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/room_details_dialogue.xml" value="0.25" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/search_dialogue.xml" value="0.184375" />

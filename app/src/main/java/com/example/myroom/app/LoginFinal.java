@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -26,6 +27,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -67,6 +70,7 @@ public class LoginFinal extends AppCompatActivity {
     LinearLayout passlayout;
     private String firebasetoken;
     private  ActivityResultLauncher<String> mPermission;
+    private CheckBox checkbox_cr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +128,7 @@ public class LoginFinal extends AppCompatActivity {
 
 
         emailverification = (TextView) findViewById(R.id.resendEmaillink);
+        checkbox_cr = (CheckBox) findViewById(R.id.checkbox_cr);
         email = (TextInputEditText) findViewById(R.id.email);
         appSession = new AppSession(LoginFinal.this);
         passlayout = (LinearLayout) findViewById(R.id.passlayout);
@@ -135,6 +140,22 @@ public class LoginFinal extends AppCompatActivity {
         login = (Button)findViewById(R.id.login);
         login.setEnabled(false);
         login.setAlpha(.4f);
+
+
+
+        checkbox_cr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (!isChecked) {
+                    // hide password
+                    password.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                } else {
+                    // show password
+                    password.setInputType(InputType.TYPE_CLASS_TEXT);
+                }
+            }
+        });
+
         @SuppressLint("ResourceType") final Animation myAnim = AnimationUtils.loadAnimation(this, R.drawable.animation);
 
           email.addTextChangedListener(new TextWatcher() {

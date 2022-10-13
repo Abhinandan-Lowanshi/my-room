@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/_170sdp"
+    android:layout_width="@dimen/_190sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/_5sdp"
     android:layout_margin="@dimen/_5sdp"
@@ -16,7 +16,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_120sdp"
+            android:layout_height="@dimen/_150sdp"
             android:scaleType="centerCrop"
             android:src="@drawable/placeholder"
             ></androidx.appcompat.widget.AppCompatImageView>
@@ -81,7 +81,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_room_type"
-                android:layout_alignParentEnd="true">
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_3sdp">
 
                 <ImageView
                     android:id="@+id/heart_fill"
@@ -105,7 +106,7 @@
                 android:layout_height="@dimen/_11sdp"
                 android:layout_below="@+id/tv_room_type"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_2sdp"
                 android:src="@drawable/ic_baseline_location_black"></androidx.appcompat.widget.AppCompatImageView>
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -115,7 +116,7 @@
 
                 android:layout_below="@+id/tv_room_type"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_2sdp"
                 android:layout_toRightOf="@+id/img_location"
                 android:text="1961 old palasiya"
                 android:textSize="@dimen/_8sdp"></androidx.appcompat.widget.AppCompatTextView>
@@ -125,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
                 android:text="2000"
                 android:textColor="@color/themedark"
                 android:textSize="@dimen/_9sdp"></androidx.appcompat.widget.AppCompatTextView>

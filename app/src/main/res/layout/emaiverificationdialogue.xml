@@ -54,6 +54,7 @@
             android:hint="Enter Otp"
             android:inputType="number"
             android:maxLines="1"
+            android:maxLength="6"
             android:paddingLeft="13dp"
             android:paddingRight="5dp"
             android:singleLine="true"
