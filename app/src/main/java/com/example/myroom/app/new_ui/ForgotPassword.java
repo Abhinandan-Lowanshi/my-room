@@ -4,11 +4,19 @@ package com.example.myroom.app.new_ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +37,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
 
+import Adapter.SupportValidation;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,7 +47,12 @@ public class ForgotPassword extends AppCompatActivity {
     Button submit_email,submit_submit_changePassword,submit_otp;
     ProgressDialog progressDialog;
     String email,password,repassword,otp;
+    private RelativeLayout ll_hideShow_pass  ,ll_hideShow_repass ;
+    private CheckBox checkbox_pass , checkbox_repass;
     AppCompatEditText tv_email,tv_otp,tv_password,tv_re_enter_password;
+    private String repasswordCK="" ;
+    private String passwordCK="";
+    private TextView re_password_validater ,password_validater ,password_matched;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +66,72 @@ public class ForgotPassword extends AppCompatActivity {
 
             }
         });
+        tv_password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
 
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                passwordCK = String.valueOf(charSequence);
+                passwordMatchedOrNot();
+                validatePassword(String.valueOf(charSequence));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        tv_re_enter_password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                repasswordCK = String.valueOf(charSequence);
+                passwordMatchedOrNot();
+                validateRePassword(String.valueOf(charSequence));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        checkbox_pass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (!isChecked) {
+                    // hide password
+                    tv_password.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                } else {
+                    // show password
+                    tv_password.setInputType(InputType.TYPE_CLASS_TEXT);
+                }
+            }
+        });
+        checkbox_repass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (!isChecked) {
+                    // hide password
+                    tv_re_enter_password.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                } else {
+                    // show password
+                    tv_re_enter_password.setInputType(InputType.TYPE_CLASS_TEXT);
+                }
+            }
+        });
         submit_submit_changePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,9 +161,13 @@ public class ForgotPassword extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Password not matched",Toast.LENGTH_LONG).show();
 
                     }
-                    else if(tv_re_enter_password.getText().toString().length()<7)
+                    else if(!SupportValidation.passwordValidation_2(tv_password.getText().toString()))
                     {
-                        Toast.makeText(getApplicationContext(),"Password  can't be smaller then 7",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Invalid password",Toast.LENGTH_LONG).show();
+
+                    }if(!SupportValidation.passwordValidation_2(tv_re_enter_password.getText().toString()))
+                    {
+                        Toast.makeText(getApplicationContext(),"Invalid password",Toast.LENGTH_LONG).show();
 
                     }else
                     {
@@ -310,6 +392,8 @@ public class ForgotPassword extends AppCompatActivity {
     } private void geSubmitPasswordLayout() {
          tv_email.setVisibility(View.GONE);
         tv_password.setVisibility(View.VISIBLE);
+        ll_hideShow_pass.setVisibility(View.VISIBLE);
+        ll_hideShow_repass.setVisibility(View.VISIBLE);
         tv_re_enter_password.setVisibility(View.VISIBLE);
         submit_submit_changePassword.setVisibility(View.VISIBLE);
         submit_email.setVisibility(View.GONE);
@@ -319,11 +403,52 @@ public class ForgotPassword extends AppCompatActivity {
 
 
     }
+    private void passwordMatchedOrNot()
+    {
+        if(passwordCK.equals(repasswordCK))
+        {
+            password_matched.setVisibility(View.GONE);
+        }else {
+            password_matched.setVisibility(View.VISIBLE);
+        }
+    }
+    private void validatePassword(String charSequence) {
 
+        if(!SupportValidation.passwordValidation_2(charSequence))
+        {
+
+            password_validater.setVisibility(View.VISIBLE);
+
+        }else {
+            password_validater.setVisibility(View.GONE);
+
+
+        }
+    }
+    private void validateRePassword(String charSequence) {
+
+        if(!SupportValidation.passwordValidation_2(charSequence))
+        {
+
+            re_password_validater.setVisibility(View.VISIBLE);
+
+        }else {
+            re_password_validater.setVisibility(View.GONE);
+
+
+        }
+    }
     private void initview() {
         img_back = (AppCompatImageView)findViewById(R.id.img_back);
         tv_email = (AppCompatEditText) findViewById(R.id.tv_email);
         tv_otp = (AppCompatEditText) findViewById(R.id.tv_otp);
+        ll_hideShow_pass = (RelativeLayout) findViewById(R.id.ll_hideShow_pass);
+        ll_hideShow_repass = (RelativeLayout) findViewById(R.id.ll_hideShow_repass);
+        checkbox_pass = (CheckBox) findViewById(R.id.checkbox_pass);
+        re_password_validater = (TextView) findViewById(R.id.re_password_validater);
+        password_validater = (TextView) findViewById(R.id.password_validater);
+        password_matched = (TextView) findViewById(R.id.password_matched);
+        checkbox_repass = (CheckBox) findViewById(R.id.checkbox_repass);
         tv_password = (AppCompatEditText) findViewById(R.id.tv_password);
         tv_re_enter_password = (AppCompatEditText) findViewById(R.id.tv_re_enter_password);
         submit_email = (Button) findViewById(R.id.submit_email);

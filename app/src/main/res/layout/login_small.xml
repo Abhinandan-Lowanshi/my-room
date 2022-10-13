@@ -47,8 +47,7 @@
                 android:ems="10"
                 android:hint="Enter email"
                 android:layout_marginTop="60dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:maxLines="1"
                 android:paddingLeft="15dp"
                 android:singleLine="true"
@@ -63,13 +62,33 @@
                 android:inputType="textPassword"
                 android:password="true"
                 android:layout_marginTop="28dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:hint="Enter password"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textSize="15dp"
                 />
+            <LinearLayout
+                android:id="@+id/ll_hideShow_cr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkbox_cr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></CheckBox>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Show Password"
+                    android:textSize="@dimen/_9sdp"></TextView>
+            </LinearLayout>
+
             <Button
                 android:id="@+id/login"
                 android:layout_width="match_parent"

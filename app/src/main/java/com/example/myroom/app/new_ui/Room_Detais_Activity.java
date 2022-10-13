@@ -531,7 +531,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
         }
         tv_parking.setText(roomDetailsMainData.getRmPrkingAvblity());
         which_flor.setText(roomDetailsMainData.getRmFlor());
-        tv_rent.setText(getString(R.string.price_Samle) + roomDetailsMainData.getRmRent());
+        tv_rent.setText("Rent :- " +getString(R.string.price_Samle) + roomDetailsMainData.getRmRent());
         tv_address.setText(roomDetailsMainData.getRmHouseNo() + " ," + " " + roomDetailsMainData.getRmColny() + " ," + " " + roomDetailsMainData.getRmCity());
         tv_dependency.setText(roomDetailsMainData.getRmDepndecy());
         tv_description.setText(roomDetailsMainData.getRmDescription());

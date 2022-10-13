@@ -296,7 +296,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="password must be more 8 characters long "
+                android:text="password must be more 8 characters long and must have atleast  one special character, one Upper case, one lower case and one numeric character"
                 android:textSize="@dimen/_7sdp"></TextView>
 
             <EditText
@@ -313,15 +313,40 @@
                 android:textSize="@dimen/_9sdp"
 
                 ></EditText>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textSize="@dimen/_7sdp"
-                android:textColor="@color/red"
-                android:visibility="gone"
-                android:text="Invalide password"
-                android:id="@+id/password_validater"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
                 android:layout_height="wrap_content"
-                ></TextView>
+                >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_hideShow_cr"
+                >
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:id="@+id/checkbox_pass"
+                    android:layout_height="wrap_content"
+                    ></CheckBox>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Show Password"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_9sdp"
+                    android:layout_height="wrap_content">
+                </TextView>
+            </LinearLayout>
+
+                <TextView
+                    android:id="@+id/password_validater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="Invalide password"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_7sdp"
+                    android:visibility="gone"></TextView>
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -347,21 +372,47 @@
                 android:textSize="@dimen/_9sdp"
 
                 ></EditText>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textSize="@dimen/_7sdp"
-                android:textColor="@color/red"
-                android:visibility="gone"
-                android:text="Invalide password"
-                android:id="@+id/re_password_validater"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
                 android:layout_height="wrap_content"
-                ></TextView>
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ll_hideShow_re"
+                    >
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:id="@+id/checkbox_pass_re"
+                        android:layout_height="wrap_content"
+                        ></CheckBox>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Show Password"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/_9sdp"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/re_password_validater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="Invalide password"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_7sdp"
+                    android:visibility="gone"></TextView>
+            </RelativeLayout>
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:textSize="@dimen/_7sdp"
                 android:textColor="@color/red"
                 android:visibility="gone"
-                android:layout_gravity="end"
                 android:text="Password not matched"
                 android:id="@+id/password_matched"
                 android:layout_height="wrap_content"

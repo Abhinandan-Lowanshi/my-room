@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -23,6 +24,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,6 +63,7 @@ public class SignUp extends AppCompatActivity {
    private TextView password_validater ,email_validater,re_password_validater,password_matched,tv_isEmailVrfd;
    private EditText name,surname,email,mobile,password,repassword,present,permanent;
     private AppCompatImageView img_verifyEmail;
+    private CheckBox checkbox_pass , checkbox_pass_re ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +72,31 @@ public class SignUp extends AppCompatActivity {
         appSession = new AppSession(SignUp.this);
            initView();
 
+
+
+        checkbox_pass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (!isChecked) {
+                    // hide password
+                    password.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                } else {
+                    // show password
+                    password.setInputType(InputType.TYPE_CLASS_TEXT);
+                }
+            }
+        });  checkbox_pass_re.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (!isChecked) {
+                    // hide password
+                    repassword.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                } else {
+                    // show password
+                    repassword.setInputType(InputType.TYPE_CLASS_TEXT);
+                }
+            }
+        });
 
          submit.setOnClickListener(new View.OnClickListener() {
              @RequiresApi(api = Build.VERSION_CODES.O)
@@ -579,6 +608,8 @@ public class SignUp extends AppCompatActivity {
                         password_validater = (TextView)findViewById(R.id.password_validater);
                         email_validater = (TextView)findViewById(R.id.email_validater);
                         permanent = (EditText)findViewById(R.id.ed_present);
+                        checkbox_pass = (CheckBox) findViewById(R.id.checkbox_pass);
+                        checkbox_pass_re = (CheckBox) findViewById(R.id.checkbox_pass_re);
                         present = (EditText)findViewById(R.id.ed_permanent);
                         submit = (Button)findViewById(R.id.submit);
                     }

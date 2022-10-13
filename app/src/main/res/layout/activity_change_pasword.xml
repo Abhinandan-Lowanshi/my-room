@@ -68,8 +68,8 @@
         android:layout_height="45dp"
         android:layout_below="@+id/toolbar"
         android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_40sdp"
         android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_40sdp"
         android:background="@drawable/edittextshap"
         android:ems="10"
         android:hint="Enter Current Password"
@@ -82,11 +82,32 @@
 
         ></androidx.appcompat.widget.AppCompatEditText>
 
+    <LinearLayout
+        android:id="@+id/ll_hideShow_cr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_current_password"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp">
+
+        <CheckBox
+            android:id="@+id/checkbox_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></CheckBox>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Show Password"
+            android:textSize="@dimen/_9sdp"></TextView>
+    </LinearLayout>
+
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/tv_new_password"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_below="@+id/tv_current_password"
+        android:layout_below="@+id/ll_hideShow_cr"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginRight="@dimen/_20sdp"
@@ -99,12 +120,67 @@
         android:paddingRight="5dp"
         android:singleLine="true"
         android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatEditText>
+    <LinearLayout
+        android:id="@+id/ll_hideShow_repass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_current_password"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp">
+
+        <CheckBox
+            android:id="@+id/checkbox_repass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></CheckBox>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Show Password"
+            android:textSize="@dimen/_9sdp"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_hideShow_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_new_password"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp">
+
+        <CheckBox
+            android:id="@+id/checkbox_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></CheckBox>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Password"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_9sdp"></TextView>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/password_validater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_new_password"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:text="Invalid password"
+        android:textColor="@color/red"
+        android:textSize="@dimen/_7sdp"
+        android:visibility="gone"></TextView>
+
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/tv_re_enter_password"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_below="@+id/tv_new_password"
+        android:layout_below="@+id/ll_hideShow_new"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginRight="@dimen/_20sdp"
@@ -118,6 +194,53 @@
         android:singleLine="true"
         android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatEditText>
 
+    <LinearLayout
+        android:id="@+id/ll_hideShow_newRE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_re_enter_password"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp">
+
+        <CheckBox
+            android:id="@+id/checkbox_newR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></CheckBox>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Show Password"
+            android:textSize="@dimen/_9sdp"></TextView>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/re_password_validater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_re_enter_password"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:text="Invalid password"
+        android:textColor="@color/red"
+        android:textSize="@dimen/_7sdp"
+        android:visibility="gone"></TextView>
+
+    <TextView
+        android:id="@+id/password_matched"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_hideShow_newRE"
+        android:layout_gravity="end"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:text="Password not matched"
+        android:textColor="@color/red"
+        android:textSize="@dimen/_7sdp"
+        android:visibility="gone"></TextView>
     <Button
         android:id="@+id/submit"
         android:layout_width="match_parent"
@@ -125,7 +248,7 @@
         android:layout_below="@+id/tv_re_enter_password"
         android:layout_gravity="center"
         android:layout_marginLeft="@dimen/_60sdp"
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_50sdp"
         android:layout_marginRight="@dimen/_60sdp"
         android:layout_marginBottom="100dp"
         android:alpha=".4"
