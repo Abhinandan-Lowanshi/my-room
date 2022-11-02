@@ -102,8 +102,14 @@ public class NewFavFragment extends Fragment {
                 getMyFavRooms();
             }
         });
-          getMyFavRooms();
+//          getMyFavRooms();
          return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getMyFavRooms();
     }
 
     private void getMyFavRooms() {

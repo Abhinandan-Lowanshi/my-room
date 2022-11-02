@@ -30,6 +30,7 @@ import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -139,6 +140,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
     private boolean permissioncheck =false;
     private long DELAY_MS = 500;
     private long PERIOD_MS = 5000;
+    private CardView cardposter;
     View single_1,single_2,single_3,single_4,single_5;
     Boolean toast_check = true;
     String address;
@@ -157,6 +159,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
     RelativeLayout rl_nearbylocation;
     ArrayList<LatLng> data =new ArrayList<>();
     private GoogleMap mMap;
+    private TextView noRoomFind;
     Double longitude_1,lattitude_1;
     RelativeLayout rl_loction;
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -238,7 +241,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         initView(view);
-        String lat = appSession.getMainlat();
+        String lat = appSession.getMainlon();
         Log.d(TAG, "appSession: "+lat);
         if(appSession.getMainlat()=="0") {
             checkRunTimePermission();
@@ -410,7 +413,8 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                             ll_signal.setVisibility(View.GONE);
                         }
 
-                        getNearbyRoom();
+                        getNearbyRoom(this);
+
 
 
                     }
@@ -531,6 +535,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity().getApplicationContext());
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.container);
         rec_nearbyroom = (RecyclerView)view.findViewById(R.id.rec_nearbyroom);
+        cardposter = (CardView) view.findViewById(R.id.cardposter);
 //        linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.HORIZONTAL, true);
 //        rec_nearbyroom.setLayoutManager(linearLayoutManager);
         ll_signal = (LinearLayout) view.findViewById(R.id.ll_signal);
@@ -540,13 +545,12 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
         dotsIndicator = (WormDotsIndicator)view.findViewById(R.id.dots_indicator);
         tv_more_nearby = (AppCompatTextView) view.findViewById(R.id.tv_more_nearby);
         tv_city = (TextView) view.findViewById(R.id.tv_city);
+        noRoomFind = (TextView) view.findViewById(R.id.noRoomFind);
         rl_loction = (RelativeLayout) view.findViewById(R.id.rl_loction);
         rl_nearbylocation = (RelativeLayout)view. findViewById(R.id.rl_nearbylocation);
         vpHomeFirstBanner = (ViewPager)view.findViewById(R.id.banner);
         progressBar = (ProgressBar)view.findViewById(R.id.progressBar);
-        bannerAdapter = new BannerAdapter(getActivity(), this);
-        vpHomeFirstBanner.setAdapter(bannerAdapter);
-        dotsIndicator.setViewPager(vpHomeFirstBanner);
+
         single_1 = (View)view.findViewById(R.id.single_1);
         single_2 = (View)view.findViewById(R.id.single_2);
         single_3 = (View)view.findViewById(R.id.single_3);
@@ -1194,7 +1198,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
     }catch (Exception e)
     { e.printStackTrace();}
     }
-    private void getNearbyRoom()
+    private void getNearbyRoom(BannerAdapter.ClicktPost clicktPost)
     {
 
 
@@ -1228,43 +1232,50 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                                 rl_nearbylocation.setVisibility(View.VISIBLE);
                                 data.clear();
                                 tv_more_nearby.setVisibility(View.VISIBLE);
+//                                cardposter.setVisibility(View.GONE);
+                                noRoomFind.setVisibility(View.GONE);
                                 roomDetailsData = roomDetailsModel.getData();
                                 if(roomDetailsData.size()>10)
                                 {
-//                                    tv_more_nearby.setVisibility(View.VISIBLE);
+                                   tv_more_nearby.setVisibility(View.VISIBLE);
                                 }else {
-//                                    tv_more_nearby.setVisibility(View.INVISIBLE);
+                                    tv_more_nearby.setVisibility(View.INVISIBLE);
                                 }
                                 for (int i = 0; i < roomDetailsData.size(); i++) {
                                     origin = new LatLng(Double.parseDouble(roomDetailsData.get(i).getRmLatitude()), Double.parseDouble(roomDetailsData.get(i).getRmLongitude()));
                                     data.add(origin);
                                 }
                                 loadDataOnMap(data);
+                                bannerAdapter = new BannerAdapter(getActivity(), roomDetailsData,clicktPost );
+                                vpHomeFirstBanner.setAdapter(bannerAdapter);
+                                dotsIndicator.setViewPager(vpHomeFirstBanner);
                                 Recomended_Room_Adapter nearByRoom_Adapter = new Recomended_Room_Adapter(getContext(),getActivity(),roomDetailsData,AppSession.FROM_HOME);
                                 rec_nearbyroom.setAdapter(nearByRoom_Adapter);
                                 rec_nearbyroom.scheduleLayoutAnimation();
 
                             }else {
-                                rl_nearbylocation.setVisibility(View.INVISIBLE);
+                                rl_nearbylocation.setVisibility(View.GONE);
+                                cardposter.setVisibility(View.VISIBLE);
+                                noRoomFind.setVisibility(View.VISIBLE);
 //                                Toast.makeText(getActivity().getApplicationContext(), "Room list not found", Toast.LENGTH_SHORT).show();
 
                             }
 
                         } else {
-                            rl_nearbylocation.setVisibility(View.INVISIBLE);
+                            rl_nearbylocation.setVisibility(View.GONE);
                             Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
 
                         }
                     }
                     else {
-                        rl_nearbylocation.setVisibility(View.INVISIBLE);
+                        rl_nearbylocation.setVisibility(View.GONE);
                         Toast.makeText(getActivity().getApplicationContext(), response.code(), Toast.LENGTH_SHORT).show();
 
                     }
                 }catch (Exception e)
                 {
                     mSwipeRefreshLayout.setRefreshing(false);
-                    rl_nearbylocation.setVisibility(View.INVISIBLE);
+                    rl_nearbylocation.setVisibility(View.GONE);
 //                    Toast.makeText(getActivity().getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
 
@@ -1272,7 +1283,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
 
             @Override
             public void onFailure(Call<RoomDetailsModel> call, Throwable t) {
-                rl_nearbylocation.setVisibility(View.INVISIBLE);
+                rl_nearbylocation.setVisibility(View.GONE);
                 mSwipeRefreshLayout.setRefreshing(false);
             }
         });

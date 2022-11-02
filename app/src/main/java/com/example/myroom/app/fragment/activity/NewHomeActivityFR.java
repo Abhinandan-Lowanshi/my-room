@@ -61,59 +61,59 @@ public class NewHomeActivityFR extends AppCompatActivity {
         initview();
 
 
-        try {
-            task1 = new Timer();
-            long delay1 = 0;
-            long period1 = 1000;
-            task1.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    if (Looper.myLooper()==null)
-                        Looper.prepare();
-
-                    runOnUiThread(new Runnable() {
-
-                        @SuppressLint("ResourceAsColor")
-                        @Override
-                        public void run() {
-
-                            ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-                            if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                                    connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-                                //we are connected to a network
-                                no_internet.setText("Online");
-
-                                img_search.setVisibility(View.VISIBLE);
-                                img_notification.setVisibility(View.VISIBLE);
-//                                img_chat.setVisibility(View.VISIBLE);
-                                main_rl.setVisibility(View.VISIBLE);
-                                no_internet_rl.setVisibility(View.GONE);
-                                card_red.setVisibility(View.GONE);
-                                card_green.setVisibility(View.VISIBLE);
-
-                            }else {
-                                img_search.setVisibility(View.GONE);
-                                img_notification.setVisibility(View.GONE);
-//                                img_chat.setVisibility(View.GONE);
-                                main_rl.setVisibility(View.GONE);
-                                no_internet_rl.setVisibility(View.VISIBLE);
-                                no_internet.setText("Offline");
-                                card_red.setVisibility(View.VISIBLE);
-                                card_green.setVisibility(View.GONE);
-
-                            }
-
-                        }
-                    });
-
-
-
-                }
-            }, delay1, period1);
-        }catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+//        try {
+//            task1 = new Timer();
+//            long delay1 = 0;
+//            long period1 = 1000;
+//            task1.scheduleAtFixedRate(new TimerTask() {
+//                @Override
+//                public void run() {
+//                    if (Looper.myLooper()==null)
+//                        Looper.prepare();
+//
+//                    runOnUiThread(new Runnable() {
+//
+//                        @SuppressLint("ResourceAsColor")
+//                        @Override
+//                        public void run() {
+//
+//                            ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+//                            if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+//                                    connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+//                                //we are connected to a network
+//                                no_internet.setText("Online");
+//
+//                                img_search.setVisibility(View.VISIBLE);
+//                                img_notification.setVisibility(View.VISIBLE);
+////                                img_chat.setVisibility(View.VISIBLE);
+//                                main_rl.setVisibility(View.VISIBLE);
+//                                no_internet_rl.setVisibility(View.GONE);
+//                                card_red.setVisibility(View.GONE);
+//                                card_green.setVisibility(View.VISIBLE);
+//
+//                            }else {
+//                                img_search.setVisibility(View.GONE);
+//                                img_notification.setVisibility(View.GONE);
+////                                img_chat.setVisibility(View.GONE);
+//                                main_rl.setVisibility(View.GONE);
+//                                no_internet_rl.setVisibility(View.VISIBLE);
+//                                no_internet.setText("Offline");
+//                                card_red.setVisibility(View.VISIBLE);
+//                                card_green.setVisibility(View.GONE);
+//
+//                            }
+//
+//                        }
+//                    });
+//
+//
+//
+//                }
+//            }, delay1, period1);
+//        }catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
 
 
         loadFragment(this,new HomeFragment(),0);

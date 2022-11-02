@@ -153,6 +153,7 @@
                 android:layout_gravity="end"
                 android:layout_marginRight="@dimen/_13sdp"
                 android:text="Reviews"
+                android:visibility="gone"
                 android:textColor="@color/theme_green"
                 android:textSize="@dimen/_10sdp"></TextView>
 

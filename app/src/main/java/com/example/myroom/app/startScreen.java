@@ -90,8 +90,8 @@ public class startScreen extends AppCompatActivity {
         setContentView(R.layout.activity_start_screen);
         manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(startScreen.this);
-        appSession.setMainlat("0");
-        appSession.setMainlon("0");
+//        appSession.setMainlat("0");
+//        appSession.setMainlon("0");
         progressBar3 = (ProgressBar) findViewById(R.id.progressBar3);
 
         progressText = (TextView) findViewById(R.id.progressText);
@@ -104,9 +104,8 @@ public class startScreen extends AppCompatActivity {
             // if(appSession.getMainlat().equals("0") || appSession.getMainlon().equals("0"))
             if(appSession.getIsCustomeLocation()==true&&appSession.getCityCurrent()!="")
             {
-//                CustomeLatLon customeLatLon = appSession.getCustomLatLon();
-//                appSession.setMainlat(String.valueOf(customeLatLon.getLat()));
-//                appSession.setMainlon(String.valueOf(customeLatLon.getLon()));
+                Log.d("TAG", "appsession.setMainlat getIsCustomeLocation: " +appSession.getMainlon()+"  "+appSession.getMainlat());
+
                 if(appSession.getIsLogin()==null) {
                     Intent intent = new Intent(getApplicationContext(), LoginFinal.class);
                     overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
