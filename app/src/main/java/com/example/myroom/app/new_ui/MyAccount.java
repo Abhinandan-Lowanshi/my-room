@@ -34,7 +34,7 @@ public class MyAccount extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -43,7 +43,7 @@ public class MyAccount extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MyAccount.this,ChangePasword.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -52,7 +52,7 @@ public class MyAccount extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MyAccount.this,Edit_Profile.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -61,7 +61,7 @@ public class MyAccount extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MyAccount.this,Contact_Us.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -70,7 +70,7 @@ public class MyAccount extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MyAccount.this,PrivacyPolicy.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -79,7 +79,7 @@ public class MyAccount extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MyAccount.this,AboutUs.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -137,7 +137,7 @@ public class MyAccount extends AppCompatActivity {
 
                 Intent intent = new Intent(MyAccount.this, Notification_Activity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
             }
         });
     }
@@ -161,7 +161,7 @@ public class MyAccount extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
     }
 }

@@ -65,7 +65,7 @@ public class Notification_Adapter extends RecyclerView.Adapter<Notification_Adap
                     intent.putExtra("room_id",String.valueOf(notificationModelAPI.get(position).getPayload().getRmPkey()));
                     intent.putExtra("come",AppSession.FROM_HOME);
                     context.startActivity(intent);
-                    activity.  overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                    activity.  overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
                 }
             });

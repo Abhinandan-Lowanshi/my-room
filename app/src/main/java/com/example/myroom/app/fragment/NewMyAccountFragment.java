@@ -111,7 +111,7 @@ public class NewMyAccountFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), ChangePasword.class);
                 startActivity(intent);
-               getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//               getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -129,7 +129,7 @@ public class NewMyAccountFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), Edit_Profile.class);
                     intent.putExtra(appSession.USER_DATA,myAccountModelData);
                     startActivity(intent);
-                    getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                    getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                 }else {
 
                 }
@@ -142,7 +142,7 @@ public class NewMyAccountFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), Contact_Us.class);
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -151,7 +151,7 @@ public class NewMyAccountFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), PrivacyPolicy.class);
                 startActivity(intent);
-               getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//               getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -160,7 +160,7 @@ public class NewMyAccountFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AboutUs.class);
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -169,7 +169,7 @@ public class NewMyAccountFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), ActivityFeedback.class);
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -179,7 +179,7 @@ public class NewMyAccountFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), NotificationSetting.class);
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -218,7 +218,7 @@ public class NewMyAccountFragment extends Fragment {
                      {
                          dialog.dismiss();
                          Intent intent = new Intent(getActivity(), LoginFinal.class);
-                         getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                         getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                          startActivity(intent);
                          getActivity().finishAffinity();
                      }else {
@@ -337,7 +337,7 @@ public class NewMyAccountFragment extends Fragment {
              }else {
                  Intent intent = new Intent(getActivity(), LoginFinal.class);
                  startActivity(intent);
-                 getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                 getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                  getActivity().finishAffinity();
              }
 

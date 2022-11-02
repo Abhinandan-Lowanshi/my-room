@@ -105,7 +105,7 @@ public class Recomended_Room_Adapter extends RecyclerView.Adapter<Recomended_Roo
          intent.putExtra("room_id",String.valueOf(data.get(position).getRmPkey()));
          intent.putExtra("come" , comefrom);
          context.startActivity(intent);
-         activity.overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//         activity.overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
 
      }

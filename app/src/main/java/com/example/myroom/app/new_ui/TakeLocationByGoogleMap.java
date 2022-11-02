@@ -152,7 +152,7 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
 
                 Intent intent = new Intent(TakeLocationByGoogleMap.this, Notification_Activity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
             }
         });
     }
@@ -163,7 +163,7 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
         Intent returnIntent = new Intent();
         setResult(Activity.RESULT_OK,returnIntent);
         finish();
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
     }
 
@@ -356,7 +356,7 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
             resetApplicationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         }
         startActivity(resetApplicationIntent);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+//        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     @Override

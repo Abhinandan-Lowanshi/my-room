@@ -169,7 +169,7 @@ public class ChangePasword extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -179,7 +179,7 @@ public class ChangePasword extends AppCompatActivity {
 
                 Intent intent = new Intent(ChangePasword.this, Notification_Activity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
             }
         });
     }
@@ -251,7 +251,7 @@ public class ChangePasword extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
     }
 
@@ -376,7 +376,7 @@ public class ChangePasword extends AppCompatActivity {
                 progressDialog.dismiss();
                 Intent intent = new Intent(ChangePasword.this, LoginFinal.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                 finishAffinity();
             }
         }catch (Exception e)

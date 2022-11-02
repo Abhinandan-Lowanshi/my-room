@@ -42,7 +42,7 @@ public class NearByRoom_Adapter extends RecyclerView.Adapter<NearByRoom_Adapter.
          public void onClick(View view) {
              Intent intent = new Intent(context, Room_Detais_Activity.class);
              context.startActivity(intent);
-           activity.  overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//           activity.  overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
          }
      });

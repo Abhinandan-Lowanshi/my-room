@@ -138,7 +138,7 @@ public class DemoSearchAdapter extends RecyclerView.Adapter<DemoSearchAdapter.My
                  intent.putExtra("room_id",String.valueOf(data.get(position).getRmPkey()));
                  intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                  context.startActivity(intent);
-                 activity.overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                 activity.overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
              }
          });
         holder.heart_empty.setOnClickListener(new View.OnClickListener() {

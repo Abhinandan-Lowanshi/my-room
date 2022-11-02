@@ -528,7 +528,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
             resetApplicationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         }
         startActivity(resetApplicationIntent);
-        getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+//        getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
     private void initView(View view) {
         manager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
@@ -1100,7 +1100,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
 //                intent.putExtra("lat",roomData.getRmLatitude());
 //                intent.putExtra("lon",roomData.getRmLongitude());
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
                 dialog.dismiss();
             }
