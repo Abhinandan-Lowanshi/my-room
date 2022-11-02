@@ -116,7 +116,7 @@ String userIdOwner = "";
             @Override
             public void onClick(View view) {
                 onBackPressed();
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -248,7 +248,7 @@ String userIdOwner = "";
 //                mSwipeRefreshLayout.setRefreshing(false);
                 Intent intent = new Intent(OwnerProfile.this, LoginFinal.class);
                 startActivity(intent);
-               overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//               overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                finishAffinity();
 
 
@@ -291,7 +291,7 @@ String userIdOwner = "";
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
     }
 

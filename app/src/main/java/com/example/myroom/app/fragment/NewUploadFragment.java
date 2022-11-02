@@ -36,6 +36,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -156,7 +157,7 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
 
                 Intent intent  = new Intent(getActivity(), TakeLocationByGoogleMap.class);
                 startActivityForResult(intent,78);
-                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
 
 
@@ -505,12 +506,42 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
         if (requestCode == 1) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED&&grantResults[1]==PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_LONG).show();
+            }else {
+                showDialogue();
             }
         }
     }
 
 
+    void showDialogue()
+    {
+        final Dialog dialog = new Dialog(getContext());
+        dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.locationpermissiondialogue);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
+        Button close = dialog.findViewById(R.id.close);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });  img_close.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            dialog.dismiss();
+        }
+    });
 
+
+
+        dialog.show();
+    };
     public void show(int position){
         final Dialog dialog = new Dialog(getContext());
         dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);

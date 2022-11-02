@@ -129,7 +129,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
             @Override
             public void onClick(View view) {
                 onBackPressed();
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -312,7 +312,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
             resetApplicationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         }
         startActivity(resetApplicationIntent);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+//        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     @Override
@@ -835,7 +835,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
     }
 }

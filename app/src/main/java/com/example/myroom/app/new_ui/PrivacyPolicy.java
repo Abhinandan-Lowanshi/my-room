@@ -22,7 +22,7 @@ public class PrivacyPolicy extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
 
             }
@@ -33,7 +33,7 @@ public class PrivacyPolicy extends AppCompatActivity {
 
                 Intent intent = new Intent(PrivacyPolicy.this, Notification_Activity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
             }
         });
     }
@@ -46,7 +46,7 @@ public class PrivacyPolicy extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
     }
 }

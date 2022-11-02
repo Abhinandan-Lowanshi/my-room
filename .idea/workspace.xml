@@ -14,35 +14,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6a4ccc5-0f78-4cdf-8058-7453523fa9db" name="Changes" comment="NotificationSetting">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/roomdetails/Image_Adapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/poster.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/image_row_details.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/locationpermissiondialogue.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/MyRoom.app.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/MyRoom.app.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/AdapterRoomDetailsViewPager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/AdapterRoomDetailsViewPager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/banner_pkg/BannerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/banner_pkg/BannerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/demo/DemoSearchAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/demo/DemoSearchAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/editroom/Edit_Room_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/editroom/Edit_Room_Activity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewFavFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewFavFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewMyAccountFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewMyAccountFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewUploadFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewUploadFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/activity/NewHomeActivityFR.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/activity/NewHomeActivityFR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/map/MapDetailsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/map/MapDetailsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/mypost/MyPostAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/mypost/MyPostAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/AboutUs.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/AboutUs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/All_Roon_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/All_Roon_Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/ChangePasword.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/ChangePasword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Contact_Us.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Contact_Us.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Edit_Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Edit_Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/ForgotPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/ForgotPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/MyAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/MyAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Notification_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Notification_Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/PrivacyPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/PrivacyPolicy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/notificationsetting/NotificationSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/notificationsetting/NotificationSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/zoom/TouchImageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/zoom/TouchImageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_change_pasword.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_change_pasword.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_room.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_room.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_home_fr.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_home_fr.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_owner_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_owner_profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_room_detais.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_room_detais.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/banner_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/banner_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_new_upload.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_new_upload.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/view_full_image_dialouge.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/view_full_image_dialouge.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Search_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Search_Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/TakeLocationByGoogleMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/TakeLocationByGoogleMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/NearByRoom_Adapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/NearByRoom_Adapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/Notification_Adapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/Notification_Adapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/Recomended_Room_Adapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/Recomended_Room_Adapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/owerprofile/OwnerProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/owerprofile/OwnerProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/slide_in_left.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/slide_in_left.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/slide_out_left.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/slide_out_left.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +135,11 @@
     <key name="android.template.-1099182325">
       <recent name="com.example.myroom.app.chat" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="itent" />
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
@@ -255,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665633923718</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="NotificationSetting">
+      <created>1667403980823</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667403980823</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -770,27 +787,27 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Notification_Activity.java</url>
-          <line>66</line>
+          <line>67</line>
           <option name="timeStamp" value="291" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Notification_Activity.java</url>
-          <line>67</line>
+          <line>68</line>
           <option name="timeStamp" value="292" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Notification_Activity.java</url>
-          <line>65</line>
+          <line>66</line>
           <option name="timeStamp" value="293" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Notification_Activity.java</url>
-          <line>63</line>
+          <line>64</line>
           <option name="timeStamp" value="294" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Notification_Activity.java</url>
-          <line>64</line>
+          <line>65</line>
           <option name="timeStamp" value="295" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -812,6 +829,11 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/Notification_Adapter.java</url>
           <line>57</line>
           <option name="timeStamp" value="302" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewUploadFragment.java</url>
+          <line>509</line>
+          <option name="timeStamp" value="309" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>

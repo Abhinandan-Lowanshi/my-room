@@ -62,7 +62,7 @@ public class ForgotPassword extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -204,7 +204,7 @@ public class ForgotPassword extends AppCompatActivity {
 
 
                                                 Intent intent = new Intent(ForgotPassword.this, LoginFinal.class);
-                                                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                                                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                                                 startActivity(intent);
                                                 finishAffinity();
                                             }
@@ -460,7 +460,7 @@ public class ForgotPassword extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
     }
     //7389165256

@@ -53,7 +53,7 @@ public class All_Roon_Activity extends AppCompatActivity implements NewHomeActiv
             @Override
             public void onClick(View view) {
                 onBackPressed();
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -100,7 +100,7 @@ public class All_Roon_Activity extends AppCompatActivity implements NewHomeActiv
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
     }
 

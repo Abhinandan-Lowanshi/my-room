@@ -103,7 +103,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
                 Intent intent = new Intent(Room_Detais_Activity.this, ReviewActivity.class);
                 intent.putExtra(AppSession.ROOM_ID , room_id);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -286,7 +286,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
             @Override
             public void onClick(View view) {
                 onBackPressed();
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
 
             }
         });
@@ -297,8 +297,8 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
                 if (!user_id_owner.equalsIgnoreCase("")) {
                     Intent intent = new Intent(Room_Detais_Activity.this, OwnerProfile.class);
                     intent.putExtra(AppSession.USER_ID_ROOM_OWNER, user_id_owner);
-                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                     startActivity(intent);
+//                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                 }
             }
         });
@@ -310,7 +310,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
                 intent.putExtra("lat", lat);
                 intent.putExtra("lon", lon);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
             }
         });
     }
@@ -466,7 +466,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
 
     }
 

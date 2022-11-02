@@ -112,7 +112,7 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostAdapter.MyViewHold
                 intent.putExtra(AppSession.FLOR,String.valueOf(data.get(position).getRmFlor()));
                 intent.putExtra(AppSession.RENT,String.valueOf(data.get(position).getRmRent()));
                 context.startActivity(intent);
-                activity.overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                activity.overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
@@ -263,7 +263,7 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostAdapter.MyViewHold
                 Intent intent = new Intent(context, Room_Detais_Activity.class);
                 intent.putExtra("room_id",String.valueOf(data.get(position).getRmPkey()));
                 context.startActivity(intent);
-                activity.overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+//                activity.overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
             }
         });
         holder.heart_empty.setOnClickListener(new View.OnClickListener() {

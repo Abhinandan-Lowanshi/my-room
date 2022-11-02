@@ -199,8 +199,8 @@ public class LoginFinal extends AppCompatActivity {
             public void onClick(View v) {
                 signup.setEnabled(false);
                 Intent i  = new Intent(LoginFinal.this, SignUp.class);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                 startActivity(i);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                 signup.setEnabled(true);
             }
 
@@ -210,8 +210,8 @@ public class LoginFinal extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(LoginFinal.this, ForgotPassword.class);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                 startActivity(intent);
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
             }
         });
 
@@ -260,7 +260,7 @@ public class LoginFinal extends AppCompatActivity {
                                                 loginData.getUsrParmentAdrss(),loginData.getUsrCurrentAdrss());
                                         getNotificationStatus();
                                         Intent intent = new Intent(LoginFinal.this, NewHomeActivityFR.class);
-                                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
                                         startActivity(intent);
                                         finish();
                                     } else {

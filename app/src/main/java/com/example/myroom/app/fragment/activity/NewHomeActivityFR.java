@@ -128,7 +128,7 @@ public class NewHomeActivityFR extends AppCompatActivity {
 
                 Intent intent = new Intent(NewHomeActivityFR.this, Notification_Activity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });  img_chat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,7 +136,7 @@ public class NewHomeActivityFR extends AppCompatActivity {
 
                 Intent intent = new Intent(NewHomeActivityFR.this, User_Chat_Activity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
 
@@ -145,7 +145,7 @@ public class NewHomeActivityFR extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(NewHomeActivityFR.this, Search_Activity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
 //                show_Dialogue();
             }
         });
@@ -232,7 +232,7 @@ public class NewHomeActivityFR extends AppCompatActivity {
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left);
+//        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left);
         if(fg==0) {
 
 

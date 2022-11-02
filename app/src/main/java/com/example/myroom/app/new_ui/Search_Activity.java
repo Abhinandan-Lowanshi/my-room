@@ -344,7 +344,7 @@ public class Search_Activity extends AppCompatActivity implements RecentAdapter.
             @Override
             public void onClick(View view) {
                 onBackPressed();
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
 
@@ -845,7 +845,7 @@ public class Search_Activity extends AppCompatActivity implements RecentAdapter.
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     @Override

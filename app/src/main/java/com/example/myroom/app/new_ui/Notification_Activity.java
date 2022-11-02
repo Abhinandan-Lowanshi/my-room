@@ -39,7 +39,8 @@ public class Notification_Activity extends AppCompatActivity {
             public void onClick(View view) {
 
                 onBackPressed();
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);}
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                  }
 
 
         });
@@ -126,7 +127,7 @@ public class Notification_Activity extends AppCompatActivity {
             startActivity(intent);
         }else {
             super.onBackPressed();
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
         }
 
 
