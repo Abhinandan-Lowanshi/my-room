@@ -73,6 +73,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
     private int counter = 0;
     private ProgressDialog progressDialog;
     private double lat, lon;
+    private  int curPos =0;
     private AdapterRoomDetailsViewPager bannerAdapter;
     private ViewPager vpHomeFirstBanner;
     private ArrayList<RoomDetailsImage> roomDetailsImages;
@@ -315,21 +316,24 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
     }
 
 
-    private void fullImageView(int pos) {
+    private void fullImageView( final int pos) {
         counter = 0;
         final Dialog dialog = new Dialog(Room_Detais_Activity.this);
         dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.view_full_image_dialouge);
-//        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
-//        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+//          dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.MATCH_PARENT);
-        TouchImageView main_image = dialog.findViewById(R.id.imViewedImage);
-        Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(pos).getImgName()).into(main_image);
+//        TouchImageView main_image = dialog.findViewById(R.id.imViewedImage);
+        ImageView main_image = dialog.findViewById(R.id.imViewedImage);
+        Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(pos).getImgName()).placeholder(R.drawable.placeholder).into(main_image);
         dialog.show();
 
+        int max = roomDetailsImages.size();
+         curPos = pos;
 
         ImageView img_close = dialog.findViewById(R.id.img_close);
         ImageView count_left = dialog.findViewById(R.id.count_left);
@@ -338,10 +342,19 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
         CardView card_right = dialog.findViewById(R.id.card_right);
         card_left.setVisibility(View.INVISIBLE);
         card_right.setVisibility(View.INVISIBLE);
-        if (counter == 0)
-            card_left.setVisibility(View.INVISIBLE);
-        if (counter == roomDetailsImages.size())
-            card_right.setVisibility(View.INVISIBLE);
+
+
+        if(max>1)
+        {
+            card_left.setVisibility(View.VISIBLE);
+            card_right.setVisibility(View.VISIBLE);
+
+            if(pos==0)
+                card_left.setVisibility(View.INVISIBLE);
+            if(pos==(max-1))
+                card_right.setVisibility(View.INVISIBLE);
+        }
+
 
 
         img_close.setOnClickListener(new View.OnClickListener() {
@@ -351,41 +364,52 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
             }
         });
 
-//        count_left.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(counter!=0)
-//                {
-//                    if(counter==0)
-//                    {
-//                        card_left.setVisibility(View.INVISIBLE);
-//                    }else {
-//                        card_left.setVisibility(View.VISIBLE);
-//                    }
-//                    counter--;
-//                    Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(counter).getImgName()).into(main_image);
-//
-//                }
-//            }
-//        });
-//
-//        count_right.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(counter!=roomDetailsImages.size())
-//                {
-//                    if(counter==roomDetailsImages.size())
-//                    {
-//                        card_right.setVisibility(View.VISIBLE);
-//                    }else {
-//                        card_right.setVisibility(View.INVISIBLE);
-//                    }
-//                    counter++;
-//                    Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get(counter).getImgName()).into(main_image);
-//
-//                }
-//            }
-//        });
+
+        count_left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                       if(curPos!=0)
+                       {
+
+                           curPos = curPos-1;
+                           Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get((curPos)).getImgName()).into(main_image);
+                           if(max>1)
+                           {
+                               card_left.setVisibility(View.VISIBLE);
+                               card_right.setVisibility(View.VISIBLE);
+
+                               if(curPos==0)
+                                   card_left.setVisibility(View.INVISIBLE);
+                               if(curPos==(max-1))
+                                   card_right.setVisibility(View.INVISIBLE);
+                           }
+                       }
+
+
+            }
+        });
+
+        count_right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(curPos!=(max-1))
+                {
+                    curPos = curPos+1;
+                    Glide.with(Room_Detais_Activity.this).load(roomDetailsImages.get((curPos)).getImgName()).into(main_image);
+                    card_left.setVisibility(View.VISIBLE);
+                    card_right.setVisibility(View.VISIBLE);
+
+                    if(curPos==0)
+                        card_left.setVisibility(View.INVISIBLE);
+                    if(curPos==(max-1))
+                        card_right.setVisibility(View.INVISIBLE);
+                }
+
+            }
+        });
+
     }
 
     private void intiView(BannerAdapter.ClicktPost clicktPost) {
@@ -484,15 +508,22 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
                     if (response.isSuccessful()) {
                         if (response.body().getStatus() == true) {
                              roomDetailsMainData = response.body().getData();
-                            user_id_owner = String.valueOf(roomDetailsMainData.getRmUsrFkey());
+
+                             if(!response.body().getMessage().equalsIgnoreCase("Room details not found.")) {
+                                 user_id_owner = String.valueOf(roomDetailsMainData.getRmUsrFkey());
 
 
-                            loadUI(roomDetailsMainData, clicktPost);
+                                 loadUI(roomDetailsMainData, clicktPost);
+                             }else {
+                                 onBackPressed();
+                                 Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
+
+                             }
 
                         } else
-                            Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG);
+                            Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
                     } else
-                        Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG);
+                        Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
 
                 }
 

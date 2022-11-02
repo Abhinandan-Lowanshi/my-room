@@ -112,7 +112,6 @@ public class NotificationSetting extends AppCompatActivity {
                        if(b)
                        {
                            customlocationer.setVisibility(View.GONE);
-
                            switch_notification_custom.setText("ON");
                            ed_location.setText("tap to set location");
                            ed_location.setVisibility(View.VISIBLE);
@@ -120,7 +119,6 @@ public class NotificationSetting extends AppCompatActivity {
                        }else {
                            new AppSession(NotificationSetting.this).setIsCustomeLocation(b);
                            checkRunTimePermission();
-
                            ed_location.setVisibility(View.GONE);
 
                        }
@@ -367,8 +365,9 @@ public class NotificationSetting extends AppCompatActivity {
                                 appsession.setCityCurrent(address);
 
                              ed_location.setText(address);
-                            switch_notification_custom.setText("OFF");
-                            progressDialog.dismiss();
+                             switch_notification_custom.setText("OFF");
+                             progressDialog.dismiss();
+
 //                            tv_city.setText(address);
 
 //                    float checkStatus = (float) 7.0;
@@ -518,9 +517,12 @@ public class NotificationSetting extends AppCompatActivity {
                     appsession.setMainlat(String.valueOf(delivery_latitude));
                     appsession.setMainlon(String.valueOf(delivery_longitude));
                     appsession.setCityCurrent(name);
+                    Log.d("TAG", "appsession.setMainlat gggg: " +appsession.getMainlon()+"  "+appsession.getMainlat());
 
                 } catch (Exception e) {
                     e.printStackTrace();
+
+
                 }
 
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {

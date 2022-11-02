@@ -29,7 +29,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="@dimen/_7sdp"
                 app:cardCornerRadius="@dimen/_90sdp"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/card_green"
                 android:layout_marginRight="@dimen/_3sdp"
                 android:layout_toLeftOf="@+id/no_internet"
@@ -45,7 +45,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="@dimen/_7sdp"
                 app:cardCornerRadius="@dimen/_90sdp"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/card_red"
                 android:layout_marginRight="@dimen/_3sdp"
                 android:layout_toLeftOf="@+id/no_internet"

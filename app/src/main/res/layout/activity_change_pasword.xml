@@ -129,7 +129,7 @@
         android:layout_marginRight="@dimen/_20sdp">
 
         <CheckBox
-            android:id="@+id/checkbox_repass"
+            android:id="@+id/checkbox_cr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></CheckBox>
 

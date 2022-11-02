@@ -35,7 +35,7 @@ public class AdapterRoomDetailsViewPager  extends PagerAdapter {
         ImageView banner = layout.findViewById(R.id.image_banner);
 
         if(roomDetailsImages.size()!=0)
-        Glide.with(mContext).load(roomDetailsImages.get(position).getImgName()).into(banner);
+        Glide.with(mContext).load(roomDetailsImages.get(position).getImgName()).placeholder(R.drawable.placeholder).into(banner);
      banner.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {

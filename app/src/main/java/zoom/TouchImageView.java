@@ -34,9 +34,7 @@ public class TouchImageView extends androidx.appcompat.widget.AppCompatImageView
     float saveScale = 1f;
     protected float origWidth, origHeight;
     int oldMeasuredWidth, oldMeasuredHeight;
-
     ScaleGestureDetector mScaleDetector;
-
     Context context;
 
     public TouchImageView(Context context) {
