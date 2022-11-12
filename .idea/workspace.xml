@@ -14,40 +14,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6a4ccc5-0f78-4cdf-8058-7453523fa9db" name="Changes" comment="NotificationSetting">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/locationpermissiondialogue.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_core_1_3_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_3_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_3_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_ext_junit_1_1_2_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_monitor_1_3_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_runner_1_3_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_transition_transition_1_2_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_2_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/MyRoom.app.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/MyRoom.app.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/demo/DemoSearchAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/demo/DemoSearchAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/editroom/Edit_Room_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/editroom/Edit_Room_Activity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewFavFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewFavFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewMyAccountFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewMyAccountFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewMyPostFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewMyPostFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewUploadFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewUploadFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/activity/NewHomeActivityFR.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/activity/NewHomeActivityFR.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/map/MapDetailsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/map/MapDetailsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/mypost/MyPostAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/mypost/MyPostAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/AboutUs.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/AboutUs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/All_Roon_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/All_Roon_Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/ChangePasword.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/ChangePasword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Contact_Us.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Contact_Us.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Edit_Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Edit_Profile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/ForgotPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/ForgotPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/MyAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/MyAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Notification_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Notification_Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/PrivacyPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/PrivacyPolicy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Search_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Search_Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/TakeLocationByGoogleMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/TakeLocationByGoogleMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/NearByRoom_Adapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/NearByRoom_Adapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/Notification_Adapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/Notification_Adapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/Recomended_Room_Adapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/Recomended_Room_Adapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/owerprofile/OwnerProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/owerprofile/OwnerProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/notificationsetting/NotificationSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/notificationsetting/NotificationSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/slide_in_left.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/slide_in_left.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/slide_out_left.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/slide_out_left.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_map_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_map_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_room_detais.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_room_detais.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/mypostrec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/mypostrec.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +96,9 @@
       </list>
     </option>
   </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
       <GitPushTagMode>
@@ -111,6 +123,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ApkExportedModule" value="MyRoom.app" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
@@ -119,8 +132,15 @@
     <property name="android-custom-viewC:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/java/zoom/TouchImageView.java_TouchImageView_DIMENSIONS" value="1080&#10;1920" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Desktop" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Signing Configs" />
+    <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.-45570723">
@@ -272,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667403980823</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="NotificationSetting">
+      <created>1667412712161</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1667412712161</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -297,192 +324,182 @@
       <breakpoints>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>112</line>
+          <line>114</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>628</line>
+          <line>636</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>630</line>
+          <line>638</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>635</line>
+          <line>643</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>639</line>
+          <line>647</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java</url>
-          <line>247</line>
+          <line>215</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java</url>
-          <line>253</line>
+          <line>221</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java</url>
-          <line>257</line>
+          <line>225</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java</url>
-          <line>266</line>
+          <line>234</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java</url>
-          <line>274</line>
+          <line>242</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java</url>
-          <line>281</line>
+          <line>249</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java</url>
-          <line>291</line>
+          <line>258</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java</url>
-          <line>295</line>
+          <line>262</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java</url>
-          <line>296</line>
+          <line>263</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java</url>
-          <line>297</line>
+          <line>264</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java</url>
-          <line>282</line>
+          <line>250</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/LoginFinal.java</url>
-          <line>283</line>
+          <line>251</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java</url>
-          <line>790</line>
+          <line>572</line>
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java</url>
-          <line>782</line>
+          <line>566</line>
           <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java</url>
-          <line>780</line>
+          <line>564</line>
           <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java</url>
-          <line>781</line>
+          <line>565</line>
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java</url>
-          <line>773</line>
-          <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java</url>
-          <line>767</line>
+          <line>555</line>
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>298</line>
-          <option name="timeStamp" value="106" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>382</line>
+          <line>280</line>
           <option name="timeStamp" value="108" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java</url>
-          <line>1230</line>
+          <line>798</line>
           <option name="timeStamp" value="113" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>172</line>
+          <line>148</line>
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>249</line>
+          <line>226</line>
           <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java</url>
-          <line>185</line>
+          <line>176</line>
           <option name="timeStamp" value="139" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java</url>
-          <line>188</line>
+          <line>179</line>
           <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java</url>
-          <line>197</line>
+          <line>187</line>
           <option name="timeStamp" value="141" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java</url>
-          <line>195</line>
+          <line>185</line>
           <option name="timeStamp" value="142" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java</url>
-          <line>204</line>
+          <line>193</line>
           <option name="timeStamp" value="143" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java</url>
-          <line>202</line>
+          <line>191</line>
           <option name="timeStamp" value="146" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java</url>
-          <line>190</line>
+          <line>181</line>
           <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>580</line>
+          <line>588</line>
           <option name="timeStamp" value="153" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>549</line>
+          <line>553</line>
           <option name="timeStamp" value="156" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>551</line>
+          <line>555</line>
           <option name="timeStamp" value="159" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
@@ -517,37 +534,37 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java</url>
-          <line>1214</line>
+          <line>783</line>
           <option name="timeStamp" value="174" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java</url>
-          <line>1220</line>
+          <line>789</line>
           <option name="timeStamp" value="175" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>168</line>
+          <line>170</line>
           <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>126</line>
+          <line>128</line>
           <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>134</line>
+          <line>136</line>
           <option name="timeStamp" value="181" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>176</line>
+          <line>178</line>
           <option name="timeStamp" value="182" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>179</line>
+          <line>181</line>
           <option name="timeStamp" value="183" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
@@ -607,72 +624,67 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>396</line>
+          <line>399</line>
           <option name="timeStamp" value="224" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>399</line>
+          <line>402</line>
           <option name="timeStamp" value="227" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>375</line>
+          <line>378</line>
           <option name="timeStamp" value="228" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>372</line>
+          <line>375</line>
           <option name="timeStamp" value="229" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>104</line>
+          <line>81</line>
           <option name="timeStamp" value="235" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>109</line>
+          <line>83</line>
           <option name="timeStamp" value="236" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>118</line>
-          <option name="timeStamp" value="237" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>127</line>
+          <line>105</line>
           <option name="timeStamp" value="238" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>152</line>
+          <line>128</line>
           <option name="timeStamp" value="241" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>166</line>
+          <line>142</line>
           <option name="timeStamp" value="242" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>178</line>
+          <line>153</line>
           <option name="timeStamp" value="243" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>159</line>
+          <line>135</line>
           <option name="timeStamp" value="244" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>111</line>
+          <line>94</line>
           <option name="timeStamp" value="245" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>120</line>
+          <line>99</line>
           <option name="timeStamp" value="246" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
@@ -682,17 +694,17 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java</url>
-          <line>245</line>
+          <line>198</line>
           <option name="timeStamp" value="248" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java</url>
-          <line>246</line>
+          <line>199</line>
           <option name="timeStamp" value="249" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java</url>
-          <line>243</line>
+          <line>197</line>
           <option name="timeStamp" value="250" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
@@ -737,52 +749,42 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>125</line>
+          <line>127</line>
           <option name="timeStamp" value="278" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>132</line>
+          <line>134</line>
           <option name="timeStamp" value="280" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>146</line>
+          <line>148</line>
           <option name="timeStamp" value="281" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>137</line>
+          <line>139</line>
           <option name="timeStamp" value="282" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>515</line>
-          <option name="timeStamp" value="283" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>512</line>
-          <option name="timeStamp" value="284" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>498</line>
+          <line>502</line>
           <option name="timeStamp" value="286" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>497</line>
+          <line>501</line>
           <option name="timeStamp" value="287" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>496</line>
+          <line>500</line>
           <option name="timeStamp" value="288" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
-          <line>501</line>
+          <line>505</line>
           <option name="timeStamp" value="289" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
@@ -832,12 +834,52 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewUploadFragment.java</url>
-          <line>509</line>
+          <line>510</line>
           <option name="timeStamp" value="309" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
+          <line>519</line>
+          <option name="timeStamp" value="310" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
+          <line>516</line>
+          <option name="timeStamp" value="312" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
+          <line>522</line>
+          <option name="timeStamp" value="313" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
+          <line>578</line>
+          <option name="timeStamp" value="314" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
+          <line>580</line>
+          <option name="timeStamp" value="315" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java</url>
+          <line>581</line>
+          <option name="timeStamp" value="316" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" log-message="true" suspend="NONE" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
+          <line>299</line>
+          <option name="timeStamp" value="317" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" log-message="true" suspend="NONE" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="318" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java</url>
-          <line>375</line>
+          <line>275</line>
           <properties method="onFailure" />
           <option name="timeStamp" value="107" />
         </line-breakpoint>

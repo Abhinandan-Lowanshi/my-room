@@ -49,20 +49,14 @@ import retrofit2.Response;
  * create an instance of this fragment.
  */
 public class NewMyPostFragment extends Fragment implements MyPostAdapter.Delete {
-    RecyclerView rec;
-    TextView empty_text;
-    private ProgressDialog progressDialog ,deleteDialoge;
+    private RecyclerView rec;
+    private TextView empty_text;
+    private ProgressDialog progressDialog, deleteDialoge;
     private AppSession appSession;
-    MyPostAdapter  adapter;
-    private  boolean isUserScroll = false;
-    LinearLayoutManager linearLayoutManager;
-    NearByRoom_Adapter nearByRoom_adapter;
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private MyPostAdapter adapter;
+    private LinearLayoutManager linearLayoutManager;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private  int currentItems  =0 , totalItmes =0 , scrolledItems=0;
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private ArrayList<RoomDetailsData> roomDetailsData;
@@ -105,128 +99,101 @@ public class NewMyPostFragment extends Fragment implements MyPostAdapter.Delete 
         View view = inflater.inflate(R.layout.fragment_new_my_post, container, false);
         iniView(view);
         getMyUploadedRooms(this::deleletListner);
-
-      rec.addOnScrollListener(new RecyclerView.OnScrollListener() {
-          @Override
-          public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-              super.onScrollStateChanged(recyclerView, newState);
-              if(newState== AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL);
-              {
-
-              }
-          }
-
-
-          @Override
-          public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-              super.onScrolled(recyclerView, dx, dy);
-              currentItems = linearLayoutManager.getChildCount();
-              totalItmes = linearLayoutManager.getItemCount();
-              scrolledItems = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
-
-          }
-      });
-         return view;
+        return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if(new AppSession(getContext()).getIsFromEdit().equalsIgnoreCase("1")) {
+        if (new AppSession(getContext()).getIsFromEdit().equalsIgnoreCase("1")) {
             getMyUploadedRooms(this::deleletListner);
-            Log.d("getMyUploadedRooms", "onResume: ");
         }
     }
 
-    private void showDialogue(int pos)
-     {
-         final Dialog dialog = new Dialog(getContext());
-         dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
-         dialog.setCancelable(true);
-         dialog.setContentView(R.layout.delete_layout);
-         dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
-         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-         //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
-         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
-                 WindowManager.LayoutParams.MATCH_PARENT);
-         AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
-         Button yes = dialog.findViewById(R.id.yes);
-         Button no = dialog.findViewById(R.id.no);
-         no.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 dialog.dismiss();
-             }
-         });  img_close.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-             dialog.dismiss();
-         }
-     });
-         yes.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
+    private void showDialogue(int pos) {
+        final Dialog dialog = new Dialog(getContext());
+        dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.delete_layout);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
+        Button yes = dialog.findViewById(R.id.yes);
+        Button no = dialog.findViewById(R.id.no);
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        img_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 dialog.dismiss();
                 deleteRoom(pos);
 
-             }
-         });
+            }
+        });
 
 
-         dialog.show();
-     }
+        dialog.show();
+    }
 
     private void deleteRoom(int pos) {
 
-  try {
+        try {
 
-      deleteDialoge.show();
-      JsonObject jsonObject = new JsonObject();
-      jsonObject.addProperty("room_id",String.valueOf(roomDetailsData.get(pos).getRmPkey()));
-      ApiClient.getClient().deleteRoom(jsonObject).enqueue(new Callback<DeleteRoomModel>() {
-          @Override
-          public void onResponse(Call<DeleteRoomModel> call, Response<DeleteRoomModel> response) {
+            deleteDialoge.show();
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("room_id", String.valueOf(roomDetailsData.get(pos).getRmPkey()));
+            ApiClient.getClient().deleteRoom(jsonObject).enqueue(new Callback<DeleteRoomModel>() {
+                @Override
+                public void onResponse(Call<DeleteRoomModel> call, Response<DeleteRoomModel> response) {
 
-              if(response.isSuccessful())
-              {
-                  deleteDialoge.dismiss();
-                  if(response.body().getStatus()==true) {
+                    if (response.isSuccessful()) {
+                        deleteDialoge.dismiss();
+                        if (response.body().getStatus() == true) {
 
+                            Toast.makeText(getActivity().getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            removeRoom(roomDetailsData.get(pos).getRmPkey(), roomDetailsData);
+                        } else {
+                            Toast.makeText(getActivity().getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
 
-                      Toast.makeText(getActivity().getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-//                      onResume();
-                      removeRoom(roomDetailsData.get(pos).getRmPkey(),roomDetailsData);
-                  }else {
-                      Toast.makeText(getActivity().getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        deleteDialoge.dismiss();
+                    }
+                }
 
-                  }
-              }else {
-                  deleteDialoge.dismiss();
-              }
-          }
+                @Override
+                public void onFailure(Call<DeleteRoomModel> call, Throwable t) {
+                    deleteDialoge.dismiss();
+                    Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                }
+            });
 
-          @Override
-          public void onFailure(Call<DeleteRoomModel> call, Throwable t) {
-              deleteDialoge.dismiss();
-              Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
-          }
-      });
-
-  }catch (Exception e)
-  {
-      deleteDialoge.dismiss();
-       e.printStackTrace();
-  }
+        } catch (Exception e) {
+            deleteDialoge.dismiss();
+            e.printStackTrace();
+        }
 
     }
 
     private void removeRoom(Integer rmPkey, ArrayList<RoomDetailsData> roomDetailsData) {
-          for(int i=0 ; i<roomDetailsData.size() ; i++) {
-              if (roomDetailsData.get(i).getRmPkey() == rmPkey)
-              {
-                   roomDetailsData.remove(i);
-              }
-          }
+        for (int i = 0; i < roomDetailsData.size(); i++) {
+            if (roomDetailsData.get(i).getRmPkey() == rmPkey) {
+                roomDetailsData.remove(i);
+            }
+        }
 
         adapter.notifyDataSetChanged();
     }
@@ -235,20 +202,15 @@ public class NewMyPostFragment extends Fragment implements MyPostAdapter.Delete 
 
         JsonObject jsonObject = new JsonObject();
 
-        jsonObject.addProperty("user_id",String.valueOf(appSession.getUserID()));
-             progressDialog.show();
+        jsonObject.addProperty("user_id", String.valueOf(appSession.getUserID()));
+        progressDialog.show();
 
 
         ApiClient.getClient().getMyUploadedRooms(jsonObject).enqueue(new Callback<RoomDetailsModel>() {
             @Override
             public void onResponse(Call<RoomDetailsModel> call, Response<RoomDetailsModel> response) {
 
-
                 try {
-
-//                    MyPostAdapter adapter = new MyPostAdapter(getContext(),getActivity(),null ,delete);
-//                    rec.setAdapter(adapter);
-//                    rec.scheduleLayoutAnimation();
 
                     if (response.isSuccessful()) {
                         progressDialog.dismiss();
@@ -256,16 +218,15 @@ public class NewMyPostFragment extends Fragment implements MyPostAdapter.Delete 
 
                         if (roomDetailsModel.getStatus() == true) {
 
-                            if(roomDetailsModel.getData().size()!=0)
-                            {
+                            if (roomDetailsModel.getData().size() != 0) {
                                 rec.setVisibility(View.VISIBLE);
                                 empty_text.setVisibility(View.GONE);
                                 roomDetailsData = roomDetailsModel.getData();
-                               adapter = new MyPostAdapter(getContext(),getActivity(),roomDetailsData ,delete);
+                                adapter = new MyPostAdapter(getContext(), getActivity(), roomDetailsData, delete);
                                 rec.setAdapter(adapter);
                                 rec.scheduleLayoutAnimation();
 
-                            }else {
+                            } else {
                                 rec.setVisibility(View.INVISIBLE);
                                 empty_text.setVisibility(View.VISIBLE);
                                 Toast.makeText(getActivity().getApplicationContext(), "Room list not found", Toast.LENGTH_SHORT).show();
@@ -278,15 +239,13 @@ public class NewMyPostFragment extends Fragment implements MyPostAdapter.Delete 
                             Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
 
                         }
-                    }
-                    else {
+                    } else {
                         progressDialog.dismiss();
                         empty_text.setVisibility(View.VISIBLE);
 //                        Toast.makeText(getActivity().getApplicationContext(), response.code(), Toast.LENGTH_SHORT).show();
 
                     }
-                }catch (Exception e)
-                {
+                } catch (Exception e) {
                     progressDialog.dismiss();
                     empty_text.setVisibility(View.VISIBLE);
 //                    Toast.makeText(getActivity().getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
@@ -298,27 +257,25 @@ public class NewMyPostFragment extends Fragment implements MyPostAdapter.Delete 
             public void onFailure(Call<RoomDetailsModel> call, Throwable t) {
                 empty_text.setVisibility(View.VISIBLE);
                 progressDialog.dismiss();
-              //  Toast.makeText(getActivity().getApplicationContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(getActivity().getApplicationContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
     }
 
     private void iniView(View view) {
-        rec = (RecyclerView)view.findViewById(R.id.rec);
+        rec = (RecyclerView) view.findViewById(R.id.rec);
         linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         rec.setLayoutManager(linearLayoutManager);
-
         empty_text = (TextView) view.findViewById(R.id.empty_text);
         appSession = new AppSession(getActivity());
         ChipNavigationBar chipNavigationBar;
         chipNavigationBar = (ChipNavigationBar) getActivity().findViewById(R.id.bottom_nav_bar);
-        chipNavigationBar.setItemSelected(R.id.Saved,true);
+        chipNavigationBar.setItemSelected(R.id.Saved, true);
         progressDialog = new ProgressDialog(getContext());
         deleteDialoge = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);
         progressDialog.setMessage("searching....");
-
         deleteDialoge.setCancelable(false);
         deleteDialoge.setMessage("Deleting....");
 

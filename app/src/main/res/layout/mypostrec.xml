@@ -81,6 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/rl_2"
             android:id="@+id/rl_fav"
+            android:visibility="gone"
             android:layout_marginTop="@dimen/_1sdp"
             android:layout_marginRight="@dimen/_20sdp"
             android:layout_alignParentEnd="true">

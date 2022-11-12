@@ -1,4 +1,5 @@
 package com.example.myroom.app;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -53,19 +54,15 @@ import java.util.TimerTask;
 import appsession.AppSession;
 
 public class startScreen extends AppCompatActivity {
-    FirebaseAuth mAuth;
-    AppSession appSession;
-    LocationManager manager;
-    Timer task1,task2;
+    private FirebaseAuth mAuth;
+    private AppSession appSession;
+    private LocationManager manager;
+    private Timer task1, task2;
     boolean connected = false;
-    TextView progressText;
-    private boolean permissioncheck =false;
-    Double longitude_1,lattitude_1;
-//    ProgressDialog progressDialog;
-    ProgressBar progressBar3;
-    int progress =0;
-    List<Address> addresses = null;
-    Boolean location_check = false;
+    private TextView progressText;
+    private boolean permissioncheck = false;
+    private Double longitude_1, lattitude_1;
+    private List<Address> addresses = null;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private String address;
 
@@ -75,77 +72,56 @@ public class startScreen extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         appSession = new AppSession(startScreen.this);
 
-        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            //we are connected to a network
-            connected = true;
-        }
-        else {
-            Toast.makeText(startScreen.this, "No internet connection", Toast.LENGTH_LONG);
-            connected = false;
-        }
-
-        Log.d("TAG", "network: "+connected);
+//
         setContentView(R.layout.activity_start_screen);
         manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(startScreen.this);
-//        appSession.setMainlat("0");
-//        appSession.setMainlon("0");
-        progressBar3 = (ProgressBar) findViewById(R.id.progressBar3);
-
-        progressText = (TextView) findViewById(R.id.progressText);
-        progressText.setText("0%");
-        task1 = new Timer();
-        task2 = new Timer();
 
 
         try {
-            // if(appSession.getMainlat().equals("0") || appSession.getMainlon().equals("0"))
-            if(appSession.getIsCustomeLocation()==true&&appSession.getCityCurrent()!="")
-            {
-                Log.d("TAG", "appsession.setMainlat getIsCustomeLocation: " +appSession.getMainlon()+"  "+appSession.getMainlat());
-
-                if(appSession.getIsLogin()==null) {
+            if (appSession.getIsCustomeLocation() == true && appSession.getCityCurrent() != "") {
+                if (appSession.getIsLogin() == null) {
                     Intent intent = new Intent(getApplicationContext(), LoginFinal.class);
-                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+                    ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+//        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+//                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+//            connected = true;
+//        }
+//        else {
+//            Toast.makeText(startScreen.this, "No internet connection", Toast.LENGTH_LONG);
+//            connected = false;
+//        }
                     startActivity(intent);
                     finish();
-                }
-                else {
-                    if(appSession.getIsLogin().equalsIgnoreCase("1")) {
-                        task1.cancel();
-                        task1.cancel();
-//                        appSession.setSignalStrenth(String.valueOf(location.getAccuracy()));
+                } else {
+                    if (appSession.getIsLogin().equalsIgnoreCase("1")) {
                         Intent i = new Intent(getApplicationContext(), NewHomeActivityFR.class);
-                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
                         startActivity(i);
                         finish();
-                    }
-                    else {
+                    } else {
                         Intent intent = new Intent(getApplicationContext(), LoginFinal.class);
-                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
                         startActivity(intent);
                         finish();
 
                     }
                 }
 
-            }else {
+            } else {
                 checkRunTimePermission();
             }
         } catch (Exception e) {
 
-            Log.d("TAG", "Abhiiiiiii: " +e.getLocalizedMessage());
+            Log.d("TAG", "Abhiiiiiii: " + e.getLocalizedMessage());
             Toast.makeText(startScreen.this, "Something went wrong", Toast.LENGTH_SHORT).show();
 
         }
 
 
-
-
-
     }
+
     public void checkRunTimePermission() {
 
         try {
@@ -153,18 +129,18 @@ public class startScreen extends AppCompatActivity {
                 if (ActivityCompat.checkSelfPermission(startScreen.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
                         ActivityCompat.checkSelfPermission(startScreen.this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 //                 getcurrentlocation();
-                    if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
+                    if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                         buildAlertMessageNoGps();
-                    }else {
+                    } else {
 
                         getcurrentlocation();
 
                     }
 
                 } else {
-                    permissioncheck=true;
+                    permissioncheck = true;
 //                progressDialog.dismiss();
-                    requestPermissions(new String[]{ Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
+                    requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
                             10);
                     // Manifest.permission.ACCESS_BACKGROUND_LOCATION
                     // Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_BACKGROUND_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION,
@@ -174,13 +150,13 @@ public class startScreen extends AppCompatActivity {
 
             }
 
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-            Log.d("TAG", "checkRunTimePermission: "+e.getLocalizedMessage());
+            Log.d("TAG", "checkRunTimePermission: " + e.getLocalizedMessage());
         }
 
-            }
+    }
+
     private void buildAlertMessageNoGps() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(startScreen.this);
         builder.setTitle("Your GPS seems to be disabled ?").setMessage("Turn on GPS without GPS we can't provide our services.")
@@ -188,7 +164,7 @@ public class startScreen extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                         Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        startActivityForResult(intent,200);
+                        startActivityForResult(intent, 200);
                         //  startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),200);
 //
                         // getLocation(locationListener);
@@ -203,6 +179,7 @@ public class startScreen extends AppCompatActivity {
         final AlertDialog alert = builder.create();
         alert.show();
     }
+
     private void getcurrentlocation() {
 
         try {
@@ -241,134 +218,57 @@ public class startScreen extends AppCompatActivity {
                 @Override
                 public void onComplete(Task<Location> task) {
 
-                        try {
+                    try {
 
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Log.d("TAG", "onComplete: " + e.getLocalizedMessage());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Log.d("TAG", "onComplete: " + e.getLocalizedMessage());
+                    }
+                    try {
+                        Location location = task.getResult();
+                        if (location == null) {
+                            return;
                         }
-                        try {
-                            Location location = task.getResult();
-                            if (location==null)
-                            {
-                                return;
-                            }
-                            Geocoder geocoder = new Geocoder(startScreen.this.getApplicationContext(),
-                                    Locale.getDefault());
-                            addresses = null;
-                            addresses = geocoder.getFromLocation(
-                                    location.getLatitude(), location.getLongitude(), 1
-                            );
+                        Geocoder geocoder = new Geocoder(startScreen.this.getApplicationContext(),
+                                Locale.getDefault());
+                        addresses = null;
+                        addresses = geocoder.getFromLocation(
+                                location.getLatitude(), location.getLongitude(), 1
+                        );
 
-                            longitude_1 = addresses.get(0).getLongitude();
-                            lattitude_1 = addresses.get(0).getLatitude();
-                             if(lattitude_1!=null&&longitude_1!=null)
-                             {
-                                 task1.cancel();
-                                 location_check = true;
-                                 appSession.setMainlat(String.valueOf(lattitude_1));
-                                 appSession.setMainlon(String.valueOf(longitude_1));
-                                 if(appSession.getIsLogin()==null) {
+                        longitude_1 = addresses.get(0).getLongitude();
+                        lattitude_1 = addresses.get(0).getLatitude();
+                        if (lattitude_1 != null && longitude_1 != null) {
+                            appSession.setMainlat(String.valueOf(lattitude_1));
+                            appSession.setMainlon(String.valueOf(longitude_1));
+                            if (appSession.getIsLogin() == null) {
+                                Intent intent = new Intent(getApplicationContext(), LoginFinal.class);
+                                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                if (appSession.getIsLogin().equalsIgnoreCase("1")) {
+                                    appSession.setSignalStrenth(String.valueOf(location.getAccuracy()));
+                                    Intent i = new Intent(getApplicationContext(), NewHomeActivityFR.class);
+                                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+                                    startActivity(i);
+                                    finish();
+                                } else {
                                     Intent intent = new Intent(getApplicationContext(), LoginFinal.class);
-                                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
                                     startActivity(intent);
                                     finish();
+
                                 }
-                                else {
-                                    if(appSession.getIsLogin().equalsIgnoreCase("1")) {
-                                        task1.cancel();
-                                        task1.cancel();
-                                        appSession.setSignalStrenth(String.valueOf(location.getAccuracy()));
-                                        Intent i = new Intent(getApplicationContext(), NewHomeActivityFR.class);
-                                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-                                        startActivity(i);
-                                        finish();
-                                    }
-                                    else {
-                                        Intent intent = new Intent(getApplicationContext(), LoginFinal.class);
-                                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-                                        startActivity(intent);
-                                        finish();
-
-                                    }
-                                }
-
-                             }
-//                            address =addresses.get(0).getSubLocality()+", "+ addresses.get(0).getLocality() + ", " + addresses.get(0).getPostalCode() + ", " + addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
-                          address =addresses.get(0).getSubLocality()+", "+ addresses.get(0).getPostalCode() + ", " + addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
-                            //  getNearByDriver();", "+addresses.get(0).getSubAdminArea()
-
-                             if(!address.isEmpty())
-                                 appSession.setCityCurrent(address);
-
-
-//                            tv_city.setText(address);
-
-//                    float checkStatus = (float) 7.0;
-                        } catch (Exception e) {
-//                            task1.cancel();
-                            Log.d("TAG", "Abhi :::::::::::::: ex "+ e.getLocalizedMessage());
-//                            Log.d(TAG, "Error: "+e.getLocalizedMessage());
-//                            Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                            }
 
                         }
-//                        if (toast_check == true) {
-//                            toast_check = false;
-//                            if (location.getAccuracy() < 8.00) {
-//                                single_1.setAlpha(1f);
-//                                single_2.setAlpha(1f);
-//                                single_3.setAlpha(1f);
-//                                single_4.setAlpha(1f);
-//                                single_5.setAlpha(1f);
-//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level less than 8m", Toast.LENGTH_LONG).show();
-//
-//                            } else if (location.getAccuracy() < 20.00) {
-//                                single_1.setAlpha(1f);
-//                                single_2.setAlpha(1f);
-//                                single_3.setAlpha(1f);
-//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 10m", Toast.LENGTH_LONG).show();
-//
-//                                single_4.setAlpha(1f);
-//                                single_5.setAlpha(.2f);
-//
-//                            } else if (location.getAccuracy() < 40.0) {
-//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 20m", Toast.LENGTH_LONG).show();
-//
-//                                single_1.setAlpha(1f);
-//                                single_2.setAlpha(1f);
-//                                single_3.setAlpha(1f);
-//                                single_4.setAlpha(.2f);
-//                                single_5.setAlpha(.2f);
-//
-//                            } else if (location.getAccuracy() < 60.00) {
-//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 50m", Toast.LENGTH_LONG).show();
-//
-//                                single_1.setAlpha(1f);
-//                                single_2.setAlpha(1f);
-//                                single_3.setAlpha(.2f);
-//                                single_4.setAlpha(.2f);
-//                                single_5.setAlpha(.2f);
-//                            } else if (location.getAccuracy() < 800.00) {
-//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level 500m", Toast.LENGTH_LONG).show();
-//
-//                                single_1.setAlpha(1f);
-//                                single_2.setAlpha(.2f);
-//                                single_3.setAlpha(.2f);
-//                                single_4.setAlpha(.2f);
-//                                single_5.setAlpha(.2f);
-//                            } else {
-//                                Toast.makeText(getContext(), "GPS single detected, Accuracy level more then 1200m", Toast.LENGTH_LONG).show();
-//                                single_1.setAlpha(.2f);
-//                                single_2.setAlpha(.2f);
-//                                single_3.setAlpha(.2f);
-//                                single_4.setAlpha(.2f);
-//                                single_5.setAlpha(.2f);
-//                            }
-//                        }
-//
-
-
-
+                        address = addresses.get(0).getSubLocality() + ", " + addresses.get(0).getPostalCode() + ", " + addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
+                        if (!address.isEmpty())
+                            appSession.setCityCurrent(address);
+                    } catch (Exception e) {
+                        Log.d("TAG", "Abhi :::::::::::::: ex " + e.getLocalizedMessage());
+                    }
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -378,10 +278,8 @@ public class startScreen extends AppCompatActivity {
                 }
             });
 
-        }catch (Exception e)
-        {
-//            Log.d(TAG, "getcurrentlocation: "+e.getLocalizedMessage());
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -390,7 +288,7 @@ public class startScreen extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
                                            int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        Log.d("TAG", "onRequestPermissionsResult: "+requestCode);
+        Log.d("TAG", "onRequestPermissionsResult: " + requestCode);
         switch (requestCode) {
             case 10: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -400,7 +298,6 @@ public class startScreen extends AppCompatActivity {
                         if (permissioncheck == true) {
 
                             triggerRebirth(startScreen.this);
-//                            getcurrentlocation();
                         }
                     }
                 } else {
@@ -417,13 +314,12 @@ public class startScreen extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-          try {
-              Log.d("TAG", "onActivityResult: ");
-              checkRunTimePermission();
-          }catch (Exception e)
-          {
-               e.printStackTrace();
-          }
+        try {
+            Log.d("TAG", "onActivityResult: ");
+            checkRunTimePermission();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

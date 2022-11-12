@@ -57,77 +57,48 @@ import retrofit2.Response;
 
 
 public class LoginFinal extends AppCompatActivity {
-    private TextInputEditText email,password;
-    private FirebaseAuth mAuth;
-    private ConstraintLayout constraintLayout;
+    private TextInputEditText email, password;
     private Button login;
-    AppSession appSession;
-    String f_email="";
-    String f_password ="";
+    private AppSession appSession;
+    private String f_password = "", f_email = "";
     private float heightInch;
     private ProgressDialog progressDialog;
-    private TextView emailverification,signup;
-    LinearLayout passlayout;
-    private String firebasetoken;
-    private  ActivityResultLauncher<String> mPermission;
+    private TextView signup;
+    private LinearLayout passlayout;
+    private ActivityResultLauncher<String> mPermission;
     private CheckBox checkbox_cr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAuth = FirebaseAuth.getInstance();
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         float mWidthPixels = dm.widthPixels;
-        float  mHeightPixels = dm.heightPixels;
-        float widthInch = mWidthPixels/dm.density;
-        heightInch = mHeightPixels/dm.density;
+        float mHeightPixels = dm.heightPixels;
+        float widthInch = mWidthPixels / dm.density;
+        heightInch = mHeightPixels / dm.density;
         run();
-
-
-
     }
 
-
-
-    private void run()
-    {
-        if(650<heightInch)
+    private void run() {
+        if (650 < heightInch)
             setContentView(R.layout.activity_log_in_1);
         else
             setContentView(R.layout.login_small);
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("TAG", "Fetching FCM registration token failed", task.getException());
+                            return;
+                        } else {
+                            new AppSession(LoginFinal.this).setToken(task.getResult());
 
-
-        mPermission = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
-            if (isGranted) {
-
-            } else {
-
-            }
-        });
-
-
-        constraintLayout = (ConstraintLayout)findViewById(R.id.contraintLayout);
-
-
-
-            FirebaseMessaging.getInstance().getToken()
-                    .addOnCompleteListener(new OnCompleteListener<String>() {
-                        @Override
-                        public void onComplete(@NonNull Task<String> task) {
-                            if (!task.isSuccessful()) {
-                                Log.w("TAG", "Fetching FCM registration token failed", task.getException());
-                                return;
-                            }else {
-                                new AppSession(LoginFinal.this).setToken(task.getResult());
-
-                            }
                         }
-                    });
-            firebasetoken = new AppSession(LoginFinal.this).getToken();
+                    }
+                });
 
-
-        emailverification = (TextView) findViewById(R.id.resendEmaillink);
         checkbox_cr = (CheckBox) findViewById(R.id.checkbox_cr);
         email = (TextInputEditText) findViewById(R.id.email);
         appSession = new AppSession(LoginFinal.this);
@@ -137,18 +108,16 @@ public class LoginFinal extends AppCompatActivity {
         progressDialog.setMessage("Logging in...");
         password = (TextInputEditText) findViewById(R.id.password);
         signup = (TextView) findViewById(R.id.signup);
-        login = (Button)findViewById(R.id.login);
+        login = (Button) findViewById(R.id.login);
         login.setEnabled(false);
         login.setAlpha(.4f);
-
-
 
         checkbox_cr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (!isChecked) {
                     // hide password
-                    password.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 } else {
                     // show password
                     password.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -158,47 +127,47 @@ public class LoginFinal extends AppCompatActivity {
 
         @SuppressLint("ResourceType") final Animation myAnim = AnimationUtils.loadAnimation(this, R.drawable.animation);
 
-          email.addTextChangedListener(new TextWatcher() {
-              @Override
-              public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        email.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-              }
+            }
 
-              @Override
-              public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                  f_email = charSequence.toString();
-                    loginButton(f_email,f_password);
-              }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                f_email = charSequence.toString();
+                loginButton(f_email, f_password);
+            }
 
-              @Override
-              public void afterTextChanged(Editable editable) {
+            @Override
+            public void afterTextChanged(Editable editable) {
 
-              }
-          });
-          password.addTextChangedListener(new TextWatcher() {
-              @Override
-              public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+        });
+        password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-              }
+            }
 
-              @Override
-              public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                  f_password = charSequence.toString();
-                  loginButton(f_email,f_password);
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                f_password = charSequence.toString();
+                loginButton(f_email, f_password);
 
-              }
+            }
 
-              @Override
-              public void afterTextChanged(Editable editable) {
+            @Override
+            public void afterTextChanged(Editable editable) {
 
-              }
-          });
+            }
+        });
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signup.setEnabled(false);
-                Intent i  = new Intent(LoginFinal.this, SignUp.class);
+                Intent i = new Intent(LoginFinal.this, SignUp.class);
                 startActivity(i);
 //                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                 signup.setEnabled(true);
@@ -235,8 +204,7 @@ public class LoginFinal extends AppCompatActivity {
                         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
                         Animation shake = AnimationUtils.loadAnimation(LoginFinal.this, R.anim.shake);
                         password.startAnimation(shake);
-                    }
-                    else {
+                    } else {
 
 
                         progressDialog.show();
@@ -255,9 +223,9 @@ public class LoginFinal extends AppCompatActivity {
                                     if (loginModel.getStatus() == true) {
                                         LoginData loginData = loginModel.getData();
 
-                                        ManageSession.Login(LoginFinal.this,String.valueOf(loginData.getUsrId()),loginData.getUsrFirstName()
-                                        ,loginData.getUsrLastName(),loginData.getUsrEmail(),loginData.getUsrPhone(),
-                                                loginData.getUsrParmentAdrss(),loginData.getUsrCurrentAdrss());
+                                        ManageSession.Login(LoginFinal.this, String.valueOf(loginData.getUsrId()), loginData.getUsrFirstName()
+                                                , loginData.getUsrLastName(), loginData.getUsrEmail(), loginData.getUsrPhone(),
+                                                loginData.getUsrParmentAdrss(), loginData.getUsrCurrentAdrss());
                                         getNotificationStatus();
                                         Intent intent = new Intent(LoginFinal.this, NewHomeActivityFR.class);
 //                                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
@@ -272,7 +240,7 @@ public class LoginFinal extends AppCompatActivity {
 
                                 } else {
                                     progressDialog.dismiss();
-                                    Toast.makeText(LoginFinal.this,"Something went wrong", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginFinal.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                                 }
 
 
@@ -286,8 +254,7 @@ public class LoginFinal extends AppCompatActivity {
 
                     }
 
-                }catch (Exception e)
-                {
+                } catch (Exception e) {
                     e.printStackTrace();
                     progressDialog.dismiss();
                     overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
@@ -301,8 +268,6 @@ public class LoginFinal extends AppCompatActivity {
         });
 
 
-
-
     }
 
     @Override
@@ -313,6 +278,7 @@ public class LoginFinal extends AppCompatActivity {
 
         return true;
     }
+
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (getCurrentFocus() != null) {
@@ -326,8 +292,7 @@ public class LoginFinal extends AppCompatActivity {
     public void onBackPressed() {
 
 
-
-        if(email.getText().toString().isEmpty()&&password.getText().toString().isEmpty()) {
+        if (email.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {
             new AlertDialog.Builder(this).setCancelable(false)
                     .setTitle("Exit")
                     .setMessage("Are you sure you want to exit?")
@@ -336,13 +301,12 @@ public class LoginFinal extends AppCompatActivity {
                             System.exit(1);
                         }
                     }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
-                }
-            }).show();
-        }
-        else {
+                        }
+                    }).show();
+        } else {
             email.setText("");
             password.setText("");
             email.clearFocus();
@@ -350,6 +314,7 @@ public class LoginFinal extends AppCompatActivity {
         }
 
     }
+
     private void getNotificationStatus() {
         try {
             JsonObject jsonObject = new JsonObject();
@@ -358,11 +323,9 @@ public class LoginFinal extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<NotificationStatusModel> call, Response<NotificationStatusModel> response) {
 
-                    if(response.isSuccessful())
-                    {
-                        if(response.body().getStatus()==true)
-                        {
-                            if(response.body().getData().getIsNotify().equalsIgnoreCase("1"))
+                    if (response.isSuccessful()) {
+                        if (response.body().getStatus() == true) {
+                            if (response.body().getData().getIsNotify().equalsIgnoreCase("1"))
                                 new AppSession(LoginFinal.this).setNotificationStatus("true");
                             else if (response.body().getData().getIsNotify().equalsIgnoreCase("0"))
                                 new AppSession(LoginFinal.this).setNotificationStatus("false");
@@ -378,21 +341,19 @@ public class LoginFinal extends AppCompatActivity {
                 }
             });
 
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-    public void loginButton(String email,String password)
-    {
-         if(AppSession.isValidEmail(email)&& password.length()>5&&email.length()>1)
-         {
-              login.setEnabled(true);
-             login.setAlpha(1f);
-         }else {
-             login.setEnabled(false);
-             login.setAlpha(.4f);
-         }
+
+    public void loginButton(String email, String password) {
+        if (AppSession.isValidEmail(email) && password.length() > 5 && email.length() > 1) {
+            login.setEnabled(true);
+            login.setAlpha(1f);
+        } else {
+            login.setEnabled(false);
+            login.setAlpha(.4f);
+        }
     }
 }

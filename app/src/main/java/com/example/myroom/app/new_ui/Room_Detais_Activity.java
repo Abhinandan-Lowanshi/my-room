@@ -14,6 +14,7 @@ import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,6 +88,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
    private boolean isFillMap = true;
    private    RoomDetailsMainData roomDetailsMainData;
    private ImageView heart_fill , heart_empty ;
+    private  RelativeLayout rl_fav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -238,7 +240,8 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
                             //i.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
 
                             startActivity(i);
-                        } catch (PackageManager.NameNotFoundException e) {
+                        } catch (Exception e) {
+                            Log.d("TAG", "img_whatsapp: "+e);
                             Toast.makeText(Room_Detais_Activity.this, "Whatsapp app not installed in your phone", Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
                         }
@@ -437,6 +440,7 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
         heart_empty = (ImageView) findViewById(R.id.heart_empty);
         heart_fill = (ImageView) findViewById(R.id.heart_fill);
         vpHomeFirstBanner = (ViewPager) findViewById(R.id.banner);
+        rl_fav = (RelativeLayout) findViewById(R.id.rl_fav);
         progressDialog = new ProgressDialog(Room_Detais_Activity.this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading details....");
@@ -572,6 +576,10 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
         tv_mobile.setText(roomDetailsMainData.getRmOwnMbleNum());
         lat = Double.parseDouble(roomDetailsMainData.getRmLatitude());
         lon = Double.parseDouble(roomDetailsMainData.getRmLongitude());
+        String userid = new AppSession(Room_Detais_Activity.this).getUserID();
+        String id = String.valueOf(roomDetailsMainData.getRmUsrFkey());
+        if(!userid.equalsIgnoreCase(id))
+            rl_fav.setVisibility(View.VISIBLE);
         origin = new LatLng(lat, lon);
         // origin = new LatLng( 22.4298713, 77.42529669999999);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);

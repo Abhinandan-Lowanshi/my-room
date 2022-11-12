@@ -74,6 +74,7 @@
         <entry key="..\:/MyRoom/WhitTheme/MyRoom/MyRoom/app/src/main/res/layout/userpostrow.xml" value="0.22" />
         <entry key="..\:/MyRoom/WhitTheme/MyRoom/MyRoom/app/src/main/res/layout/view_full_image_dialouge.xml" value="0.2" />
         <entry key="..\:/MyRoom/WhitTheme/MyRoom/MyRoom/app/src/main/res/menu/nav_menu.xml" value="0.2" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/animation.xml" value="0.1" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/bannerlabelcontainer.xml" value="0.1205" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/chat_input.xml" value="0.1205" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/edit_profile.xml" value="0.1205" />
@@ -97,7 +98,7 @@
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_notification_setting2.xml" value="0.2" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_owner_profile.xml" value="0.25" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_review.xml" value="0.25" />
-        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_room_detais.xml" value="0.32123411978221417" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_room_detais.xml" value="0.24623115577889448" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_search.xml" value="0.18" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/activity_take_location_by_google_map.xml" value="0.33" />
@@ -106,7 +107,7 @@
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/addriviewdilogue.xml" value="0.18333333333333332" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/banner_layout.xml" value="0.22" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/emaiverificationdialogue.xml" value="0.19479166666666667" />
-        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_home.xml" value="0.18177083333333333" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_fav.xml" value="0.2" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_my_account.xml" value="0.33" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_my_post.xml" value="0.2" />

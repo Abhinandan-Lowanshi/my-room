@@ -61,25 +61,25 @@ import java.util.TimerTask;
 import appsession.AppSession;
 
 public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener, DrawRoute.RunCode {
-    private static final String TAG ="Abhi:::" ;
+    private static final String TAG = "Abhi:::";
     private GoogleMap mMap;
     private LatLng origin;
-    private  double lat,lon;
+    private double lat, lon;
     private TextView start_tracking;
     Timer task_is;
     AppCompatImageView img_back;
 
     AppSession appSession;
-    String data,data12;
-    AppCompatTextView tv_address,tv_distance,tv_duretion;
-    AppCompatTextView tv_address1,tv_distance1,tv_duretion1;
+    String data, data12;
+    AppCompatTextView tv_address, tv_distance, tv_duretion;
+    AppCompatTextView tv_address1, tv_distance1, tv_duretion1;
     TextView accuracy;
     ProgressDialog progressDialog;
-    double longitude_1,lattitute_1;
+    double longitude_1, lattitute_1;
     Boolean location_check = false;
     LocationManager manager;
-     float stregth;
-    View single_1,single_2,single_3,single_4,single_5;
+    float stregth;
+    View single_1, single_2, single_3, single_4, single_5;
     Boolean toast_check = true;
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 2; // 10 meters
 
@@ -102,6 +102,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
     double latitude;
     double longitude;
     FusedLocationProviderClient fusedLocationProviderClient;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
 
     @Override
@@ -109,8 +110,8 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_details);
         initView();
-      //  startTracking(this);
-          manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
+        //  startTracking(this);
+        manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 //        if (manager != null) {
 //            List<String> providers = manager.getAllProviders();
 //            for (String provider : providers) {
@@ -118,7 +119,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
 //            }
 //        }
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-//        checkRunTimePermission();
+        checkRunTimePermission();
 //        start_tracking.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -139,114 +140,109 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
 
     private void initView() {
         appSession = new AppSession(getApplicationContext());
-        lat = getIntent().getDoubleExtra("lat",0.000);
-        lon = getIntent().getDoubleExtra("lon",0.0000);
+        lat = getIntent().getDoubleExtra("lat", 0.000);
+        lon = getIntent().getDoubleExtra("lon", 0.0000);
         progressDialog = new ProgressDialog(MapDetailsActivity.this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Preparing map please wait....");
-//        progressDialog.show();
-        img_back = (AppCompatImageView)findViewById(R.id.img_back);
-
-
-
-
+             progressDialog.show();
+        img_back = (AppCompatImageView) findViewById(R.id.img_back);
 
 
         appSession.setData("");
         origin = new LatLng(lat, lon);
         start_tracking = (TextView) findViewById(R.id.start_tracking);
-        single_1 = (View)findViewById(R.id.single_1);
-        single_2 = (View)findViewById(R.id.single_2);
-        single_3 = (View)findViewById(R.id.single_3);
-        single_4 = (View)findViewById(R.id.single_4);
-        single_5 = (View)findViewById(R.id.single_5);
+        single_1 = (View) findViewById(R.id.single_1);
+        single_2 = (View) findViewById(R.id.single_2);
+        single_3 = (View) findViewById(R.id.single_3);
+        single_4 = (View) findViewById(R.id.single_4);
+        single_5 = (View) findViewById(R.id.single_5);
         accuracy = (TextView) findViewById(R.id.accuracy);
 
-        tv_address = (AppCompatTextView)findViewById(R.id.tv_address);
-        tv_distance = (AppCompatTextView)findViewById(R.id.tv_distance);
-        tv_duretion = (AppCompatTextView)findViewById(R.id.tv_duretion);
-        tv_address1 = (AppCompatTextView)findViewById(R.id.tv_address);
-        tv_distance1 = (AppCompatTextView)findViewById(R.id.tv_distance);
-        tv_duretion1= (AppCompatTextView)findViewById(R.id.tv_duretion);
+        tv_address = (AppCompatTextView) findViewById(R.id.tv_address);
+        tv_distance = (AppCompatTextView) findViewById(R.id.tv_distance);
+        tv_duretion = (AppCompatTextView) findViewById(R.id.tv_duretion);
+        tv_address1 = (AppCompatTextView) findViewById(R.id.tv_address);
+        tv_distance1 = (AppCompatTextView) findViewById(R.id.tv_distance);
+        tv_duretion1 = (AppCompatTextView) findViewById(R.id.tv_duretion);
 
-        if(appSession.getMainlat()!="0")
-        {
-            lattitute_1 = Double.parseDouble(appSession.getMainlat());
-            longitude_1 = Double.parseDouble(appSession.getMainlon());
-            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-            mapFragment.getMapAsync(MapDetailsActivity.this::onMapReady);
-
-
-            if(appSession.getSignalStrenth()!="0") {
-                stregth = Float.parseFloat(appSession.getSignalStrenth());
-                if (toast_check == true) {
-                    accuracy.setText("Accuracy:- " + String.valueOf(stregth) + "");
-                    toast_check = false;
-                    if (stregth < 8.00) {
-                        single_1.setAlpha(1f);
-                        single_2.setAlpha(1f);
-                        single_3.setAlpha(1f);
-                        single_4.setAlpha(1f);
-                        single_5.setAlpha(1f);
-//                        Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level " + String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                    } else if (stregth < 20.00) {
-                        single_1.setAlpha(1f);
-                        single_2.setAlpha(1f);
-                        single_3.setAlpha(1f);
-//                        Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level " + String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                        single_4.setAlpha(1f);
-                        single_5.setAlpha(.2f);
-
-                    } else if (stregth < 40.0) {
-//                        Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level " + String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                        single_1.setAlpha(1f);
-                        single_2.setAlpha(1f);
-                        single_3.setAlpha(1f);
-                        single_4.setAlpha(.2f);
-                        single_5.setAlpha(.2f);
-
-                    } else if (stregth < 60.00) {
-//                        Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level " + String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                        single_1.setAlpha(1f);
-                        single_2.setAlpha(1f);
-                        single_3.setAlpha(.2f);
-                        single_4.setAlpha(.2f);
-                        single_5.setAlpha(.2f);
-                    } else if (stregth < 800.00) {
-//                        Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level " + String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                        single_1.setAlpha(1f);
-                        single_2.setAlpha(.2f);
-                        single_3.setAlpha(.2f);
-                        single_4.setAlpha(.2f);
-                        single_5.setAlpha(.2f);
-                    } else {
-//                        Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level " + String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-                        single_1.setAlpha(.2f);
-                        single_2.setAlpha(.2f);
-                        single_3.setAlpha(.2f);
-                        single_4.setAlpha(.2f);
-                        single_5.setAlpha(.2f);
-                    }
-                }
-            }
-        }
+//        if (appSession.getMainlat() != "0") {
+//            lattitute_1 = Double.parseDouble(appSession.getMainlat());
+//            longitude_1 = Double.parseDouble(appSession.getMainlon());
+//            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+//            mapFragment.getMapAsync(MapDetailsActivity.this::onMapReady);
+//
+//
+//            if (appSession.getSignalStrenth() != "0") {
+//                stregth = Float.parseFloat(appSession.getSignalStrenth());
+//                if (toast_check == true) {
+//                    accuracy.setText("Accuracy:- " + String.valueOf(stregth) + "");
+//                    toast_check = false;
+//                    if (stregth < 8.00) {
+//                        single_1.setAlpha(1f);
+//                        single_2.setAlpha(1f);
+//                        single_3.setAlpha(1f);
+//                        single_4.setAlpha(1f);
+//                        single_5.setAlpha(1f);
+////                        Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level " + String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//
+//                    } else if (stregth < 20.00) {
+//                        single_1.setAlpha(1f);
+//                        single_2.setAlpha(1f);
+//                        single_3.setAlpha(1f);
+////                        Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level " + String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//
+//                        single_4.setAlpha(1f);
+//                        single_5.setAlpha(.2f);
+//
+//                    } else if (stregth < 40.0) {
+////                        Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level " + String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//
+//                        single_1.setAlpha(1f);
+//                        single_2.setAlpha(1f);
+//                        single_3.setAlpha(1f);
+//                        single_4.setAlpha(.2f);
+//                        single_5.setAlpha(.2f);
+//
+//                    } else if (stregth < 60.00) {
+////                        Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level " + String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//
+//                        single_1.setAlpha(1f);
+//                        single_2.setAlpha(1f);
+//                        single_3.setAlpha(.2f);
+//                        single_4.setAlpha(.2f);
+//                        single_5.setAlpha(.2f);
+//                    } else if (stregth < 800.00) {
+////                        Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level " + String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//
+//                        single_1.setAlpha(1f);
+//                        single_2.setAlpha(.2f);
+//                        single_3.setAlpha(.2f);
+//                        single_4.setAlpha(.2f);
+//                        single_5.setAlpha(.2f);
+//                    } else {
+////                        Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level " + String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//                        single_1.setAlpha(.2f);
+//                        single_2.setAlpha(.2f);
+//                        single_3.setAlpha(.2f);
+//                        single_4.setAlpha(.2f);
+//                        single_5.setAlpha(.2f);
+//                    }
+//                }
+//            }
+//        }
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-       // mMap.addMarker(new MarkerOptions().position(origin).title("name"));
-       // LatLng destination = new LatLng(lat, lon);
+        // mMap.addMarker(new MarkerOptions().position(origin).title("name"));
+        // LatLng destination = new LatLng(lat, lon);
 
         LatLng origin = new LatLng(lattitute_1, longitude_1);
-      //  LatLng origin = new LatLng(23.2599, 77.4126);
-          LatLng destination = new LatLng(lat, lon);
-        DrawRouteMaps.getInstance(this,0,this)
+        //  LatLng origin = new LatLng(23.2599, 77.4126);
+        LatLng destination = new LatLng(lat, lon);
+        DrawRouteMaps.getInstance(this, 0, this)
                 .draw(origin, destination, mMap);
         DrawMarker.getInstance(this).draw(mMap, origin, R.drawable.location_origon, "Your Location");
         DrawMarker.getInstance(this).draw(mMap, destination, R.drawable.location_destinition, "Your Destination");
@@ -255,14 +251,12 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
                 .build();
         Point displaySize = new Point();
         getWindowManager().getDefaultDisplay().getSize(displaySize);
-       // mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 12.0f));
+        // mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 12.0f));
         mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, displaySize.x, 700, 20));
 
 
-
-
-
     }
+
     private void buildAlertMessageNoGps(android.location.LocationListener locationListener) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Your GPS seems to be disabled, do you want to enable it?").setMessage("without turing on GPS service you can't use nearby room search")
@@ -270,7 +264,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                         Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        startActivityForResult(intent,200);
+                        startActivityForResult(intent, 200);
                         //  startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),200);
 //
                         // getLocation(locationListener);
@@ -285,6 +279,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
         final AlertDialog alert = builder.create();
         alert.show();
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -294,18 +289,13 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
                 Log.v("TAG", " Location providers: " + provider);
 
                 resetApplication();
-                //  getLocation(this);
-                // startActivity(Intent.makeRestartActivityTask(getIntent().getComponent()));
 
-                //   onRestart();
-                //Start searching for location and update the location text when update available.
-// Do whatever you want
-                // startFetchingLocation();
             } else {
                 //Users did not switch on the GPS
             }
         }
     }
+
     public void resetApplication() {
         Intent resetApplicationIntent = getPackageManager().getLaunchIntentForPackage(getPackageName());
         if (resetApplicationIntent != null) {
@@ -317,13 +307,6 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
 
     @Override
     public void onLocationChanged(Location location) {
-//        if(location!=null) {
-//            LatLng data = new LatLng(location.getLatitude(),location.getLongitude());
-//            mMap.clear();
-//            mMap.addMarker(new MarkerOptions().position(data).title("name"));
-//            Toast.makeText(getApplicationContext(),"Locatoin updated",Toast.LENGTH_LONG).show();
-//            Log.d(TAG, "Update: Location"+location.getLatitude()+"  "+location.getLongitude());
-//        }
 
     }
 
@@ -341,6 +324,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
     public void onProviderDisabled(String s) {
 
     }
+
     public void getLocation(android.location.LocationListener locationListener) {
 
         try {
@@ -401,17 +385,16 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
                 if (locationManager != null) {
                     location = locationManager.getLastKnownLocation(provider_info);
 
-                    Log.d(TAG, "getAccurecy: "+location.getAccuracy());
+                    Log.d(TAG, "getAccurecy: " + location.getAccuracy());
                     updateGPSCoordinates();
                 }
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             //e.printStackTrace();
             Log.e("TAG", "Impossible to connect to LocationManager", e);
         }
     }
+
     public void updateGPSCoordinates() {
         if (location != null) {
             latitude = location.getLatitude();
@@ -429,24 +412,25 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
                 Log.d("TAG", "onComplete: ");
             }
 
-           // address = addresses.get(0).getLocality()+", "+addresses.get(0).getPostalCode()+", "+addresses.get(0).getSubAdminArea()+", "+addresses.get(0).getAdminArea();
+            // address = addresses.get(0).getLocality()+", "+addresses.get(0).getPostalCode()+", "+addresses.get(0).getSubAdminArea()+", "+addresses.get(0).getAdminArea();
             //  getNearByDriver();", "+addresses.get(0).getSubAdminArea()
 
 //
 //                    locationArrayList.add(Brisbane);
 
             SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-            mapFragment.getMapAsync(MapDetailsActivity .this::onMapReady);
+            mapFragment.getMapAsync(MapDetailsActivity.this::onMapReady);
         }
     }
+
     public void checkRunTimePermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
                     ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 //  getcurrentlocation();
-                if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
+                if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                     buildAlertMessageNoGps(this);
-                }else {
+                } else {
 
                     long delay = 1000;
                     long period = 1000;
@@ -454,40 +438,40 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
                     task_is.scheduleAtFixedRate(new TimerTask() {
                         @Override
                         public void run() {
-                            if (Looper.myLooper()==null)
+                            if (Looper.myLooper() == null)
                                 Looper.prepare();
-                            if(location_check==false) {
-                                Log.d(TAG, "Abhi::::: "+"  start");
-                                getcurrentlocation();
-                                //getLocation(Home_Acitvity_New.this);
-
-                            } else if(location_check==true)
-                            {
-                                task_is.cancel();
-//                                try {
-//                                    data= appSession.getData();
-//                                    Model_Route_Data data1 = new Gson().fromJson(data, Model_Route_Data.class);
+                            getcurrentlocation();
+//                            if (location_check == false) {
+//                                Log.d(TAG, "Abhi::::: " + "  start");
+//                                getcurrentlocation();
+//                                //getLocation(Home_Acitvity_New.this);
 //
-//                                    if (data1 != null) {
-//                                        tv_distance.setText(data1.getRoutes().get(0).getLegs().get(0).getDistance().getText());
-//                                        tv_address.setText(data1.getRoutes().get(0).getLegs().get(0).getEndAddress());
-//                                        tv_duretion.setText(data1.getRoutes().get(0).getLegs().get(0).getDuration().getText());
-//                                    }
-//                                }catch (Exception e)
-//                                {
-//                                    e.printStackTrace();
-//                                }
-                                 progressDialog.dismiss();
-                                Log.d(TAG, "Abhi::::: "+"  stop");
-                            }
+//                            } else if (location_check == true) {
+//                                task_is.cancel();
+////                                try {
+////                                    data= appSession.getData();
+////                                    Model_Route_Data data1 = new Gson().fromJson(data, Model_Route_Data.class);
+////
+////                                    if (data1 != null) {
+////                                        tv_distance.setText(data1.getRoutes().get(0).getLegs().get(0).getDistance().getText());
+////                                        tv_address.setText(data1.getRoutes().get(0).getLegs().get(0).getEndAddress());
+////                                        tv_duretion.setText(data1.getRoutes().get(0).getLegs().get(0).getDuration().getText());
+////                                    }
+////                                }catch (Exception e)
+////                                {
+////                                    e.printStackTrace();
+////                                }
+//                                progressDialog.dismiss();
+//                                Log.d(TAG, "Abhi::::: " + "  stop");
+//                            }
                         }
                     }, delay, period);
 
-                   // getLocation(this);
+                    // getLocation(this);
                 }
 
             } else {
-                requestPermissions(new String[]{ Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_BACKGROUND_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_BACKGROUND_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
                         10);
                 // Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_BACKGROUND_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION,
             }
@@ -495,6 +479,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
 
         }
     }
+
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
                                            int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -532,8 +517,8 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
             }
         }
     }
-    public void startTracking(android.location.LocationListener locationListener)
-    {
+
+    public void startTracking(android.location.LocationListener locationListener) {
         long delay = 1000;
         long period = 1000;
         Timer task = new Timer();
@@ -544,8 +529,8 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
             }
         }, delay, period);
     }
-    public void getLocationOnInterval(android.location.LocationListener locationListener)
-    {
+
+    public void getLocationOnInterval(android.location.LocationListener locationListener) {
         try {
             locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -603,18 +588,18 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
 
                 if (locationManager != null) {
                     location = locationManager.getLastKnownLocation(provider_info);
-                    if(location!=null) {
-                        LatLng data = new LatLng(location.getLatitude(),location.getLongitude());
-                       
+                    if (location != null) {
+                        LatLng data = new LatLng(location.getLatitude(), location.getLongitude());
+
                         mMap.addMarker(new MarkerOptions().position(data).title("name"));
-                        Toast.makeText(getApplicationContext(),"Locatoin updated",Toast.LENGTH_LONG).show();
-                        Log.d(TAG, "Update: Location"+location.getLatitude()+"  "+location.getLongitude());
+                        Toast.makeText(getApplicationContext(), "Locatoin updated", Toast.LENGTH_LONG).show();
+                        Log.d(TAG, "Update: Location" + location.getLatitude() + "  " + location.getLongitude());
                     }
 
                     LatLng origin = new LatLng(lat, lon);
                     LatLng destination = new LatLng(latitude, longitude);
                     //  LatLng destination = new LatLng(23.2599, 77.4126);
-                    DrawRouteMaps.getInstance(this,0,this)
+                    DrawRouteMaps.getInstance(this, 0, this)
                             .draw(origin, destination, mMap);
                     DrawMarker.getInstance(this).draw(mMap, origin, R.drawable.location_origon, "Origin Location");
                     DrawMarker.getInstance(this).draw(mMap, destination, R.drawable.location_destinition, "Destination Location");
@@ -629,9 +614,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
 //                    updateGPSCoordinates();
                 }
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             //e.printStackTrace();
             Log.e("TAG", "Impossible to connect to LocationManager", e);
         }
@@ -651,7 +634,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
 
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(new String[]{Manifest.permission_group.LOCATION},10);
+                requestPermissions(new String[]{Manifest.permission_group.LOCATION}, 10);
             }
         }
         fusedLocationProviderClient.getCurrentLocation(LocationRequest.PRIORITY_HIGH_ACCURACY, new CancellationToken() {
@@ -673,125 +656,94 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
                 try {
 
 
-                //Initialize location
-                Location location = task.getResult();
-                if (location != null) {
+                    //Initialize location
+                    Location location = task.getResult();
+                    if (location != null) {
 
 
-                    //Initilize geocoder
-                    Geocoder geocoder = new Geocoder(MapDetailsActivity.this,
-                            Locale.getDefault());
-                    //Inilize address list
-                    List<Address> addresses = null;
-                    try {
-                        addresses = geocoder.getFromLocation(
-                                location.getLatitude(), location.getLongitude(), 1
-                        );
-                       // tv_address.setText(addresses.get(0).getAddressLine(0));
+                        //Initilize geocoder
+                        Geocoder geocoder = new Geocoder(MapDetailsActivity.this,
+                                Locale.getDefault());
+                        //Inilize address list
+                        List<Address> addresses = null;
+                        try {
+                            addresses = geocoder.getFromLocation(
+                                    location.getLatitude(), location.getLongitude(), 1
+                            );
+                            // tv_address.setText(addresses.get(0).getAddressLine(0));
 
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        Log.d("TAG", "onComplete: ");
-                    }
-
-                    //
-//                    LatLng sydney = new LatLng(22.7196, 75.8577);
-//                    LatLng TamWorth = new LatLng(22.7533, 75.8937);
-//                    LatLng NewCastle = new LatLng(22.7196, 75.8577);
-                    //LatLng Brisbane = new LatLng(23.2599, 77.4126);
-
-                    // creating array list for adding all our locations.
-
-
-                    // on below line we are adding our
-                    // locations in our array list.
-//                    locationArrayList.add(sydney);
-//                    locationArrayList.add(TamWorth);
-//                    locationArrayList.add(NewCastle);
-//                    locationArrayList.add(Brisbane);
-                    longitude_1 = addresses.get(0).getLongitude();
-                    lattitute_1 = addresses.get(0).getLatitude();
-
-
-                    location_check=true;
-                    task_is.cancel();
-                    progressDialog.dismiss();
-
-                    start_tracking.setText("");
-                    if(toast_check==true) {
-                        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-                        mapFragment.getMapAsync(MapDetailsActivity.this::onMapReady);
-                    }
-                    if(toast_check==true) {
-                        accuracy.setText("Accuracy:- "+String.valueOf(location.getAccuracy())+"");
-                        toast_check =false;
-                        if (location.getAccuracy() < 8.00) {
-                            single_1.setAlpha(1f);
-                            single_2.setAlpha(1f);
-                            single_3.setAlpha(1f);
-                            single_4.setAlpha(1f);
-                            single_5.setAlpha(1f);
-                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                        } else if (location.getAccuracy() < 20.00) {
-                            single_1.setAlpha(1f);
-                            single_2.setAlpha(1f);
-                            single_3.setAlpha(1f);
-                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                            single_4.setAlpha(1f);
-                            single_5.setAlpha(.2f);
-
-                        } else if (location.getAccuracy() < 40.0) {
-                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                            single_1.setAlpha(1f);
-                            single_2.setAlpha(1f);
-                            single_3.setAlpha(1f);
-                            single_4.setAlpha(.2f);
-                            single_5.setAlpha(.2f);
-
-                        } else if (location.getAccuracy() < 60.00) {
-                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                            single_1.setAlpha(1f);
-                            single_2.setAlpha(1f);
-                            single_3.setAlpha(.2f);
-                            single_4.setAlpha(.2f);
-                            single_5.setAlpha(.2f);
-                        } else if (location.getAccuracy() < 800.00) {
-                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                            single_1.setAlpha(1f);
-                            single_2.setAlpha(.2f);
-                            single_3.setAlpha(.2f);
-                            single_4.setAlpha(.2f);
-                            single_5.setAlpha(.2f);
-                        } else {
-                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-                            single_1.setAlpha(.2f);
-                            single_2.setAlpha(.2f);
-                            single_3.setAlpha(.2f);
-                            single_4.setAlpha(.2f);
-                            single_5.setAlpha(.2f);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            Log.d("TAG", "onComplete: ");
                         }
-                    }
+                        longitude_1 = addresses.get(0).getLongitude();
+                        lattitute_1 = addresses.get(0).getLatitude();
+                        location_check = true;
+                        task_is.cancel();
+                        progressDialog.dismiss();
+                        Log.d(TAG, "progressDialog: ");
+                        start_tracking.setText("");
+                        if ( true) {
+                            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+                            mapFragment.getMapAsync(MapDetailsActivity.this::onMapReady);
+                        }
+                        if ( true) {
+                            accuracy.setText("Accuracy:- " + String.valueOf(location.getAccuracy()) + "");
+                            toast_check = false;
+                            if (location.getAccuracy() < 8.00) {
+                                single_1.setAlpha(1f);
+                                single_2.setAlpha(1f);
+                                single_3.setAlpha(1f);
+                                single_4.setAlpha(1f);
+                                single_5.setAlpha(1f);
 
-                }}catch (Exception e )
-                {
+                            } else if (location.getAccuracy() < 20.00) {
+                                single_1.setAlpha(1f);
+                                single_2.setAlpha(1f);
+                                single_3.setAlpha(1f);
+                                single_4.setAlpha(1f);
+                                single_5.setAlpha(.2f);
+
+                            } else if (location.getAccuracy() < 40.0) {
+                                single_1.setAlpha(1f);
+                                single_2.setAlpha(1f);
+                                single_3.setAlpha(1f);
+                                single_4.setAlpha(.2f);
+                                single_5.setAlpha(.2f);
+
+                            } else if (location.getAccuracy() < 60.00) {
+                                single_1.setAlpha(1f);
+                                single_2.setAlpha(1f);
+                                single_3.setAlpha(.2f);
+                                single_4.setAlpha(.2f);
+                                single_5.setAlpha(.2f);
+                            } else if (location.getAccuracy() < 800.00) {
+                                single_1.setAlpha(1f);
+                                single_2.setAlpha(.2f);
+                                single_3.setAlpha(.2f);
+                                single_4.setAlpha(.2f);
+                                single_5.setAlpha(.2f);
+                            } else {
+                                single_1.setAlpha(.2f);
+                                single_2.setAlpha(.2f);
+                                single_3.setAlpha(.2f);
+                                single_4.setAlpha(.2f);
+                                single_5.setAlpha(.2f);
+                            }
+                        }
+
+                    }
+                } catch (Exception e) {
                     task_is.cancel();
                     Toast.makeText(MapDetailsActivity.this, "We get an error please try again later", Toast.LENGTH_SHORT).show();
                 }
-
-
-
 
 
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull @NotNull Exception e) {
-                Log.d("TAG", "Fail 255552: "+e.getMessage());
+                Log.d("TAG", "Fail 255552: " + e.getMessage());
             }
         });
 
@@ -808,22 +760,21 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
 //                tv_distance.setText(data1.getRoutes().get(0).getLegs().get(0).getDistance().getText());
 //                tv_address.setText(data1.getRoutes().get(0).getLegs().get(0).getEndAddress());
 //                tv_duretion.setText(data1.getRoutes().get(0).getLegs().get(0).getDuration().getText());
-                setText(tv_address,data1.getRoutes().get(0).getLegs().get(0).getEndAddress());
-                setText(tv_distance,data1.getRoutes().get(0).getLegs().get(0).getDistance().getText());
-                setText(tv_duretion,data1.getRoutes().get(0).getLegs().get(0).getDuration().getText());
-                setText(tv_address1,data1.getRoutes().get(0).getLegs().get(0).getEndAddress());
-                setText(tv_distance1,data1.getRoutes().get(0).getLegs().get(0).getDistance().getText());
-                setText(tv_duretion1,data1.getRoutes().get(0).getLegs().get(0).getDuration().getText());
+                setText(tv_address, data1.getRoutes().get(0).getLegs().get(0).getEndAddress());
+                setText(tv_distance, data1.getRoutes().get(0).getLegs().get(0).getDistance().getText());
+                setText(tv_duretion, data1.getRoutes().get(0).getLegs().get(0).getDuration().getText());
+                setText(tv_address1, data1.getRoutes().get(0).getLegs().get(0).getEndAddress());
+                setText(tv_distance1, data1.getRoutes().get(0).getLegs().get(0).getDistance().getText());
+                setText(tv_duretion1, data1.getRoutes().get(0).getLegs().get(0).getDuration().getText());
 
             }
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-            Log.d(TAG, "Abhi:::::: "+e.getMessage());
+            Log.d(TAG, "Abhi:::::: " + e.getMessage());
         }
     }
 
-    private void setText(final TextView text,final String value){
+    private void setText(final TextView text, final String value) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -834,6 +785,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
 
     @Override
     public void onBackPressed() {
+        task_is.cancel();
         super.onBackPressed();
 //        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
