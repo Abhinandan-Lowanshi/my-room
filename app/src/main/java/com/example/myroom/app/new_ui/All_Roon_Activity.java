@@ -32,7 +32,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class All_Roon_Activity extends AppCompatActivity implements NewHomeActivityFR.OffilnChecker {
+public class All_Roon_Activity extends AppCompatActivity  {
  RecyclerView rec;
  AppCompatImageView img_back;
     DemoSearchAdapter adapter;
@@ -104,15 +104,13 @@ public class All_Roon_Activity extends AppCompatActivity implements NewHomeActiv
 
     }
 
-    public void getRoom(String lat ,String lon , String rd)
-    {
+    public void getRoom(String lat ,String lon , String rd) {
         progressDialog.show();
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("user_id", String.valueOf(new AppSession(getApplicationContext()).getUserID()));
         jsonObject.addProperty("latitude", String.valueOf(lat));
-        jsonObject.addProperty("longitude",String.valueOf(lon));
-        jsonObject.addProperty("radius",rd);
-
+        jsonObject.addProperty("longitude", String.valueOf(lon));
+        jsonObject.addProperty("radius", rd);
 
 
         ApiClient.getClient().getNearByRedius(jsonObject).enqueue(new Callback<RoomDetailsModel>() {
@@ -129,17 +127,16 @@ public class All_Roon_Activity extends AppCompatActivity implements NewHomeActiv
 
                         if (roomDetailsModel.getStatus() == true) {
 
-                            if(roomDetailsModel.getData().size()!=0)
-                            {
+                            if (roomDetailsModel.getData().size() != 0) {
 
                                 roomDataForSearchArrayList = roomDetailsModel.getData();
-                                adapter = new DemoSearchAdapter(All_Roon_Activity.this,All_Roon_Activity.this,roomDataForSearchArrayList);
+                                adapter = new DemoSearchAdapter(All_Roon_Activity.this, All_Roon_Activity.this, roomDataForSearchArrayList);
                                 rec.setAdapter(adapter);
                                 rec.scheduleLayoutAnimation();
                                 progressDialog.dismiss();
 
 
-                            }else {
+                            } else {
 
                                 progressDialog.dismiss();
                                 Toast.makeText(All_Roon_Activity.this, "Room list not found", Toast.LENGTH_SHORT).show();
@@ -151,14 +148,12 @@ public class All_Roon_Activity extends AppCompatActivity implements NewHomeActiv
                             Toast.makeText(All_Roon_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
 
                         }
-                    }
-                    else {
+                    } else {
                         progressDialog.dismiss();
                         Toast.makeText(All_Roon_Activity.this, response.code(), Toast.LENGTH_SHORT).show();
 
                     }
-                }catch (Exception e)
-                {
+                } catch (Exception e) {
                     progressDialog.dismiss();
                     Toast.makeText(All_Roon_Activity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -168,15 +163,9 @@ public class All_Roon_Activity extends AppCompatActivity implements NewHomeActiv
             @Override
             public void onFailure(Call<RoomDetailsModel> call, Throwable t) {
                 progressDialog.dismiss();
-              //  Toast.makeText(All_Roon_Activity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(All_Roon_Activity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
-    }
-
-
-    @Override
-    public void internetConnectORnot(boolean data) {
-        Log.d("TAG", "internetConnectORnot: Alllll");
     }
 }

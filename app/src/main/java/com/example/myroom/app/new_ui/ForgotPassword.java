@@ -43,16 +43,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ForgotPassword extends AppCompatActivity {
-    AppCompatImageView img_back;
-    Button submit_email,submit_submit_changePassword,submit_otp;
-    ProgressDialog progressDialog;
-    String email,password,repassword,otp;
-    private RelativeLayout ll_hideShow_pass  ,ll_hideShow_repass ;
-    private CheckBox checkbox_pass , checkbox_repass;
-    AppCompatEditText tv_email,tv_otp,tv_password,tv_re_enter_password;
-    private String repasswordCK="" ;
-    private String passwordCK="";
-    private TextView re_password_validater ,password_validater ,password_matched;
+    private AppCompatImageView img_back;
+    private Button submit_email, submit_submit_changePassword, submit_otp;
+    private ProgressDialog progressDialog;
+    private RelativeLayout ll_hideShow_pass, ll_hideShow_repass;
+    private CheckBox checkbox_pass, checkbox_repass;
+    private AppCompatEditText tv_email, tv_otp, tv_password, tv_re_enter_password;
+    private String repasswordCK = "" , email= "" ,otp= "", passwordCK = "";
+    private TextView re_password_validater, password_validater, password_matched;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +68,6 @@ public class ForgotPassword extends AppCompatActivity {
         tv_password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
 
 
             }
@@ -92,7 +90,6 @@ public class ForgotPassword extends AppCompatActivity {
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
 
-
             }
 
             @Override
@@ -113,7 +110,7 @@ public class ForgotPassword extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (!isChecked) {
                     // hide password
-                    tv_password.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    tv_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 } else {
                     // show password
                     tv_password.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -125,7 +122,7 @@ public class ForgotPassword extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (!isChecked) {
                     // hide password
-                    tv_re_enter_password.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    tv_re_enter_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 } else {
                     // show password
                     tv_re_enter_password.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -137,65 +134,55 @@ public class ForgotPassword extends AppCompatActivity {
             public void onClick(View view) {
 
                 try {
-                    if(tv_password.getText().toString().isEmpty())
-                    {
+                    if (tv_password.getText().toString().isEmpty()) {
                         tv_password.setFocusable(true);
                         tv_password.setError("Current Password can't be empty");
-                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
                         Animation shake = AnimationUtils.loadAnimation(ForgotPassword.this, R.anim.shake);
                         tv_password.startAnimation(shake);
 
 
-                    }
-                    else if(tv_re_enter_password.getText().toString().isEmpty())
-                    {
+                    } else if (tv_re_enter_password.getText().toString().isEmpty()) {
                         tv_re_enter_password.setFocusable(true);
                         tv_re_enter_password.setError("Password can't be empty");
-                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
                         Animation shake = AnimationUtils.loadAnimation(ForgotPassword.this, R.anim.shake);
                         tv_re_enter_password.startAnimation(shake);
 
-                    }
-                    else if(!tv_re_enter_password.getText().toString().equalsIgnoreCase(tv_password.getText().toString()))
-                    {
-                        Toast.makeText(getApplicationContext(),"Password not matched",Toast.LENGTH_LONG).show();
+                    } else if (!tv_re_enter_password.getText().toString().equalsIgnoreCase(tv_password.getText().toString())) {
+                        Toast.makeText(getApplicationContext(), "Password not matched", Toast.LENGTH_LONG).show();
+
+                    } else if (!SupportValidation.passwordValidation_2(tv_password.getText().toString())) {
+                        Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_LONG).show();
 
                     }
-                    else if(!SupportValidation.passwordValidation_2(tv_password.getText().toString()))
-                    {
-                        Toast.makeText(getApplicationContext(),"Invalid password",Toast.LENGTH_LONG).show();
+                    if (!SupportValidation.passwordValidation_2(tv_re_enter_password.getText().toString())) {
+                        Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_LONG).show();
 
-                    }if(!SupportValidation.passwordValidation_2(tv_re_enter_password.getText().toString()))
-                    {
-                        Toast.makeText(getApplicationContext(),"Invalid password",Toast.LENGTH_LONG).show();
-
-                    }else
-                    {
+                    } else {
                         progressDialog.setMessage("Password changing ...");
                         progressDialog.show();
 
-                        String  password = tv_password.getText().toString();
-                        String  email = tv_email.getText().toString();
+                        String password = tv_password.getText().toString();
+                        String email = tv_email.getText().toString();
                         JsonObject jsonObject = new JsonObject();
                         jsonObject.addProperty("email", email);
-                        jsonObject.addProperty("password",password);
+                        jsonObject.addProperty("password", password);
 
 
                         ApiClient.getClient().updatePassword(jsonObject).enqueue(new Callback<ChangePasswordModel>() {
                             @Override
                             public void onResponse(Call<ChangePasswordModel> call, Response<ChangePasswordModel> response) {
-                                if(response.isSuccessful())
-                                {
+                                if (response.isSuccessful()) {
                                     progressDialog.dismiss();
-                                    Toast.makeText(ForgotPassword.this,response.body().getMessage(),Toast.LENGTH_LONG);
+                                    Toast.makeText(ForgotPassword.this, response.body().getMessage(), Toast.LENGTH_LONG);
 
-                                    if(response.body().getStatus()==true)
-                                    {
+                                    if (response.body().getStatus() == true) {
                                         tv_password.setEnabled(false);
                                         tv_re_enter_password.setEnabled(false);
                                         submit_submit_changePassword.setText("Password change successfully");
 
-                                        Toast.makeText(ForgotPassword.this,"Password change successfully",Toast.LENGTH_LONG);
+                                        Toast.makeText(ForgotPassword.this, "Password change successfully", Toast.LENGTH_LONG);
 
                                         Timer time = new Timer();
                                         time.schedule(new TimerTask() {
@@ -211,7 +198,7 @@ public class ForgotPassword extends AppCompatActivity {
                                         }, 2500);
 
                                     }
-                                }else {
+                                } else {
                                     tv_password.setEnabled(true);
                                     tv_re_enter_password.setEnabled(true);
                                     submit_submit_changePassword.setText("Proceed to change password");
@@ -231,78 +218,76 @@ public class ForgotPassword extends AppCompatActivity {
                         });
 
 
-
                     }
 
-                }catch (Exception e)
-                {
-                     e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
 
             }
         });
 
-         submit_otp.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 Log.d("TAG", "onClick: ");
-                 otp = tv_otp.getText().toString();
-                 if (otp.isEmpty()) {
-                        tv_otp.setError("Otp can't be empty");
-                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-                        Animation shake = AnimationUtils.loadAnimation(ForgotPassword.this, R.anim.shake);
-                        tv_otp.startAnimation(shake);
+        submit_otp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("TAG", "onClick: ");
+                otp = tv_otp.getText().toString();
+                if (otp.isEmpty()) {
+                    tv_otp.setError("Otp can't be empty");
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+                    Animation shake = AnimationUtils.loadAnimation(ForgotPassword.this, R.anim.shake);
+                    tv_otp.startAnimation(shake);
 
-                    } else {
-                        progressDialog.setMessage("Otp verifying .....");
-                        progressDialog.show();
-                        JsonObject jsonObject = new JsonObject();
-                        jsonObject.addProperty("email", email);
-                        jsonObject.addProperty("otp", otp);
-                        ApiClient.getClient().verifyOtp(jsonObject).enqueue(new Callback<OtpVerificationModel>() {
-                            @Override
-                            public void onResponse(Call<OtpVerificationModel> call, Response<OtpVerificationModel> response) {
+                } else {
+                    progressDialog.setMessage("Otp verifying .....");
+                    progressDialog.show();
+                    JsonObject jsonObject = new JsonObject();
+                    jsonObject.addProperty("email", email);
+                    jsonObject.addProperty("otp", otp);
+                    ApiClient.getClient().verifyOtp(jsonObject).enqueue(new Callback<OtpVerificationModel>() {
+                        @Override
+                        public void onResponse(Call<OtpVerificationModel> call, Response<OtpVerificationModel> response) {
 
-                                if (response.isSuccessful()) {
-                                    progressDialog.dismiss();
-                                    if (response.body().getStatus() == true) {
-                                        if (response.body().getCode() == 200) {
-                                            Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
-
-                                            geSubmitPasswordLayout();
-                                        }
-
-                                    } else {
+                            if (response.isSuccessful()) {
+                                progressDialog.dismiss();
+                                if (response.body().getStatus() == true) {
+                                    if (response.body().getCode() == 200) {
                                         Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
 
+                                        geSubmitPasswordLayout();
                                     }
 
                                 } else {
-                                    progressDialog.dismiss();
+                                    Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
 
-                                    Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
                                 }
 
-                            }
-
-                            @Override
-                            public void onFailure(Call<OtpVerificationModel> call, Throwable t) {
+                            } else {
                                 progressDialog.dismiss();
 
+                                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
                             }
-                        });
 
-                    }
-             }
-         });
+                        }
+
+                        @Override
+                        public void onFailure(Call<OtpVerificationModel> call, Throwable t) {
+                            progressDialog.dismiss();
+
+                        }
+                    });
+
+                }
+            }
+        });
         submit_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
 
 
-                     email = tv_email.getText().toString();
+                    email = tv_email.getText().toString();
                     if (email == null) {
                         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
                         Animation shake = AnimationUtils.loadAnimation(ForgotPassword.this, R.anim.shake);
@@ -331,18 +316,12 @@ public class ForgotPassword extends AppCompatActivity {
                                             Toast.makeText(ForgotPassword.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
                                             progressDialog.dismiss();
                                             getOtpLayout();
-//                                          Intent intent = new Intent(ForgotPassword.this,LogIn_1.class);
-//                                          overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-//                                          startActivity(intent);
-//                                          finish();
-                                        }
-                                        else {
+                                        } else {
                                             progressDialog.dismiss();
                                             Toast.makeText(ForgotPassword.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
 
                                         }
-                                    }
-                                    else {
+                                    } else {
                                         progressDialog.dismiss();
                                         Toast.makeText(ForgotPassword.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
 
@@ -357,7 +336,7 @@ public class ForgotPassword extends AppCompatActivity {
                             @Override
                             public void onFailure(Call<ForgotPasswordModel> call, Throwable t) {
                                 progressDialog.dismiss();
-                                Log.d("TAG", "onFailure: "+t.getMessage());
+                                Log.d("TAG", "onFailure: " + t.getMessage());
                                 Toast.makeText(ForgotPassword.this, "Something went wrong", Toast.LENGTH_LONG).show();
 
                             }
@@ -366,20 +345,19 @@ public class ForgotPassword extends AppCompatActivity {
                     }
 
 
-                }catch (Exception e)
-                {
+                } catch (Exception e) {
                     progressDialog.dismiss();
 
 
                     e.printStackTrace();
-                                    }
+                }
             }
         });
 
     }
 
     private void getOtpLayout() {
-         tv_email.setVisibility(View.GONE);
+        tv_email.setVisibility(View.GONE);
         tv_password.setVisibility(View.GONE);
         tv_re_enter_password.setVisibility(View.GONE);
         submit_submit_changePassword.setVisibility(View.GONE);
@@ -388,9 +366,10 @@ public class ForgotPassword extends AppCompatActivity {
         submit_otp.setVisibility(View.VISIBLE);
 
 
+    }
 
-    } private void geSubmitPasswordLayout() {
-         tv_email.setVisibility(View.GONE);
+    private void geSubmitPasswordLayout() {
+        tv_email.setVisibility(View.GONE);
         tv_password.setVisibility(View.VISIBLE);
         ll_hideShow_pass.setVisibility(View.VISIBLE);
         ll_hideShow_repass.setVisibility(View.VISIBLE);
@@ -401,45 +380,44 @@ public class ForgotPassword extends AppCompatActivity {
         submit_otp.setVisibility(View.GONE);
 
 
-
     }
-    private void passwordMatchedOrNot()
-    {
-        if(passwordCK.equals(repasswordCK))
-        {
+
+    private void passwordMatchedOrNot() {
+        if (passwordCK.equals(repasswordCK)) {
             password_matched.setVisibility(View.GONE);
-        }else {
+        } else {
             password_matched.setVisibility(View.VISIBLE);
         }
     }
+
     private void validatePassword(String charSequence) {
 
-        if(!SupportValidation.passwordValidation_2(charSequence))
-        {
+        if (!SupportValidation.passwordValidation_2(charSequence)) {
 
             password_validater.setVisibility(View.VISIBLE);
 
-        }else {
+        } else {
             password_validater.setVisibility(View.GONE);
 
 
         }
     }
+
     private void validateRePassword(String charSequence) {
 
-        if(!SupportValidation.passwordValidation_2(charSequence))
-        {
+        if (!SupportValidation.passwordValidation_2(charSequence)) {
 
             re_password_validater.setVisibility(View.VISIBLE);
 
-        }else {
+        } else {
             re_password_validater.setVisibility(View.GONE);
 
 
         }
     }
+
     private void initview() {
-        img_back = (AppCompatImageView)findViewById(R.id.img_back);
+        img_back = (AppCompatImageView) findViewById(R.id.img_back);
         tv_email = (AppCompatEditText) findViewById(R.id.tv_email);
         tv_otp = (AppCompatEditText) findViewById(R.id.tv_otp);
         ll_hideShow_pass = (RelativeLayout) findViewById(R.id.ll_hideShow_pass);
@@ -457,11 +435,11 @@ public class ForgotPassword extends AppCompatActivity {
         progressDialog = new ProgressDialog(ForgotPassword.this);
         progressDialog.setCancelable(false);
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
 //        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
     }
-    //7389165256
 }

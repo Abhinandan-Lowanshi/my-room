@@ -51,11 +51,11 @@ import retrofit2.Response;
  */
 public class NewMyAccountFragment extends Fragment {
 
-   private ProgressDialog progressDialog;
-   private AppSession appSession;
-    MyAccountModelData myAccountModelData;
-   private AppCompatTextView tv_user_name,tv_user_email,tv_mobile_no,tv_current_address,tv_email,tv_permanent_address;
-   private CardView card_password,card_contact_us,card_privacy,card_about_us,card_logout,card_edit_profile,card_feedback ,card_notification_setting;
+    private ProgressDialog progressDialog;
+    private AppSession appSession;
+    private MyAccountModelData myAccountModelData;
+    private AppCompatTextView tv_user_name, tv_user_email, tv_mobile_no, tv_current_address, tv_email, tv_permanent_address;
+    private CardView card_password, card_contact_us, card_privacy, card_about_us, card_logout, card_edit_profile, card_feedback, card_notification_setting;
     private Switch switch_notification;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -105,7 +105,6 @@ public class NewMyAccountFragment extends Fragment {
         initview(view);
 
 
-
         card_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,13 +123,12 @@ public class NewMyAccountFragment extends Fragment {
                 myAccountModelData.setUsrPhone(userData.getPhone());
                 myAccountModelData.setUsrParmentAdrss(userData.getPermanetadd());
                 myAccountModelData.setUsrCurrentAdrss(userData.getCurrentadd());
-                if(myAccountModelData!=null)
-                {
+                if (myAccountModelData != null) {
                     Intent intent = new Intent(getActivity(), Edit_Profile.class);
-                    intent.putExtra(appSession.USER_DATA,myAccountModelData);
+                    intent.putExtra(appSession.USER_DATA, myAccountModelData);
                     startActivity(intent);
 //                    getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-                }else {
+                } else {
 
                 }
 
@@ -203,7 +201,8 @@ public class NewMyAccountFragment extends Fragment {
                     public void onClick(View view) {
                         dialog.dismiss();
                     }
-                });  img_close.setOnClickListener(new View.OnClickListener() {
+                });
+                img_close.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
@@ -213,17 +212,15 @@ public class NewMyAccountFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-//                        appSession.setIsLogin("0");
-                     if  ( ManageSession.logOut(getActivity().getApplicationContext()))
-                     {
-                         dialog.dismiss();
-                         Intent intent = new Intent(getActivity(), LoginFinal.class);
+                        if (ManageSession.logOut(getActivity().getApplicationContext())) {
+                            dialog.dismiss();
+                            Intent intent = new Intent(getActivity(), LoginFinal.class);
 //                         getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-                         startActivity(intent);
-                         getActivity().finishAffinity();
-                     }else {
-                          Toast.makeText(getActivity().getApplicationContext(),"Something went wrong,try again later." , Toast.LENGTH_LONG);
-                     }
+                            startActivity(intent);
+                            getActivity().finishAffinity();
+                        } else {
+                            Toast.makeText(getActivity().getApplicationContext(), "Something went wrong,try again later.", Toast.LENGTH_LONG);
+                        }
 
 
                         ;
@@ -235,91 +232,27 @@ public class NewMyAccountFragment extends Fragment {
                 dialog.show();
 
 
-
-
             }
         });
 
 
-       return view;
+        return view;
     }
 
 
-    private void loadProfile(int status)
-    {
+    private void loadProfile(int status) {
 
-         try {
-         UserData userData = ManageSession.getUserData(getActivity().getApplicationContext());
-             tv_user_name.setText(userData.getFname() +"  "+ userData.getLname());
-             tv_user_email.setText(userData.getEmail());
-             tv_mobile_no.setText("Mobile No :- "+userData.getPhone());
-             tv_email.setText("Email Address :- "+userData.getEmail());
-             tv_current_address.setText("Current Address :- "+userData.getCurrentadd());
-             tv_permanent_address.setText("Permanent Address :- "+userData.getPermanetadd());
-         }catch (Exception e)
-         {
+        try {
+            UserData userData = ManageSession.getUserData(getActivity().getApplicationContext());
+            tv_user_name.setText(userData.getFname() + "  " + userData.getLname());
+            tv_user_email.setText(userData.getEmail());
+            tv_mobile_no.setText("Mobile No :- " + userData.getPhone());
+            tv_email.setText("Email Address :- " + userData.getEmail());
+            tv_current_address.setText("Current Address :- " + userData.getCurrentadd());
+            tv_permanent_address.setText("Permanent Address :- " + userData.getPermanetadd());
+        } catch (Exception e) {
 
-         }
-
-//          try {
-//
-//              if(appSession.getUserID()!=null&&appSession.getUserID()!="")
-//              {
-//                  JsonObject jsonObject = new JsonObject();
-//
-//                  jsonObject.addProperty("user_id", appSession.getUserID());
-//                  ApiClient.getClient().myAccountDetails(jsonObject).enqueue(new Callback<MyAccountModel>() {
-//                      @Override
-//                      public void onResponse(Call<MyAccountModel> call, Response<MyAccountModel> response) {
-//                          mSwipeRefreshLayout.setRefreshing(false);
-//
-//                         if(response.isSuccessful())
-//                         {
-//                             if(response.body().getStatus()==true)
-//                             {
-//
-//                                  if(status==1)
-//                                  {
-//                                       appSession.setIsProfileUpdated("0");
-//                                  }
-//                                  myAccountModelData = response.body().getData();
-//                                  new AppSession(getActivity().getApplicationContext()).setMobile(myAccountModelData.getUsrPhone());
-//                                  new AppSession(getActivity().getApplicationContext()).setFname(myAccountModelData.getUsrFirstName());
-//                                  new AppSession(getActivity().getApplicationContext()).setLname(myAccountModelData.getUsrLastName());
-//                                 tv_user_name.setText(myAccountModelData.getUsrFirstName()+" "+myAccountModelData.getUsrLastName());
-//                                 tv_user_email.setText(myAccountModelData.getUsrEmail());
-//                                 tv_mobile_no.setText("Mobile No :- "+myAccountModelData.getUsrPhone());
-//                                 tv_email.setText("Email Address :- "+myAccountModelData.getUsrEmail());
-//                                 tv_current_address.setText("Current Address :- "+myAccountModelData.getUsrCurrentAdrss());
-//                                 tv_permanent_address.setText("Permanent Address :- "+myAccountModelData.getUsrParmentAdrss());
-//
-//
-//                             }else Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
-//                         }else Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
-//
-//                      }
-//
-//                      @Override
-//                      public void onFailure(Call<MyAccountModel> call, Throwable t) {
-//                          mSwipeRefreshLayout.setRefreshing(false);
-//                      }
-//                  });
-//              }else {
-//                  mSwipeRefreshLayout.setRefreshing(false);
-//                  Intent intent = new Intent(getActivity(), LoginFinal.class);
-//                  startActivity(intent);
-//                  getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-//                  getActivity().finishAffinity();
-//
-//
-//              }
-//
-//
-//          }catch (Exception e)
-//          {
-//              mSwipeRefreshLayout.setRefreshing(false);
-//               e.printStackTrace();
-//          }
+        }
 
 
     }
@@ -327,56 +260,41 @@ public class NewMyAccountFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        if (appSession.getUserID() != null && appSession.getUserID() != "") {
+            loadProfile(1);
 
-
-
-             if(appSession.getUserID()!=null&&appSession.getUserID()!="")
-             {
-                 loadProfile(1);
-
-             }else {
-                 Intent intent = new Intent(getActivity(), LoginFinal.class);
-                 startActivity(intent);
+        } else {
+            Intent intent = new Intent(getActivity(), LoginFinal.class);
+            startActivity(intent);
 //                 getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-                 getActivity().finishAffinity();
-             }
-
-
+            getActivity().finishAffinity();
+        }
     }
 
     private void initview(View view) {
 
-        card_password = (CardView)view.findViewById(R.id.card_password);
-         myAccountModelData  = new MyAccountModelData();
-        card_feedback = (CardView)view.findViewById(R.id.card_feedback);
-        card_notification_setting = (CardView)view.findViewById(R.id.card_notification_setting);
-        card_contact_us = (CardView)view. findViewById(R.id.card_contact_us);
+        card_password = (CardView) view.findViewById(R.id.card_password);
+        myAccountModelData = new MyAccountModelData();
+        card_feedback = (CardView) view.findViewById(R.id.card_feedback);
+        card_notification_setting = (CardView) view.findViewById(R.id.card_notification_setting);
+        card_contact_us = (CardView) view.findViewById(R.id.card_contact_us);
         card_privacy = (CardView) view.findViewById(R.id.card_privacy);
         card_edit_profile = (CardView) view.findViewById(R.id.card_edit_profile);
         card_about_us = (CardView) view.findViewById(R.id.card_about_us);
         card_logout = (CardView) view.findViewById(R.id.card_logout);
-        tv_user_name = (AppCompatTextView)view.findViewById(R.id.tv_user_name);
-        tv_email = (AppCompatTextView)view.findViewById(R.id.tv_email);
-        tv_user_email = (AppCompatTextView)view.findViewById(R.id.tv_user_email);
-        tv_permanent_address = (AppCompatTextView)view.findViewById(R.id.tv_permanent_address);
-        tv_mobile_no = (AppCompatTextView)view.findViewById(R.id.tv_mobile_no);
-        tv_current_address = (AppCompatTextView)view.findViewById(R.id.tv_current_address);
+        tv_user_name = (AppCompatTextView) view.findViewById(R.id.tv_user_name);
+        tv_email = (AppCompatTextView) view.findViewById(R.id.tv_email);
+        tv_user_email = (AppCompatTextView) view.findViewById(R.id.tv_user_email);
+        tv_permanent_address = (AppCompatTextView) view.findViewById(R.id.tv_permanent_address);
+        tv_mobile_no = (AppCompatTextView) view.findViewById(R.id.tv_mobile_no);
+        tv_current_address = (AppCompatTextView) view.findViewById(R.id.tv_current_address);
         appSession = new AppSession(getContext());
         appSession.setIsProfileUpdated("0");
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Logging out");
-
-
-
-
-//        tv_user_name.setText(appSession.getFname());
-//        tv_user_email.setText(appSession.getEmail());
-//        tv_email.setText(appSession.getEmail());
-//        tv_mobile_no.setText(appSession.getMobile());
-//        tv_current_address.setText(appSession.getUserID());
         ChipNavigationBar chipNavigationBar;
         chipNavigationBar = (ChipNavigationBar) getActivity().findViewById(R.id.bottom_nav_bar);
-        chipNavigationBar.setItemSelected(R.id.MyAccount,true);
+        chipNavigationBar.setItemSelected(R.id.MyAccount, true);
     }
 }

@@ -37,6 +37,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -537,9 +538,6 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
             dialog.dismiss();
         }
     });
-
-
-
         dialog.show();
     };
     public void show(int position){
@@ -549,10 +547,8 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
         dialog.setContentView(R.layout.edit_caption_dialogue);
         dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
         AppCompatEditText edit_text_caption_dialuge = dialog.findViewById(R.id.edit_text_caption_dialuge);
         Button submit = dialog.findViewById(R.id.submit);
-
         edit_text_caption_dialuge.setText(image_caption_list.get(position).getCaption());
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -574,10 +570,6 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
         chipNavigationBar = (ChipNavigationBar) getActivity().findViewById(R.id.bottom_nav_bar);
         chipNavigationBar.setItemSelected(R.id.forever_rent,true);
         submit = (Button)view.findViewById(R.id.submit);
-        // img_notification = (AppCompatImageView) view.findViewById(R.id.img_notification);
-
-        // submit.setEnabled(false);
-
         linearLayout = (LinearLayout)view.findViewById(R.id.image_layout);
         upload =(Button) view.findViewById(R.id.upload);
         m1 = (ImageView)view.findViewById(R.id.m1);
@@ -586,10 +578,8 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
         sp_independenc = (Spinner) view.findViewById(R.id.sp_independenc);
         sp_parking = (Spinner)view. findViewById(R.id.sp_parking);
         spiiner_available = (Spinner) view.findViewById(R.id.spiiner_available);
-        // img_back = (AppCompatImageView)view.findViewById(R.id.img_back);
         imageRec = (RecyclerView) view.findViewById(R.id.imageRec);
         imageRec.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-
         ed_name = (EditText)view. findViewById(R.id.ed_naam);
         ed_description = (EditText)view. findViewById(R.id.ed_description);
         ed_mobiele= (EditText)view.findViewById(R.id.ed_no);
@@ -603,11 +593,8 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
         city = (EditText)view.findViewById(R.id.ed_city1);
         ed_state = (EditText)view.findViewById(R.id.ed_state);
         progressDialog = new ProgressDialog(getContext());
-
         progressDialog.setMessage("Uploading........");
         progressDialog.setCancelable(false);
-
-
         String name_Ftemp ="" ,name_Ltemp ="" , mobile_temp ="";
         name_Ftemp = new AppSession(getActivity().getApplicationContext()).getFname();
         name_Ltemp = new AppSession(getActivity().getApplicationContext()).getLname();
@@ -734,9 +721,7 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
         spiiner_available.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                // ed_size.setText(spinnerArray.get(i));
                 available = spinner_array_available.get(i);
-//                Log.d("TAG", "onItemSelected: "+spinnerArray.get(i));
             }
 
             @Override
@@ -763,7 +748,6 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
     public void updateUI(int pos) {
         image_caption_list.remove(pos);
         imgaeAdapter.notifyDataSetChanged();
-        Log.d("TAG", "updateUI: "+pos);
     }
 
 
@@ -905,8 +889,18 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
         if (reload) {
             getActivity(). getSupportFragmentManager().popBackStack();
         }
-//        transaction.replace(R.id.main_activity_frame_layout, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        try {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
