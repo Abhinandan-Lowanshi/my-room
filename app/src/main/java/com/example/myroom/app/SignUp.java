@@ -200,6 +200,7 @@ public class SignUp extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<EmailVericationModel> call, Throwable t) {
+                        Log.d("TAG", "onFailure: "+t.toString());
                         progressDialog.dismiss();
                     }
                 });

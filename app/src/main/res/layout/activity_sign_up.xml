@@ -206,10 +206,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="Verify email"
+                    android:text="Verify Email"
                     android:layout_marginRight="@dimen/_5sdp"
                     android:textColor="@color/red"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_8sdp"
                     android:visibility="gone"></TextView>
             </RelativeLayout>
 

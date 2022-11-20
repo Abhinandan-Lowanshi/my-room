@@ -216,7 +216,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                 loadHome();
             }
         });
-        loadHome();
+//        loadHome();
         drawerLayout = (DrawerLayout) view.findViewById(R.id.dr_lay);
 
 
@@ -721,7 +721,7 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                         googleMap = eMap;
                         if (appSession.getMainlat() != null && appSession.getMainlat() != "" && appSession.getMainlon() != null && appSession.getMainlon() != "") {
                             origin = new LatLng(Double.parseDouble(appSession.getMainlat()), Double.parseDouble(appSession.getMainlon()));
-                            DrawMarker.getInstance(getActivity().getApplicationContext()).draw(googleMap, origin, R.drawable.location_destinition, "Your Location");
+//                            DrawMarker.getInstance(getActivity().getApplicationContext()).draw(googleMap, origin, R.drawable.location_destinition, "Your Location");
                         }
                         for (int i = 0; i < data.size(); i++) {
                             eMap.addMarker(new MarkerOptions().position(data.get(i)).title(String.valueOf(roomDetailsData.get(i).getRmPkey())));
@@ -733,16 +733,16 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
                         getActivity().getWindowManager().getDefaultDisplay().getSize(displaySize);
                         eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 15.0f));
 
-                        if (data.size() < 3)
-                            eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 20.0f));
-                        else if (data.size() > 3)
-                            eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 13.0f));
-                        else if (data.size() > 10)
-                            eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 10.0f));
-                        else if (data.size() > 25)
-                            eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 8.0f));
-                        else if (data.size() > 50)
-                            eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 5.0f));
+//                        if (data.size() < 3)
+//                            eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 20.0f));
+//                        else if (data.size() > 3)
+//                            eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 13.0f));
+//                        else if (data.size() > 10)
+//                            eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 10.0f));
+//                        else if (data.size() > 25)
+//                            eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 8.0f));
+//                        else if (data.size() > 50)
+//                            eMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 5.0f));
                         eMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                             @Override
                             public boolean onMarkerClick(Marker marker) {
@@ -855,6 +855,11 @@ public class HomeFragment extends Fragment implements BannerAdapter.ClicktPost, 
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadHome();
+    }
 
     @Override
     public void onDetach() {

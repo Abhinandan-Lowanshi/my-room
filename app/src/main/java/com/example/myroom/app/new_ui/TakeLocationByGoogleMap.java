@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -13,6 +15,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -23,6 +26,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
@@ -40,8 +44,10 @@ import com.example.myroom.app.LoginFinal;
 import com.example.myroom.app.loginmanage.ManageSession;
 import com.example.myroom.app.map.DrawMarker;
 import com.example.myroom.app.map.DrawRouteMaps;
+import com.example.myroom.app.startScreen;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -81,7 +87,7 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
     TextView accuracy;
     Button save_location;
     AppSession appSession;
-    double longitude_1,lattitute_1;
+    double longitude_1 = 0.0,lattitute_1=0.0;
     Boolean location_check = false;
     LocationManager manager;
     View single_1,single_2,single_3,single_4,single_5;
@@ -109,6 +115,8 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
     double longitude;
     ProgressDialog progressDialog;
     FusedLocationProviderClient fusedLocationProviderClient;
+    private boolean clickOnOk =false;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
 
     @Override
@@ -117,15 +125,15 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
         setContentView(R.layout.activity_take_location_by_google_map);
         initView();
         //  startTracking(this);
-//        manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
-//        if (manager != null) {
-//            List<String> providers = manager.getAllProviders();
-//            for (String provider : providers) {
-//                manager.requestLocationUpdates(provider, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-//            }
-//        }
-//        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-//        checkRunTimePermission();
+        manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
+        if (manager != null) {
+            List<String> providers = manager.getAllProviders();
+            for (String provider : providers) {
+                manager.requestLocationUpdates(provider, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+            }
+        }
+      fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        checkRunTimePermission();
 //        start_tracking.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -160,9 +168,9 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent returnIntent = new Intent();
-        setResult(Activity.RESULT_OK,returnIntent);
-        finish();
+//        Intent returnIntent = new Intent();
+//        setResult(Activity.RESULT_OK,returnIntent);
+//        finish();
 //        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
     }
@@ -179,8 +187,8 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
          dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
                  WindowManager.LayoutParams.MATCH_PARENT);
          AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
-         Button close = dialog.findViewById(R.id.close);
-         close.setOnClickListener(new View.OnClickListener() {
+         CardView card_Close = dialog.findViewById(R.id.card_Close);
+         card_Close.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
                  dialog.dismiss();
@@ -215,73 +223,73 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
         save_location  = (Button) findViewById(R.id.save_location);
         accuracy = (TextView) findViewById(R.id.accuracy);
         img_back = (AppCompatImageView) findViewById(R.id.img_back);
-        if(appSession.getMainlat()!="0")
-        {
-            latitude = Double.parseDouble(appSession.getMainlat());
-            longitude = Double.parseDouble(appSession.getMainlon());
-            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-            mapFragment.getMapAsync(TakeLocationByGoogleMap.this::onMapReady);
-
-            if(appSession.getSignalStrenth()!="0") {
-                strength = Float.parseFloat(appSession.getSignalStrenth());
-                accuracy.setText("Accuracy:- "+String.valueOf(strength)+"");
-                toast_check =false;
-                if (strength < 8.00) {
-                    single_1.setAlpha(1f);
-                    single_2.setAlpha(1f);
-                    single_3.setAlpha(1f);
-                    single_4.setAlpha(1f);
-                    single_5.setAlpha(1f);
-//                    Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                } else if (strength < 20.00) {
-                    single_1.setAlpha(1f);
-                    single_2.setAlpha(1f);
-                    single_3.setAlpha(1f);
-//                    Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                    single_4.setAlpha(1f);
-                    single_5.setAlpha(.2f);
-
-                } else if (strength < 40.0) {
-//                    Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                    single_1.setAlpha(1f);
-                    single_2.setAlpha(1f);
-                    single_3.setAlpha(1f);
-                    single_4.setAlpha(.2f);
-                    single_5.setAlpha(.2f);
-
-                } else if (strength < 60.00) {
-//                    Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                    single_1.setAlpha(1f);
-                    single_2.setAlpha(1f);
-                    single_3.setAlpha(.2f);
-                    single_4.setAlpha(.2f);
-                    single_5.setAlpha(.2f);
-                } else if (strength < 800.00) {
-//                    Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-
-                    single_1.setAlpha(1f);
-                    single_2.setAlpha(.2f);
-                    single_3.setAlpha(.2f);
-                    single_4.setAlpha(.2f);
-                    single_5.setAlpha(.2f);
-                } else {
-//                    Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
-                    single_1.setAlpha(.2f);
-                    single_2.setAlpha(.2f);
-                    single_3.setAlpha(.2f);
-                    single_4.setAlpha(.2f);
-                    single_5.setAlpha(.2f);
-                }
-            }
-        }
-//        progressDialog = new ProgressDialog(TakeLocationByGoogleMap.this);
-//        progressDialog.setCancelable(false);
-//        progressDialog.setMessage("Preparing map please wait....");
-//        progressDialog.show();
+//        if(appSession.getMainlat()!="0")
+//        {
+//            latitude = Double.parseDouble(appSession.getMainlat());
+//            longitude = Double.parseDouble(appSession.getMainlon());
+//            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+//            mapFragment.getMapAsync(TakeLocationByGoogleMap.this::onMapReady);
+//
+//            if(appSession.getSignalStrenth()!="0") {
+//                strength = Float.parseFloat(appSession.getSignalStrenth());
+//                accuracy.setText("Accuracy:- "+String.valueOf(strength)+"");
+//                toast_check =false;
+//                if (strength < 8.00) {
+//                    single_1.setAlpha(1f);
+//                    single_2.setAlpha(1f);
+//                    single_3.setAlpha(1f);
+//                    single_4.setAlpha(1f);
+//                    single_5.setAlpha(1f);
+////                    Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//
+//                } else if (strength < 20.00) {
+//                    single_1.setAlpha(1f);
+//                    single_2.setAlpha(1f);
+//                    single_3.setAlpha(1f);
+////                    Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//
+//                    single_4.setAlpha(1f);
+//                    single_5.setAlpha(.2f);
+//
+//                } else if (strength < 40.0) {
+////                    Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//
+//                    single_1.setAlpha(1f);
+//                    single_2.setAlpha(1f);
+//                    single_3.setAlpha(1f);
+//                    single_4.setAlpha(.2f);
+//                    single_5.setAlpha(.2f);
+//
+//                } else if (strength < 60.00) {
+////                    Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//
+//                    single_1.setAlpha(1f);
+//                    single_2.setAlpha(1f);
+//                    single_3.setAlpha(.2f);
+//                    single_4.setAlpha(.2f);
+//                    single_5.setAlpha(.2f);
+//                } else if (strength < 800.00) {
+////                    Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//
+//                    single_1.setAlpha(1f);
+//                    single_2.setAlpha(.2f);
+//                    single_3.setAlpha(.2f);
+//                    single_4.setAlpha(.2f);
+//                    single_5.setAlpha(.2f);
+//                } else {
+////                    Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//                    single_1.setAlpha(.2f);
+//                    single_2.setAlpha(.2f);
+//                    single_3.setAlpha(.2f);
+//                    single_4.setAlpha(.2f);
+//                    single_5.setAlpha(.2f);
+//                }
+//            }
+//        }
+        progressDialog = new ProgressDialog(TakeLocationByGoogleMap.this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Preparing map please wait....");
+        progressDialog.show();
 
 //        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 //        mapFragment.getMapAsync(this);
@@ -293,9 +301,9 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
         mMap = googleMap;
         // mMap.addMarker(new MarkerOptions().position(origin).title("name"));
 
-         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 18.0f));
+         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lattitute_1, longitude_1), 18.0f));
         CircleOptions circleOptions = new CircleOptions();
-        circleOptions.center(new LatLng(latitude, longitude));
+        circleOptions.center(new LatLng(lattitute_1, longitude_1));
         circleOptions.radius(60);
         circleOptions.fillColor(Color.TRANSPARENT);
         circleOptions.strokeWidth(3);
@@ -306,27 +314,45 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
         mMap.setOnMapLongClickListener(this);
 
     }
-    private void buildAlertMessageNoGps(android.location.LocationListener locationListener) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Your GPS seems to be disabled, do you want to enable it?").setMessage("without turing on GPS service you can't use nearby room search")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
-                        Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        startActivityForResult(intent,200);
-                        //  startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),200);
-//
-                        // getLocation(locationListener);
+    private void buildAlertMessageNoGps() {
 
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
-                        dialog.cancel();
-                    }
-                });
-        final AlertDialog alert = builder.create();
-        alert.show();
+        final Dialog dialog = new Dialog(TakeLocationByGoogleMap.this);
+        dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.gpsdisbaledialogue);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
+        CardView close = dialog.findViewById(R.id.card_Close);
+        CardView card_OpenSettings = dialog.findViewById(R.id.card_OpenSettings);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+              onBackPressed();
+            }
+        });
+
+        card_OpenSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivityForResult(intent, 200);
+            }
+        });
+
+        img_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                onBackPressed();
+            }
+        });
+        dialog.show();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
@@ -336,7 +362,8 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
             if (provider != null) {
                 Log.v("TAG", " Location providers: " + provider);
 
-                resetApplication();
+                 checkRunTimePermission();
+//                resetApplication();
                 //  getLocation(this);
                 // startActivity(Intent.makeRestartActivityTask(getIntent().getComponent()));
 
@@ -489,7 +516,7 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
                     ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 //  getcurrentlocation();
                 if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
-                    buildAlertMessageNoGps(this);
+                    buildAlertMessageNoGps();
                 }else {
 
                     long delay = 1000;
@@ -526,6 +553,69 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
 
         }
     }
+    private void locationPermission() {
+
+        final Dialog dialog = new Dialog(TakeLocationByGoogleMap.this);
+        dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.locationpermissiondialogue);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
+        AppCompatTextView message = dialog.findViewById(R.id.message);
+        CardView close = dialog.findViewById(R.id.card_Close);
+        CardView card_OpenSettings = dialog.findViewById(R.id.card_OpenSettings);
+        message.setText("Need location permission to find your address");
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                onBackPressed();
+            }
+        });
+
+        card_OpenSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                clickOnOk = true;
+                startInstalledAppDetailsActivity(TakeLocationByGoogleMap.this);
+            }
+        });
+
+        img_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                onBackPressed();
+            }
+        });
+        dialog.show();
+    }
+    public static void startInstalledAppDetailsActivity(final Activity context) {
+        if (context == null) {
+            return;
+        }
+        final Intent i = new Intent();
+        i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        i.addCategory(Intent.CATEGORY_DEFAULT);
+        i.setData(Uri.parse("package:" + context.getPackageName()));
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        context.startActivity(i);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(clickOnOk) {
+            clickOnOk = false;
+            checkRunTimePermission();
+        }
+    }
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
                                            int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -537,7 +627,8 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
                         Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                    locationPermission();
+                    Toast.makeText(this, "Permission Denied enable permission to save address", Toast.LENGTH_SHORT).show();
                     // requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_BACKGROUND_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     //  10);
                 }
@@ -638,7 +729,7 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
                         LatLng data = new LatLng(location.getLatitude(),location.getLongitude());
 
                         mMap.addMarker(new MarkerOptions().position(data).title("name"));
-                        Toast.makeText(getApplicationContext(),"Locatoin updated",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Location updated",Toast.LENGTH_LONG).show();
                         Log.d(TAG, "Update: Location"+location.getLatitude()+"  "+location.getLongitude());
                     }
 
@@ -719,6 +810,11 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
                             addresses = geocoder.getFromLocation(
                                     location.getLatitude(), location.getLongitude(), 1
                             );
+                            longitude_1 = addresses.get(0).getLongitude();
+                            lattitute_1 = addresses.get(0).getLatitude();
+                            if (lattitute_1 != 0.0 && longitude_1 != 0.0) {
+                                appSession.setMainlat(String.valueOf(lattitute_1));
+                                appSession.setMainlon(String.valueOf(longitude_1));}
                         } catch (IOException e) {
                             e.printStackTrace();
                             Log.d("TAG", "onComplete: ");
@@ -745,8 +841,7 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
 //                    locationArrayList.add(TamWorth);
 //                    locationArrayList.add(NewCastle);
 //                    locationArrayList.add(Brisbane);
-//                    longitude_1 = addresses.get(0).getLongitude();
-//                    lattitute_1 = addresses.get(0).getLatitude();
+
 
 
                     //  address = addresses.get(0).getLocality()+", "+addresses.get(0).getPostalCode()+", "+addresses.get(0).getSubAdminArea()+", "+addresses.get(0).getAdminArea();
@@ -836,8 +931,8 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
     public void onMapLongClick(LatLng latLng) {
         mMap.clear();
         mMap.addMarker(new MarkerOptions().position(latLng).title("name"));
-        lattitute_1 = latLng.latitude;
-        longitude_1 = latLng.longitude;
+        latitude = latLng.latitude;
+        longitude = latLng.longitude;
         Toast.makeText(getApplicationContext(),"Your house",Toast.LENGTH_LONG).show();
 
 
@@ -846,16 +941,16 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
 
     @Override
     public void onMarkerDragStart(Marker marker) {
-        lattitute_1 = marker.getPosition().latitude;
-        longitude_1 = marker.getPosition().longitude;
+        latitude = marker.getPosition().latitude;
+        longitude = marker.getPosition().longitude;
         Toast.makeText(getApplicationContext(),"onMarkerDragStart "+lattitute_1+"  "+longitude_1,Toast.LENGTH_LONG).show();
 
     }
 
     @Override
     public void onMarkerDrag(Marker marker) {
-        lattitute_1 = marker.getPosition().latitude;
-        longitude_1 = marker.getPosition().longitude;
+        latitude = marker.getPosition().latitude;
+        longitude = marker.getPosition().longitude;
         Toast.makeText(getApplicationContext(),"onMarkerDrag "+lattitute_1+"  "+longitude_1,Toast.LENGTH_LONG).show();
 
 

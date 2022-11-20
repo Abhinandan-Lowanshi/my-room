@@ -23,6 +23,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -31,6 +32,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -519,20 +521,30 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
         final Dialog dialog = new Dialog(getContext());
         dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
         dialog.setCancelable(true);
-        dialog.setContentView(R.layout.locationpermissiondialogue);
+        dialog.setContentView(R.layout.storagepermissiondialogue);
         dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.MATCH_PARENT);
         AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
-        Button close = dialog.findViewById(R.id.close);
+        CardView close = dialog.findViewById(R.id.card_Close);
+        CardView card_OpenSettings = dialog.findViewById(R.id.card_OpenSettings);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.dismiss();
+               dialog.dismiss();
             }
-        });  img_close.setOnClickListener(new View.OnClickListener() {
+        });
+
+        card_OpenSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startInstalledAppDetailsActivity(getActivity());
+            }
+        });
+
+        img_close.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             dialog.dismiss();
@@ -540,6 +552,19 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
     });
         dialog.show();
     };
+    public static void startInstalledAppDetailsActivity(final Activity context) {
+        if (context == null) {
+            return;
+        }
+        final Intent i = new Intent();
+        i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        i.addCategory(Intent.CATEGORY_DEFAULT);
+        i.setData(Uri.parse("package:" + context.getPackageName()));
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        context.startActivity(i);
+    }
     public void show(int position){
         final Dialog dialog = new Dialog(getContext());
         dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
@@ -892,6 +917,7 @@ public class NewUploadFragment extends Fragment implements ImgaeAdapter.click {
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
 
     @Override
     public void onDetach() {

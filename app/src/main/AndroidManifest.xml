@@ -55,7 +55,9 @@
             android:exported="false" />
         <activity
             android:name=".app.fragment.activity.NewHomeActivityFR"
-            android:exported="false" />
+            android:exported="false" >
+
+        </activity>>
         <activity android:name=".app.LoginFinal" />
         <activity android:name=".app.new_ui.Notification_Activity" />
         <activity android:name=".app.new_ui.Edit_Profile" />

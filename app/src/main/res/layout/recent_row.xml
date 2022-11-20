@@ -16,7 +16,6 @@
          android:layout_marginVertical="@dimen/_5sdp"
         android:layout_marginHorizontal="@dimen/_12sdp"
          android:id="@+id/ed_area_name"
-         android:textColor="@color/black"
-         android:text=" Beena nagar ">
+         android:textColor="@color/black">
      </TextView>
 </androidx.cardview.widget.CardView>

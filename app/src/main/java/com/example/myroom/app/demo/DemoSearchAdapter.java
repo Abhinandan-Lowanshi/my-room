@@ -19,9 +19,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.myroom.R;
+import com.example.myroom.app.FavModelTmp;
 import com.example.myroom.app.fav.FavModel;
 import com.example.myroom.app.home.RoomDetailsData;
 import com.example.myroom.app.new_ui.Room_Detais_Activity;
+import com.example.myroom.app.new_ui.Search_Activity;
 import com.example.myroom.app.new_ui_adapter.NearByRoom_Adapter;
 import com.example.myroom.app.retrofit.ApiClient;
 import com.google.gson.JsonObject;
@@ -104,10 +106,14 @@ public class DemoSearchAdapter extends RecyclerView.Adapter<DemoSearchAdapter.My
                                 {
                                     holder.heart_fill.setVisibility(View.GONE);
                                     holder.heart_empty.setVisibility(View.VISIBLE);
-                                    Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
 
-                                }else Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
-                            }else  Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
+                                }
+//                                else
+//                                    Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
+                            }
+//                            else
+//                                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
 
 
 
@@ -134,6 +140,8 @@ public class DemoSearchAdapter extends RecyclerView.Adapter<DemoSearchAdapter.My
          holder.view.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
+                 new AppSession(context).setFavModel(new FavModelTmp("0", false , false));
+
                  Intent intent = new Intent(context, Room_Detais_Activity.class);
                  intent.putExtra("room_id",String.valueOf(data.get(position).getRmPkey()));
                  intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -160,10 +168,12 @@ public class DemoSearchAdapter extends RecyclerView.Adapter<DemoSearchAdapter.My
                                 {
                                     holder.heart_fill.setVisibility(View.VISIBLE);
                                     holder.heart_empty.setVisibility(View.GONE);
-                                    Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
 
-                                }else Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
-                            }else  Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
+                                }
+//                                else Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
+                            }
+//                            else  Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
 
 
 

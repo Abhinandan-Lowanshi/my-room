@@ -104,7 +104,6 @@
                 android:layout_below="@+id/img_profile"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="Abhinandan Lowanshi"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp"></androidx.appcompat.widget.AppCompatTextView>
 
@@ -115,7 +114,6 @@
                 android:layout_below="@+id/tv_user_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_3sdp"
-                android:text="abhinadnalowanshi@gmail.com"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_9sdp"></androidx.appcompat.widget.AppCompatTextView>
 
@@ -156,7 +154,7 @@
                 android:layout_below="@+id/account_info"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="Mobile No :- 7049836854."></androidx.appcompat.widget.AppCompatTextView>
+                ></androidx.appcompat.widget.AppCompatTextView>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_email"
@@ -165,7 +163,7 @@
                 android:layout_below="@+id/tv_mobile_no"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:text="Email Address :- abhinadnalowanshi@gmail.com."></androidx.appcompat.widget.AppCompatTextView>
+              ></androidx.appcompat.widget.AppCompatTextView>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_current_address"
@@ -174,7 +172,7 @@
                 android:layout_below="@+id/tv_email"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:text="Current Address :- 298 bina Nagar Indore."></androidx.appcompat.widget.AppCompatTextView>
+               ></androidx.appcompat.widget.AppCompatTextView>
 
             <View
                 android:id="@+id/view_2"

@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.myroom.R;
 import com.example.myroom.app.AdapterRoomDetailsViewPager;
+import com.example.myroom.app.FavModelTmp;
 import com.example.myroom.app.banner_pkg.BannerAdapter;
 import com.example.myroom.app.fav.FavModel;
 import com.example.myroom.app.map.MapDetailsActivity;
@@ -133,12 +134,15 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
                             {
                                 if(response.body().getStatus()==true)
                                 {
+                                    new AppSession(Room_Detais_Activity.this).setFavModel(new FavModelTmp(room_id , true , true));
                                     heart_fill.setVisibility(View.VISIBLE);
                                     heart_empty.setVisibility(View.GONE);
-                                    Toast.makeText(Room_Detais_Activity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(Room_Detais_Activity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
 
-                                }else Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                            }else  Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                                }
+//                                else Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                            }
+//                            else  Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
 
 
 
@@ -175,12 +179,15 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
                             {
                                 if(response.body().getStatus()==true)
                                 {
+                                    new AppSession(Room_Detais_Activity.this).setFavModel(new FavModelTmp(room_id , false , true));
                                     heart_fill.setVisibility(View.GONE);
                                     heart_empty.setVisibility(View.VISIBLE);
-                                    Toast.makeText(Room_Detais_Activity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(Room_Detais_Activity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
 
-                                }else Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                            }else  Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                                }
+//                                else Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                            }
+//                            else  Toast.makeText(Room_Detais_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
 
 
 
@@ -453,13 +460,13 @@ public class Room_Detais_Activity extends AppCompatActivity implements OnMapRead
         room_id = getIntent().getStringExtra("room_id");
 //        mobile = getIntent().getStringExtra("mobile");
         data = getIntent().getStringExtra("come");
-        if (data != null) {
-            if (data.equalsIgnoreCase(AppSession.FROM_PROFILE)) {
-                tv_owner_profile.setVisibility(View.INVISIBLE);
-            } else {
-                tv_owner_profile.setVisibility(View.VISIBLE);
-            }
-        }
+//        if (data != null) {
+//            if (data.equalsIgnoreCase(AppSession.FROM_PROFILE)) {
+//                tv_owner_profile.setVisibility(View.INVISIBLE);
+//            } else {
+//                tv_owner_profile.setVisibility(View.VISIBLE);
+//            }
+//        }
 
         if (room_id != null)
             loadRoom(room_id, clicktPost);
