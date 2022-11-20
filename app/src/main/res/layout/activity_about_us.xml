@@ -61,11 +61,13 @@
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
- <androidx.appcompat.widget.AppCompatTextView
-     android:layout_width="match_parent"
-     android:layout_below="@+id/toolbar"
-     android:layout_marginTop="@dimen/_10sdp"
-     android:text="The United States is one of the few countries without a policy at national or federal level mandating a Privacy Policy.
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="The United States is one of the few countries without a policy at national or federal level mandating a Privacy Policy.
 
 However, the California Online Privacy Protection Act (CalOPPA) states that if your app or website collects personally identifiable data from residents of the state of California, you must have a Privacy Policy.
 
@@ -79,8 +81,6 @@ Japan has strong protection for individuals. The Act on the Protection of Person
 
 Australia's Privacy Act of 1988 protects the personal data of Australian citizens.
 
-Even setting aside the legal responsibilities listed above, it is simply good for transparency and your organization's reputation to have a Privacy Policy clearly setting out how you use the personal data of your users"
-     android:layout_height="wrap_content"
-     ></androidx.appcompat.widget.AppCompatTextView>
+Even setting aside the legal responsibilities listed above, it is simply good for transparency and your organization's reputation to have a Privacy Policy clearly setting out how you use the personal data of your users"></androidx.appcompat.widget.AppCompatTextView>
 
 </RelativeLayout>

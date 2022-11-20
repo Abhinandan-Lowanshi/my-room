@@ -187,10 +187,12 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostAdapter.MyViewHold
                                 {
                                     holder.card_Activate.setVisibility(View.VISIBLE);
                                     holder.card_De_Activate.setVisibility(View.GONE);
-                                    Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_LONG);
-                                }else  Toast.makeText(context,"Something went wrong",Toast.LENGTH_LONG);
+//                                    Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_LONG);
+                                }
+//                                else  Toast.makeText(context,"Something went wrong",Toast.LENGTH_LONG);
 
-                            }else   Toast.makeText(context,"Something went wrong",Toast.LENGTH_LONG);
+                            }
+//                            else   Toast.makeText(context,"Something went wrong",Toast.LENGTH_LONG);
 
                         }
 
@@ -230,10 +232,12 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostAdapter.MyViewHold
                                 {
                                     holder.heart_fill.setVisibility(View.GONE);
                                     holder.heart_empty.setVisibility(View.VISIBLE);
-                                    Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
 
-                                }else Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
-                            }else  Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
+                                }
+//                                else Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
+                            }
+//                            else  Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
 
 
 

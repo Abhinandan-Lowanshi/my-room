@@ -194,9 +194,9 @@ public class NewMyAccountFragment extends Fragment {
                 dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
                         WindowManager.LayoutParams.MATCH_PARENT);
                 AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
-                Button yes = dialog.findViewById(R.id.yes);
-                Button no = dialog.findViewById(R.id.no);
-                no.setOnClickListener(new View.OnClickListener() {
+                CardView card_logout = dialog.findViewById(R.id.card_logout);
+                CardView card_Cancel = dialog.findViewById(R.id.card_Cancel);
+                card_Cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
@@ -208,14 +208,13 @@ public class NewMyAccountFragment extends Fragment {
                         dialog.dismiss();
                     }
                 });
-                yes.setOnClickListener(new View.OnClickListener() {
+                card_logout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
                         if (ManageSession.logOut(getActivity().getApplicationContext())) {
                             dialog.dismiss();
                             Intent intent = new Intent(getActivity(), LoginFinal.class);
-//                         getActivity(). overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                             startActivity(intent);
                             getActivity().finishAffinity();
                         } else {

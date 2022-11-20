@@ -4,21 +4,17 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -36,19 +32,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myroom.R;
+import com.example.myroom.app.FavModelTmp;
 import com.example.myroom.app.demo.DemoSearchAdapter;
 import com.example.myroom.app.demo.Helper;
 import com.example.myroom.app.demo.RoomDataForSearch;
 import com.example.myroom.app.home.RoomDetailsData;
 import com.example.myroom.app.home.RoomDetailsModel;
-import com.example.myroom.app.new_ui_adapter.NearByRoom_Adapter;
 import com.example.myroom.app.retrofit.ApiClient;
 import com.example.myroom.app.searhelper.RecentAdapter;
 import com.example.myroom.app.searhelper.RecentSearchManager;
 import com.example.myroom.app.searhelper.SearchListData;
-import com.example.myroom.app.time.TimeShow;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
@@ -64,8 +58,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import appsession.AppSession;
 import pl.droidsonroids.gif.GifImageView;
@@ -99,6 +91,7 @@ public class Search_Activity extends AppCompatActivity implements RecentAdapter.
     Spinner sp_Size, sp_price, sp_Rating;
     private RecyclerView rec_recent;
     private String raadius = "";
+    private boolean isFilter = false;
     ArrayList<RoomDetailsData> roomDataForSearchArrayList = new ArrayList<>();
     ArrayList<RecentSearchManager> recentSearchManager = new ArrayList<>();
     ArrayList<RoomDetailsData> roomdatafilterdlist = new ArrayList<>();
@@ -115,7 +108,7 @@ public class Search_Activity extends AppCompatActivity implements RecentAdapter.
         initView();
         geocoder = new Geocoder(this, Locale.getDefault());
         Places.initialize(Search_Activity.this, "REDACTED");
-
+     new AppSession(Search_Activity.this).setFavModel(new FavModelTmp("0", false , false));
 
         ed_search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -441,6 +434,60 @@ public class Search_Activity extends AppCompatActivity implements RecentAdapter.
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            FavModelTmp favModelTmp = new AppSession(Search_Activity.this).getFavModel();
+            if(favModelTmp!=null && favModelTmp.isUpdated()!=false)
+            {
+                updateFaveStatus(favModelTmp);
+            }
+        }catch (Exception e)
+        {
+             e.printStackTrace();
+        }
+
+      
+    }
+
+    private void updateFaveStatus(FavModelTmp favModelTmp) {
+        try {
+            ArrayList <RoomDetailsData> tmp = new ArrayList<>();
+            if(isFilter)
+            {
+                tmp = roomdatafilterdlist;
+            }else {
+                tmp = roomDataForSearchArrayList;
+            }
+            for(int i = 0 ; i <tmp.size() ; i++)
+            {
+                if(tmp.get(i).getRmPkey().toString().equalsIgnoreCase(favModelTmp.getId()))
+                {
+                    tmp.get(i).setFavoriteKey(String.valueOf(favModelTmp.isStatus()));
+                }
+
+            }
+            adapter = new DemoSearchAdapter(Search_Activity.this,Search_Activity.this,tmp);
+            rec_search.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
+
+        }catch (Exception e)
+        {   ArrayList <RoomDetailsData> tmp = new ArrayList<>();
+            if(isFilter)
+            {
+                tmp = roomdatafilterdlist;
+            }else {
+                tmp = roomDataForSearchArrayList;
+            }
+            adapter = new DemoSearchAdapter(Search_Activity.this,Search_Activity.this,tmp);
+            rec_search.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
+        }
+
+
+    }
+
     private void apply_filter() {
 
         //for size
@@ -526,6 +573,7 @@ public class Search_Activity extends AppCompatActivity implements RecentAdapter.
 
     public void applyfilter() {
         String resutl = null;
+        isFilter = true;
         // for A
         roomdatafilterdlist.clear();
         if (chech_size == true) {
@@ -664,7 +712,7 @@ public class Search_Activity extends AppCompatActivity implements RecentAdapter.
         //    ABC
         if (chech_size == false) {
             if (chech_rent == false) {
-
+                isFilter = false;
                 DemoSearchAdapter adapter = new DemoSearchAdapter(getApplicationContext(), this, roomDataForSearchArrayList);
                 rec_search.setAdapter(adapter);
                 i = 1;

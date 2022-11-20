@@ -96,11 +96,11 @@ public class Edit_Room_Activity extends AppCompatActivity {
         try {
             if(ed_name.getText().toString().isEmpty())
             {
-                ed_name.setError("Invalid mobile no");
+                ed_name.setError("name can't be empty");
                 ed_name.setFocusable(true);
                 ed_name.setFocusableInTouchMode(true);
                 ed_name.requestFocus();
-            }else if(ed_mobiele.getText().toString().isEmpty())
+            }else if(ed_mobiele.getText().toString().isEmpty() || ed_mobiele.getText().toString().length()<10)
             {
                 ed_mobiele.setError("Invalid mobile no");
                 ed_mobiele.setFocusable(true);
@@ -108,13 +108,13 @@ public class Edit_Room_Activity extends AppCompatActivity {
                 ed_mobiele.requestFocus();
             }else if(ed_onwhichflor.getText().toString().isEmpty())
             {
-                ed_onwhichflor.setError("Invalid mobile no");
+                ed_onwhichflor.setError("floor can't be empty");
                 ed_onwhichflor.setFocusable(true);
                 ed_onwhichflor.setFocusableInTouchMode(true);
                 ed_onwhichflor.requestFocus();
             }else if(rent.getText().toString().isEmpty())
             {
-                rent.setError("Invalid mobile no");
+                rent.setError("rent can't be empty");
                 rent.setFocusable(true);
                 rent.setFocusableInTouchMode(true);
                 rent.requestFocus();

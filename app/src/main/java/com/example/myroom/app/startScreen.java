@@ -4,12 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -22,10 +25,15 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
+import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,6 +70,7 @@ public class startScreen extends AppCompatActivity {
     private TextView progressText;
     private boolean permissioncheck = false;
     private Double longitude_1, lattitude_1;
+    private boolean clickOnOk = false;
     private List<Address> addresses = null;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private String address;
@@ -73,6 +82,7 @@ public class startScreen extends AppCompatActivity {
         appSession = new AppSession(startScreen.this);
 
 //
+
         setContentView(R.layout.activity_start_screen);
         manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(startScreen.this);
@@ -158,28 +168,99 @@ public class startScreen extends AppCompatActivity {
     }
 
     private void buildAlertMessageNoGps() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(startScreen.this);
-        builder.setTitle("Your GPS seems to be disabled ?").setMessage("Turn on GPS without GPS we can't provide our services.")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
-                        Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        startActivityForResult(intent, 200);
-                        //  startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),200);
-//
-                        // getLocation(locationListener);
 
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
-                        dialog.cancel();
-                    }
-                });
-        final AlertDialog alert = builder.create();
-        alert.show();
+        final Dialog dialog = new Dialog(startScreen.this);
+        dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.gpsdisbaledialogue);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
+        CardView close = dialog.findViewById(R.id.card_Close);
+        CardView card_OpenSettings = dialog.findViewById(R.id.card_OpenSettings);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                System.exit(1);
+            }
+        });
+
+        card_OpenSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivityForResult(intent, 200);
+            }
+        });
+
+        img_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                System.exit(1);
+            }
+        });
+        dialog.show();
     }
 
+    private void locationPermission() {
+
+        final Dialog dialog = new Dialog(startScreen.this);
+        dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.locationpermissiondialogue);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
+        CardView close = dialog.findViewById(R.id.card_Close);
+        CardView card_OpenSettings = dialog.findViewById(R.id.card_OpenSettings);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+              System.exit(1);
+            }
+        });
+
+        card_OpenSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                clickOnOk = true;
+                startInstalledAppDetailsActivity(startScreen.this);
+            }
+        });
+
+        img_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                System.exit(1);
+            }
+        });
+        dialog.show();
+    }
+    public static void startInstalledAppDetailsActivity(final Activity context) {
+        if (context == null) {
+            return;
+        }
+        final Intent i = new Intent();
+        i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        i.addCategory(Intent.CATEGORY_DEFAULT);
+        i.setData(Uri.parse("package:" + context.getPackageName()));
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        context.startActivity(i);
+    }
     private void getcurrentlocation() {
 
         try {
@@ -267,6 +348,7 @@ public class startScreen extends AppCompatActivity {
                         if (!address.isEmpty())
                             appSession.setCityCurrent(address);
                     } catch (Exception e) {
+                        buildAlertMessageNoGps();
                         Log.d("TAG", "Abhi :::::::::::::: ex " + e.getLocalizedMessage());
                     }
 
@@ -283,6 +365,7 @@ public class startScreen extends AppCompatActivity {
         }
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
@@ -295,12 +378,14 @@ public class startScreen extends AppCompatActivity {
                     if (ContextCompat.checkSelfPermission(startScreen.this,
                             Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                         Toast.makeText(startScreen.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                        checkRunTimePermission();
                         if (permissioncheck == true) {
 
                             triggerRebirth(startScreen.this);
                         }
                     }
                 } else {
+                    locationPermission();
                     Toast.makeText(startScreen.this, "Location access Denied", Toast.LENGTH_SHORT).show();
 
                 }
@@ -331,5 +416,14 @@ public class startScreen extends AppCompatActivity {
         Intent mainIntent = Intent.makeRestartActivityTask(componentName);
         context.startActivity(mainIntent);
         Runtime.getRuntime().exit(0);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(clickOnOk) {
+            clickOnOk = false;
+            checkRunTimePermission();
+        }
     }
 }

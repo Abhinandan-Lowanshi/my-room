@@ -24,35 +24,38 @@
 
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/message"
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/img_close"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_41sdp"
-            android:text="Need location permission access to find things nearby"
+            android:layout_marginTop="@dimen/_51sdp"
+            android:text="Your GPS seems to be disabled ?"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp">
+
+        </androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Turn on GPS without GPS we can't provide our services."
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/message2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/message"
-            android:layout_centerHorizontal="true"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:text="Press Ok to grant location permission."
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_8sdp"></androidx.appcompat.widget.AppCompatTextView>
-
-        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/exitmessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/message2"
+            android:layout_below="@+id/message"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_5sdp"
@@ -86,12 +89,6 @@
                     android:layout_gravity="center"
                     android:text="@string/close"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_11sdp"></TextView>    <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/close"
-                    android:textColor="@color/white"
                     android:textSize="@dimen/_11sdp"></TextView>
             </androidx.cardview.widget.CardView>
 
@@ -108,7 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/ok"
+                    android:text="@string/open_settings"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_11sdp"></TextView>
             </androidx.cardview.widget.CardView>

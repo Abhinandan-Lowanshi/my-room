@@ -31,11 +31,10 @@
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_41sdp"
-            android:text="Need location permission access to find things nearby"
+            android:text="Need storage permission access photos"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/message2"
             android:layout_width="match_parent"
@@ -48,23 +47,11 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_8sdp"></androidx.appcompat.widget.AppCompatTextView>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/exitmessage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/message2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:text="Press close to exit."
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/exitmessage"
+            android:layout_below="@id/message2"
             android:layout_marginHorizontal="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_60sdp"
@@ -87,12 +74,12 @@
                     android:text="@string/close"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_11sdp"></TextView>    <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/close"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_11sdp"></TextView>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/close"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"></TextView>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView

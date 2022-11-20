@@ -6,11 +6,14 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -22,17 +25,21 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myroom.R;
 import com.example.myroom.app.map.routedata.Model_Route_Data;
+import com.example.myroom.app.new_ui.TakeLocationByGoogleMap;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
@@ -102,6 +109,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
     double latitude;
     double longitude;
     FusedLocationProviderClient fusedLocationProviderClient;
+    private boolean clickOnOk = false;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
 
@@ -257,27 +265,45 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
 
     }
 
-    private void buildAlertMessageNoGps(android.location.LocationListener locationListener) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Your GPS seems to be disabled, do you want to enable it?").setMessage("without turing on GPS service you can't use nearby room search")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
-                        Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        startActivityForResult(intent, 200);
-                        //  startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),200);
-//
-                        // getLocation(locationListener);
+    private void buildAlertMessageNoGps() {
 
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
-                        dialog.cancel();
-                    }
-                });
-        final AlertDialog alert = builder.create();
-        alert.show();
+        final Dialog dialog = new Dialog(MapDetailsActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.gpsdisbaledialogue);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
+        CardView close = dialog.findViewById(R.id.card_Close);
+        CardView card_OpenSettings = dialog.findViewById(R.id.card_OpenSettings);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                System.exit(1);
+            }
+        });
+
+        card_OpenSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivityForResult(intent, 200);
+            }
+        });
+
+        img_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                System.exit(1);
+            }
+        });
+        dialog.show();
     }
 
     @Override
@@ -288,7 +314,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
             if (provider != null) {
                 Log.v("TAG", " Location providers: " + provider);
 
-                resetApplication();
+             checkRunTimePermission();
 
             } else {
                 //Users did not switch on the GPS
@@ -429,7 +455,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
                     ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 //  getcurrentlocation();
                 if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                    buildAlertMessageNoGps(this);
+                    buildAlertMessageNoGps();
                 } else {
 
                     long delay = 1000;
@@ -491,6 +517,7 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
                         Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
                     }
                 } else {
+                    locationPermission();
                     Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
                     // requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_BACKGROUND_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     //  10);
@@ -517,7 +544,61 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
             }
         }
     }
+    private void locationPermission() {
 
+        final Dialog dialog = new Dialog(MapDetailsActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.locationpermissiondialogue);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        //  dialog.getWindow().setFlags(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        AppCompatImageView img_close = dialog.findViewById(R.id.img_close);
+        AppCompatTextView message = dialog.findViewById(R.id.message);
+        CardView close = dialog.findViewById(R.id.card_Close);
+        CardView card_OpenSettings = dialog.findViewById(R.id.card_OpenSettings);
+        message.setText("Need location permission build root");
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                onBackPressed();
+            }
+        });
+
+        card_OpenSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                clickOnOk = true;
+                startInstalledAppDetailsActivity(MapDetailsActivity.this);
+            }
+        });
+
+        img_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                onBackPressed();
+            }
+        });
+        dialog.show();
+    }
+    public static void startInstalledAppDetailsActivity(final Activity context) {
+        if (context == null) {
+            return;
+        }
+        final Intent i = new Intent();
+        i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        i.addCategory(Intent.CATEGORY_DEFAULT);
+        i.setData(Uri.parse("package:" + context.getPackageName()));
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        context.startActivity(i);
+    }
     public void startTracking(android.location.LocationListener locationListener) {
         long delay = 1000;
         long period = 1000;
@@ -678,6 +759,9 @@ public class MapDetailsActivity extends AppCompatActivity implements OnMapReadyC
                         }
                         longitude_1 = addresses.get(0).getLongitude();
                         lattitute_1 = addresses.get(0).getLatitude();
+                        if (lattitute_1 != 0.0 && longitude_1 != 0.0) {
+                            appSession.setMainlat(String.valueOf(lattitute_1));
+                            appSession.setMainlon(String.valueOf(longitude_1));}
                         location_check = true;
                         task_is.cancel();
                         progressDialog.dismiss();

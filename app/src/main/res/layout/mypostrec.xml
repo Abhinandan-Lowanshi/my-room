@@ -125,7 +125,6 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_2sdp"
                 android:layout_toRightOf="@id/img_location"
-                android:text="971 Lakshmi nagar"
                 android:textSize="@dimen/_9sdp"></androidx.appcompat.widget.AppCompatTextView>
         </RelativeLayout>
 

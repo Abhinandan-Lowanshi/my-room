@@ -130,7 +130,7 @@ public class Recomended_Room_Adapter extends RecyclerView.Adapter<Recomended_Roo
                 {
                    if(response.body().getStatus()==true)
                    {
-                       Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                       Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                        if(i.equals("1"))
                        {
                            holder.heart_empty.setVisibility(View.INVISIBLE);
@@ -141,8 +141,10 @@ public class Recomended_Room_Adapter extends RecyclerView.Adapter<Recomended_Roo
                            holder.heart_fill.setVisibility(View.INVISIBLE);
                        }
 
-                   }else Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
-                }else  Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
+                   }
+//                   else Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
+                }
+//                else  Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
 
 
 

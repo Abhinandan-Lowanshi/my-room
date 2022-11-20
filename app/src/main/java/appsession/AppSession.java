@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.ParseException;
 import android.text.TextUtils;
 
+import com.example.myroom.app.FavModelTmp;
 import com.example.myroom.app.customlatModel.CustomeLatLon;
 import com.example.myroom.app.reviews.ReviewModel;
 import com.example.myroom.app.searhelper.SearchListData;
@@ -130,7 +131,18 @@ public class AppSession {
     }
 
 
+    public FavModelTmp getFavModel() {
+        Gson gson = new Gson();
+        String rowData = pref.getString("favModel", "");
+        FavModelTmp data = gson.fromJson(rowData, FavModelTmp.class);
+        return data; }
 
+    public void setFavModel(FavModelTmp favModel) {
+        Gson gson = new Gson();
+        String json = gson.toJson(favModel);
+        editor.putString("favModel", json);
+        editor.commit();
+    }
 
     public ReviewModel getReview() {
         Gson gson = new Gson();
