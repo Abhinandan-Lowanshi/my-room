@@ -35,6 +35,7 @@ import com.example.myroom.app.new_ui.Contact_Us;
 import com.example.myroom.app.new_ui.Edit_Profile;
 import com.example.myroom.app.new_ui.PrivacyPolicy;
 import com.example.myroom.app.notificationsetting.NotificationSetting;
+import com.example.myroom.app.owerprofile.OwnerProfile;
 import com.example.myroom.app.retrofit.ApiClient;
 import com.google.gson.JsonObject;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
@@ -239,30 +240,76 @@ public class NewMyAccountFragment extends Fragment {
     }
 
 
-    private void loadProfile(int status) {
+    private void loadProfile() {
 
-        try {
-            UserData userData = ManageSession.getUserData(getActivity().getApplicationContext());
-            tv_user_name.setText(userData.getFname() + "  " + userData.getLname());
-            tv_user_email.setText(userData.getEmail());
-            tv_mobile_no.setText("Mobile No :- " + userData.getPhone());
-            tv_email.setText("Email Address :- " + userData.getEmail());
-            tv_current_address.setText("Current Address :- " + userData.getCurrentadd());
-            tv_permanent_address.setText("Permanent Address :- " + userData.getPermanetadd());
-        } catch (Exception e) {
+
+                 if(new AppSession(getActivity().getApplicationContext()).getUserID()!=null){
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("user_id", new AppSession(getActivity().getApplicationContext()).getUserID());
+            ApiClient.getClient().myAccountDetails(jsonObject).enqueue(new Callback<MyAccountModel>() {
+                @Override
+                public void onResponse(Call<MyAccountModel> call, Response<MyAccountModel> response) {
+//                        mSwipeRefreshLayout.setRefreshing(false);
+
+                    if (response.isSuccessful()) {
+                        progressDialog.dismiss();
+                        if (response.body().getStatus() == true) {
+
+                            myAccountModelData = response.body().getData();
+
+                            tv_user_name.setText(myAccountModelData.getUsrFirstName()+"  "+myAccountModelData.getUsrLastName());
+                            tv_user_email.setText(myAccountModelData.getUsrEmail());
+                            tv_mobile_no.setText("Mobile No :- "+myAccountModelData.getUsrPhone());
+                            tv_email.setText("Email Address :- "+myAccountModelData.getUsrEmail());
+                            tv_current_address.setText("Current Address :- "+myAccountModelData.getUsrCurrentAdrss());
+                            tv_permanent_address.setText("Permanent Address :- "+myAccountModelData.getUsrParmentAdrss());
+
+
+                        } else
+                            Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                   progressDialog.dismiss();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MyAccountModel> call, Throwable t) {
+//                        mSwipeRefreshLayout.setRefreshing(false);
+                    progressDialog.dismiss();
+                }
+            });
+        }else{
+                     progressDialog.dismiss();
+//                mSwipeRefreshLayout.setRefreshing(false);
+            Intent intent = new Intent(getActivity().getApplicationContext(), LoginFinal.class);
+            startActivity(intent);
+//               overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+            getActivity().finishAffinity();
+
 
         }
 
 
-    }
+
+
+}
+
+
+
+
 
     @Override
     public void onResume() {
         super.onResume();
         if (appSession.getUserID() != null && appSession.getUserID() != "") {
-            loadProfile(1);
+            progressDialog.setMessage("Loading profile");
+            progressDialog.show();
+            loadProfile();
 
         } else {
+            progressDialog.dismiss();
+            ManageSession.logOut(getActivity().getApplicationContext());
             Intent intent = new Intent(getActivity(), LoginFinal.class);
             startActivity(intent);
 //                 getActivity().overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
@@ -291,7 +338,6 @@ public class NewMyAccountFragment extends Fragment {
         appSession.setIsProfileUpdated("0");
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);
-        progressDialog.setMessage("Logging out");
         ChipNavigationBar chipNavigationBar;
         chipNavigationBar = (ChipNavigationBar) getActivity().findViewById(R.id.bottom_nav_bar);
         chipNavigationBar.setItemSelected(R.id.MyAccount, true);

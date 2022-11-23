@@ -84,6 +84,7 @@
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.1205" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/ic_baseline_fullscreen_24.xml" value="0.115" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/ic_baseline_fullscreen_exit_24.xml" value="0.115" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/ic_baseline_keyboard_backspace_24.xml" value="0.151" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.1065" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1205" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/drawable/send_button.xml" value="0.1205" />
@@ -131,7 +132,7 @@
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_home_screen.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_like.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_fav.xml" value="0.2" />
-        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_my_account.xml" value="0.33" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_my_account.xml" value="0.22" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_my_post.xml" value="0.2" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_new_upload.xml" value="0.18" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/fragment_saved.xml" value="0.18020833333333333" />
@@ -140,7 +141,7 @@
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/gpsdisbaledialogue.xml" value="0.25" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/header.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/home_details_dialogure_layout.xml" value="0.18020833333333333" />
-        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/image_row.xml" value="0.10416666666666667" />
+        <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/image_row.xml" value="0.25" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/image_row_details.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/likepost.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/lowan/AndroidStudioProjects/my-room/app/src/main/res/layout/loading_screen.xml" value="0.18020833333333333" />

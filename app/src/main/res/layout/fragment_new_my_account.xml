@@ -401,7 +401,7 @@
                 app:cardElevation="@dimen/_3sdp"
                 android:elevation="@dimen/_3sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
-
+                android:visibility="gone"
                 android:layout_below="@+id/card_password"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_marginRight="@dimen/_15sdp"
@@ -505,6 +505,7 @@
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_marginRight="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_7sdp"
+                android:visibility="gone"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"
