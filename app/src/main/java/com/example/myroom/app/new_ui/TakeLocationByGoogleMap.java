@@ -73,7 +73,8 @@ import java.util.TimerTask;
 
 import appsession.AppSession;
 
-public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapReadyCallback, LocationListener ,GoogleMap.OnMarkerDragListener,
+public class
+TakeLocationByGoogleMap extends AppCompatActivity implements OnMapReadyCallback, LocationListener ,GoogleMap.OnMarkerDragListener,
         GoogleMap.OnMapLongClickListener {
 
     private static final String TAG ="Abhi:::" ;
@@ -863,19 +864,19 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
                             single_3.setAlpha(1f);
                             single_4.setAlpha(1f);
                             single_5.setAlpha(1f);
-                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
 
                         } else if (location.getAccuracy() < 20.00) {
                             single_1.setAlpha(1f);
                             single_2.setAlpha(1f);
                             single_3.setAlpha(1f);
-                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
 
                             single_4.setAlpha(1f);
                             single_5.setAlpha(.2f);
 
                         } else if (location.getAccuracy() < 40.0) {
-                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
 
                             single_1.setAlpha(1f);
                             single_2.setAlpha(1f);
@@ -884,7 +885,7 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
                             single_5.setAlpha(.2f);
 
                         } else if (location.getAccuracy() < 60.00) {
-                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
 
                             single_1.setAlpha(1f);
                             single_2.setAlpha(1f);
@@ -892,7 +893,7 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
                             single_4.setAlpha(.2f);
                             single_5.setAlpha(.2f);
                         } else if (location.getAccuracy() < 800.00) {
-                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
 
                             single_1.setAlpha(1f);
                             single_2.setAlpha(.2f);
@@ -900,7 +901,7 @@ public class TakeLocationByGoogleMap extends AppCompatActivity implements OnMapR
                             single_4.setAlpha(.2f);
                             single_5.setAlpha(.2f);
                         } else {
-                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getApplicationContext(), "GPS single detected, Accuracy level "+String.valueOf(location.getAccuracy()), Toast.LENGTH_LONG).show();
                             single_1.setAlpha(.2f);
                             single_2.setAlpha(.2f);
                             single_3.setAlpha(.2f);

@@ -427,7 +427,7 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:drawableRight="@drawable/ic_baseline_star_24"
-                        android:text="@string/full_address"
+                        android:text="Room Location"
                         android:textSize="@dimen/_10sdp"
                         android:textColor="@color/black"></TextView>
 
@@ -442,7 +442,7 @@
                             android:layout_centerVertical="true"
                             android:background="@drawable/edittextshap"
                             android:focusable="false"
-                            android:hint="Full address"
+                            android:hint="Room Location"
                             android:paddingLeft="13dp"
                             android:paddingTop="@dimen/_10sdp"
                             android:paddingRight="5dp"

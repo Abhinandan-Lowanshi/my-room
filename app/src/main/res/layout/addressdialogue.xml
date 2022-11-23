@@ -43,7 +43,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:text="Green circle swan on basis or your current location or custome location"
+            android:text="Green circle swan on basis or your current location."
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatTextView>

@@ -13,51 +13,24 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6a4ccc5-0f78-4cdf-8058-7453523fa9db" name="Changes" comment="calling_issue_and_path_issue">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/FavModelTmp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/gpsdisbaledialogue.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/locationaccesspermissiondialogue.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/storagepermissiondialogue.xml" afterDir="false" />
+    <list default="true" id="a6a4ccc5-0f78-4cdf-8058-7453523fa9db" name="Changes" comment="Search and locationServices">
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/MyRoom.app.androidTest.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/appsession/AppSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/appsession/AppSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/SignUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/demo/DemoSearchAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/demo/DemoSearchAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/editroom/Edit_Room_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/editroom/Edit_Room_Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/HomeFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewMyAccountFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewMyAccountFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewUploadFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/fragment/NewUploadFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/map/MapDetailsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/map/MapDetailsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/mypost/MyPostAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/mypost/MyPostAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Room_Detais_Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Search_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/Search_Activity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/TakeLocationByGoogleMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/TakeLocationByGoogleMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/Recomended_Room_Adapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui_adapter/Recomended_Room_Adapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/startScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_login_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_login_24.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_about_us.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_about_us.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_myaccount.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_myaccount.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_review.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_review.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_room_detais.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_room_detais.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_contact_us.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_contact_us.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_map_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_map_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_take_location_by_google_map.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_take_location_by_google_map.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/addressdialogue.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/addressdialogue.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/locationpermissiondialogue.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/locationpermissiondialogue.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/logout_dialogue.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/logout_dialogue.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/mypostrec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/mypostrec.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/nearbylocation_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/nearbylocation_row.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/recent_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recent_row.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/recomended_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recomended_row.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/reviwerow.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/reviwerow.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/room_details_dialogue.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/room_details_dialogue.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/userpostrow.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/userpostrow.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_new_my_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_new_my_account.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_new_upload.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_new_upload.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +71,9 @@
     </option>
   </component>
   <component name="GenerateSignedApkSettings">
-    <option name="BUILD_TARGET_KEY" value="apk" />
+    <option name="EXPORT_PRIVATE_KEY" value="false" />
+    <option name="KEY_STORE_PATH" value="C:\Users\lowan\Desktop\MyRoomDocs\MyRoomJSK.jks" />
+    <option name="KEY_ALIAS" value="key0" />
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -125,6 +100,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ApkExportedModule" value="MyRoom.app" />
+    <property name="BundleExportedModule" value="MyRoom.app" />
+    <property name="ExportApk.ApkPath" value="C:\Users\lowan\AndroidStudioProjects\my-room\app" />
+    <property name="ExportApk.BuildVariants" value="release" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
@@ -134,7 +112,7 @@
     <property name="cidr.known.project.marker" value="true" />
     <property name="com.android.tools.idea.emulator.zoom.toolbar.visible" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Desktop" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/MyRoomDocs" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -308,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668236888782</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Search and locationServices">
+      <created>1668936381800</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668936381800</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -327,7 +312,8 @@
     <MESSAGE value="non" />
     <MESSAGE value="NotificationSetting" />
     <MESSAGE value="calling_issue_and_path_issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="calling_issue_and_path_issue" />
+    <MESSAGE value="Search and locationServices" />
+    <option name="LAST_COMMIT_MESSAGE" value="Search and locationServices" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -984,7 +970,7 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myroom/app/new_ui/TakeLocationByGoogleMap.java</url>
-          <line>226</line>
+          <line>227</line>
           <option name="timeStamp" value="366" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
