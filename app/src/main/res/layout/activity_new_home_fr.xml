@@ -132,6 +132,7 @@
                 android:layout_height="@dimen/_20sdp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:src="@drawable/ic_baseline_notifications_none_24"></androidx.appcompat.widget.AppCompatImageView>
 
         </RelativeLayout>
