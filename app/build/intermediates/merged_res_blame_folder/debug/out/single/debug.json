@@ -1,0 +1,958 @@
+[
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_send_button.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\send_button.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_register_hpuse.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_register_hpuse.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_bannerlayoutfordetails.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\bannerlayoutfordetails.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_gif_file.gif.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\gif_file.gif"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_single_room_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-hdpi\\single_room_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_settings_phone_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_settings_phone_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_contact_us.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_contact_us.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mypost.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\mypost.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_fullscreen_exit_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_fullscreen_exit_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_all_roon.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_all_roon.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_upload.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\upload.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_single_room.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xhdpi\\single_room.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_owner_profile.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_owner_profile.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_toproundcorner.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\toproundcorner.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_keyboard_backspace_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_keyboard_backspace_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_privacy_policy.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_privacy_policy.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\font_federant.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\font\\federant.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_log.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxxhdpi\\log.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_feedback.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable-v21\\feedback.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\font_ewert.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\font\\ewert.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_poster.jpeg.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\poster.jpeg"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_edittextshap.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\edittextshap.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_rowsmall.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\rowsmall.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_mypost.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\mypost.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_privacy.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\privacy.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_themedetails.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\themedetails.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_call_icone1.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\call_icone1.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_log_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxhdpi\\log_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_logo.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-hdpi\\logo.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_log.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-mdpi\\log.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_image.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable-v21\\image.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_search_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_search_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_log_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-hdpi\\log_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_location_black.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_location_black.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_userpostrow.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\userpostrow.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_image_row_details.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\image_row_details.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_edit_profile.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\edit_profile.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_addriviewdilogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\addriviewdilogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_single_room.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-anydpi-v26\\single_room.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_whatsapp.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\whatsapp.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_room_details_dialogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\room_details_dialogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_login_small.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\login_small.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_verify.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\verify.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_item_row.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\notification_item_row.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_home_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_home_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_whatspp.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\whatspp.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_locationaccesspermissiondialogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\locationaccesspermissiondialogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\font_engagement.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\font\\engagement.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_location_destinition.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\location_destinition.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_log.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxhdpi\\log.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_myaccount.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_myaccount.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_single_room_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-mdpi\\single_room_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_filter_alt_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_filter_alt_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_favorite_border_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_favorite_border_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_right_arrow.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\right_arrow.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_logo.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxhdpi\\logo.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_email_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_email_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_log_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxhdpi\\log_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_new_home_fr.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_new_home_fr.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_about_us.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\about_us.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_saved.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\fragment_saved.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_account_circle_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_account_circle_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_single_room_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-mdpi\\single_room_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_second.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\fragment_second.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_upload_rent.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\fragment_upload_rent.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_log_in_1.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_log_in_1.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_single_room_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxhdpi\\single_room_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_logo_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxxhdpi\\logo_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_review.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_review.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_editetextclassical.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\editetextclassical.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_show_image_row.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\show_image_row.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_location_origon.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\location_origon.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\anim_item_animation_fall_down.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\anim\\item_animation_fall_down.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_contactus.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\contactus.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_login_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_login_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_new_my_account.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\fragment_new_my_account.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_cloud_upload_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_cloud_upload_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_image_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_image_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_log_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-hdpi\\log_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_room_image.jpg.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\room_image.jpg"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_circle.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\circle.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_img.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable-v21\\img.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_reviwerow.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\reviwerow.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_edit_profile.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_edit_profile.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_homelogo.jpg.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\homelogo.jpg"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_search_dialogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\search_dialogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\font_spirax.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\font\\spirax.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_log.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-anydpi-v26\\log.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_test1.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_test1.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_notification_important_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_notification_important_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_room_type_row.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\room_type_row.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_single_room.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxhdpi\\single_room.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_new_fav.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\fragment_new_fav.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_map_details.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_map_details.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_mypostrec.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\mypostrec.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_change_pasword.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_change_pasword.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_header.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\header.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\menu_nav_menu.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\menu\\nav_menu.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_single_room.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-hdpi\\single_room.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_chat_input.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\chat_input.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\anim_cycle.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\anim\\cycle.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\anim_bottom_to_original.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\anim\\bottom_to_original.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_logo_round.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-anydpi-v26\\logo_round.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_logoutdialogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\logoutdialogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\anim_slide_out_right.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\anim\\slide_out_right.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\font_delius_swash_caps.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\font\\delius_swash_caps.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_edit_caption_dialogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\edit_caption_dialogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_edit_room.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_edit_room.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_log.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xhdpi\\log.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_recomended_row.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\recomended_row.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_textshape.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\textshape.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_log_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-mdpi\\log_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_loading_screen.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\loading_screen.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\navigation_nav_graph.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\navigation\\nav_graph.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_no_internet.gif.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\no_internet.gif"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_likepost.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\likepost.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\anim_slide_in_left.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\anim\\slide_in_left.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_chat_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_chat_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_row_2.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\row_2.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mybutton.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\mybutton.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_logo_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xhdpi\\logo_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_single_room_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxhdpi\\single_room_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_close_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_close_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_imageicone.jpg.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\imageicone.jpg"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_chanage_password.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\chanage_password.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_like.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\fragment_like.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_uncheck.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\uncheck.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_log_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xhdpi\\log_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_single_room_round.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-anydpi-v26\\single_room_round.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_save_post.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_save_post.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_animation.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\animation.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rent.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\rent.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\font_sofia.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\font\\sofia.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_contact_us.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\contact_us.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\anim_slid_out_bottom.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\anim\\slid_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_arrow_forward_ios_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_arrow_forward_ios_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_logo_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxhdpi\\logo_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_logo_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xhdpi\\logo_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_gpsdisbaledialogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\gpsdisbaledialogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_login_243.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_login_243.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_home_acitvity_new.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_home_acitvity_new.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_log_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxxhdpi\\log_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_test.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_test.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_logo.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxxhdpi\\logo.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_chat.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_chat.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_room_detais.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_room_detais.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_smallhomescreen.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\smallhomescreen.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_home.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_first.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\fragment_first.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_logo_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-mdpi\\logo_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_about_us.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_about_us.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_edit_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_edit_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_slide_item_container.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\slide_item_container.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\anim_layout_animation.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\anim\\layout_animation.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_start_gold.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\start_gold.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_addressdialogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\addressdialogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_notifications_none_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_notifications_none_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_emaiverificationdialogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\emaiverificationdialogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_bottomdialogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\bottomdialogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_notification.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_notification.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_placeholder.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\placeholder.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\anim_slide_in_right.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\anim\\slide_in_right.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_fullscreen_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_fullscreen_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_splashshape.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\splashshape.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_single_room_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xhdpi\\single_room_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_banner_layout.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\banner_layout.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_delete_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_delete_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_logo.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-mdpi\\logo.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_single_room_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-hdpi\\single_room_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dottetdshapsqure.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\dottetdshapsqure.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_log.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-hdpi\\log.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_notfound.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\notfound.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_nearbylocation_row.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\nearbylocation_row.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_profile.jpg.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\profile.jpg"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_logo_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-hdpi\\logo_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_logout_dialogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\logout_dialogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_video_library_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_video_library_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_logo_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-mdpi\\logo_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\font_seaweed_script.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\font\\seaweed_script.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_logo_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-hdpi\\logo_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\anim_slid_in_top.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\anim\\slid_in_top.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_logo.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xhdpi\\logo.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_keyboard_arrow_down_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_keyboard_arrow_down_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_logo.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-anydpi-v26\\logo.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_account.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\account.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_my_post.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_my_post.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_like.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\like.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_like.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_like.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_search.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_search.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_feedback.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_feedback.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_save.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\save.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_keyboard_arrow_up_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_keyboard_arrow_up_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_view_full_image_dialouge.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\view_full_image_dialouge.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_single_room.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-mdpi\\single_room.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign_up.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_sign_up.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_logo_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxxhdpi\\logo_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_row.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\row.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_user_chat.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_user_chat.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_single_room.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxxhdpi\\single_room.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_content_save_post.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\content_save_post.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_settings_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_settings_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_take_location_by_google_map.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_take_location_by_google_map.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_locationpermissiondialogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\locationpermissiondialogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_location_on_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_location_on_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_my_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\my_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_new_upload.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\fragment_new_upload.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\anim_shake.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\anim\\shake.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_log_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-mdpi\\log_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_left_arrow.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\left_arrow.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_nothing_find.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\nothing_find.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_notification_setting2.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_notification_setting2.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\anim_slide_out_left.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\anim\\slide_out_left.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_logo_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxhdpi\\logo_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_favorite_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_favorite_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_settings_applications_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_settings_applications_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_log_round.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-anydpi-v26\\log_round.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_image_row.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\image_row.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_single_room_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxxhdpi\\single_room_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_single_room_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xhdpi\\single_room_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_recent_row.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\recent_row.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_home_screen.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\fragment_home_screen.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_forgot_password.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_forgot_password.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_home_details_dialogure_layout.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\home_details_dialogure_layout.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_start_screen.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_start_screen.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_single_room_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxxhdpi\\single_room_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_profile_bg.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\profile_bg.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_img_feedback.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable-v21\\img_feedback.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_splash.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\background_splash.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\anim_rec_animation.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\anim\\rec_animation.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_star_24.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\ic_baseline_star_24.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_save_poast.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\activity_save_poast.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_home.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\home.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_delete_layout.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\delete_layout.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_log_round.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xhdpi\\log_round.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_log_foreground.png.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\mipmap-xxxhdpi\\log_foreground.png"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_new_my_post.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\fragment_new_my_post.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\layout_storagepermissiondialogue.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\layout\\storagepermissiondialogue.xml"
+    },
+    {
+        "merged": "D:\\MyRoom\\MyRoomGit\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bannerlabelcontainer.xml.flat",
+        "source": "D:\\MyRoom\\MyRoomGit\\app\\src\\main\\res\\drawable\\bannerlabelcontainer.xml"
+    }
+]
