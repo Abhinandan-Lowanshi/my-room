@@ -1,0 +1,169 @@
+package com.myroom.myroom.app.fragment;
+
+import android.app.ProgressDialog;
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.myroom.myroom.R;
+import com.myroom.myroom.app.demo.DemoSearchAdapter;
+import com.myroom.myroom.app.home.RoomDetailsData;
+import com.myroom.myroom.app.home.RoomDetailsModel;
+import com.myroom.myroom.app.retrofit.ApiClient;
+import com.google.gson.JsonObject;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+
+
+import java.util.ArrayList;
+
+import appsession.AppSession;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class NewFavFragment extends Fragment {
+    private ProgressDialog progressDialog;
+    private AppSession appSession;
+    private RecyclerView recyclerView;
+    private int i = 0;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+    private TextView empty_text;
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+    private String mParam1;
+    private String mParam2;
+    private ArrayList<RoomDetailsData> roomDetailsData;
+
+    public NewFavFragment() {
+        // Required empty public constructor
+    }
+
+    public static NewFavFragment newInstance(String param1, String param2) {
+        NewFavFragment fragment = new NewFavFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_new_fav, container, false);
+        initview(view);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.container);
+        mSwipeRefreshLayout.setColorScheme(R.color.red,
+                R.color.card_green, R.color.quantum_orange, R.color.purple_200);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getMyFavRooms();
+            }
+        });
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getMyFavRooms();
+    }
+
+    private void getMyFavRooms() {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("user_id", appSession.getUserID());
+        progressDialog.show();
+
+        ApiClient.getClient().getFevRooms(jsonObject).enqueue(new Callback<RoomDetailsModel>() {
+            @Override
+            public void onResponse(Call<RoomDetailsModel> call, Response<RoomDetailsModel> response) {
+                try {
+                    mSwipeRefreshLayout.setRefreshing(false);
+                    if (response.isSuccessful()) {
+                        progressDialog.dismiss();
+                        RoomDetailsModel roomDetailsModel = response.body();
+                        if (roomDetailsModel.getStatus() == true) {
+
+                            if (roomDetailsModel.getData().size() != 0) {
+                                recyclerView.setVisibility(View.VISIBLE);
+                                empty_text.setVisibility(View.GONE);
+                                roomDetailsData = roomDetailsModel.getData();
+                                DemoSearchAdapter adapter = new DemoSearchAdapter(getContext(), getActivity(), roomDetailsData);
+                                recyclerView.setAdapter(adapter);
+
+                            } else {
+                                recyclerView.setVisibility(View.GONE);
+                                empty_text.setVisibility(View.VISIBLE);
+                                Toast.makeText(getContext(), "Room list not found", Toast.LENGTH_SHORT).show();
+
+                            }
+
+                        } else {
+                            recyclerView.setVisibility(View.GONE);
+                            empty_text.setVisibility(View.VISIBLE);
+                            Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+
+                        }
+                    } else {
+                        recyclerView.setVisibility(View.GONE);
+                        progressDialog.dismiss();
+                        empty_text.setVisibility(View.VISIBLE);
+                        Toast.makeText(getContext(), response.code(), Toast.LENGTH_SHORT).show();
+
+                    }
+                } catch (Exception e) {
+                    mSwipeRefreshLayout.setRefreshing(false);
+                    recyclerView.setVisibility(View.GONE);
+                    progressDialog.dismiss();
+                    empty_text.setVisibility(View.VISIBLE);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<RoomDetailsModel> call, Throwable t) {
+                empty_text.setVisibility(View.VISIBLE);
+                progressDialog.dismiss();
+                recyclerView.setVisibility(View.GONE);
+                mSwipeRefreshLayout.setRefreshing(false);
+
+            }
+        });
+    }
+
+    private void initview(View view) {
+        recyclerView = (RecyclerView) view.findViewById(R.id.likeRecycler);
+        recyclerView.setHasFixedSize(true);
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("searching....");
+        recyclerView.setItemViewCacheSize(20);
+        empty_text = (TextView) view.findViewById(R.id.empty_text);
+        recyclerView.setDrawingCacheEnabled(true);
+        appSession = new AppSession(getContext());
+        ChipNavigationBar chipNavigationBar;
+        chipNavigationBar = (ChipNavigationBar) getActivity().findViewById(R.id.bottom_nav_bar);
+        chipNavigationBar.setItemSelected(R.id.favourite, true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext()));
+
+    }
+}
