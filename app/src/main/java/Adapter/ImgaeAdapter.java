@@ -1,7 +1,5 @@
 package Adapter;
 
-import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +10,8 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myroom.R;
-import com.example.myroom.app.demo.PicHolder_final;
+import com.myroom.myroom.R;
+import com.myroom.myroom.app.demo.PicHolder_final;
 
 import org.jetbrains.annotations.NotNull;
 

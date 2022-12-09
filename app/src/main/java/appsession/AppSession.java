@@ -7,10 +7,10 @@ import android.net.ConnectivityManager;
 import android.net.ParseException;
 import android.text.TextUtils;
 
-import com.example.myroom.app.FavModelTmp;
-import com.example.myroom.app.customlatModel.CustomeLatLon;
-import com.example.myroom.app.reviews.ReviewModel;
-import com.example.myroom.app.searhelper.SearchListData;
+import com.myroom.myroom.app.FavModelTmp;
+import com.myroom.myroom.app.customlatModel.CustomeLatLon;
+import com.myroom.myroom.app.reviews.ReviewModel;
+import com.myroom.myroom.app.searhelper.SearchListData;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;

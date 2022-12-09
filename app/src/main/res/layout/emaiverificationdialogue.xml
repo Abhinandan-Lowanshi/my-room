@@ -51,17 +51,17 @@
             android:layout_marginRight="@dimen/_20sdp"
             android:background="@drawable/edittextshap"
             android:ems="10"
-            android:hint="Enter Otp"
+            android:hint="Enter 6 digit Otp"
             android:inputType="number"
-            android:maxLines="1"
             android:maxLength="6"
+            android:maxLines="1"
             android:paddingLeft="13dp"
             android:paddingRight="5dp"
             android:singleLine="true"
             android:textSize="@dimen/_10sdp"></androidx.appcompat.widget.AppCompatEditText>
 
         <Button
-            android:id="@+id/submit"
+            android:id="@+id/dg_submit"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_33sdp"
             android:layout_below="@+id/tv_enter_otp"
@@ -72,7 +72,7 @@
             android:layout_marginBottom="100dp"
             android:background="@drawable/mybutton"
             android:enabled="true"
-            android:text="Submit"
+            android:text="SignUp"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/_9sdp"></Button>

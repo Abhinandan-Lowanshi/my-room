@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "511316727080",
-    "project_id": "myroom-32ea6",
-    "storage_bucket": "myroom-32ea6.appspot.com"
+    "project_number": "1059403349552",
+    "project_id": "myroom-351c9",
+    "storage_bucket": "myroom-351c9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:511316727080:android:70e3cf7a301d8aea50ac1d",
+        "mobilesdk_app_id": "1:1059403349552:android:a11e573a379ff8dd2f37f5",
         "android_client_info": {
-          "package_name": "com.example.myroom"
+          "package_name": "com.myroom.myroom"
         }
       },
       "oauth_client": [
         {
-          "client_id": "511316727080-d3v66t5d8m77hvcam9fg101b3m4rj54e.apps.googleusercontent.com",
+          "client_id": "1059403349552-hmsqrvihuipvkcbf1e92cmin2oiiq5e1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB-0hiP3RPNZZuqbPQsnY6uUBowg7Z8cvM"
+          "current_key": "AIzaSyCxwPw6DvxnJt3Ij_tLsMKjHHljziWRsfY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "511316727080-d3v66t5d8m77hvcam9fg101b3m4rj54e.apps.googleusercontent.com",
+              "client_id": "1059403349552-hmsqrvihuipvkcbf1e92cmin2oiiq5e1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
