@@ -9,6 +9,8 @@ if (localPropertiesFile.exists()) {
     localProperties.load(new FileInputStream(localPropertiesFile))
 }
 def mapsApiKey = localProperties.getProperty("MAPS_API_KEY", "")
+def baseUrl = localProperties.getProperty("BASE_URL", "https://example.com/api/")
+def imagePath = localProperties.getProperty("IMAGE_PATH", "https://example.com/")
 
 allprojects {
     repositories {
@@ -38,6 +40,8 @@ android {
         multiDexEnabled true
         manifestPlaceholders = [MAPS_API_KEY: mapsApiKey]
         buildConfigField "String", "MAPS_API_KEY", "\"${mapsApiKey}\""
+        buildConfigField "String", "BASE_URL", "\"${baseUrl}\""
+        buildConfigField "String", "IMAGE_PATH", "\"${imagePath}\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

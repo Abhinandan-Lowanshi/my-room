@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.myroom.myroom">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.POST_NOTIFICATIONS"
+        tools:node="remove" />
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+        </intent>
+        <package android:name="com.whatsapp" />
+
+    </queries>
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/logo"
+        android:label="My Room"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/App_Theme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name="com.myroom.myroom.app.chat.User_Chat_Activity"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="false" />
+        <activity
+            android:name="com.myroom.myroom.app.chat.Chat_Activity"
+            android:exported="false" />
+        <activity
+            android:name="com.myroom.myroom.app.reviews.ReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.myroom.myroom.app.notificationsetting.NotificationSetting"
+            android:exported="false" />
+        <activity
+            android:name="com.myroom.myroom.app.owerprofile.OwnerProfile"
+            android:exported="false" />
+        <activity
+            android:name="com.myroom.myroom.app.editroom.Edit_Room_Activity"
+            android:exported="false" />
+        <activity
+            android:name="com.myroom.myroom.app.feedback.ActivityFeedback"
+            android:exported="false" />
+        <activity
+            android:name="com.myroom.myroom.app.fragment.activity.NewHomeActivityFR"
+            android:exported="false" >
+
+        </activity>>
+        <activity android:name="com.myroom.myroom.app.LoginFinal"
+            android:exported="false"/>
+        <activity android:name="com.myroom.myroom.app.new_ui.Notification_Activity"
+            android:exported="false"/>
+        <activity android:name="com.myroom.myroom.app.new_ui.Edit_Profile"
+            android:exported="false"/>
+        <activity android:name="com.myroom.myroom.app.new_ui.TakeLocationByGoogleMap"
+            android:exported="false"/>
+        <activity android:name="com.myroom.myroom.app.map.MapDetailsActivity"
+            android:exported="false"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <activity android:name="com.myroom.myroom.app.new_ui.ForgotPassword"
+            android:exported="false"/> <!-- <activity android:name=".app.new_ui.Login" /> -->
+        <activity android:name="com.myroom.myroom.app.new_ui.AboutUs"
+            android:exported="false"/>
+        <activity android:name="com.myroom.myroom.app.new_ui.PrivacyPolicy"
+            android:exported="false"/>
+        <activity android:name="com.myroom.myroom.app.new_ui.Contact_Us"
+            android:exported="false"/> <!-- <activity android:name="com.example.myroom.app.owerprofile.OwnerProfile" /> -->
+        <activity android:name="com.myroom.myroom.app.new_ui.All_Roon_Activity"
+            android:exported="false"/>
+        <activity android:name="com.myroom.myroom.app.new_ui.ChangePasword"
+            android:exported="false"/>
+        <activity android:name="com.myroom.myroom.app.new_ui.MyAccount"
+            android:exported="false"/>
+        <activity android:name="com.myroom.myroom.app.new_ui.Search_Activity" />
+        <activity
+            android:name="com.myroom.myroom.app.LoginFinal"
+            android:exported="false"
+            tools:ignore="DuplicateActivity" />
+        <activity android:name="com.myroom.myroom.app.new_ui.Room_Detais_Activity"
+            android:exported="false"/>
+        <activity android:name="com.myroom.myroom.app.startScreen"
+            android:exported="true" >
+
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.myroom.myroom.app.SignUp"
+            android:exported="false" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+<!--        <service-->
+<!--            android:name="com.myroom.myroom.app.pushnotification.MyNotificationService"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
+    </application>
+
+</manifest>

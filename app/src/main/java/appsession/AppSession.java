@@ -2,6 +2,8 @@ package appsession;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+
+import com.myroom.myroom.BuildConfig;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.ParseException;
@@ -26,11 +28,11 @@ public class AppSession {
     public static final String CANCELED_APPOINTMENT = "2";
     private static SharedPreferences pref;
     private static SharedPreferences.Editor editor;
-    public static String Patient_IMG_URL = "https://example.com/Icare/uploads/patients_profiles/";
-    public static String DOCTOR_IMG_URL = "https://example.com/Icare/uploads/doctor_profiles/";
-    public static String ABOUT_IMG_URL = "https://example.com/Icare/uploads/about_images/";
-    public static String HELP_IMG_URL = "https://example.com/Icare/uploads/help_images/";
-    public static String BANNER_IMG_URL = "https://example.com/Icare/uploads/Banner/";
+    public static String Patient_IMG_URL = BuildConfig.IMAGE_PATH + "Icare/uploads/patients_profiles/";
+    public static String DOCTOR_IMG_URL = BuildConfig.IMAGE_PATH + "Icare/uploads/doctor_profiles/";
+    public static String ABOUT_IMG_URL = BuildConfig.IMAGE_PATH + "Icare/uploads/about_images/";
+    public static String HELP_IMG_URL = BuildConfig.IMAGE_PATH + "Icare/uploads/help_images/";
+    public static String BANNER_IMG_URL = BuildConfig.IMAGE_PATH + "Icare/uploads/Banner/";
     public static String ROOM_ID = "room_id";
     public static String USER_NAME = "user_name";
     public static String PHONE = "phone";
