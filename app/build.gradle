@@ -3,6 +3,12 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(new FileInputStream(localPropertiesFile))
+}
+def mapsApiKey = localProperties.getProperty("MAPS_API_KEY", "")
 
 allprojects {
     repositories {
@@ -30,7 +36,8 @@ android {
         versionCode 5
         versionName "1.5"
         multiDexEnabled true
-
+        manifestPlaceholders = [MAPS_API_KEY: mapsApiKey]
+        buildConfigField "String", "MAPS_API_KEY", "\"${mapsApiKey}\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
